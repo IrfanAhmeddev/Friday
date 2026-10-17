@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "tsx src/index.ts",
     "build": "tsc",
+    "build:netlify": "npm run build && node scripts/prune-netlify-runtime.cjs",
     "start": "node dist/index.js",
     "verify:netlify-assets": "node scripts/verify-netlify-function-assets.cjs",
     "typecheck": "tsc --noEmit",

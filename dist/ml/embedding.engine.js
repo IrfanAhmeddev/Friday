@@ -44,17 +44,34 @@ function describeError(error, depth = 0) {
             : null,
     };
 }
+function logRuntimeFailure(component, error) {
+    const details = describeError(error);
+    console.error(JSON.stringify({
+        level: "error",
+        event: "embedding_runtime_check_failed",
+        component,
+        error: details,
+    }));
+    return {
+        code: typeof details.code === "string" || typeof details.code === "number"
+            ? details.code
+            : null,
+        message: details.message,
+    };
+}
 function checkEmbeddingRuntime() {
     let sharp = "unavailable";
     let onnxRuntime = "unavailable";
+    let sharpError;
+    let onnxRuntimeError;
     try {
         const sharpModule = moduleRequire("sharp");
         if (sharpModule.versions) {
             sharp = "available";
         }
     }
-    catch {
-        sharp = "unavailable";
+    catch (error) {
+        sharpError = logRuntimeFailure("sharp", error);
     }
     try {
         const runtime = moduleRequire("onnxruntime-node");
@@ -63,10 +80,15 @@ function checkEmbeddingRuntime() {
             onnxRuntime = "available";
         }
     }
-    catch {
-        onnxRuntime = "unavailable";
+    catch (error) {
+        onnxRuntimeError = logRuntimeFailure("onnxruntime-node", error);
     }
-    return { sharp, onnxRuntime };
+    return {
+        sharp,
+        onnxRuntime,
+        ...(sharpError ? { sharpError } : {}),
+        ...(onnxRuntimeError ? { onnxRuntimeError } : {}),
+    };
 }
 async function loadExtractor() {
     const { env, pipeline } = await import("@huggingface/transformers");

@@ -175,6 +175,10 @@ test("liveness stays simple and readiness reports sanitized asset failures", asy
       assert.equal(ready.status, 503);
       assert.equal(body.status, "not_ready");
       assert.equal(body.components.knowledge, "unavailable");
+      assert.deepEqual(body.diagnostics.knowledge, {
+        code: null,
+        message: "Knowledge data could not be loaded.",
+      });
       assert.equal(JSON.stringify(body).includes("private filesystem path"), false);
     },
   );
