@@ -1,0 +1,2053 @@
+{
+  "experimentId": "TIDA-002",
+  "datasetId": "friday-transinfant-tida-002-v1",
+  "benchmarkVersion": "friday-transinfant-controlled-eval-002-v1",
+  "runDate": "2026-10-16T06:53:46.224Z",
+  "runtime": "v24.13.0",
+  "seed": null,
+  "seedExplanation": "All records are fixed hand-authored examples; no sampling.",
+  "exactCommands": [
+    "npm run typecheck",
+    "npm run build",
+    "npm test",
+    "npm run benchmark:transinfant:002"
+  ],
+  "splitSizes": {
+    "trainingConcepts": 8,
+    "trainingRelations": 4,
+    "development": 4,
+    "validation": 4,
+    "test": 12
+  },
+  "leakageControls": {
+    "evaluationExamplesIngested": false,
+    "testFactsInserted": false,
+    "conditionsBAndCReceiveSameCurriculum": true,
+    "heldOutUsedForParameterTuning": false
+  },
+  "metricDefinitions": {
+    "exactActionObjectAccuracy": "Count with both predicted action and object equal to expected values, divided by sample count.",
+    "unsupportedInterpretationRate": "False positive predicted fields divided by fields whose expected value is unknown.",
+    "correctAbstentionRate": "All-unknown predictions divided by cases whose expected action and object are both unknown.",
+    "categoryAccuracy": "Exact action/object accuracy computed separately for each predeclared category.",
+    "confusionCounts": "Counts of predicted action/object frames per expected action/object frame.",
+    "latency": "Warm full understand() latency; 5 repetitions for each held-out test item; p50 and nearest-rank p95."
+  },
+  "conditions": [
+    {
+      "name": "A",
+      "descriptions": [
+        "Original FRIDAY baseline",
+        "TransInfant disabled"
+      ],
+      "factsAccess": "No training facts consumed; original baseline has no compatible fact-ingestion API.",
+      "training": {
+        "initializedClean": true,
+        "factsSuppliedToEngine": 0,
+        "rationale": "Original FRIDAY has no interface for injected relational facts; its TransInfant path is disabled."
+      },
+      "development": {
+        "sampleCount": 4,
+        "exactActionObjectAccuracy": 0,
+        "exactCorrect": 0,
+        "perCategory": {
+          "single-slot-retrieval": {
+            "count": 1,
+            "correct": 0,
+            "accuracy": 0
+          },
+          "explicit-action-precedence": {
+            "count": 1,
+            "correct": 0,
+            "accuracy": 0
+          },
+          "unfamiliar-action": {
+            "count": 1,
+            "correct": 0,
+            "accuracy": 0
+          },
+          "unfamiliar-object": {
+            "count": 1,
+            "correct": 0,
+            "accuracy": 0
+          }
+        },
+        "confusionCounts": {
+          "open/document": {
+            "unknown/document": 1
+          },
+          "show/application": {
+            "show/unknown": 1
+          },
+          "unknown/application": {
+            "unknown/unknown": 1
+          },
+          "open/unknown": {
+            "unknown/unknown": 1
+          }
+        },
+        "unsupportedInterpretationRate": 0,
+        "unsupportedFalsePositiveFields": 0,
+        "unknownExpectedFields": 2,
+        "correctAbstentionRate": null,
+        "allUnknownCases": 0
+      },
+      "validation": {
+        "sampleCount": 4,
+        "exactActionObjectAccuracy": 0.75,
+        "exactCorrect": 3,
+        "perCategory": {
+          "multiword-action-alias": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "single-slot-retrieval": {
+            "count": 1,
+            "correct": 0,
+            "accuracy": 0
+          },
+          "negation": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "unfamiliar-both": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          }
+        },
+        "confusionCounts": {
+          "open/document": {
+            "open/document": 1
+          },
+          "open/application": {
+            "open/unknown": 1
+          },
+          "unknown/unknown": {
+            "unknown/unknown": 2
+          }
+        },
+        "unsupportedInterpretationRate": 0,
+        "unsupportedFalsePositiveFields": 0,
+        "unknownExpectedFields": 4,
+        "correctAbstentionRate": 1,
+        "allUnknownCases": 2
+      },
+      "test": {
+        "sampleCount": 12,
+        "exactActionObjectAccuracy": 0.25,
+        "exactCorrect": 3,
+        "perCategory": {
+          "known-composition-control": {
+            "count": 1,
+            "correct": 0,
+            "accuracy": 0
+          },
+          "known-concept-novel-combination": {
+            "count": 3,
+            "correct": 0,
+            "accuracy": 0
+          },
+          "multiword-alias-composition": {
+            "count": 1,
+            "correct": 0,
+            "accuracy": 0
+          },
+          "explicit-action-precedence": {
+            "count": 1,
+            "correct": 0,
+            "accuracy": 0
+          },
+          "negation": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "unfamiliar-action-alias-known-object": {
+            "count": 1,
+            "correct": 0,
+            "accuracy": 0
+          },
+          "known-action-unfamiliar-concept": {
+            "count": 1,
+            "correct": 0,
+            "accuracy": 0
+          },
+          "unfamiliar-concepts": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "known-core-control": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "repeated-input-control": {
+            "count": 1,
+            "correct": 0,
+            "accuracy": 0
+          }
+        },
+        "confusionCounts": {
+          "open/application": {
+            "open/unknown": 1
+          },
+          "open/spreadsheet": {
+            "unknown/unknown": 3
+          },
+          "show/application": {
+            "unknown/unknown": 1,
+            "show/unknown": 2
+          },
+          "unknown/unknown": {
+            "unknown/unknown": 2
+          },
+          "unknown/application": {
+            "unknown/unknown": 1
+          },
+          "open/unknown": {
+            "unknown/unknown": 1
+          },
+          "open/document": {
+            "open/document": 1
+          }
+        },
+        "unsupportedInterpretationRate": 0,
+        "unsupportedFalsePositiveFields": 0,
+        "unknownExpectedFields": 6,
+        "correctAbstentionRate": 1,
+        "allUnknownCases": 2
+      },
+      "samples": {
+        "development": [
+          {
+            "id": "dev-01",
+            "category": "single-slot-retrieval",
+            "text": "invoke document",
+            "expected": {
+              "action": "open",
+              "object": "document"
+            },
+            "predicted": {
+              "action": "unknown",
+              "object": "document"
+            },
+            "exact": false,
+            "transinfantStatus": "disabled",
+            "transinfantEvidence": []
+          },
+          {
+            "id": "dev-02",
+            "category": "explicit-action-precedence",
+            "text": "show code studio",
+            "expected": {
+              "action": "show",
+              "object": "application"
+            },
+            "predicted": {
+              "action": "show",
+              "object": "unknown"
+            },
+            "exact": false,
+            "transinfantStatus": "disabled",
+            "transinfantEvidence": []
+          },
+          {
+            "id": "dev-03",
+            "category": "unfamiliar-action",
+            "text": "activate code studio",
+            "expected": {
+              "action": "unknown",
+              "object": "application"
+            },
+            "predicted": {
+              "action": "unknown",
+              "object": "unknown"
+            },
+            "exact": false,
+            "transinfantStatus": "disabled",
+            "transinfantEvidence": []
+          },
+          {
+            "id": "dev-04",
+            "category": "unfamiliar-object",
+            "text": "summon holo terminal",
+            "expected": {
+              "action": "open",
+              "object": "unknown"
+            },
+            "predicted": {
+              "action": "unknown",
+              "object": "unknown"
+            },
+            "exact": false,
+            "transinfantStatus": "disabled",
+            "transinfantEvidence": []
+          }
+        ],
+        "validation": [
+          {
+            "id": "val-01",
+            "category": "multiword-action-alias",
+            "text": "bring up document",
+            "expected": {
+              "action": "open",
+              "object": "document"
+            },
+            "predicted": {
+              "action": "open",
+              "object": "document"
+            },
+            "exact": true,
+            "transinfantStatus": "disabled",
+            "transinfantEvidence": []
+          },
+          {
+            "id": "val-02",
+            "category": "single-slot-retrieval",
+            "text": "open code studio",
+            "expected": {
+              "action": "open",
+              "object": "application"
+            },
+            "predicted": {
+              "action": "open",
+              "object": "unknown"
+            },
+            "exact": false,
+            "transinfantStatus": "disabled",
+            "transinfantEvidence": []
+          },
+          {
+            "id": "val-03",
+            "category": "negation",
+            "text": "don't summon code studio",
+            "expected": {
+              "action": "unknown",
+              "object": "unknown"
+            },
+            "predicted": {
+              "action": "unknown",
+              "object": "unknown"
+            },
+            "exact": true,
+            "transinfantStatus": "disabled",
+            "transinfantEvidence": []
+          },
+          {
+            "id": "val-04",
+            "category": "unfamiliar-both",
+            "text": "activate holo terminal",
+            "expected": {
+              "action": "unknown",
+              "object": "unknown"
+            },
+            "predicted": {
+              "action": "unknown",
+              "object": "unknown"
+            },
+            "exact": true,
+            "transinfantStatus": "disabled",
+            "transinfantEvidence": []
+          }
+        ],
+        "test": [
+          {
+            "id": "test-01",
+            "category": "known-composition-control",
+            "text": "open code studio",
+            "expected": {
+              "action": "open",
+              "object": "application"
+            },
+            "predicted": {
+              "action": "open",
+              "object": "unknown"
+            },
+            "exact": false,
+            "transinfantStatus": "disabled",
+            "transinfantEvidence": []
+          },
+          {
+            "id": "test-02",
+            "category": "known-concept-novel-combination",
+            "text": "summon data grid",
+            "expected": {
+              "action": "open",
+              "object": "spreadsheet"
+            },
+            "predicted": {
+              "action": "unknown",
+              "object": "unknown"
+            },
+            "exact": false,
+            "transinfantStatus": "disabled",
+            "transinfantEvidence": []
+          },
+          {
+            "id": "test-03",
+            "category": "known-concept-novel-combination",
+            "text": "reveal code studio",
+            "expected": {
+              "action": "show",
+              "object": "application"
+            },
+            "predicted": {
+              "action": "unknown",
+              "object": "unknown"
+            },
+            "exact": false,
+            "transinfantStatus": "disabled",
+            "transinfantEvidence": []
+          },
+          {
+            "id": "test-04",
+            "category": "known-concept-novel-combination",
+            "text": "invoke data grid",
+            "expected": {
+              "action": "open",
+              "object": "spreadsheet"
+            },
+            "predicted": {
+              "action": "unknown",
+              "object": "unknown"
+            },
+            "exact": false,
+            "transinfantStatus": "disabled",
+            "transinfantEvidence": []
+          },
+          {
+            "id": "test-05",
+            "category": "multiword-alias-composition",
+            "text": "put on display code studio",
+            "expected": {
+              "action": "show",
+              "object": "application"
+            },
+            "predicted": {
+              "action": "show",
+              "object": "unknown"
+            },
+            "exact": false,
+            "transinfantStatus": "disabled",
+            "transinfantEvidence": []
+          },
+          {
+            "id": "test-06",
+            "category": "explicit-action-precedence",
+            "text": "show summon code studio",
+            "expected": {
+              "action": "show",
+              "object": "application"
+            },
+            "predicted": {
+              "action": "show",
+              "object": "unknown"
+            },
+            "exact": false,
+            "transinfantStatus": "disabled",
+            "transinfantEvidence": []
+          },
+          {
+            "id": "test-07",
+            "category": "negation",
+            "text": "don't summon code studio",
+            "expected": {
+              "action": "unknown",
+              "object": "unknown"
+            },
+            "predicted": {
+              "action": "unknown",
+              "object": "unknown"
+            },
+            "exact": true,
+            "transinfantStatus": "disabled",
+            "transinfantEvidence": []
+          },
+          {
+            "id": "test-08",
+            "category": "unfamiliar-action-alias-known-object",
+            "text": "activate code studio",
+            "expected": {
+              "action": "unknown",
+              "object": "application"
+            },
+            "predicted": {
+              "action": "unknown",
+              "object": "unknown"
+            },
+            "exact": false,
+            "transinfantStatus": "disabled",
+            "transinfantEvidence": []
+          },
+          {
+            "id": "test-09",
+            "category": "known-action-unfamiliar-concept",
+            "text": "summon holo terminal",
+            "expected": {
+              "action": "open",
+              "object": "unknown"
+            },
+            "predicted": {
+              "action": "unknown",
+              "object": "unknown"
+            },
+            "exact": false,
+            "transinfantStatus": "disabled",
+            "transinfantEvidence": []
+          },
+          {
+            "id": "test-10",
+            "category": "unfamiliar-concepts",
+            "text": "activate holo terminal",
+            "expected": {
+              "action": "unknown",
+              "object": "unknown"
+            },
+            "predicted": {
+              "action": "unknown",
+              "object": "unknown"
+            },
+            "exact": true,
+            "transinfantStatus": "disabled",
+            "transinfantEvidence": []
+          },
+          {
+            "id": "test-11",
+            "category": "known-core-control",
+            "text": "open document",
+            "expected": {
+              "action": "open",
+              "object": "document"
+            },
+            "predicted": {
+              "action": "open",
+              "object": "document"
+            },
+            "exact": true,
+            "transinfantStatus": "disabled",
+            "transinfantEvidence": []
+          },
+          {
+            "id": "test-12",
+            "category": "repeated-input-control",
+            "text": "summon data grid",
+            "expected": {
+              "action": "open",
+              "object": "spreadsheet"
+            },
+            "predicted": {
+              "action": "unknown",
+              "object": "unknown"
+            },
+            "exact": false,
+            "transinfantStatus": "disabled",
+            "transinfantEvidence": []
+          }
+        ]
+      },
+      "memoryBytes": 0,
+      "timingMs": {
+        "p50": 0.714,
+        "p95": 2956.932,
+        "sampleCount": 60,
+        "repetitionsPerExample": 5
+      }
+    },
+    {
+      "name": "B",
+      "descriptions": [
+        "Same FRIDAY baseline plus at most one directly retrieved relation per utterance",
+        "No joining of separate action and object relation evidence"
+      ],
+      "factsAccess": "All four curriculum relations, loaded through the same learner before evaluation.",
+      "training": {
+        "initializedClean": true,
+        "factsSuppliedToEngine": 4,
+        "acceptedFactCount": 4,
+        "candidateFactCount": 0,
+        "rejectedFactCount": 0,
+        "details": [],
+        "eventLog": [
+          {
+            "experienceId": "tida-002-curriculum-v1",
+            "outcome": "accepted",
+            "details": [],
+            "addedRelationshipIds": [
+              "ec5de0c8-f564-46ab-a630-108799d4dd78",
+              "4d2355b7-4617-44bc-ae20-8c1a66f20182",
+              "5ef1b0e9-802f-42f6-869b-2fed85cc6df4",
+              "50354d9f-62f6-4b62-80ce-d6126b40c513"
+            ]
+          }
+        ]
+      },
+      "development": {
+        "sampleCount": 4,
+        "exactActionObjectAccuracy": 1,
+        "exactCorrect": 4,
+        "perCategory": {
+          "single-slot-retrieval": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "explicit-action-precedence": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "unfamiliar-action": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "unfamiliar-object": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          }
+        },
+        "confusionCounts": {
+          "open/document": {
+            "open/document": 1
+          },
+          "show/application": {
+            "show/application": 1
+          },
+          "unknown/application": {
+            "unknown/application": 1
+          },
+          "open/unknown": {
+            "open/unknown": 1
+          }
+        },
+        "unsupportedInterpretationRate": 0,
+        "unsupportedFalsePositiveFields": 0,
+        "unknownExpectedFields": 2,
+        "correctAbstentionRate": null,
+        "allUnknownCases": 0
+      },
+      "validation": {
+        "sampleCount": 4,
+        "exactActionObjectAccuracy": 1,
+        "exactCorrect": 4,
+        "perCategory": {
+          "multiword-action-alias": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "single-slot-retrieval": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "negation": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "unfamiliar-both": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          }
+        },
+        "confusionCounts": {
+          "open/document": {
+            "open/document": 1
+          },
+          "open/application": {
+            "open/application": 1
+          },
+          "unknown/unknown": {
+            "unknown/unknown": 2
+          }
+        },
+        "unsupportedInterpretationRate": 0,
+        "unsupportedFalsePositiveFields": 0,
+        "unknownExpectedFields": 4,
+        "correctAbstentionRate": 1,
+        "allUnknownCases": 2
+      },
+      "test": {
+        "sampleCount": 12,
+        "exactActionObjectAccuracy": 0.5833333333333334,
+        "exactCorrect": 7,
+        "perCategory": {
+          "known-composition-control": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "known-concept-novel-combination": {
+            "count": 3,
+            "correct": 0,
+            "accuracy": 0
+          },
+          "multiword-alias-composition": {
+            "count": 1,
+            "correct": 0,
+            "accuracy": 0
+          },
+          "explicit-action-precedence": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "negation": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "unfamiliar-action-alias-known-object": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "known-action-unfamiliar-concept": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "unfamiliar-concepts": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "known-core-control": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "repeated-input-control": {
+            "count": 1,
+            "correct": 0,
+            "accuracy": 0
+          }
+        },
+        "confusionCounts": {
+          "open/application": {
+            "open/application": 1
+          },
+          "open/spreadsheet": {
+            "unknown/spreadsheet": 3
+          },
+          "show/application": {
+            "unknown/application": 1,
+            "show/unknown": 1,
+            "show/application": 1
+          },
+          "unknown/unknown": {
+            "unknown/unknown": 2
+          },
+          "unknown/application": {
+            "unknown/application": 1
+          },
+          "open/unknown": {
+            "open/unknown": 1
+          },
+          "open/document": {
+            "open/document": 1
+          }
+        },
+        "unsupportedInterpretationRate": 0,
+        "unsupportedFalsePositiveFields": 0,
+        "unknownExpectedFields": 6,
+        "correctAbstentionRate": 1,
+        "allUnknownCases": 2
+      },
+      "samples": {
+        "development": [
+          {
+            "id": "dev-01",
+            "category": "single-slot-retrieval",
+            "text": "invoke document",
+            "expected": {
+              "action": "open",
+              "object": "document"
+            },
+            "predicted": {
+              "action": "open",
+              "object": "document"
+            },
+            "exact": true,
+            "transinfantStatus": "applied",
+            "transinfantEvidence": [
+              "symbol \"invoke\" matched concept act.summon",
+              "accepted equivalent-to relationship ec5de0c8-f564-46ab-a630-108799d4dd78"
+            ]
+          },
+          {
+            "id": "dev-02",
+            "category": "explicit-action-precedence",
+            "text": "show code studio",
+            "expected": {
+              "action": "show",
+              "object": "application"
+            },
+            "predicted": {
+              "action": "show",
+              "object": "application"
+            },
+            "exact": true,
+            "transinfantStatus": "applied",
+            "transinfantEvidence": [
+              "symbol \"code studio\" matched concept obj.code-studio",
+              "accepted is-a relationship 5ef1b0e9-802f-42f6-869b-2fed85cc6df4"
+            ]
+          },
+          {
+            "id": "dev-03",
+            "category": "unfamiliar-action",
+            "text": "activate code studio",
+            "expected": {
+              "action": "unknown",
+              "object": "application"
+            },
+            "predicted": {
+              "action": "unknown",
+              "object": "application"
+            },
+            "exact": true,
+            "transinfantStatus": "applied",
+            "transinfantEvidence": [
+              "symbol \"code studio\" matched concept obj.code-studio",
+              "accepted is-a relationship 5ef1b0e9-802f-42f6-869b-2fed85cc6df4"
+            ]
+          },
+          {
+            "id": "dev-04",
+            "category": "unfamiliar-object",
+            "text": "summon holo terminal",
+            "expected": {
+              "action": "open",
+              "object": "unknown"
+            },
+            "predicted": {
+              "action": "open",
+              "object": "unknown"
+            },
+            "exact": true,
+            "transinfantStatus": "applied",
+            "transinfantEvidence": [
+              "symbol \"summon\" matched concept act.summon",
+              "accepted equivalent-to relationship ec5de0c8-f564-46ab-a630-108799d4dd78"
+            ]
+          }
+        ],
+        "validation": [
+          {
+            "id": "val-01",
+            "category": "multiword-action-alias",
+            "text": "bring up document",
+            "expected": {
+              "action": "open",
+              "object": "document"
+            },
+            "predicted": {
+              "action": "open",
+              "object": "document"
+            },
+            "exact": true,
+            "transinfantStatus": "no-match",
+            "transinfantEvidence": []
+          },
+          {
+            "id": "val-02",
+            "category": "single-slot-retrieval",
+            "text": "open code studio",
+            "expected": {
+              "action": "open",
+              "object": "application"
+            },
+            "predicted": {
+              "action": "open",
+              "object": "application"
+            },
+            "exact": true,
+            "transinfantStatus": "applied",
+            "transinfantEvidence": [
+              "symbol \"code studio\" matched concept obj.code-studio",
+              "accepted is-a relationship 5ef1b0e9-802f-42f6-869b-2fed85cc6df4"
+            ]
+          },
+          {
+            "id": "val-03",
+            "category": "negation",
+            "text": "don't summon code studio",
+            "expected": {
+              "action": "unknown",
+              "object": "unknown"
+            },
+            "predicted": {
+              "action": "unknown",
+              "object": "unknown"
+            },
+            "exact": true,
+            "transinfantStatus": "no-match",
+            "transinfantEvidence": []
+          },
+          {
+            "id": "val-04",
+            "category": "unfamiliar-both",
+            "text": "activate holo terminal",
+            "expected": {
+              "action": "unknown",
+              "object": "unknown"
+            },
+            "predicted": {
+              "action": "unknown",
+              "object": "unknown"
+            },
+            "exact": true,
+            "transinfantStatus": "no-match",
+            "transinfantEvidence": []
+          }
+        ],
+        "test": [
+          {
+            "id": "test-01",
+            "category": "known-composition-control",
+            "text": "open code studio",
+            "expected": {
+              "action": "open",
+              "object": "application"
+            },
+            "predicted": {
+              "action": "open",
+              "object": "application"
+            },
+            "exact": true,
+            "transinfantStatus": "applied",
+            "transinfantEvidence": [
+              "symbol \"code studio\" matched concept obj.code-studio",
+              "accepted is-a relationship 5ef1b0e9-802f-42f6-869b-2fed85cc6df4"
+            ]
+          },
+          {
+            "id": "test-02",
+            "category": "known-concept-novel-combination",
+            "text": "summon data grid",
+            "expected": {
+              "action": "open",
+              "object": "spreadsheet"
+            },
+            "predicted": {
+              "action": "unknown",
+              "object": "spreadsheet"
+            },
+            "exact": false,
+            "transinfantStatus": "applied",
+            "transinfantEvidence": [
+              "symbol \"data grid\" matched concept obj.data-grid",
+              "accepted is-a relationship 50354d9f-62f6-4b62-80ce-d6126b40c513"
+            ]
+          },
+          {
+            "id": "test-03",
+            "category": "known-concept-novel-combination",
+            "text": "reveal code studio",
+            "expected": {
+              "action": "show",
+              "object": "application"
+            },
+            "predicted": {
+              "action": "unknown",
+              "object": "application"
+            },
+            "exact": false,
+            "transinfantStatus": "applied",
+            "transinfantEvidence": [
+              "symbol \"code studio\" matched concept obj.code-studio",
+              "accepted is-a relationship 5ef1b0e9-802f-42f6-869b-2fed85cc6df4"
+            ]
+          },
+          {
+            "id": "test-04",
+            "category": "known-concept-novel-combination",
+            "text": "invoke data grid",
+            "expected": {
+              "action": "open",
+              "object": "spreadsheet"
+            },
+            "predicted": {
+              "action": "unknown",
+              "object": "spreadsheet"
+            },
+            "exact": false,
+            "transinfantStatus": "applied",
+            "transinfantEvidence": [
+              "symbol \"data grid\" matched concept obj.data-grid",
+              "accepted is-a relationship 50354d9f-62f6-4b62-80ce-d6126b40c513"
+            ]
+          },
+          {
+            "id": "test-05",
+            "category": "multiword-alias-composition",
+            "text": "put on display code studio",
+            "expected": {
+              "action": "show",
+              "object": "application"
+            },
+            "predicted": {
+              "action": "show",
+              "object": "unknown"
+            },
+            "exact": false,
+            "transinfantStatus": "no-match",
+            "transinfantEvidence": []
+          },
+          {
+            "id": "test-06",
+            "category": "explicit-action-precedence",
+            "text": "show summon code studio",
+            "expected": {
+              "action": "show",
+              "object": "application"
+            },
+            "predicted": {
+              "action": "show",
+              "object": "application"
+            },
+            "exact": true,
+            "transinfantStatus": "applied",
+            "transinfantEvidence": [
+              "symbol \"code studio\" matched concept obj.code-studio",
+              "accepted is-a relationship 5ef1b0e9-802f-42f6-869b-2fed85cc6df4"
+            ]
+          },
+          {
+            "id": "test-07",
+            "category": "negation",
+            "text": "don't summon code studio",
+            "expected": {
+              "action": "unknown",
+              "object": "unknown"
+            },
+            "predicted": {
+              "action": "unknown",
+              "object": "unknown"
+            },
+            "exact": true,
+            "transinfantStatus": "no-match",
+            "transinfantEvidence": []
+          },
+          {
+            "id": "test-08",
+            "category": "unfamiliar-action-alias-known-object",
+            "text": "activate code studio",
+            "expected": {
+              "action": "unknown",
+              "object": "application"
+            },
+            "predicted": {
+              "action": "unknown",
+              "object": "application"
+            },
+            "exact": true,
+            "transinfantStatus": "applied",
+            "transinfantEvidence": [
+              "symbol \"code studio\" matched concept obj.code-studio",
+              "accepted is-a relationship 5ef1b0e9-802f-42f6-869b-2fed85cc6df4"
+            ]
+          },
+          {
+            "id": "test-09",
+            "category": "known-action-unfamiliar-concept",
+            "text": "summon holo terminal",
+            "expected": {
+              "action": "open",
+              "object": "unknown"
+            },
+            "predicted": {
+              "action": "open",
+              "object": "unknown"
+            },
+            "exact": true,
+            "transinfantStatus": "applied",
+            "transinfantEvidence": [
+              "symbol \"summon\" matched concept act.summon",
+              "accepted equivalent-to relationship ec5de0c8-f564-46ab-a630-108799d4dd78"
+            ]
+          },
+          {
+            "id": "test-10",
+            "category": "unfamiliar-concepts",
+            "text": "activate holo terminal",
+            "expected": {
+              "action": "unknown",
+              "object": "unknown"
+            },
+            "predicted": {
+              "action": "unknown",
+              "object": "unknown"
+            },
+            "exact": true,
+            "transinfantStatus": "no-match",
+            "transinfantEvidence": []
+          },
+          {
+            "id": "test-11",
+            "category": "known-core-control",
+            "text": "open document",
+            "expected": {
+              "action": "open",
+              "object": "document"
+            },
+            "predicted": {
+              "action": "open",
+              "object": "document"
+            },
+            "exact": true,
+            "transinfantStatus": "no-match",
+            "transinfantEvidence": []
+          },
+          {
+            "id": "test-12",
+            "category": "repeated-input-control",
+            "text": "summon data grid",
+            "expected": {
+              "action": "open",
+              "object": "spreadsheet"
+            },
+            "predicted": {
+              "action": "unknown",
+              "object": "spreadsheet"
+            },
+            "exact": false,
+            "transinfantStatus": "applied",
+            "transinfantEvidence": [
+              "symbol \"data grid\" matched concept obj.data-grid",
+              "accepted is-a relationship 50354d9f-62f6-4b62-80ce-d6126b40c513"
+            ]
+          }
+        ]
+      },
+      "memoryBytes": 5117,
+      "timingMs": {
+        "p50": 18.216,
+        "p95": 2979.25,
+        "sampleCount": 60,
+        "repetitionsPerExample": 5
+      }
+    },
+    {
+      "name": "C",
+      "descriptions": [
+        "Same FRIDAY baseline plus the current TransInfant compositional adapter",
+        "Accepted action and object relations may jointly fill missing fields"
+      ],
+      "factsAccess": "All four curriculum relations, loaded through the same learner before evaluation.",
+      "training": {
+        "initializedClean": true,
+        "factsSuppliedToEngine": 4,
+        "acceptedFactCount": 4,
+        "candidateFactCount": 0,
+        "rejectedFactCount": 0,
+        "details": [],
+        "eventLog": [
+          {
+            "experienceId": "tida-002-curriculum-v1",
+            "outcome": "accepted",
+            "details": [],
+            "addedRelationshipIds": [
+              "d475eb19-e507-4020-a94b-6c499218310c",
+              "b2057339-3733-4791-85b2-ca879d065add",
+              "1ecc0d7c-882d-4cc9-8597-a7da4f74c0b1",
+              "3ad93174-2911-403b-8cf8-7a1bcff6ce6e"
+            ]
+          }
+        ]
+      },
+      "development": {
+        "sampleCount": 4,
+        "exactActionObjectAccuracy": 1,
+        "exactCorrect": 4,
+        "perCategory": {
+          "single-slot-retrieval": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "explicit-action-precedence": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "unfamiliar-action": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "unfamiliar-object": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          }
+        },
+        "confusionCounts": {
+          "open/document": {
+            "open/document": 1
+          },
+          "show/application": {
+            "show/application": 1
+          },
+          "unknown/application": {
+            "unknown/application": 1
+          },
+          "open/unknown": {
+            "open/unknown": 1
+          }
+        },
+        "unsupportedInterpretationRate": 0,
+        "unsupportedFalsePositiveFields": 0,
+        "unknownExpectedFields": 2,
+        "correctAbstentionRate": null,
+        "allUnknownCases": 0
+      },
+      "validation": {
+        "sampleCount": 4,
+        "exactActionObjectAccuracy": 1,
+        "exactCorrect": 4,
+        "perCategory": {
+          "multiword-action-alias": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "single-slot-retrieval": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "negation": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "unfamiliar-both": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          }
+        },
+        "confusionCounts": {
+          "open/document": {
+            "open/document": 1
+          },
+          "open/application": {
+            "open/application": 1
+          },
+          "unknown/unknown": {
+            "unknown/unknown": 2
+          }
+        },
+        "unsupportedInterpretationRate": 0,
+        "unsupportedFalsePositiveFields": 0,
+        "unknownExpectedFields": 4,
+        "correctAbstentionRate": 1,
+        "allUnknownCases": 2
+      },
+      "test": {
+        "sampleCount": 12,
+        "exactActionObjectAccuracy": 1,
+        "exactCorrect": 12,
+        "perCategory": {
+          "known-composition-control": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "known-concept-novel-combination": {
+            "count": 3,
+            "correct": 3,
+            "accuracy": 1
+          },
+          "multiword-alias-composition": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "explicit-action-precedence": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "negation": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "unfamiliar-action-alias-known-object": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "known-action-unfamiliar-concept": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "unfamiliar-concepts": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "known-core-control": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "repeated-input-control": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          }
+        },
+        "confusionCounts": {
+          "open/application": {
+            "open/application": 1
+          },
+          "open/spreadsheet": {
+            "open/spreadsheet": 3
+          },
+          "show/application": {
+            "show/application": 3
+          },
+          "unknown/unknown": {
+            "unknown/unknown": 2
+          },
+          "unknown/application": {
+            "unknown/application": 1
+          },
+          "open/unknown": {
+            "open/unknown": 1
+          },
+          "open/document": {
+            "open/document": 1
+          }
+        },
+        "unsupportedInterpretationRate": 0,
+        "unsupportedFalsePositiveFields": 0,
+        "unknownExpectedFields": 6,
+        "correctAbstentionRate": 1,
+        "allUnknownCases": 2
+      },
+      "samples": {
+        "development": [
+          {
+            "id": "dev-01",
+            "category": "single-slot-retrieval",
+            "text": "invoke document",
+            "expected": {
+              "action": "open",
+              "object": "document"
+            },
+            "predicted": {
+              "action": "open",
+              "object": "document"
+            },
+            "exact": true,
+            "transinfantStatus": "applied",
+            "transinfantEvidence": [
+              "symbol \"invoke\" matched concept act.summon",
+              "accepted equivalent-to relationship d475eb19-e507-4020-a94b-6c499218310c"
+            ]
+          },
+          {
+            "id": "dev-02",
+            "category": "explicit-action-precedence",
+            "text": "show code studio",
+            "expected": {
+              "action": "show",
+              "object": "application"
+            },
+            "predicted": {
+              "action": "show",
+              "object": "application"
+            },
+            "exact": true,
+            "transinfantStatus": "applied",
+            "transinfantEvidence": [
+              "symbol \"code studio\" matched concept obj.code-studio",
+              "accepted is-a relationship 1ecc0d7c-882d-4cc9-8597-a7da4f74c0b1"
+            ]
+          },
+          {
+            "id": "dev-03",
+            "category": "unfamiliar-action",
+            "text": "activate code studio",
+            "expected": {
+              "action": "unknown",
+              "object": "application"
+            },
+            "predicted": {
+              "action": "unknown",
+              "object": "application"
+            },
+            "exact": true,
+            "transinfantStatus": "applied",
+            "transinfantEvidence": [
+              "symbol \"code studio\" matched concept obj.code-studio",
+              "accepted is-a relationship 1ecc0d7c-882d-4cc9-8597-a7da4f74c0b1"
+            ]
+          },
+          {
+            "id": "dev-04",
+            "category": "unfamiliar-object",
+            "text": "summon holo terminal",
+            "expected": {
+              "action": "open",
+              "object": "unknown"
+            },
+            "predicted": {
+              "action": "open",
+              "object": "unknown"
+            },
+            "exact": true,
+            "transinfantStatus": "applied",
+            "transinfantEvidence": [
+              "symbol \"summon\" matched concept act.summon",
+              "accepted equivalent-to relationship d475eb19-e507-4020-a94b-6c499218310c"
+            ]
+          }
+        ],
+        "validation": [
+          {
+            "id": "val-01",
+            "category": "multiword-action-alias",
+            "text": "bring up document",
+            "expected": {
+              "action": "open",
+              "object": "document"
+            },
+            "predicted": {
+              "action": "open",
+              "object": "document"
+            },
+            "exact": true,
+            "transinfantStatus": "no-match",
+            "transinfantEvidence": []
+          },
+          {
+            "id": "val-02",
+            "category": "single-slot-retrieval",
+            "text": "open code studio",
+            "expected": {
+              "action": "open",
+              "object": "application"
+            },
+            "predicted": {
+              "action": "open",
+              "object": "application"
+            },
+            "exact": true,
+            "transinfantStatus": "applied",
+            "transinfantEvidence": [
+              "symbol \"code studio\" matched concept obj.code-studio",
+              "accepted is-a relationship 1ecc0d7c-882d-4cc9-8597-a7da4f74c0b1"
+            ]
+          },
+          {
+            "id": "val-03",
+            "category": "negation",
+            "text": "don't summon code studio",
+            "expected": {
+              "action": "unknown",
+              "object": "unknown"
+            },
+            "predicted": {
+              "action": "unknown",
+              "object": "unknown"
+            },
+            "exact": true,
+            "transinfantStatus": "no-match",
+            "transinfantEvidence": []
+          },
+          {
+            "id": "val-04",
+            "category": "unfamiliar-both",
+            "text": "activate holo terminal",
+            "expected": {
+              "action": "unknown",
+              "object": "unknown"
+            },
+            "predicted": {
+              "action": "unknown",
+              "object": "unknown"
+            },
+            "exact": true,
+            "transinfantStatus": "no-match",
+            "transinfantEvidence": []
+          }
+        ],
+        "test": [
+          {
+            "id": "test-01",
+            "category": "known-composition-control",
+            "text": "open code studio",
+            "expected": {
+              "action": "open",
+              "object": "application"
+            },
+            "predicted": {
+              "action": "open",
+              "object": "application"
+            },
+            "exact": true,
+            "transinfantStatus": "applied",
+            "transinfantEvidence": [
+              "symbol \"code studio\" matched concept obj.code-studio",
+              "accepted is-a relationship 1ecc0d7c-882d-4cc9-8597-a7da4f74c0b1"
+            ]
+          },
+          {
+            "id": "test-02",
+            "category": "known-concept-novel-combination",
+            "text": "summon data grid",
+            "expected": {
+              "action": "open",
+              "object": "spreadsheet"
+            },
+            "predicted": {
+              "action": "open",
+              "object": "spreadsheet"
+            },
+            "exact": true,
+            "transinfantStatus": "applied",
+            "transinfantEvidence": [
+              "symbol \"summon\" matched concept act.summon",
+              "accepted equivalent-to relationship d475eb19-e507-4020-a94b-6c499218310c",
+              "symbol \"data grid\" matched concept obj.data-grid",
+              "accepted is-a relationship 3ad93174-2911-403b-8cf8-7a1bcff6ce6e"
+            ]
+          },
+          {
+            "id": "test-03",
+            "category": "known-concept-novel-combination",
+            "text": "reveal code studio",
+            "expected": {
+              "action": "show",
+              "object": "application"
+            },
+            "predicted": {
+              "action": "show",
+              "object": "application"
+            },
+            "exact": true,
+            "transinfantStatus": "applied",
+            "transinfantEvidence": [
+              "symbol \"reveal\" matched concept act.reveal",
+              "accepted equivalent-to relationship b2057339-3733-4791-85b2-ca879d065add",
+              "symbol \"code studio\" matched concept obj.code-studio",
+              "accepted is-a relationship 1ecc0d7c-882d-4cc9-8597-a7da4f74c0b1"
+            ]
+          },
+          {
+            "id": "test-04",
+            "category": "known-concept-novel-combination",
+            "text": "invoke data grid",
+            "expected": {
+              "action": "open",
+              "object": "spreadsheet"
+            },
+            "predicted": {
+              "action": "open",
+              "object": "spreadsheet"
+            },
+            "exact": true,
+            "transinfantStatus": "applied",
+            "transinfantEvidence": [
+              "symbol \"invoke\" matched concept act.summon",
+              "accepted equivalent-to relationship d475eb19-e507-4020-a94b-6c499218310c",
+              "symbol \"data grid\" matched concept obj.data-grid",
+              "accepted is-a relationship 3ad93174-2911-403b-8cf8-7a1bcff6ce6e"
+            ]
+          },
+          {
+            "id": "test-05",
+            "category": "multiword-alias-composition",
+            "text": "put on display code studio",
+            "expected": {
+              "action": "show",
+              "object": "application"
+            },
+            "predicted": {
+              "action": "show",
+              "object": "application"
+            },
+            "exact": true,
+            "transinfantStatus": "applied",
+            "transinfantEvidence": [
+              "symbol \"put on display\" matched concept act.reveal",
+              "accepted equivalent-to relationship b2057339-3733-4791-85b2-ca879d065add",
+              "symbol \"code studio\" matched concept obj.code-studio",
+              "accepted is-a relationship 1ecc0d7c-882d-4cc9-8597-a7da4f74c0b1"
+            ]
+          },
+          {
+            "id": "test-06",
+            "category": "explicit-action-precedence",
+            "text": "show summon code studio",
+            "expected": {
+              "action": "show",
+              "object": "application"
+            },
+            "predicted": {
+              "action": "show",
+              "object": "application"
+            },
+            "exact": true,
+            "transinfantStatus": "applied",
+            "transinfantEvidence": [
+              "symbol \"code studio\" matched concept obj.code-studio",
+              "accepted is-a relationship 1ecc0d7c-882d-4cc9-8597-a7da4f74c0b1"
+            ]
+          },
+          {
+            "id": "test-07",
+            "category": "negation",
+            "text": "don't summon code studio",
+            "expected": {
+              "action": "unknown",
+              "object": "unknown"
+            },
+            "predicted": {
+              "action": "unknown",
+              "object": "unknown"
+            },
+            "exact": true,
+            "transinfantStatus": "no-match",
+            "transinfantEvidence": []
+          },
+          {
+            "id": "test-08",
+            "category": "unfamiliar-action-alias-known-object",
+            "text": "activate code studio",
+            "expected": {
+              "action": "unknown",
+              "object": "application"
+            },
+            "predicted": {
+              "action": "unknown",
+              "object": "application"
+            },
+            "exact": true,
+            "transinfantStatus": "applied",
+            "transinfantEvidence": [
+              "symbol \"code studio\" matched concept obj.code-studio",
+              "accepted is-a relationship 1ecc0d7c-882d-4cc9-8597-a7da4f74c0b1"
+            ]
+          },
+          {
+            "id": "test-09",
+            "category": "known-action-unfamiliar-concept",
+            "text": "summon holo terminal",
+            "expected": {
+              "action": "open",
+              "object": "unknown"
+            },
+            "predicted": {
+              "action": "open",
+              "object": "unknown"
+            },
+            "exact": true,
+            "transinfantStatus": "applied",
+            "transinfantEvidence": [
+              "symbol \"summon\" matched concept act.summon",
+              "accepted equivalent-to relationship d475eb19-e507-4020-a94b-6c499218310c"
+            ]
+          },
+          {
+            "id": "test-10",
+            "category": "unfamiliar-concepts",
+            "text": "activate holo terminal",
+            "expected": {
+              "action": "unknown",
+              "object": "unknown"
+            },
+            "predicted": {
+              "action": "unknown",
+              "object": "unknown"
+            },
+            "exact": true,
+            "transinfantStatus": "no-match",
+            "transinfantEvidence": []
+          },
+          {
+            "id": "test-11",
+            "category": "known-core-control",
+            "text": "open document",
+            "expected": {
+              "action": "open",
+              "object": "document"
+            },
+            "predicted": {
+              "action": "open",
+              "object": "document"
+            },
+            "exact": true,
+            "transinfantStatus": "no-match",
+            "transinfantEvidence": []
+          },
+          {
+            "id": "test-12",
+            "category": "repeated-input-control",
+            "text": "summon data grid",
+            "expected": {
+              "action": "open",
+              "object": "spreadsheet"
+            },
+            "predicted": {
+              "action": "open",
+              "object": "spreadsheet"
+            },
+            "exact": true,
+            "transinfantStatus": "applied",
+            "transinfantEvidence": [
+              "symbol \"summon\" matched concept act.summon",
+              "accepted equivalent-to relationship d475eb19-e507-4020-a94b-6c499218310c",
+              "symbol \"data grid\" matched concept obj.data-grid",
+              "accepted is-a relationship 3ad93174-2911-403b-8cf8-7a1bcff6ce6e"
+            ]
+          }
+        ]
+      },
+      "memoryBytes": 5117,
+      "timingMs": {
+        "p50": 22.508,
+        "p95": 3905.278,
+        "sampleCount": 60,
+        "repetitionsPerExample": 5
+      }
+    }
+  ],
+  "persistenceProtocol": {
+    "storageReload": {
+      "method": "Separate Node.js/tsx process reopened the persisted C store and replayed all held-out test items.",
+      "test": {
+        "sampleCount": 12,
+        "exactActionObjectAccuracy": 1,
+        "exactCorrect": 12,
+        "perCategory": {
+          "known-composition-control": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "known-concept-novel-combination": {
+            "count": 3,
+            "correct": 3,
+            "accuracy": 1
+          },
+          "multiword-alias-composition": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "explicit-action-precedence": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "negation": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "unfamiliar-action-alias-known-object": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "known-action-unfamiliar-concept": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "unfamiliar-concepts": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "known-core-control": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "repeated-input-control": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          }
+        },
+        "confusionCounts": {
+          "open/application": {
+            "open/application": 1
+          },
+          "open/spreadsheet": {
+            "open/spreadsheet": 3
+          },
+          "show/application": {
+            "show/application": 3
+          },
+          "unknown/unknown": {
+            "unknown/unknown": 2
+          },
+          "unknown/application": {
+            "unknown/application": 1
+          },
+          "open/unknown": {
+            "open/unknown": 1
+          },
+          "open/document": {
+            "open/document": 1
+          }
+        },
+        "unsupportedInterpretationRate": 0,
+        "unsupportedFalsePositiveFields": 0,
+        "unknownExpectedFields": 6,
+        "correctAbstentionRate": 1,
+        "allUnknownCases": 2
+      },
+      "processRestartTest": {
+        "sampleCount": 12,
+        "exactActionObjectAccuracy": 1,
+        "exactCorrect": 12,
+        "perCategory": {
+          "known-composition-control": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "known-concept-novel-combination": {
+            "count": 3,
+            "correct": 3,
+            "accuracy": 1
+          },
+          "multiword-alias-composition": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "explicit-action-precedence": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "negation": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "unfamiliar-action-alias-known-object": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "known-action-unfamiliar-concept": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "unfamiliar-concepts": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "known-core-control": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "repeated-input-control": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          }
+        },
+        "confusionCounts": {
+          "open/application": {
+            "open/application": 1
+          },
+          "open/spreadsheet": {
+            "open/spreadsheet": 3
+          },
+          "show/application": {
+            "show/application": 3
+          },
+          "unknown/unknown": {
+            "unknown/unknown": 2
+          },
+          "unknown/application": {
+            "unknown/application": 1
+          },
+          "open/unknown": {
+            "open/unknown": 1
+          },
+          "open/document": {
+            "open/document": 1
+          }
+        },
+        "unsupportedInterpretationRate": 0,
+        "unsupportedFalsePositiveFields": 0,
+        "unknownExpectedFields": 6,
+        "correctAbstentionRate": 1,
+        "allUnknownCases": 2
+      },
+      "exactMatchWithCInProcessReload": true,
+      "exactMatchWithCProcessRestart": true
+    },
+    "afterReset": {
+      "sampleCount": 12,
+      "exactActionObjectAccuracy": 0.25,
+      "exactCorrect": 3,
+      "perCategory": {
+        "known-composition-control": {
+          "count": 1,
+          "correct": 0,
+          "accuracy": 0
+        },
+        "known-concept-novel-combination": {
+          "count": 3,
+          "correct": 0,
+          "accuracy": 0
+        },
+        "multiword-alias-composition": {
+          "count": 1,
+          "correct": 0,
+          "accuracy": 0
+        },
+        "explicit-action-precedence": {
+          "count": 1,
+          "correct": 0,
+          "accuracy": 0
+        },
+        "negation": {
+          "count": 1,
+          "correct": 1,
+          "accuracy": 1
+        },
+        "unfamiliar-action-alias-known-object": {
+          "count": 1,
+          "correct": 0,
+          "accuracy": 0
+        },
+        "known-action-unfamiliar-concept": {
+          "count": 1,
+          "correct": 0,
+          "accuracy": 0
+        },
+        "unfamiliar-concepts": {
+          "count": 1,
+          "correct": 1,
+          "accuracy": 1
+        },
+        "known-core-control": {
+          "count": 1,
+          "correct": 1,
+          "accuracy": 1
+        },
+        "repeated-input-control": {
+          "count": 1,
+          "correct": 0,
+          "accuracy": 0
+        }
+      },
+      "confusionCounts": {
+        "open/application": {
+          "open/unknown": 1
+        },
+        "open/spreadsheet": {
+          "unknown/unknown": 3
+        },
+        "show/application": {
+          "unknown/unknown": 1,
+          "show/unknown": 2
+        },
+        "unknown/unknown": {
+          "unknown/unknown": 2
+        },
+        "unknown/application": {
+          "unknown/unknown": 1
+        },
+        "open/unknown": {
+          "unknown/unknown": 1
+        },
+        "open/document": {
+          "open/document": 1
+        }
+      },
+      "unsupportedInterpretationRate": 0,
+      "unsupportedFalsePositiveFields": 0,
+      "unknownExpectedFields": 6,
+      "correctAbstentionRate": 1,
+      "allUnknownCases": 2
+    },
+    "correctionAndDuplicateProtocol": {
+      "initialAccepted": 1,
+      "unsupportedConflictRejected": 1,
+      "feedbackCorrectionAccepted": 1,
+      "activeAfterCorrection": [
+        {
+          "object": "open",
+          "status": "superseded",
+          "source": "explicit"
+        },
+        {
+          "object": "show",
+          "status": "accepted",
+          "source": "feedback"
+        }
+      ],
+      "duplicateReusedRelationship": true,
+      "reverted": true,
+      "originalRestored": true,
+      "eventLog": [
+        {
+          "experienceId": "correction-initial",
+          "outcome": "accepted",
+          "details": []
+        },
+        {
+          "experienceId": "correction-conflict",
+          "outcome": "rejected",
+          "details": [
+            "Contradictory equivalent-to relationship for invoke; existing knowledge retained."
+          ]
+        },
+        {
+          "experienceId": "correction-feedback",
+          "outcome": "reverted",
+          "details": [
+            "Learning event reverted by explicit request."
+          ]
+        },
+        {
+          "experienceId": "correction-duplicate",
+          "outcome": "rejected",
+          "details": [
+            "Duplicate relationship already stored: 9250aa50-4efc-458e-8b5f-21843e50733c."
+          ]
+        },
+        {
+          "experienceId": "revert:correction-feedback",
+          "outcome": "reverted",
+          "details": [
+            "Reverted experience correction-feedback."
+          ]
+        }
+      ]
+    }
+  },
+  "environment": {
+    "platform": "Windows",
+    "architecture": "x64",
+    "node": "v24.13.0"
+  }
+}

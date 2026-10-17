@@ -1,0 +1,10 @@
+{
+  "datasetVersion": "tida-005-incremental-curriculum-v1",
+  "splitCriteria": "Fixed before execution. Held-out strings are absent from all curriculum example strings; their component vocabulary is taught across different phases.",
+  "examples": [
+    { "id": "held-1", "text": "sena vek lumo", "expected": { "subject": "person.sena", "predicate": "action.vek", "object": "object.lumo" } },
+    { "id": "held-2", "text": "tavi dax neri", "expected": { "subject": "person.tavi", "predicate": "action.dax", "object": "object.neri" } },
+    { "id": "held-3", "text": "mira vek neri", "expected": { "subject": "person.mira", "predicate": "action.vek", "object": "object.neri" } },
+    { "id": "held-4", "text": "tavi vek lumo", "expected": { "subject": "person.tavi", "predicate": "action.vek", "object": "object.lumo" } }
+  ]
+}

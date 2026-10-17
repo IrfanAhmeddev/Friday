@@ -1,0 +1,51 @@
+{
+  "datasetId": "friday-transinfant-tida-002-v1",
+  "generation": "Hand-authored synthetic challenge set fixed before the Experiment 002 code/run. No runtime or learner exceptions are keyed to utterance text.",
+  "splitCriteria": "Training contains only concept symbol definitions and typed relations, never evaluation utterances. Development and validation examples cover single-slot lookup and precedence. Test contains held-out combinations, lexical boundaries, negation, unknown aliases/concepts, and repeated-input control. Test examples and expected frames are never ingested.",
+  "curriculum": {
+    "id": "tida-002-curriculum-v1",
+    "source": "experiment-002-explicit-teaching",
+    "entities": [
+      { "id": "act.summon", "label": "summon", "aliases": ["invoke", "bring up"] },
+      { "id": "act.open", "label": "open" },
+      { "id": "act.reveal", "label": "reveal", "aliases": ["put on display"] },
+      { "id": "act.show", "label": "show" },
+      { "id": "obj.code-studio", "label": "code studio" },
+      { "id": "obj.application", "label": "application" },
+      { "id": "obj.data-grid", "label": "data grid" },
+      { "id": "obj.spreadsheet", "label": "spreadsheet" }
+    ],
+    "relationships": [
+      { "subject": "act.summon", "predicate": "equivalent-to", "object": "act.open", "source": "explicit" },
+      { "subject": "act.reveal", "predicate": "equivalent-to", "object": "act.show", "source": "explicit" },
+      { "subject": "obj.code-studio", "predicate": "is-a", "object": "obj.application", "source": "explicit" },
+      { "subject": "obj.data-grid", "predicate": "is-a", "object": "obj.spreadsheet", "source": "explicit" }
+    ]
+  },
+  "development": [
+    { "id": "dev-01", "text": "invoke document", "category": "single-slot-retrieval", "expected": { "action": "open", "object": "document" } },
+    { "id": "dev-02", "text": "show code studio", "category": "explicit-action-precedence", "expected": { "action": "show", "object": "application" } },
+    { "id": "dev-03", "text": "activate code studio", "category": "unfamiliar-action", "expected": { "action": "unknown", "object": "application" } },
+    { "id": "dev-04", "text": "summon holo terminal", "category": "unfamiliar-object", "expected": { "action": "open", "object": "unknown" } }
+  ],
+  "validation": [
+    { "id": "val-01", "text": "bring up document", "category": "multiword-action-alias", "expected": { "action": "open", "object": "document" } },
+    { "id": "val-02", "text": "open code studio", "category": "single-slot-retrieval", "expected": { "action": "open", "object": "application" } },
+    { "id": "val-03", "text": "don't summon code studio", "category": "negation", "expected": { "action": "unknown", "object": "unknown" } },
+    { "id": "val-04", "text": "activate holo terminal", "category": "unfamiliar-both", "expected": { "action": "unknown", "object": "unknown" } }
+  ],
+  "test": [
+    { "id": "test-01", "text": "open code studio", "category": "known-composition-control", "expected": { "action": "open", "object": "application" } },
+    { "id": "test-02", "text": "summon data grid", "category": "known-concept-novel-combination", "expected": { "action": "open", "object": "spreadsheet" } },
+    { "id": "test-03", "text": "reveal code studio", "category": "known-concept-novel-combination", "expected": { "action": "show", "object": "application" } },
+    { "id": "test-04", "text": "invoke data grid", "category": "known-concept-novel-combination", "expected": { "action": "open", "object": "spreadsheet" } },
+    { "id": "test-05", "text": "put on display code studio", "category": "multiword-alias-composition", "expected": { "action": "show", "object": "application" } },
+    { "id": "test-06", "text": "show summon code studio", "category": "explicit-action-precedence", "expected": { "action": "show", "object": "application" } },
+    { "id": "test-07", "text": "don't summon code studio", "category": "negation", "expected": { "action": "unknown", "object": "unknown" } },
+    { "id": "test-08", "text": "activate code studio", "category": "unfamiliar-action-alias-known-object", "expected": { "action": "unknown", "object": "application" } },
+    { "id": "test-09", "text": "summon holo terminal", "category": "known-action-unfamiliar-concept", "expected": { "action": "open", "object": "unknown" } },
+    { "id": "test-10", "text": "activate holo terminal", "category": "unfamiliar-concepts", "expected": { "action": "unknown", "object": "unknown" } },
+    { "id": "test-11", "text": "open document", "category": "known-core-control", "expected": { "action": "open", "object": "document" } },
+    { "id": "test-12", "text": "summon data grid", "category": "repeated-input-control", "expected": { "action": "open", "object": "spreadsheet" } }
+  ]
+}

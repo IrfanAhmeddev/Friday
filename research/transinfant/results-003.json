@@ -1,0 +1,5503 @@
+{
+  "experimentId": "TIDA-003",
+  "experimentVersion": "friday-transinfant-tida-003-v1",
+  "teachingDatasetId": "friday-transinfant-tida-003-teaching-v1",
+  "evaluationDatasetId": "friday-transinfant-tida-003-evaluation-v1",
+  "runDate": "2026-10-16T07:44:58.932Z",
+  "environment": {
+    "platform": "win32",
+    "architecture": "x64",
+    "node": "v24.13.0"
+  },
+  "exactCommands": [
+    "npm run typecheck",
+    "npm test",
+    "npm run build",
+    "npm run benchmark:transinfant:003"
+  ],
+  "randomization": {
+    "used": false,
+    "seed": null,
+    "explanation": "Fixed hand-authored datasets; no randomized sampling."
+  },
+  "datasetSizes": {
+    "explicitTeachingExperiences": 20,
+    "inferredCandidateExperiences": 2,
+    "distinctWordAndSymbolInputs": 21,
+    "development": 4,
+    "validation": 4,
+    "test": 46,
+    "testCategories": {
+      "symbol-recognition": 4,
+      "symbol-to-concept": 4,
+      "word-to-concept": 4,
+      "previously-seen-usage": 4,
+      "unseen-known-combination": 20,
+      "unknown-word": 4,
+      "ambiguous-association": 2,
+      "unsupported-role-sequence": 4
+    }
+  },
+  "leakageControls": {
+    "testExamplesSuppliedToLearner": false,
+    "expectedOutputsSuppliedToLearner": false,
+    "onlyCurriculumEntriesTaught": true,
+    "seenUsageStringsAreMetadataOnly": true,
+    "novelTestCombinationsAreNotTeachingExamples": true
+  },
+  "compositionRule": {
+    "id": "supplied-svo-v1",
+    "tokenCount": 3,
+    "roles": [
+      "entity",
+      "predicate",
+      "entity"
+    ],
+    "outputSlots": [
+      "subject",
+      "predicate",
+      "object"
+    ],
+    "supplied": true,
+    "acquiredFromExamples": false
+  },
+  "conditions": [
+    {
+      "name": "A",
+      "description": "Empty store; no taught associations and no composition.",
+      "trainingFacts": 0,
+      "candidateFacts": 0,
+      "rejectedFacts": 0,
+      "trainingEvents": [],
+      "memoryBytes": 0,
+      "development": {
+        "sampleCount": 4,
+        "exactCorrect": 1,
+        "exactAccuracy": 0.25,
+        "perCategory": {
+          "symbol-recognition": {
+            "count": 1,
+            "correct": 0,
+            "accuracy": 0
+          },
+          "word-to-concept": {
+            "count": 1,
+            "correct": 0,
+            "accuracy": 0
+          },
+          "previously-seen-usage": {
+            "count": 1,
+            "correct": 0,
+            "accuracy": 0
+          },
+          "unknown-word": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          }
+        },
+        "confusionCounts": {
+          "{\"recognized\":true}": {
+            "{\"recognized\":false}": 1
+          },
+          "{\"status\":\"supported\",\"conceptId\":\"meaning.cat\"}": {
+            "{\"status\":\"unknown\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.cat\",\"predicate\":\"meaning.see\",\"object\":\"meaning.dog\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"unknown\"}": {
+            "{\"status\":\"unknown\"}": 1
+          }
+        }
+      },
+      "validation": {
+        "sampleCount": 4,
+        "exactCorrect": 0,
+        "exactAccuracy": 0,
+        "perCategory": {
+          "symbol-to-concept": {
+            "count": 1,
+            "correct": 0,
+            "accuracy": 0
+          },
+          "word-to-concept": {
+            "count": 1,
+            "correct": 0,
+            "accuracy": 0
+          },
+          "unseen-known-combination": {
+            "count": 1,
+            "correct": 0,
+            "accuracy": 0
+          },
+          "unsupported-role-sequence": {
+            "count": 1,
+            "correct": 0,
+            "accuracy": 0
+          }
+        },
+        "confusionCounts": {
+          "{\"status\":\"supported\",\"conceptId\":\"meaning.dog\"}": {
+            "{\"status\":\"unknown\"}": 1
+          },
+          "{\"status\":\"supported\",\"conceptId\":\"meaning.cat\"}": {
+            "{\"status\":\"unknown\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.book\",\"predicate\":\"meaning.see\",\"object\":\"meaning.cat\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"unsupported\"}": {
+            "{\"status\":\"disabled\"}": 1
+          }
+        }
+      },
+      "test": {
+        "sampleCount": 46,
+        "exactCorrect": 4,
+        "exactAccuracy": 0.08695652173913043,
+        "perCategory": {
+          "symbol-recognition": {
+            "count": 4,
+            "correct": 0,
+            "accuracy": 0
+          },
+          "symbol-to-concept": {
+            "count": 4,
+            "correct": 0,
+            "accuracy": 0
+          },
+          "word-to-concept": {
+            "count": 4,
+            "correct": 0,
+            "accuracy": 0
+          },
+          "previously-seen-usage": {
+            "count": 4,
+            "correct": 0,
+            "accuracy": 0
+          },
+          "unseen-known-combination": {
+            "count": 20,
+            "correct": 0,
+            "accuracy": 0
+          },
+          "unknown-word": {
+            "count": 4,
+            "correct": 4,
+            "accuracy": 1
+          },
+          "ambiguous-association": {
+            "count": 2,
+            "correct": 0,
+            "accuracy": 0
+          },
+          "unsupported-role-sequence": {
+            "count": 4,
+            "correct": 0,
+            "accuracy": 0
+          }
+        },
+        "confusionCounts": {
+          "{\"recognized\":true}": {
+            "{\"recognized\":false}": 4
+          },
+          "{\"status\":\"supported\",\"conceptId\":\"meaning.dog\"}": {
+            "{\"status\":\"unknown\"}": 2
+          },
+          "{\"status\":\"supported\",\"conceptId\":\"meaning.apple\"}": {
+            "{\"status\":\"unknown\"}": 1
+          },
+          "{\"status\":\"supported\",\"conceptId\":\"meaning.see\"}": {
+            "{\"status\":\"unknown\"}": 1
+          },
+          "{\"status\":\"supported\",\"conceptId\":\"meaning.chase\"}": {
+            "{\"status\":\"unknown\"}": 1
+          },
+          "{\"status\":\"supported\",\"conceptId\":\"meaning.cat\"}": {
+            "{\"status\":\"unknown\"}": 1
+          },
+          "{\"status\":\"supported\",\"conceptId\":\"meaning.eat\"}": {
+            "{\"status\":\"unknown\"}": 1
+          },
+          "{\"status\":\"supported\",\"conceptId\":\"meaning.book\"}": {
+            "{\"status\":\"unknown\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.cat\",\"predicate\":\"meaning.see\",\"object\":\"meaning.dog\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.dog\",\"predicate\":\"meaning.eat\",\"object\":\"meaning.apple\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.bird\",\"predicate\":\"meaning.hold\",\"object\":\"meaning.book\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.cat\",\"predicate\":\"meaning.chase\",\"object\":\"meaning.bird\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.cat\",\"predicate\":\"meaning.see\",\"object\":\"meaning.apple\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.dog\",\"predicate\":\"meaning.see\",\"object\":\"meaning.cat\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.bird\",\"predicate\":\"meaning.see\",\"object\":\"meaning.dog\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.apple\",\"predicate\":\"meaning.see\",\"object\":\"meaning.bird\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.book\",\"predicate\":\"meaning.see\",\"object\":\"meaning.apple\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.cat\",\"predicate\":\"meaning.eat\",\"object\":\"meaning.book\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.dog\",\"predicate\":\"meaning.hold\",\"object\":\"meaning.apple\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.bird\",\"predicate\":\"meaning.chase\",\"object\":\"meaning.cat\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.apple\",\"predicate\":\"meaning.eat\",\"object\":\"meaning.dog\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.book\",\"predicate\":\"meaning.hold\",\"object\":\"meaning.cat\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.cat\",\"predicate\":\"meaning.hold\",\"object\":\"meaning.bird\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.dog\",\"predicate\":\"meaning.chase\",\"object\":\"meaning.apple\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.bird\",\"predicate\":\"meaning.eat\",\"object\":\"meaning.book\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.apple\",\"predicate\":\"meaning.hold\",\"object\":\"meaning.dog\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.book\",\"predicate\":\"meaning.chase\",\"object\":\"meaning.bird\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.cat\",\"predicate\":\"meaning.chase\",\"object\":\"meaning.dog\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.dog\",\"predicate\":\"meaning.eat\",\"object\":\"meaning.bird\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.bird\",\"predicate\":\"meaning.see\",\"object\":\"meaning.book\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.apple\",\"predicate\":\"meaning.chase\",\"object\":\"meaning.cat\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.book\",\"predicate\":\"meaning.eat\",\"object\":\"meaning.dog\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"unknown\"}": {
+            "{\"status\":\"unknown\"}": 4
+          },
+          "{\"status\":\"ambiguous\"}": {
+            "{\"status\":\"unknown\"}": 1,
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"unsupported\"}": {
+            "{\"status\":\"disabled\"}": 4
+          }
+        }
+      },
+      "samples": {
+        "development": [
+          {
+            "id": "dev-symbol-recognition",
+            "task": "recognition",
+            "category": "symbol-recognition",
+            "input": "A",
+            "expected": {
+              "recognized": true
+            },
+            "predicted": {
+              "recognized": false
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "dev-word-retrieval",
+            "task": "lookup",
+            "category": "word-to-concept",
+            "input": "cat",
+            "expected": {
+              "status": "supported",
+              "conceptId": "meaning.cat"
+            },
+            "predicted": {
+              "status": "unknown"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "dev-known-composition",
+            "task": "compose",
+            "category": "previously-seen-usage",
+            "input": "cat see dog",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.cat",
+              "predicate": "meaning.see",
+              "object": "meaning.dog"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "dev-unknown",
+            "task": "lookup",
+            "category": "unknown-word",
+            "input": "glorp",
+            "expected": {
+              "status": "unknown"
+            },
+            "predicted": {
+              "status": "unknown"
+            },
+            "exact": true,
+            "evidence": []
+          }
+        ],
+        "validation": [
+          {
+            "id": "val-symbol-lookup",
+            "task": "lookup",
+            "category": "symbol-to-concept",
+            "input": "B",
+            "expected": {
+              "status": "supported",
+              "conceptId": "meaning.dog"
+            },
+            "predicted": {
+              "status": "unknown"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "val-word-alias",
+            "task": "lookup",
+            "category": "word-to-concept",
+            "input": "kitty",
+            "expected": {
+              "status": "supported",
+              "conceptId": "meaning.cat"
+            },
+            "predicted": {
+              "status": "unknown"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "val-novel-composition",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "book see cat",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.book",
+              "predicate": "meaning.see",
+              "object": "meaning.cat"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "val-unsupported-role",
+            "task": "compose",
+            "category": "unsupported-role-sequence",
+            "input": "cat red dog",
+            "expected": {
+              "status": "unsupported"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          }
+        ],
+        "test": [
+          {
+            "id": "test-recog-01",
+            "task": "recognition",
+            "category": "symbol-recognition",
+            "input": "A",
+            "expected": {
+              "recognized": true
+            },
+            "predicted": {
+              "recognized": false
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-recog-02",
+            "task": "recognition",
+            "category": "symbol-recognition",
+            "input": "E",
+            "expected": {
+              "recognized": true
+            },
+            "predicted": {
+              "recognized": false
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-recog-03",
+            "task": "recognition",
+            "category": "symbol-recognition",
+            "input": "H",
+            "expected": {
+              "recognized": true
+            },
+            "predicted": {
+              "recognized": false
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-recog-04",
+            "task": "recognition",
+            "category": "symbol-recognition",
+            "input": "J",
+            "expected": {
+              "recognized": true
+            },
+            "predicted": {
+              "recognized": false
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-sym-01",
+            "task": "lookup",
+            "category": "symbol-to-concept",
+            "input": "B",
+            "expected": {
+              "status": "supported",
+              "conceptId": "meaning.dog"
+            },
+            "predicted": {
+              "status": "unknown"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-sym-02",
+            "task": "lookup",
+            "category": "symbol-to-concept",
+            "input": "C",
+            "expected": {
+              "status": "supported",
+              "conceptId": "meaning.apple"
+            },
+            "predicted": {
+              "status": "unknown"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-sym-03",
+            "task": "lookup",
+            "category": "symbol-to-concept",
+            "input": "F",
+            "expected": {
+              "status": "supported",
+              "conceptId": "meaning.see"
+            },
+            "predicted": {
+              "status": "unknown"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-sym-04",
+            "task": "lookup",
+            "category": "symbol-to-concept",
+            "input": "I",
+            "expected": {
+              "status": "supported",
+              "conceptId": "meaning.chase"
+            },
+            "predicted": {
+              "status": "unknown"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-word-01",
+            "task": "lookup",
+            "category": "word-to-concept",
+            "input": "cat",
+            "expected": {
+              "status": "supported",
+              "conceptId": "meaning.cat"
+            },
+            "predicted": {
+              "status": "unknown"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-word-02",
+            "task": "lookup",
+            "category": "word-to-concept",
+            "input": "puppy",
+            "expected": {
+              "status": "supported",
+              "conceptId": "meaning.dog"
+            },
+            "predicted": {
+              "status": "unknown"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-word-03",
+            "task": "lookup",
+            "category": "word-to-concept",
+            "input": "eat",
+            "expected": {
+              "status": "supported",
+              "conceptId": "meaning.eat"
+            },
+            "predicted": {
+              "status": "unknown"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-word-04",
+            "task": "lookup",
+            "category": "word-to-concept",
+            "input": "book",
+            "expected": {
+              "status": "supported",
+              "conceptId": "meaning.book"
+            },
+            "predicted": {
+              "status": "unknown"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-seen-01",
+            "task": "compose",
+            "category": "previously-seen-usage",
+            "input": "cat see dog",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.cat",
+              "predicate": "meaning.see",
+              "object": "meaning.dog"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-seen-02",
+            "task": "compose",
+            "category": "previously-seen-usage",
+            "input": "dog eat apple",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.dog",
+              "predicate": "meaning.eat",
+              "object": "meaning.apple"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-seen-03",
+            "task": "compose",
+            "category": "previously-seen-usage",
+            "input": "bird hold book",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.bird",
+              "predicate": "meaning.hold",
+              "object": "meaning.book"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-seen-04",
+            "task": "compose",
+            "category": "previously-seen-usage",
+            "input": "cat chase bird",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.cat",
+              "predicate": "meaning.chase",
+              "object": "meaning.bird"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-novel-01",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "cat see apple",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.cat",
+              "predicate": "meaning.see",
+              "object": "meaning.apple"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-novel-02",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "dog see cat",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.dog",
+              "predicate": "meaning.see",
+              "object": "meaning.cat"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-novel-03",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "bird see dog",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.bird",
+              "predicate": "meaning.see",
+              "object": "meaning.dog"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-novel-04",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "apple see bird",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.apple",
+              "predicate": "meaning.see",
+              "object": "meaning.bird"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-novel-05",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "book see apple",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.book",
+              "predicate": "meaning.see",
+              "object": "meaning.apple"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-novel-06",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "cat eat book",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.cat",
+              "predicate": "meaning.eat",
+              "object": "meaning.book"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-novel-07",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "dog hold apple",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.dog",
+              "predicate": "meaning.hold",
+              "object": "meaning.apple"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-novel-08",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "bird chase cat",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.bird",
+              "predicate": "meaning.chase",
+              "object": "meaning.cat"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-novel-09",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "apple eat dog",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.apple",
+              "predicate": "meaning.eat",
+              "object": "meaning.dog"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-novel-10",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "book hold cat",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.book",
+              "predicate": "meaning.hold",
+              "object": "meaning.cat"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-novel-11",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "cat hold bird",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.cat",
+              "predicate": "meaning.hold",
+              "object": "meaning.bird"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-novel-12",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "dog chase apple",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.dog",
+              "predicate": "meaning.chase",
+              "object": "meaning.apple"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-novel-13",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "bird eat book",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.bird",
+              "predicate": "meaning.eat",
+              "object": "meaning.book"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-novel-14",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "apple hold dog",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.apple",
+              "predicate": "meaning.hold",
+              "object": "meaning.dog"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-novel-15",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "book chase bird",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.book",
+              "predicate": "meaning.chase",
+              "object": "meaning.bird"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-novel-16",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "cat chase dog",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.cat",
+              "predicate": "meaning.chase",
+              "object": "meaning.dog"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-novel-17",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "dog eat bird",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.dog",
+              "predicate": "meaning.eat",
+              "object": "meaning.bird"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-novel-18",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "bird see book",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.bird",
+              "predicate": "meaning.see",
+              "object": "meaning.book"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-novel-19",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "apple chase cat",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.apple",
+              "predicate": "meaning.chase",
+              "object": "meaning.cat"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-novel-20",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "book eat dog",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.book",
+              "predicate": "meaning.eat",
+              "object": "meaning.dog"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-unknown-01",
+            "task": "lookup",
+            "category": "unknown-word",
+            "input": "glorp",
+            "expected": {
+              "status": "unknown"
+            },
+            "predicted": {
+              "status": "unknown"
+            },
+            "exact": true,
+            "evidence": []
+          },
+          {
+            "id": "test-unknown-02",
+            "task": "lookup",
+            "category": "unknown-word",
+            "input": "zibble",
+            "expected": {
+              "status": "unknown"
+            },
+            "predicted": {
+              "status": "unknown"
+            },
+            "exact": true,
+            "evidence": []
+          },
+          {
+            "id": "test-unknown-03",
+            "task": "lookup",
+            "category": "unknown-word",
+            "input": "snorf",
+            "expected": {
+              "status": "unknown"
+            },
+            "predicted": {
+              "status": "unknown"
+            },
+            "exact": true,
+            "evidence": []
+          },
+          {
+            "id": "test-unknown-04",
+            "task": "lookup",
+            "category": "unknown-word",
+            "input": "blarg",
+            "expected": {
+              "status": "unknown"
+            },
+            "predicted": {
+              "status": "unknown"
+            },
+            "exact": true,
+            "evidence": []
+          },
+          {
+            "id": "test-ambiguous-01",
+            "task": "lookup",
+            "category": "ambiguous-association",
+            "input": "mep",
+            "expected": {
+              "status": "ambiguous"
+            },
+            "predicted": {
+              "status": "unknown"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-ambiguous-02",
+            "task": "compose",
+            "category": "ambiguous-association",
+            "input": "cat see mep",
+            "expected": {
+              "status": "ambiguous"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-unsupported-01",
+            "task": "compose",
+            "category": "unsupported-role-sequence",
+            "input": "cat red dog",
+            "expected": {
+              "status": "unsupported"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-unsupported-02",
+            "task": "compose",
+            "category": "unsupported-role-sequence",
+            "input": "eat see dog",
+            "expected": {
+              "status": "unsupported"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-unsupported-03",
+            "task": "compose",
+            "category": "unsupported-role-sequence",
+            "input": "cat see see",
+            "expected": {
+              "status": "unsupported"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-unsupported-04",
+            "task": "compose",
+            "category": "unsupported-role-sequence",
+            "input": "red hold apple",
+            "expected": {
+              "status": "unsupported"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          }
+        ]
+      },
+      "latencyMs": {
+        "sampleCount": 85,
+        "timedExampleCount": 17,
+        "repetitionsPerTestExample": 5,
+        "p50": 0.07640000000000668,
+        "p95": 0.18190000000001305
+      }
+    },
+    {
+      "name": "B",
+      "description": "Same taught associations as C; exact retrieval only, no composition.",
+      "trainingFacts": 20,
+      "candidateFacts": 2,
+      "rejectedFacts": 0,
+      "trainingEvents": [
+        {
+          "experienceId": "teach-word-cat-v1",
+          "source": "explicit-teaching",
+          "accepted": true,
+          "acceptedRelationshipIds": [
+            "1679b976-43ea-4a6d-b8b9-5addaf033161"
+          ],
+          "candidateRelationshipIds": [],
+          "rejectedRelationshipIds": [],
+          "details": [
+            "Symbol \"cat\" already refers to another concept; alias not reassigned."
+          ]
+        },
+        {
+          "experienceId": "teach-word-dog-v1",
+          "source": "explicit-teaching",
+          "accepted": true,
+          "acceptedRelationshipIds": [
+            "64f2e293-05ff-47b4-9522-54b7ba599b7e"
+          ],
+          "candidateRelationshipIds": [],
+          "rejectedRelationshipIds": [],
+          "details": [
+            "Symbol \"dog\" already refers to another concept; alias not reassigned."
+          ]
+        },
+        {
+          "experienceId": "teach-word-apple-v1",
+          "source": "explicit-teaching",
+          "accepted": true,
+          "acceptedRelationshipIds": [
+            "c719bcd4-d3ca-4065-afc7-d4573899f70d"
+          ],
+          "candidateRelationshipIds": [],
+          "rejectedRelationshipIds": [],
+          "details": [
+            "Symbol \"apple\" already refers to another concept; alias not reassigned."
+          ]
+        },
+        {
+          "experienceId": "teach-word-book-v1",
+          "source": "explicit-teaching",
+          "accepted": true,
+          "acceptedRelationshipIds": [
+            "794e5ab4-b259-432c-871f-d76650bdfd18"
+          ],
+          "candidateRelationshipIds": [],
+          "rejectedRelationshipIds": [],
+          "details": [
+            "Symbol \"book\" already refers to another concept; alias not reassigned."
+          ]
+        },
+        {
+          "experienceId": "teach-word-eat-v1",
+          "source": "explicit-teaching",
+          "accepted": true,
+          "acceptedRelationshipIds": [
+            "909744d4-4f8e-40f4-8204-2a8792e3ccac"
+          ],
+          "candidateRelationshipIds": [],
+          "rejectedRelationshipIds": [],
+          "details": [
+            "Symbol \"eat\" already refers to another concept; alias not reassigned."
+          ]
+        },
+        {
+          "experienceId": "teach-word-see-v1",
+          "source": "explicit-teaching",
+          "accepted": true,
+          "acceptedRelationshipIds": [
+            "90fffaae-c019-470c-8509-f029ab94f71a"
+          ],
+          "candidateRelationshipIds": [],
+          "rejectedRelationshipIds": [],
+          "details": [
+            "Symbol \"see\" already refers to another concept; alias not reassigned."
+          ]
+        },
+        {
+          "experienceId": "teach-word-hold-v1",
+          "source": "explicit-teaching",
+          "accepted": true,
+          "acceptedRelationshipIds": [
+            "2c9d63ab-5f20-449b-8a8f-3df7eaa4c7ad"
+          ],
+          "candidateRelationshipIds": [],
+          "rejectedRelationshipIds": [],
+          "details": [
+            "Symbol \"hold\" already refers to another concept; alias not reassigned."
+          ]
+        },
+        {
+          "experienceId": "teach-word-bird-v1",
+          "source": "explicit-teaching",
+          "accepted": true,
+          "acceptedRelationshipIds": [
+            "52ffc020-68f5-4452-b756-b15a1ae8d6b5"
+          ],
+          "candidateRelationshipIds": [],
+          "rejectedRelationshipIds": [],
+          "details": [
+            "Symbol \"bird\" already refers to another concept; alias not reassigned."
+          ]
+        },
+        {
+          "experienceId": "teach-word-chase-v1",
+          "source": "explicit-teaching",
+          "accepted": true,
+          "acceptedRelationshipIds": [
+            "7880fac3-39ea-4bb3-b517-7f3f9e025d7a"
+          ],
+          "candidateRelationshipIds": [],
+          "rejectedRelationshipIds": [],
+          "details": [
+            "Symbol \"chase\" already refers to another concept; alias not reassigned."
+          ]
+        },
+        {
+          "experienceId": "teach-word-red-v1",
+          "source": "explicit-teaching",
+          "accepted": true,
+          "acceptedRelationshipIds": [
+            "2229f7c5-407f-4759-b6b8-1bd572126106"
+          ],
+          "candidateRelationshipIds": [],
+          "rejectedRelationshipIds": [],
+          "details": [
+            "Symbol \"red\" already refers to another concept; alias not reassigned."
+          ]
+        },
+        {
+          "experienceId": "teach-symbol-A-v1",
+          "source": "symbol-card-set-v1",
+          "accepted": true,
+          "acceptedRelationshipIds": [
+            "d64a24cc-4c66-4721-bf31-2653830a683c"
+          ],
+          "candidateRelationshipIds": [],
+          "rejectedRelationshipIds": [],
+          "details": [
+            "Symbol \"cat\" already refers to another concept; alias not reassigned."
+          ]
+        },
+        {
+          "experienceId": "teach-symbol-B-v1",
+          "source": "symbol-card-set-v1",
+          "accepted": true,
+          "acceptedRelationshipIds": [
+            "8bf848da-744a-41a9-bf45-e4e9bf5ff9fd"
+          ],
+          "candidateRelationshipIds": [],
+          "rejectedRelationshipIds": [],
+          "details": [
+            "Symbol \"dog\" already refers to another concept; alias not reassigned."
+          ]
+        },
+        {
+          "experienceId": "teach-symbol-C-v1",
+          "source": "symbol-card-set-v1",
+          "accepted": true,
+          "acceptedRelationshipIds": [
+            "02549e0b-a10c-4778-b279-62e90579abc0"
+          ],
+          "candidateRelationshipIds": [],
+          "rejectedRelationshipIds": [],
+          "details": [
+            "Symbol \"apple\" already refers to another concept; alias not reassigned."
+          ]
+        },
+        {
+          "experienceId": "teach-symbol-D-v1",
+          "source": "symbol-card-set-v1",
+          "accepted": true,
+          "acceptedRelationshipIds": [
+            "7f2b199d-f326-496e-8008-0c25c50ca656"
+          ],
+          "candidateRelationshipIds": [],
+          "rejectedRelationshipIds": [],
+          "details": [
+            "Symbol \"book\" already refers to another concept; alias not reassigned."
+          ]
+        },
+        {
+          "experienceId": "teach-symbol-E-v1",
+          "source": "symbol-card-set-v1",
+          "accepted": true,
+          "acceptedRelationshipIds": [
+            "0b30e6fb-8f1e-442d-865e-6df28a90650a"
+          ],
+          "candidateRelationshipIds": [],
+          "rejectedRelationshipIds": [],
+          "details": [
+            "Symbol \"eat\" already refers to another concept; alias not reassigned."
+          ]
+        },
+        {
+          "experienceId": "teach-symbol-F-v1",
+          "source": "symbol-card-set-v1",
+          "accepted": true,
+          "acceptedRelationshipIds": [
+            "21855c43-429d-419b-88dc-cd294a3f62f9"
+          ],
+          "candidateRelationshipIds": [],
+          "rejectedRelationshipIds": [],
+          "details": [
+            "Symbol \"see\" already refers to another concept; alias not reassigned."
+          ]
+        },
+        {
+          "experienceId": "teach-symbol-G-v1",
+          "source": "symbol-card-set-v1",
+          "accepted": true,
+          "acceptedRelationshipIds": [
+            "15eef1d1-860d-4818-bff7-f013d33dfc0e"
+          ],
+          "candidateRelationshipIds": [],
+          "rejectedRelationshipIds": [],
+          "details": [
+            "Symbol \"hold\" already refers to another concept; alias not reassigned."
+          ]
+        },
+        {
+          "experienceId": "teach-symbol-H-v1",
+          "source": "symbol-card-set-v1",
+          "accepted": true,
+          "acceptedRelationshipIds": [
+            "bafd666f-be33-419c-a0b1-283b7b597702"
+          ],
+          "candidateRelationshipIds": [],
+          "rejectedRelationshipIds": [],
+          "details": [
+            "Symbol \"bird\" already refers to another concept; alias not reassigned."
+          ]
+        },
+        {
+          "experienceId": "teach-symbol-I-v1",
+          "source": "symbol-card-set-v1",
+          "accepted": true,
+          "acceptedRelationshipIds": [
+            "d2caf623-bc0a-47e2-a2ac-233a7e17f885"
+          ],
+          "candidateRelationshipIds": [],
+          "rejectedRelationshipIds": [],
+          "details": [
+            "Symbol \"chase\" already refers to another concept; alias not reassigned."
+          ]
+        },
+        {
+          "experienceId": "teach-symbol-J-v1",
+          "source": "symbol-card-set-v1",
+          "accepted": true,
+          "acceptedRelationshipIds": [
+            "8c6e0535-6f21-4834-8024-a5774aadb0fe"
+          ],
+          "candidateRelationshipIds": [],
+          "rejectedRelationshipIds": [],
+          "details": [
+            "Symbol \"red\" already refers to another concept; alias not reassigned."
+          ]
+        },
+        {
+          "experienceId": "teach-ambiguous-mep-cat-v1",
+          "source": "unverified-candidate",
+          "accepted": true,
+          "acceptedRelationshipIds": [],
+          "candidateRelationshipIds": [
+            "ae006dab-f846-4a4e-bf74-0263cf20ee39"
+          ],
+          "rejectedRelationshipIds": [],
+          "details": [
+            "Symbol \"cat\" already refers to another concept; alias not reassigned."
+          ]
+        },
+        {
+          "experienceId": "teach-ambiguous-mep-dog-v1",
+          "source": "unverified-candidate",
+          "accepted": true,
+          "acceptedRelationshipIds": [],
+          "candidateRelationshipIds": [
+            "76edb3ce-f6ae-4266-807e-475f9dd6da0b"
+          ],
+          "rejectedRelationshipIds": [],
+          "details": [
+            "Symbol \"dog\" already refers to another concept; alias not reassigned."
+          ]
+        }
+      ],
+      "memoryBytes": 30625,
+      "development": {
+        "sampleCount": 4,
+        "exactCorrect": 3,
+        "exactAccuracy": 0.75,
+        "perCategory": {
+          "symbol-recognition": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "word-to-concept": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "previously-seen-usage": {
+            "count": 1,
+            "correct": 0,
+            "accuracy": 0
+          },
+          "unknown-word": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          }
+        },
+        "confusionCounts": {
+          "{\"recognized\":true}": {
+            "{\"recognized\":true}": 1
+          },
+          "{\"status\":\"supported\",\"conceptId\":\"meaning.cat\"}": {
+            "{\"status\":\"supported\",\"conceptId\":\"meaning.cat\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.cat\",\"predicate\":\"meaning.see\",\"object\":\"meaning.dog\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"unknown\"}": {
+            "{\"status\":\"unknown\"}": 1
+          }
+        }
+      },
+      "validation": {
+        "sampleCount": 4,
+        "exactCorrect": 2,
+        "exactAccuracy": 0.5,
+        "perCategory": {
+          "symbol-to-concept": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "word-to-concept": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "unseen-known-combination": {
+            "count": 1,
+            "correct": 0,
+            "accuracy": 0
+          },
+          "unsupported-role-sequence": {
+            "count": 1,
+            "correct": 0,
+            "accuracy": 0
+          }
+        },
+        "confusionCounts": {
+          "{\"status\":\"supported\",\"conceptId\":\"meaning.dog\"}": {
+            "{\"status\":\"supported\",\"conceptId\":\"meaning.dog\"}": 1
+          },
+          "{\"status\":\"supported\",\"conceptId\":\"meaning.cat\"}": {
+            "{\"status\":\"supported\",\"conceptId\":\"meaning.cat\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.book\",\"predicate\":\"meaning.see\",\"object\":\"meaning.cat\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"unsupported\"}": {
+            "{\"status\":\"disabled\"}": 1
+          }
+        }
+      },
+      "test": {
+        "sampleCount": 46,
+        "exactCorrect": 17,
+        "exactAccuracy": 0.3695652173913043,
+        "perCategory": {
+          "symbol-recognition": {
+            "count": 4,
+            "correct": 4,
+            "accuracy": 1
+          },
+          "symbol-to-concept": {
+            "count": 4,
+            "correct": 4,
+            "accuracy": 1
+          },
+          "word-to-concept": {
+            "count": 4,
+            "correct": 4,
+            "accuracy": 1
+          },
+          "previously-seen-usage": {
+            "count": 4,
+            "correct": 0,
+            "accuracy": 0
+          },
+          "unseen-known-combination": {
+            "count": 20,
+            "correct": 0,
+            "accuracy": 0
+          },
+          "unknown-word": {
+            "count": 4,
+            "correct": 4,
+            "accuracy": 1
+          },
+          "ambiguous-association": {
+            "count": 2,
+            "correct": 1,
+            "accuracy": 0.5
+          },
+          "unsupported-role-sequence": {
+            "count": 4,
+            "correct": 0,
+            "accuracy": 0
+          }
+        },
+        "confusionCounts": {
+          "{\"recognized\":true}": {
+            "{\"recognized\":true}": 4
+          },
+          "{\"status\":\"supported\",\"conceptId\":\"meaning.dog\"}": {
+            "{\"status\":\"supported\",\"conceptId\":\"meaning.dog\"}": 2
+          },
+          "{\"status\":\"supported\",\"conceptId\":\"meaning.apple\"}": {
+            "{\"status\":\"supported\",\"conceptId\":\"meaning.apple\"}": 1
+          },
+          "{\"status\":\"supported\",\"conceptId\":\"meaning.see\"}": {
+            "{\"status\":\"supported\",\"conceptId\":\"meaning.see\"}": 1
+          },
+          "{\"status\":\"supported\",\"conceptId\":\"meaning.chase\"}": {
+            "{\"status\":\"supported\",\"conceptId\":\"meaning.chase\"}": 1
+          },
+          "{\"status\":\"supported\",\"conceptId\":\"meaning.cat\"}": {
+            "{\"status\":\"supported\",\"conceptId\":\"meaning.cat\"}": 1
+          },
+          "{\"status\":\"supported\",\"conceptId\":\"meaning.eat\"}": {
+            "{\"status\":\"supported\",\"conceptId\":\"meaning.eat\"}": 1
+          },
+          "{\"status\":\"supported\",\"conceptId\":\"meaning.book\"}": {
+            "{\"status\":\"supported\",\"conceptId\":\"meaning.book\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.cat\",\"predicate\":\"meaning.see\",\"object\":\"meaning.dog\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.dog\",\"predicate\":\"meaning.eat\",\"object\":\"meaning.apple\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.bird\",\"predicate\":\"meaning.hold\",\"object\":\"meaning.book\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.cat\",\"predicate\":\"meaning.chase\",\"object\":\"meaning.bird\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.cat\",\"predicate\":\"meaning.see\",\"object\":\"meaning.apple\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.dog\",\"predicate\":\"meaning.see\",\"object\":\"meaning.cat\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.bird\",\"predicate\":\"meaning.see\",\"object\":\"meaning.dog\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.apple\",\"predicate\":\"meaning.see\",\"object\":\"meaning.bird\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.book\",\"predicate\":\"meaning.see\",\"object\":\"meaning.apple\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.cat\",\"predicate\":\"meaning.eat\",\"object\":\"meaning.book\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.dog\",\"predicate\":\"meaning.hold\",\"object\":\"meaning.apple\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.bird\",\"predicate\":\"meaning.chase\",\"object\":\"meaning.cat\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.apple\",\"predicate\":\"meaning.eat\",\"object\":\"meaning.dog\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.book\",\"predicate\":\"meaning.hold\",\"object\":\"meaning.cat\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.cat\",\"predicate\":\"meaning.hold\",\"object\":\"meaning.bird\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.dog\",\"predicate\":\"meaning.chase\",\"object\":\"meaning.apple\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.bird\",\"predicate\":\"meaning.eat\",\"object\":\"meaning.book\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.apple\",\"predicate\":\"meaning.hold\",\"object\":\"meaning.dog\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.book\",\"predicate\":\"meaning.chase\",\"object\":\"meaning.bird\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.cat\",\"predicate\":\"meaning.chase\",\"object\":\"meaning.dog\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.dog\",\"predicate\":\"meaning.eat\",\"object\":\"meaning.bird\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.bird\",\"predicate\":\"meaning.see\",\"object\":\"meaning.book\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.apple\",\"predicate\":\"meaning.chase\",\"object\":\"meaning.cat\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.book\",\"predicate\":\"meaning.eat\",\"object\":\"meaning.dog\"}": {
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"unknown\"}": {
+            "{\"status\":\"unknown\"}": 4
+          },
+          "{\"status\":\"ambiguous\"}": {
+            "{\"status\":\"ambiguous\"}": 1,
+            "{\"status\":\"disabled\"}": 1
+          },
+          "{\"status\":\"unsupported\"}": {
+            "{\"status\":\"disabled\"}": 4
+          }
+        }
+      },
+      "samples": {
+        "development": [
+          {
+            "id": "dev-symbol-recognition",
+            "task": "recognition",
+            "category": "symbol-recognition",
+            "input": "A",
+            "expected": {
+              "recognized": true
+            },
+            "predicted": {
+              "recognized": true
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "d64a24cc-4c66-4721-bf31-2653830a683c",
+                "experienceId": "teach-symbol-A-v1",
+                "source": "symbol-card-set-v1",
+                "relationshipSource": "explicit",
+                "confidence": 0.9,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:10.000Z"
+              }
+            ]
+          },
+          {
+            "id": "dev-word-retrieval",
+            "task": "lookup",
+            "category": "word-to-concept",
+            "input": "cat",
+            "expected": {
+              "status": "supported",
+              "conceptId": "meaning.cat"
+            },
+            "predicted": {
+              "status": "supported",
+              "conceptId": "meaning.cat"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "1679b976-43ea-4a6d-b8b9-5addaf033161",
+                "experienceId": "teach-word-cat-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:00.000Z"
+              }
+            ]
+          },
+          {
+            "id": "dev-known-composition",
+            "task": "compose",
+            "category": "previously-seen-usage",
+            "input": "cat see dog",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.cat",
+              "predicate": "meaning.see",
+              "object": "meaning.dog"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "dev-unknown",
+            "task": "lookup",
+            "category": "unknown-word",
+            "input": "glorp",
+            "expected": {
+              "status": "unknown"
+            },
+            "predicted": {
+              "status": "unknown"
+            },
+            "exact": true,
+            "evidence": []
+          }
+        ],
+        "validation": [
+          {
+            "id": "val-symbol-lookup",
+            "task": "lookup",
+            "category": "symbol-to-concept",
+            "input": "B",
+            "expected": {
+              "status": "supported",
+              "conceptId": "meaning.dog"
+            },
+            "predicted": {
+              "status": "supported",
+              "conceptId": "meaning.dog"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "8bf848da-744a-41a9-bf45-e4e9bf5ff9fd",
+                "experienceId": "teach-symbol-B-v1",
+                "source": "symbol-card-set-v1",
+                "relationshipSource": "explicit",
+                "confidence": 0.9,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:11.000Z"
+              }
+            ]
+          },
+          {
+            "id": "val-word-alias",
+            "task": "lookup",
+            "category": "word-to-concept",
+            "input": "kitty",
+            "expected": {
+              "status": "supported",
+              "conceptId": "meaning.cat"
+            },
+            "predicted": {
+              "status": "supported",
+              "conceptId": "meaning.cat"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "1679b976-43ea-4a6d-b8b9-5addaf033161",
+                "experienceId": "teach-word-cat-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:00.000Z"
+              }
+            ]
+          },
+          {
+            "id": "val-novel-composition",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "book see cat",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.book",
+              "predicate": "meaning.see",
+              "object": "meaning.cat"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "val-unsupported-role",
+            "task": "compose",
+            "category": "unsupported-role-sequence",
+            "input": "cat red dog",
+            "expected": {
+              "status": "unsupported"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          }
+        ],
+        "test": [
+          {
+            "id": "test-recog-01",
+            "task": "recognition",
+            "category": "symbol-recognition",
+            "input": "A",
+            "expected": {
+              "recognized": true
+            },
+            "predicted": {
+              "recognized": true
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "d64a24cc-4c66-4721-bf31-2653830a683c",
+                "experienceId": "teach-symbol-A-v1",
+                "source": "symbol-card-set-v1",
+                "relationshipSource": "explicit",
+                "confidence": 0.9,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:10.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-recog-02",
+            "task": "recognition",
+            "category": "symbol-recognition",
+            "input": "E",
+            "expected": {
+              "recognized": true
+            },
+            "predicted": {
+              "recognized": true
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "0b30e6fb-8f1e-442d-865e-6df28a90650a",
+                "experienceId": "teach-symbol-E-v1",
+                "source": "symbol-card-set-v1",
+                "relationshipSource": "explicit",
+                "confidence": 0.9,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:14.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-recog-03",
+            "task": "recognition",
+            "category": "symbol-recognition",
+            "input": "H",
+            "expected": {
+              "recognized": true
+            },
+            "predicted": {
+              "recognized": true
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "bafd666f-be33-419c-a0b1-283b7b597702",
+                "experienceId": "teach-symbol-H-v1",
+                "source": "symbol-card-set-v1",
+                "relationshipSource": "explicit",
+                "confidence": 0.9,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:17.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-recog-04",
+            "task": "recognition",
+            "category": "symbol-recognition",
+            "input": "J",
+            "expected": {
+              "recognized": true
+            },
+            "predicted": {
+              "recognized": true
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "8c6e0535-6f21-4834-8024-a5774aadb0fe",
+                "experienceId": "teach-symbol-J-v1",
+                "source": "symbol-card-set-v1",
+                "relationshipSource": "explicit",
+                "confidence": 0.9,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:19.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-sym-01",
+            "task": "lookup",
+            "category": "symbol-to-concept",
+            "input": "B",
+            "expected": {
+              "status": "supported",
+              "conceptId": "meaning.dog"
+            },
+            "predicted": {
+              "status": "supported",
+              "conceptId": "meaning.dog"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "8bf848da-744a-41a9-bf45-e4e9bf5ff9fd",
+                "experienceId": "teach-symbol-B-v1",
+                "source": "symbol-card-set-v1",
+                "relationshipSource": "explicit",
+                "confidence": 0.9,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:11.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-sym-02",
+            "task": "lookup",
+            "category": "symbol-to-concept",
+            "input": "C",
+            "expected": {
+              "status": "supported",
+              "conceptId": "meaning.apple"
+            },
+            "predicted": {
+              "status": "supported",
+              "conceptId": "meaning.apple"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "02549e0b-a10c-4778-b279-62e90579abc0",
+                "experienceId": "teach-symbol-C-v1",
+                "source": "symbol-card-set-v1",
+                "relationshipSource": "explicit",
+                "confidence": 0.9,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:12.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-sym-03",
+            "task": "lookup",
+            "category": "symbol-to-concept",
+            "input": "F",
+            "expected": {
+              "status": "supported",
+              "conceptId": "meaning.see"
+            },
+            "predicted": {
+              "status": "supported",
+              "conceptId": "meaning.see"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "21855c43-429d-419b-88dc-cd294a3f62f9",
+                "experienceId": "teach-symbol-F-v1",
+                "source": "symbol-card-set-v1",
+                "relationshipSource": "explicit",
+                "confidence": 0.9,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:15.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-sym-04",
+            "task": "lookup",
+            "category": "symbol-to-concept",
+            "input": "I",
+            "expected": {
+              "status": "supported",
+              "conceptId": "meaning.chase"
+            },
+            "predicted": {
+              "status": "supported",
+              "conceptId": "meaning.chase"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "d2caf623-bc0a-47e2-a2ac-233a7e17f885",
+                "experienceId": "teach-symbol-I-v1",
+                "source": "symbol-card-set-v1",
+                "relationshipSource": "explicit",
+                "confidence": 0.9,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:18.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-word-01",
+            "task": "lookup",
+            "category": "word-to-concept",
+            "input": "cat",
+            "expected": {
+              "status": "supported",
+              "conceptId": "meaning.cat"
+            },
+            "predicted": {
+              "status": "supported",
+              "conceptId": "meaning.cat"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "1679b976-43ea-4a6d-b8b9-5addaf033161",
+                "experienceId": "teach-word-cat-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:00.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-word-02",
+            "task": "lookup",
+            "category": "word-to-concept",
+            "input": "puppy",
+            "expected": {
+              "status": "supported",
+              "conceptId": "meaning.dog"
+            },
+            "predicted": {
+              "status": "supported",
+              "conceptId": "meaning.dog"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "64f2e293-05ff-47b4-9522-54b7ba599b7e",
+                "experienceId": "teach-word-dog-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:01.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-word-03",
+            "task": "lookup",
+            "category": "word-to-concept",
+            "input": "eat",
+            "expected": {
+              "status": "supported",
+              "conceptId": "meaning.eat"
+            },
+            "predicted": {
+              "status": "supported",
+              "conceptId": "meaning.eat"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "909744d4-4f8e-40f4-8204-2a8792e3ccac",
+                "experienceId": "teach-word-eat-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:04.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-word-04",
+            "task": "lookup",
+            "category": "word-to-concept",
+            "input": "book",
+            "expected": {
+              "status": "supported",
+              "conceptId": "meaning.book"
+            },
+            "predicted": {
+              "status": "supported",
+              "conceptId": "meaning.book"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "794e5ab4-b259-432c-871f-d76650bdfd18",
+                "experienceId": "teach-word-book-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:03.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-seen-01",
+            "task": "compose",
+            "category": "previously-seen-usage",
+            "input": "cat see dog",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.cat",
+              "predicate": "meaning.see",
+              "object": "meaning.dog"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-seen-02",
+            "task": "compose",
+            "category": "previously-seen-usage",
+            "input": "dog eat apple",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.dog",
+              "predicate": "meaning.eat",
+              "object": "meaning.apple"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-seen-03",
+            "task": "compose",
+            "category": "previously-seen-usage",
+            "input": "bird hold book",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.bird",
+              "predicate": "meaning.hold",
+              "object": "meaning.book"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-seen-04",
+            "task": "compose",
+            "category": "previously-seen-usage",
+            "input": "cat chase bird",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.cat",
+              "predicate": "meaning.chase",
+              "object": "meaning.bird"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-novel-01",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "cat see apple",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.cat",
+              "predicate": "meaning.see",
+              "object": "meaning.apple"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-novel-02",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "dog see cat",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.dog",
+              "predicate": "meaning.see",
+              "object": "meaning.cat"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-novel-03",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "bird see dog",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.bird",
+              "predicate": "meaning.see",
+              "object": "meaning.dog"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-novel-04",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "apple see bird",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.apple",
+              "predicate": "meaning.see",
+              "object": "meaning.bird"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-novel-05",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "book see apple",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.book",
+              "predicate": "meaning.see",
+              "object": "meaning.apple"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-novel-06",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "cat eat book",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.cat",
+              "predicate": "meaning.eat",
+              "object": "meaning.book"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-novel-07",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "dog hold apple",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.dog",
+              "predicate": "meaning.hold",
+              "object": "meaning.apple"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-novel-08",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "bird chase cat",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.bird",
+              "predicate": "meaning.chase",
+              "object": "meaning.cat"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-novel-09",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "apple eat dog",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.apple",
+              "predicate": "meaning.eat",
+              "object": "meaning.dog"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-novel-10",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "book hold cat",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.book",
+              "predicate": "meaning.hold",
+              "object": "meaning.cat"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-novel-11",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "cat hold bird",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.cat",
+              "predicate": "meaning.hold",
+              "object": "meaning.bird"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-novel-12",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "dog chase apple",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.dog",
+              "predicate": "meaning.chase",
+              "object": "meaning.apple"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-novel-13",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "bird eat book",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.bird",
+              "predicate": "meaning.eat",
+              "object": "meaning.book"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-novel-14",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "apple hold dog",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.apple",
+              "predicate": "meaning.hold",
+              "object": "meaning.dog"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-novel-15",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "book chase bird",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.book",
+              "predicate": "meaning.chase",
+              "object": "meaning.bird"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-novel-16",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "cat chase dog",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.cat",
+              "predicate": "meaning.chase",
+              "object": "meaning.dog"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-novel-17",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "dog eat bird",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.dog",
+              "predicate": "meaning.eat",
+              "object": "meaning.bird"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-novel-18",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "bird see book",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.bird",
+              "predicate": "meaning.see",
+              "object": "meaning.book"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-novel-19",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "apple chase cat",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.apple",
+              "predicate": "meaning.chase",
+              "object": "meaning.cat"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-novel-20",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "book eat dog",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.book",
+              "predicate": "meaning.eat",
+              "object": "meaning.dog"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-unknown-01",
+            "task": "lookup",
+            "category": "unknown-word",
+            "input": "glorp",
+            "expected": {
+              "status": "unknown"
+            },
+            "predicted": {
+              "status": "unknown"
+            },
+            "exact": true,
+            "evidence": []
+          },
+          {
+            "id": "test-unknown-02",
+            "task": "lookup",
+            "category": "unknown-word",
+            "input": "zibble",
+            "expected": {
+              "status": "unknown"
+            },
+            "predicted": {
+              "status": "unknown"
+            },
+            "exact": true,
+            "evidence": []
+          },
+          {
+            "id": "test-unknown-03",
+            "task": "lookup",
+            "category": "unknown-word",
+            "input": "snorf",
+            "expected": {
+              "status": "unknown"
+            },
+            "predicted": {
+              "status": "unknown"
+            },
+            "exact": true,
+            "evidence": []
+          },
+          {
+            "id": "test-unknown-04",
+            "task": "lookup",
+            "category": "unknown-word",
+            "input": "blarg",
+            "expected": {
+              "status": "unknown"
+            },
+            "predicted": {
+              "status": "unknown"
+            },
+            "exact": true,
+            "evidence": []
+          },
+          {
+            "id": "test-ambiguous-01",
+            "task": "lookup",
+            "category": "ambiguous-association",
+            "input": "mep",
+            "expected": {
+              "status": "ambiguous"
+            },
+            "predicted": {
+              "status": "ambiguous"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "ae006dab-f846-4a4e-bf74-0263cf20ee39",
+                "experienceId": "teach-ambiguous-mep-cat-v1",
+                "source": "unverified-candidate",
+                "relationshipSource": "inferred",
+                "confidence": 0.5,
+                "status": "candidate",
+                "timestamp": "2026-10-16T06:00:20.000Z"
+              },
+              {
+                "relationshipId": "76edb3ce-f6ae-4266-807e-475f9dd6da0b",
+                "experienceId": "teach-ambiguous-mep-dog-v1",
+                "source": "unverified-candidate",
+                "relationshipSource": "inferred",
+                "confidence": 0.5,
+                "status": "candidate",
+                "timestamp": "2026-10-16T06:00:21.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-ambiguous-02",
+            "task": "compose",
+            "category": "ambiguous-association",
+            "input": "cat see mep",
+            "expected": {
+              "status": "ambiguous"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-unsupported-01",
+            "task": "compose",
+            "category": "unsupported-role-sequence",
+            "input": "cat red dog",
+            "expected": {
+              "status": "unsupported"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-unsupported-02",
+            "task": "compose",
+            "category": "unsupported-role-sequence",
+            "input": "eat see dog",
+            "expected": {
+              "status": "unsupported"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-unsupported-03",
+            "task": "compose",
+            "category": "unsupported-role-sequence",
+            "input": "cat see see",
+            "expected": {
+              "status": "unsupported"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          },
+          {
+            "id": "test-unsupported-04",
+            "task": "compose",
+            "category": "unsupported-role-sequence",
+            "input": "red hold apple",
+            "expected": {
+              "status": "unsupported"
+            },
+            "predicted": {
+              "status": "disabled"
+            },
+            "exact": false,
+            "evidence": []
+          }
+        ]
+      },
+      "latencyMs": {
+        "sampleCount": 85,
+        "timedExampleCount": 17,
+        "repetitionsPerTestExample": 5,
+        "p50": 1.240600000000029,
+        "p95": 1.9243000000000166
+      }
+    },
+    {
+      "name": "C",
+      "description": "Same taught associations as B; exact retrieval plus supplied SVO role rule.",
+      "trainingFacts": 20,
+      "candidateFacts": 2,
+      "rejectedFacts": 0,
+      "trainingEvents": [
+        {
+          "experienceId": "teach-word-cat-v1",
+          "source": "explicit-teaching",
+          "accepted": true,
+          "acceptedRelationshipIds": [
+            "b1dc2afb-14fc-458e-9667-8d1cc2b88fb9"
+          ],
+          "candidateRelationshipIds": [],
+          "rejectedRelationshipIds": [],
+          "details": [
+            "Symbol \"cat\" already refers to another concept; alias not reassigned."
+          ]
+        },
+        {
+          "experienceId": "teach-word-dog-v1",
+          "source": "explicit-teaching",
+          "accepted": true,
+          "acceptedRelationshipIds": [
+            "dd0620f0-1a72-4f91-946c-3663ecf58a21"
+          ],
+          "candidateRelationshipIds": [],
+          "rejectedRelationshipIds": [],
+          "details": [
+            "Symbol \"dog\" already refers to another concept; alias not reassigned."
+          ]
+        },
+        {
+          "experienceId": "teach-word-apple-v1",
+          "source": "explicit-teaching",
+          "accepted": true,
+          "acceptedRelationshipIds": [
+            "09905142-32a3-49ca-968a-049605866ae6"
+          ],
+          "candidateRelationshipIds": [],
+          "rejectedRelationshipIds": [],
+          "details": [
+            "Symbol \"apple\" already refers to another concept; alias not reassigned."
+          ]
+        },
+        {
+          "experienceId": "teach-word-book-v1",
+          "source": "explicit-teaching",
+          "accepted": true,
+          "acceptedRelationshipIds": [
+            "67e06859-caf5-41a1-a142-333e0047a347"
+          ],
+          "candidateRelationshipIds": [],
+          "rejectedRelationshipIds": [],
+          "details": [
+            "Symbol \"book\" already refers to another concept; alias not reassigned."
+          ]
+        },
+        {
+          "experienceId": "teach-word-eat-v1",
+          "source": "explicit-teaching",
+          "accepted": true,
+          "acceptedRelationshipIds": [
+            "00334e83-997e-40c1-a98d-57680f50c07f"
+          ],
+          "candidateRelationshipIds": [],
+          "rejectedRelationshipIds": [],
+          "details": [
+            "Symbol \"eat\" already refers to another concept; alias not reassigned."
+          ]
+        },
+        {
+          "experienceId": "teach-word-see-v1",
+          "source": "explicit-teaching",
+          "accepted": true,
+          "acceptedRelationshipIds": [
+            "cbf075ae-d499-48c7-a368-70eecc199538"
+          ],
+          "candidateRelationshipIds": [],
+          "rejectedRelationshipIds": [],
+          "details": [
+            "Symbol \"see\" already refers to another concept; alias not reassigned."
+          ]
+        },
+        {
+          "experienceId": "teach-word-hold-v1",
+          "source": "explicit-teaching",
+          "accepted": true,
+          "acceptedRelationshipIds": [
+            "0bdf5879-a09f-433e-b565-06fd41cdffdc"
+          ],
+          "candidateRelationshipIds": [],
+          "rejectedRelationshipIds": [],
+          "details": [
+            "Symbol \"hold\" already refers to another concept; alias not reassigned."
+          ]
+        },
+        {
+          "experienceId": "teach-word-bird-v1",
+          "source": "explicit-teaching",
+          "accepted": true,
+          "acceptedRelationshipIds": [
+            "2344b3d8-25ab-4753-aa8a-ec874d8643eb"
+          ],
+          "candidateRelationshipIds": [],
+          "rejectedRelationshipIds": [],
+          "details": [
+            "Symbol \"bird\" already refers to another concept; alias not reassigned."
+          ]
+        },
+        {
+          "experienceId": "teach-word-chase-v1",
+          "source": "explicit-teaching",
+          "accepted": true,
+          "acceptedRelationshipIds": [
+            "45399296-cb3e-429f-8d87-ebd7e56a694a"
+          ],
+          "candidateRelationshipIds": [],
+          "rejectedRelationshipIds": [],
+          "details": [
+            "Symbol \"chase\" already refers to another concept; alias not reassigned."
+          ]
+        },
+        {
+          "experienceId": "teach-word-red-v1",
+          "source": "explicit-teaching",
+          "accepted": true,
+          "acceptedRelationshipIds": [
+            "5af00b85-d7db-4449-89d2-c6398f2e96b5"
+          ],
+          "candidateRelationshipIds": [],
+          "rejectedRelationshipIds": [],
+          "details": [
+            "Symbol \"red\" already refers to another concept; alias not reassigned."
+          ]
+        },
+        {
+          "experienceId": "teach-symbol-A-v1",
+          "source": "symbol-card-set-v1",
+          "accepted": true,
+          "acceptedRelationshipIds": [
+            "05b906de-acee-4592-ab4f-0a82f20ccbf9"
+          ],
+          "candidateRelationshipIds": [],
+          "rejectedRelationshipIds": [],
+          "details": [
+            "Symbol \"cat\" already refers to another concept; alias not reassigned."
+          ]
+        },
+        {
+          "experienceId": "teach-symbol-B-v1",
+          "source": "symbol-card-set-v1",
+          "accepted": true,
+          "acceptedRelationshipIds": [
+            "5df1bde9-66d6-46a2-a932-e355221dcdba"
+          ],
+          "candidateRelationshipIds": [],
+          "rejectedRelationshipIds": [],
+          "details": [
+            "Symbol \"dog\" already refers to another concept; alias not reassigned."
+          ]
+        },
+        {
+          "experienceId": "teach-symbol-C-v1",
+          "source": "symbol-card-set-v1",
+          "accepted": true,
+          "acceptedRelationshipIds": [
+            "6f30a857-b0bc-4bc8-8133-876ec30b7444"
+          ],
+          "candidateRelationshipIds": [],
+          "rejectedRelationshipIds": [],
+          "details": [
+            "Symbol \"apple\" already refers to another concept; alias not reassigned."
+          ]
+        },
+        {
+          "experienceId": "teach-symbol-D-v1",
+          "source": "symbol-card-set-v1",
+          "accepted": true,
+          "acceptedRelationshipIds": [
+            "bb6b52a6-b014-4936-b83a-a89bedb5e5de"
+          ],
+          "candidateRelationshipIds": [],
+          "rejectedRelationshipIds": [],
+          "details": [
+            "Symbol \"book\" already refers to another concept; alias not reassigned."
+          ]
+        },
+        {
+          "experienceId": "teach-symbol-E-v1",
+          "source": "symbol-card-set-v1",
+          "accepted": true,
+          "acceptedRelationshipIds": [
+            "0352c1b0-cfff-4879-926e-7543ba1a45f3"
+          ],
+          "candidateRelationshipIds": [],
+          "rejectedRelationshipIds": [],
+          "details": [
+            "Symbol \"eat\" already refers to another concept; alias not reassigned."
+          ]
+        },
+        {
+          "experienceId": "teach-symbol-F-v1",
+          "source": "symbol-card-set-v1",
+          "accepted": true,
+          "acceptedRelationshipIds": [
+            "e4a8bf69-dcc8-4ac6-b5c1-0177ba5ec37e"
+          ],
+          "candidateRelationshipIds": [],
+          "rejectedRelationshipIds": [],
+          "details": [
+            "Symbol \"see\" already refers to another concept; alias not reassigned."
+          ]
+        },
+        {
+          "experienceId": "teach-symbol-G-v1",
+          "source": "symbol-card-set-v1",
+          "accepted": true,
+          "acceptedRelationshipIds": [
+            "e75acf9b-e0e6-44cd-b4f2-417b80f634d9"
+          ],
+          "candidateRelationshipIds": [],
+          "rejectedRelationshipIds": [],
+          "details": [
+            "Symbol \"hold\" already refers to another concept; alias not reassigned."
+          ]
+        },
+        {
+          "experienceId": "teach-symbol-H-v1",
+          "source": "symbol-card-set-v1",
+          "accepted": true,
+          "acceptedRelationshipIds": [
+            "595f82f2-3d36-4a00-b1e7-1ed810ff44ad"
+          ],
+          "candidateRelationshipIds": [],
+          "rejectedRelationshipIds": [],
+          "details": [
+            "Symbol \"bird\" already refers to another concept; alias not reassigned."
+          ]
+        },
+        {
+          "experienceId": "teach-symbol-I-v1",
+          "source": "symbol-card-set-v1",
+          "accepted": true,
+          "acceptedRelationshipIds": [
+            "eee9c40f-8e11-424a-ae6e-d06fe225e919"
+          ],
+          "candidateRelationshipIds": [],
+          "rejectedRelationshipIds": [],
+          "details": [
+            "Symbol \"chase\" already refers to another concept; alias not reassigned."
+          ]
+        },
+        {
+          "experienceId": "teach-symbol-J-v1",
+          "source": "symbol-card-set-v1",
+          "accepted": true,
+          "acceptedRelationshipIds": [
+            "0f40aff1-e151-4f54-b0d6-788d638cb3c9"
+          ],
+          "candidateRelationshipIds": [],
+          "rejectedRelationshipIds": [],
+          "details": [
+            "Symbol \"red\" already refers to another concept; alias not reassigned."
+          ]
+        },
+        {
+          "experienceId": "teach-ambiguous-mep-cat-v1",
+          "source": "unverified-candidate",
+          "accepted": true,
+          "acceptedRelationshipIds": [],
+          "candidateRelationshipIds": [
+            "6ecb5510-b6a1-4162-8c5f-a7e5fa501b76"
+          ],
+          "rejectedRelationshipIds": [],
+          "details": [
+            "Symbol \"cat\" already refers to another concept; alias not reassigned."
+          ]
+        },
+        {
+          "experienceId": "teach-ambiguous-mep-dog-v1",
+          "source": "unverified-candidate",
+          "accepted": true,
+          "acceptedRelationshipIds": [],
+          "candidateRelationshipIds": [
+            "dc79eb5b-757f-4d60-b03f-f9f768484d92"
+          ],
+          "rejectedRelationshipIds": [],
+          "details": [
+            "Symbol \"dog\" already refers to another concept; alias not reassigned."
+          ]
+        }
+      ],
+      "memoryBytes": 30625,
+      "development": {
+        "sampleCount": 4,
+        "exactCorrect": 4,
+        "exactAccuracy": 1,
+        "perCategory": {
+          "symbol-recognition": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "word-to-concept": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "previously-seen-usage": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "unknown-word": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          }
+        },
+        "confusionCounts": {
+          "{\"recognized\":true}": {
+            "{\"recognized\":true}": 1
+          },
+          "{\"status\":\"supported\",\"conceptId\":\"meaning.cat\"}": {
+            "{\"status\":\"supported\",\"conceptId\":\"meaning.cat\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.cat\",\"predicate\":\"meaning.see\",\"object\":\"meaning.dog\"}": {
+            "{\"status\":\"supported\",\"subject\":\"meaning.cat\",\"predicate\":\"meaning.see\",\"object\":\"meaning.dog\"}": 1
+          },
+          "{\"status\":\"unknown\"}": {
+            "{\"status\":\"unknown\"}": 1
+          }
+        }
+      },
+      "validation": {
+        "sampleCount": 4,
+        "exactCorrect": 4,
+        "exactAccuracy": 1,
+        "perCategory": {
+          "symbol-to-concept": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "word-to-concept": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "unseen-known-combination": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          },
+          "unsupported-role-sequence": {
+            "count": 1,
+            "correct": 1,
+            "accuracy": 1
+          }
+        },
+        "confusionCounts": {
+          "{\"status\":\"supported\",\"conceptId\":\"meaning.dog\"}": {
+            "{\"status\":\"supported\",\"conceptId\":\"meaning.dog\"}": 1
+          },
+          "{\"status\":\"supported\",\"conceptId\":\"meaning.cat\"}": {
+            "{\"status\":\"supported\",\"conceptId\":\"meaning.cat\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.book\",\"predicate\":\"meaning.see\",\"object\":\"meaning.cat\"}": {
+            "{\"status\":\"supported\",\"subject\":\"meaning.book\",\"predicate\":\"meaning.see\",\"object\":\"meaning.cat\"}": 1
+          },
+          "{\"status\":\"unsupported\"}": {
+            "{\"status\":\"unsupported\"}": 1
+          }
+        }
+      },
+      "test": {
+        "sampleCount": 46,
+        "exactCorrect": 46,
+        "exactAccuracy": 1,
+        "perCategory": {
+          "symbol-recognition": {
+            "count": 4,
+            "correct": 4,
+            "accuracy": 1
+          },
+          "symbol-to-concept": {
+            "count": 4,
+            "correct": 4,
+            "accuracy": 1
+          },
+          "word-to-concept": {
+            "count": 4,
+            "correct": 4,
+            "accuracy": 1
+          },
+          "previously-seen-usage": {
+            "count": 4,
+            "correct": 4,
+            "accuracy": 1
+          },
+          "unseen-known-combination": {
+            "count": 20,
+            "correct": 20,
+            "accuracy": 1
+          },
+          "unknown-word": {
+            "count": 4,
+            "correct": 4,
+            "accuracy": 1
+          },
+          "ambiguous-association": {
+            "count": 2,
+            "correct": 2,
+            "accuracy": 1
+          },
+          "unsupported-role-sequence": {
+            "count": 4,
+            "correct": 4,
+            "accuracy": 1
+          }
+        },
+        "confusionCounts": {
+          "{\"recognized\":true}": {
+            "{\"recognized\":true}": 4
+          },
+          "{\"status\":\"supported\",\"conceptId\":\"meaning.dog\"}": {
+            "{\"status\":\"supported\",\"conceptId\":\"meaning.dog\"}": 2
+          },
+          "{\"status\":\"supported\",\"conceptId\":\"meaning.apple\"}": {
+            "{\"status\":\"supported\",\"conceptId\":\"meaning.apple\"}": 1
+          },
+          "{\"status\":\"supported\",\"conceptId\":\"meaning.see\"}": {
+            "{\"status\":\"supported\",\"conceptId\":\"meaning.see\"}": 1
+          },
+          "{\"status\":\"supported\",\"conceptId\":\"meaning.chase\"}": {
+            "{\"status\":\"supported\",\"conceptId\":\"meaning.chase\"}": 1
+          },
+          "{\"status\":\"supported\",\"conceptId\":\"meaning.cat\"}": {
+            "{\"status\":\"supported\",\"conceptId\":\"meaning.cat\"}": 1
+          },
+          "{\"status\":\"supported\",\"conceptId\":\"meaning.eat\"}": {
+            "{\"status\":\"supported\",\"conceptId\":\"meaning.eat\"}": 1
+          },
+          "{\"status\":\"supported\",\"conceptId\":\"meaning.book\"}": {
+            "{\"status\":\"supported\",\"conceptId\":\"meaning.book\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.cat\",\"predicate\":\"meaning.see\",\"object\":\"meaning.dog\"}": {
+            "{\"status\":\"supported\",\"subject\":\"meaning.cat\",\"predicate\":\"meaning.see\",\"object\":\"meaning.dog\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.dog\",\"predicate\":\"meaning.eat\",\"object\":\"meaning.apple\"}": {
+            "{\"status\":\"supported\",\"subject\":\"meaning.dog\",\"predicate\":\"meaning.eat\",\"object\":\"meaning.apple\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.bird\",\"predicate\":\"meaning.hold\",\"object\":\"meaning.book\"}": {
+            "{\"status\":\"supported\",\"subject\":\"meaning.bird\",\"predicate\":\"meaning.hold\",\"object\":\"meaning.book\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.cat\",\"predicate\":\"meaning.chase\",\"object\":\"meaning.bird\"}": {
+            "{\"status\":\"supported\",\"subject\":\"meaning.cat\",\"predicate\":\"meaning.chase\",\"object\":\"meaning.bird\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.cat\",\"predicate\":\"meaning.see\",\"object\":\"meaning.apple\"}": {
+            "{\"status\":\"supported\",\"subject\":\"meaning.cat\",\"predicate\":\"meaning.see\",\"object\":\"meaning.apple\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.dog\",\"predicate\":\"meaning.see\",\"object\":\"meaning.cat\"}": {
+            "{\"status\":\"supported\",\"subject\":\"meaning.dog\",\"predicate\":\"meaning.see\",\"object\":\"meaning.cat\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.bird\",\"predicate\":\"meaning.see\",\"object\":\"meaning.dog\"}": {
+            "{\"status\":\"supported\",\"subject\":\"meaning.bird\",\"predicate\":\"meaning.see\",\"object\":\"meaning.dog\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.apple\",\"predicate\":\"meaning.see\",\"object\":\"meaning.bird\"}": {
+            "{\"status\":\"supported\",\"subject\":\"meaning.apple\",\"predicate\":\"meaning.see\",\"object\":\"meaning.bird\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.book\",\"predicate\":\"meaning.see\",\"object\":\"meaning.apple\"}": {
+            "{\"status\":\"supported\",\"subject\":\"meaning.book\",\"predicate\":\"meaning.see\",\"object\":\"meaning.apple\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.cat\",\"predicate\":\"meaning.eat\",\"object\":\"meaning.book\"}": {
+            "{\"status\":\"supported\",\"subject\":\"meaning.cat\",\"predicate\":\"meaning.eat\",\"object\":\"meaning.book\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.dog\",\"predicate\":\"meaning.hold\",\"object\":\"meaning.apple\"}": {
+            "{\"status\":\"supported\",\"subject\":\"meaning.dog\",\"predicate\":\"meaning.hold\",\"object\":\"meaning.apple\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.bird\",\"predicate\":\"meaning.chase\",\"object\":\"meaning.cat\"}": {
+            "{\"status\":\"supported\",\"subject\":\"meaning.bird\",\"predicate\":\"meaning.chase\",\"object\":\"meaning.cat\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.apple\",\"predicate\":\"meaning.eat\",\"object\":\"meaning.dog\"}": {
+            "{\"status\":\"supported\",\"subject\":\"meaning.apple\",\"predicate\":\"meaning.eat\",\"object\":\"meaning.dog\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.book\",\"predicate\":\"meaning.hold\",\"object\":\"meaning.cat\"}": {
+            "{\"status\":\"supported\",\"subject\":\"meaning.book\",\"predicate\":\"meaning.hold\",\"object\":\"meaning.cat\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.cat\",\"predicate\":\"meaning.hold\",\"object\":\"meaning.bird\"}": {
+            "{\"status\":\"supported\",\"subject\":\"meaning.cat\",\"predicate\":\"meaning.hold\",\"object\":\"meaning.bird\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.dog\",\"predicate\":\"meaning.chase\",\"object\":\"meaning.apple\"}": {
+            "{\"status\":\"supported\",\"subject\":\"meaning.dog\",\"predicate\":\"meaning.chase\",\"object\":\"meaning.apple\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.bird\",\"predicate\":\"meaning.eat\",\"object\":\"meaning.book\"}": {
+            "{\"status\":\"supported\",\"subject\":\"meaning.bird\",\"predicate\":\"meaning.eat\",\"object\":\"meaning.book\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.apple\",\"predicate\":\"meaning.hold\",\"object\":\"meaning.dog\"}": {
+            "{\"status\":\"supported\",\"subject\":\"meaning.apple\",\"predicate\":\"meaning.hold\",\"object\":\"meaning.dog\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.book\",\"predicate\":\"meaning.chase\",\"object\":\"meaning.bird\"}": {
+            "{\"status\":\"supported\",\"subject\":\"meaning.book\",\"predicate\":\"meaning.chase\",\"object\":\"meaning.bird\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.cat\",\"predicate\":\"meaning.chase\",\"object\":\"meaning.dog\"}": {
+            "{\"status\":\"supported\",\"subject\":\"meaning.cat\",\"predicate\":\"meaning.chase\",\"object\":\"meaning.dog\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.dog\",\"predicate\":\"meaning.eat\",\"object\":\"meaning.bird\"}": {
+            "{\"status\":\"supported\",\"subject\":\"meaning.dog\",\"predicate\":\"meaning.eat\",\"object\":\"meaning.bird\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.bird\",\"predicate\":\"meaning.see\",\"object\":\"meaning.book\"}": {
+            "{\"status\":\"supported\",\"subject\":\"meaning.bird\",\"predicate\":\"meaning.see\",\"object\":\"meaning.book\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.apple\",\"predicate\":\"meaning.chase\",\"object\":\"meaning.cat\"}": {
+            "{\"status\":\"supported\",\"subject\":\"meaning.apple\",\"predicate\":\"meaning.chase\",\"object\":\"meaning.cat\"}": 1
+          },
+          "{\"status\":\"supported\",\"subject\":\"meaning.book\",\"predicate\":\"meaning.eat\",\"object\":\"meaning.dog\"}": {
+            "{\"status\":\"supported\",\"subject\":\"meaning.book\",\"predicate\":\"meaning.eat\",\"object\":\"meaning.dog\"}": 1
+          },
+          "{\"status\":\"unknown\"}": {
+            "{\"status\":\"unknown\"}": 4
+          },
+          "{\"status\":\"ambiguous\"}": {
+            "{\"status\":\"ambiguous\"}": 2
+          },
+          "{\"status\":\"unsupported\"}": {
+            "{\"status\":\"unsupported\"}": 4
+          }
+        }
+      },
+      "samples": {
+        "development": [
+          {
+            "id": "dev-symbol-recognition",
+            "task": "recognition",
+            "category": "symbol-recognition",
+            "input": "A",
+            "expected": {
+              "recognized": true
+            },
+            "predicted": {
+              "recognized": true
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "05b906de-acee-4592-ab4f-0a82f20ccbf9",
+                "experienceId": "teach-symbol-A-v1",
+                "source": "symbol-card-set-v1",
+                "relationshipSource": "explicit",
+                "confidence": 0.9,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:10.000Z"
+              }
+            ]
+          },
+          {
+            "id": "dev-word-retrieval",
+            "task": "lookup",
+            "category": "word-to-concept",
+            "input": "cat",
+            "expected": {
+              "status": "supported",
+              "conceptId": "meaning.cat"
+            },
+            "predicted": {
+              "status": "supported",
+              "conceptId": "meaning.cat"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "b1dc2afb-14fc-458e-9667-8d1cc2b88fb9",
+                "experienceId": "teach-word-cat-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:00.000Z"
+              }
+            ]
+          },
+          {
+            "id": "dev-known-composition",
+            "task": "compose",
+            "category": "previously-seen-usage",
+            "input": "cat see dog",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.cat",
+              "predicate": "meaning.see",
+              "object": "meaning.dog"
+            },
+            "predicted": {
+              "status": "supported",
+              "subject": "meaning.cat",
+              "predicate": "meaning.see",
+              "object": "meaning.dog"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "b1dc2afb-14fc-458e-9667-8d1cc2b88fb9",
+                "experienceId": "teach-word-cat-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:00.000Z"
+              },
+              {
+                "relationshipId": "cbf075ae-d499-48c7-a368-70eecc199538",
+                "experienceId": "teach-word-see-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:05.000Z"
+              },
+              {
+                "relationshipId": "dd0620f0-1a72-4f91-946c-3663ecf58a21",
+                "experienceId": "teach-word-dog-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:01.000Z"
+              }
+            ]
+          },
+          {
+            "id": "dev-unknown",
+            "task": "lookup",
+            "category": "unknown-word",
+            "input": "glorp",
+            "expected": {
+              "status": "unknown"
+            },
+            "predicted": {
+              "status": "unknown"
+            },
+            "exact": true,
+            "evidence": []
+          }
+        ],
+        "validation": [
+          {
+            "id": "val-symbol-lookup",
+            "task": "lookup",
+            "category": "symbol-to-concept",
+            "input": "B",
+            "expected": {
+              "status": "supported",
+              "conceptId": "meaning.dog"
+            },
+            "predicted": {
+              "status": "supported",
+              "conceptId": "meaning.dog"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "5df1bde9-66d6-46a2-a932-e355221dcdba",
+                "experienceId": "teach-symbol-B-v1",
+                "source": "symbol-card-set-v1",
+                "relationshipSource": "explicit",
+                "confidence": 0.9,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:11.000Z"
+              }
+            ]
+          },
+          {
+            "id": "val-word-alias",
+            "task": "lookup",
+            "category": "word-to-concept",
+            "input": "kitty",
+            "expected": {
+              "status": "supported",
+              "conceptId": "meaning.cat"
+            },
+            "predicted": {
+              "status": "supported",
+              "conceptId": "meaning.cat"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "b1dc2afb-14fc-458e-9667-8d1cc2b88fb9",
+                "experienceId": "teach-word-cat-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:00.000Z"
+              }
+            ]
+          },
+          {
+            "id": "val-novel-composition",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "book see cat",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.book",
+              "predicate": "meaning.see",
+              "object": "meaning.cat"
+            },
+            "predicted": {
+              "status": "supported",
+              "subject": "meaning.book",
+              "predicate": "meaning.see",
+              "object": "meaning.cat"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "67e06859-caf5-41a1-a142-333e0047a347",
+                "experienceId": "teach-word-book-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:03.000Z"
+              },
+              {
+                "relationshipId": "cbf075ae-d499-48c7-a368-70eecc199538",
+                "experienceId": "teach-word-see-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:05.000Z"
+              },
+              {
+                "relationshipId": "b1dc2afb-14fc-458e-9667-8d1cc2b88fb9",
+                "experienceId": "teach-word-cat-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:00.000Z"
+              }
+            ]
+          },
+          {
+            "id": "val-unsupported-role",
+            "task": "compose",
+            "category": "unsupported-role-sequence",
+            "input": "cat red dog",
+            "expected": {
+              "status": "unsupported"
+            },
+            "predicted": {
+              "status": "unsupported"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "b1dc2afb-14fc-458e-9667-8d1cc2b88fb9",
+                "experienceId": "teach-word-cat-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:00.000Z"
+              },
+              {
+                "relationshipId": "5af00b85-d7db-4449-89d2-c6398f2e96b5",
+                "experienceId": "teach-word-red-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:09.000Z"
+              },
+              {
+                "relationshipId": "dd0620f0-1a72-4f91-946c-3663ecf58a21",
+                "experienceId": "teach-word-dog-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:01.000Z"
+              }
+            ]
+          }
+        ],
+        "test": [
+          {
+            "id": "test-recog-01",
+            "task": "recognition",
+            "category": "symbol-recognition",
+            "input": "A",
+            "expected": {
+              "recognized": true
+            },
+            "predicted": {
+              "recognized": true
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "05b906de-acee-4592-ab4f-0a82f20ccbf9",
+                "experienceId": "teach-symbol-A-v1",
+                "source": "symbol-card-set-v1",
+                "relationshipSource": "explicit",
+                "confidence": 0.9,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:10.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-recog-02",
+            "task": "recognition",
+            "category": "symbol-recognition",
+            "input": "E",
+            "expected": {
+              "recognized": true
+            },
+            "predicted": {
+              "recognized": true
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "0352c1b0-cfff-4879-926e-7543ba1a45f3",
+                "experienceId": "teach-symbol-E-v1",
+                "source": "symbol-card-set-v1",
+                "relationshipSource": "explicit",
+                "confidence": 0.9,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:14.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-recog-03",
+            "task": "recognition",
+            "category": "symbol-recognition",
+            "input": "H",
+            "expected": {
+              "recognized": true
+            },
+            "predicted": {
+              "recognized": true
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "595f82f2-3d36-4a00-b1e7-1ed810ff44ad",
+                "experienceId": "teach-symbol-H-v1",
+                "source": "symbol-card-set-v1",
+                "relationshipSource": "explicit",
+                "confidence": 0.9,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:17.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-recog-04",
+            "task": "recognition",
+            "category": "symbol-recognition",
+            "input": "J",
+            "expected": {
+              "recognized": true
+            },
+            "predicted": {
+              "recognized": true
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "0f40aff1-e151-4f54-b0d6-788d638cb3c9",
+                "experienceId": "teach-symbol-J-v1",
+                "source": "symbol-card-set-v1",
+                "relationshipSource": "explicit",
+                "confidence": 0.9,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:19.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-sym-01",
+            "task": "lookup",
+            "category": "symbol-to-concept",
+            "input": "B",
+            "expected": {
+              "status": "supported",
+              "conceptId": "meaning.dog"
+            },
+            "predicted": {
+              "status": "supported",
+              "conceptId": "meaning.dog"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "5df1bde9-66d6-46a2-a932-e355221dcdba",
+                "experienceId": "teach-symbol-B-v1",
+                "source": "symbol-card-set-v1",
+                "relationshipSource": "explicit",
+                "confidence": 0.9,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:11.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-sym-02",
+            "task": "lookup",
+            "category": "symbol-to-concept",
+            "input": "C",
+            "expected": {
+              "status": "supported",
+              "conceptId": "meaning.apple"
+            },
+            "predicted": {
+              "status": "supported",
+              "conceptId": "meaning.apple"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "6f30a857-b0bc-4bc8-8133-876ec30b7444",
+                "experienceId": "teach-symbol-C-v1",
+                "source": "symbol-card-set-v1",
+                "relationshipSource": "explicit",
+                "confidence": 0.9,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:12.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-sym-03",
+            "task": "lookup",
+            "category": "symbol-to-concept",
+            "input": "F",
+            "expected": {
+              "status": "supported",
+              "conceptId": "meaning.see"
+            },
+            "predicted": {
+              "status": "supported",
+              "conceptId": "meaning.see"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "e4a8bf69-dcc8-4ac6-b5c1-0177ba5ec37e",
+                "experienceId": "teach-symbol-F-v1",
+                "source": "symbol-card-set-v1",
+                "relationshipSource": "explicit",
+                "confidence": 0.9,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:15.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-sym-04",
+            "task": "lookup",
+            "category": "symbol-to-concept",
+            "input": "I",
+            "expected": {
+              "status": "supported",
+              "conceptId": "meaning.chase"
+            },
+            "predicted": {
+              "status": "supported",
+              "conceptId": "meaning.chase"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "eee9c40f-8e11-424a-ae6e-d06fe225e919",
+                "experienceId": "teach-symbol-I-v1",
+                "source": "symbol-card-set-v1",
+                "relationshipSource": "explicit",
+                "confidence": 0.9,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:18.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-word-01",
+            "task": "lookup",
+            "category": "word-to-concept",
+            "input": "cat",
+            "expected": {
+              "status": "supported",
+              "conceptId": "meaning.cat"
+            },
+            "predicted": {
+              "status": "supported",
+              "conceptId": "meaning.cat"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "b1dc2afb-14fc-458e-9667-8d1cc2b88fb9",
+                "experienceId": "teach-word-cat-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:00.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-word-02",
+            "task": "lookup",
+            "category": "word-to-concept",
+            "input": "puppy",
+            "expected": {
+              "status": "supported",
+              "conceptId": "meaning.dog"
+            },
+            "predicted": {
+              "status": "supported",
+              "conceptId": "meaning.dog"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "dd0620f0-1a72-4f91-946c-3663ecf58a21",
+                "experienceId": "teach-word-dog-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:01.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-word-03",
+            "task": "lookup",
+            "category": "word-to-concept",
+            "input": "eat",
+            "expected": {
+              "status": "supported",
+              "conceptId": "meaning.eat"
+            },
+            "predicted": {
+              "status": "supported",
+              "conceptId": "meaning.eat"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "00334e83-997e-40c1-a98d-57680f50c07f",
+                "experienceId": "teach-word-eat-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:04.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-word-04",
+            "task": "lookup",
+            "category": "word-to-concept",
+            "input": "book",
+            "expected": {
+              "status": "supported",
+              "conceptId": "meaning.book"
+            },
+            "predicted": {
+              "status": "supported",
+              "conceptId": "meaning.book"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "67e06859-caf5-41a1-a142-333e0047a347",
+                "experienceId": "teach-word-book-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:03.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-seen-01",
+            "task": "compose",
+            "category": "previously-seen-usage",
+            "input": "cat see dog",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.cat",
+              "predicate": "meaning.see",
+              "object": "meaning.dog"
+            },
+            "predicted": {
+              "status": "supported",
+              "subject": "meaning.cat",
+              "predicate": "meaning.see",
+              "object": "meaning.dog"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "b1dc2afb-14fc-458e-9667-8d1cc2b88fb9",
+                "experienceId": "teach-word-cat-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:00.000Z"
+              },
+              {
+                "relationshipId": "cbf075ae-d499-48c7-a368-70eecc199538",
+                "experienceId": "teach-word-see-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:05.000Z"
+              },
+              {
+                "relationshipId": "dd0620f0-1a72-4f91-946c-3663ecf58a21",
+                "experienceId": "teach-word-dog-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:01.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-seen-02",
+            "task": "compose",
+            "category": "previously-seen-usage",
+            "input": "dog eat apple",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.dog",
+              "predicate": "meaning.eat",
+              "object": "meaning.apple"
+            },
+            "predicted": {
+              "status": "supported",
+              "subject": "meaning.dog",
+              "predicate": "meaning.eat",
+              "object": "meaning.apple"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "dd0620f0-1a72-4f91-946c-3663ecf58a21",
+                "experienceId": "teach-word-dog-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:01.000Z"
+              },
+              {
+                "relationshipId": "00334e83-997e-40c1-a98d-57680f50c07f",
+                "experienceId": "teach-word-eat-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:04.000Z"
+              },
+              {
+                "relationshipId": "09905142-32a3-49ca-968a-049605866ae6",
+                "experienceId": "teach-word-apple-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:02.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-seen-03",
+            "task": "compose",
+            "category": "previously-seen-usage",
+            "input": "bird hold book",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.bird",
+              "predicate": "meaning.hold",
+              "object": "meaning.book"
+            },
+            "predicted": {
+              "status": "supported",
+              "subject": "meaning.bird",
+              "predicate": "meaning.hold",
+              "object": "meaning.book"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "2344b3d8-25ab-4753-aa8a-ec874d8643eb",
+                "experienceId": "teach-word-bird-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:07.000Z"
+              },
+              {
+                "relationshipId": "0bdf5879-a09f-433e-b565-06fd41cdffdc",
+                "experienceId": "teach-word-hold-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:06.000Z"
+              },
+              {
+                "relationshipId": "67e06859-caf5-41a1-a142-333e0047a347",
+                "experienceId": "teach-word-book-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:03.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-seen-04",
+            "task": "compose",
+            "category": "previously-seen-usage",
+            "input": "cat chase bird",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.cat",
+              "predicate": "meaning.chase",
+              "object": "meaning.bird"
+            },
+            "predicted": {
+              "status": "supported",
+              "subject": "meaning.cat",
+              "predicate": "meaning.chase",
+              "object": "meaning.bird"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "b1dc2afb-14fc-458e-9667-8d1cc2b88fb9",
+                "experienceId": "teach-word-cat-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:00.000Z"
+              },
+              {
+                "relationshipId": "45399296-cb3e-429f-8d87-ebd7e56a694a",
+                "experienceId": "teach-word-chase-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:08.000Z"
+              },
+              {
+                "relationshipId": "2344b3d8-25ab-4753-aa8a-ec874d8643eb",
+                "experienceId": "teach-word-bird-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:07.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-novel-01",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "cat see apple",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.cat",
+              "predicate": "meaning.see",
+              "object": "meaning.apple"
+            },
+            "predicted": {
+              "status": "supported",
+              "subject": "meaning.cat",
+              "predicate": "meaning.see",
+              "object": "meaning.apple"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "b1dc2afb-14fc-458e-9667-8d1cc2b88fb9",
+                "experienceId": "teach-word-cat-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:00.000Z"
+              },
+              {
+                "relationshipId": "cbf075ae-d499-48c7-a368-70eecc199538",
+                "experienceId": "teach-word-see-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:05.000Z"
+              },
+              {
+                "relationshipId": "09905142-32a3-49ca-968a-049605866ae6",
+                "experienceId": "teach-word-apple-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:02.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-novel-02",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "dog see cat",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.dog",
+              "predicate": "meaning.see",
+              "object": "meaning.cat"
+            },
+            "predicted": {
+              "status": "supported",
+              "subject": "meaning.dog",
+              "predicate": "meaning.see",
+              "object": "meaning.cat"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "dd0620f0-1a72-4f91-946c-3663ecf58a21",
+                "experienceId": "teach-word-dog-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:01.000Z"
+              },
+              {
+                "relationshipId": "cbf075ae-d499-48c7-a368-70eecc199538",
+                "experienceId": "teach-word-see-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:05.000Z"
+              },
+              {
+                "relationshipId": "b1dc2afb-14fc-458e-9667-8d1cc2b88fb9",
+                "experienceId": "teach-word-cat-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:00.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-novel-03",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "bird see dog",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.bird",
+              "predicate": "meaning.see",
+              "object": "meaning.dog"
+            },
+            "predicted": {
+              "status": "supported",
+              "subject": "meaning.bird",
+              "predicate": "meaning.see",
+              "object": "meaning.dog"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "2344b3d8-25ab-4753-aa8a-ec874d8643eb",
+                "experienceId": "teach-word-bird-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:07.000Z"
+              },
+              {
+                "relationshipId": "cbf075ae-d499-48c7-a368-70eecc199538",
+                "experienceId": "teach-word-see-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:05.000Z"
+              },
+              {
+                "relationshipId": "dd0620f0-1a72-4f91-946c-3663ecf58a21",
+                "experienceId": "teach-word-dog-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:01.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-novel-04",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "apple see bird",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.apple",
+              "predicate": "meaning.see",
+              "object": "meaning.bird"
+            },
+            "predicted": {
+              "status": "supported",
+              "subject": "meaning.apple",
+              "predicate": "meaning.see",
+              "object": "meaning.bird"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "09905142-32a3-49ca-968a-049605866ae6",
+                "experienceId": "teach-word-apple-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:02.000Z"
+              },
+              {
+                "relationshipId": "cbf075ae-d499-48c7-a368-70eecc199538",
+                "experienceId": "teach-word-see-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:05.000Z"
+              },
+              {
+                "relationshipId": "2344b3d8-25ab-4753-aa8a-ec874d8643eb",
+                "experienceId": "teach-word-bird-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:07.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-novel-05",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "book see apple",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.book",
+              "predicate": "meaning.see",
+              "object": "meaning.apple"
+            },
+            "predicted": {
+              "status": "supported",
+              "subject": "meaning.book",
+              "predicate": "meaning.see",
+              "object": "meaning.apple"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "67e06859-caf5-41a1-a142-333e0047a347",
+                "experienceId": "teach-word-book-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:03.000Z"
+              },
+              {
+                "relationshipId": "cbf075ae-d499-48c7-a368-70eecc199538",
+                "experienceId": "teach-word-see-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:05.000Z"
+              },
+              {
+                "relationshipId": "09905142-32a3-49ca-968a-049605866ae6",
+                "experienceId": "teach-word-apple-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:02.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-novel-06",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "cat eat book",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.cat",
+              "predicate": "meaning.eat",
+              "object": "meaning.book"
+            },
+            "predicted": {
+              "status": "supported",
+              "subject": "meaning.cat",
+              "predicate": "meaning.eat",
+              "object": "meaning.book"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "b1dc2afb-14fc-458e-9667-8d1cc2b88fb9",
+                "experienceId": "teach-word-cat-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:00.000Z"
+              },
+              {
+                "relationshipId": "00334e83-997e-40c1-a98d-57680f50c07f",
+                "experienceId": "teach-word-eat-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:04.000Z"
+              },
+              {
+                "relationshipId": "67e06859-caf5-41a1-a142-333e0047a347",
+                "experienceId": "teach-word-book-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:03.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-novel-07",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "dog hold apple",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.dog",
+              "predicate": "meaning.hold",
+              "object": "meaning.apple"
+            },
+            "predicted": {
+              "status": "supported",
+              "subject": "meaning.dog",
+              "predicate": "meaning.hold",
+              "object": "meaning.apple"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "dd0620f0-1a72-4f91-946c-3663ecf58a21",
+                "experienceId": "teach-word-dog-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:01.000Z"
+              },
+              {
+                "relationshipId": "0bdf5879-a09f-433e-b565-06fd41cdffdc",
+                "experienceId": "teach-word-hold-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:06.000Z"
+              },
+              {
+                "relationshipId": "09905142-32a3-49ca-968a-049605866ae6",
+                "experienceId": "teach-word-apple-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:02.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-novel-08",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "bird chase cat",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.bird",
+              "predicate": "meaning.chase",
+              "object": "meaning.cat"
+            },
+            "predicted": {
+              "status": "supported",
+              "subject": "meaning.bird",
+              "predicate": "meaning.chase",
+              "object": "meaning.cat"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "2344b3d8-25ab-4753-aa8a-ec874d8643eb",
+                "experienceId": "teach-word-bird-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:07.000Z"
+              },
+              {
+                "relationshipId": "45399296-cb3e-429f-8d87-ebd7e56a694a",
+                "experienceId": "teach-word-chase-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:08.000Z"
+              },
+              {
+                "relationshipId": "b1dc2afb-14fc-458e-9667-8d1cc2b88fb9",
+                "experienceId": "teach-word-cat-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:00.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-novel-09",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "apple eat dog",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.apple",
+              "predicate": "meaning.eat",
+              "object": "meaning.dog"
+            },
+            "predicted": {
+              "status": "supported",
+              "subject": "meaning.apple",
+              "predicate": "meaning.eat",
+              "object": "meaning.dog"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "09905142-32a3-49ca-968a-049605866ae6",
+                "experienceId": "teach-word-apple-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:02.000Z"
+              },
+              {
+                "relationshipId": "00334e83-997e-40c1-a98d-57680f50c07f",
+                "experienceId": "teach-word-eat-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:04.000Z"
+              },
+              {
+                "relationshipId": "dd0620f0-1a72-4f91-946c-3663ecf58a21",
+                "experienceId": "teach-word-dog-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:01.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-novel-10",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "book hold cat",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.book",
+              "predicate": "meaning.hold",
+              "object": "meaning.cat"
+            },
+            "predicted": {
+              "status": "supported",
+              "subject": "meaning.book",
+              "predicate": "meaning.hold",
+              "object": "meaning.cat"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "67e06859-caf5-41a1-a142-333e0047a347",
+                "experienceId": "teach-word-book-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:03.000Z"
+              },
+              {
+                "relationshipId": "0bdf5879-a09f-433e-b565-06fd41cdffdc",
+                "experienceId": "teach-word-hold-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:06.000Z"
+              },
+              {
+                "relationshipId": "b1dc2afb-14fc-458e-9667-8d1cc2b88fb9",
+                "experienceId": "teach-word-cat-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:00.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-novel-11",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "cat hold bird",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.cat",
+              "predicate": "meaning.hold",
+              "object": "meaning.bird"
+            },
+            "predicted": {
+              "status": "supported",
+              "subject": "meaning.cat",
+              "predicate": "meaning.hold",
+              "object": "meaning.bird"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "b1dc2afb-14fc-458e-9667-8d1cc2b88fb9",
+                "experienceId": "teach-word-cat-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:00.000Z"
+              },
+              {
+                "relationshipId": "0bdf5879-a09f-433e-b565-06fd41cdffdc",
+                "experienceId": "teach-word-hold-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:06.000Z"
+              },
+              {
+                "relationshipId": "2344b3d8-25ab-4753-aa8a-ec874d8643eb",
+                "experienceId": "teach-word-bird-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:07.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-novel-12",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "dog chase apple",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.dog",
+              "predicate": "meaning.chase",
+              "object": "meaning.apple"
+            },
+            "predicted": {
+              "status": "supported",
+              "subject": "meaning.dog",
+              "predicate": "meaning.chase",
+              "object": "meaning.apple"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "dd0620f0-1a72-4f91-946c-3663ecf58a21",
+                "experienceId": "teach-word-dog-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:01.000Z"
+              },
+              {
+                "relationshipId": "45399296-cb3e-429f-8d87-ebd7e56a694a",
+                "experienceId": "teach-word-chase-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:08.000Z"
+              },
+              {
+                "relationshipId": "09905142-32a3-49ca-968a-049605866ae6",
+                "experienceId": "teach-word-apple-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:02.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-novel-13",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "bird eat book",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.bird",
+              "predicate": "meaning.eat",
+              "object": "meaning.book"
+            },
+            "predicted": {
+              "status": "supported",
+              "subject": "meaning.bird",
+              "predicate": "meaning.eat",
+              "object": "meaning.book"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "2344b3d8-25ab-4753-aa8a-ec874d8643eb",
+                "experienceId": "teach-word-bird-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:07.000Z"
+              },
+              {
+                "relationshipId": "00334e83-997e-40c1-a98d-57680f50c07f",
+                "experienceId": "teach-word-eat-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:04.000Z"
+              },
+              {
+                "relationshipId": "67e06859-caf5-41a1-a142-333e0047a347",
+                "experienceId": "teach-word-book-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:03.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-novel-14",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "apple hold dog",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.apple",
+              "predicate": "meaning.hold",
+              "object": "meaning.dog"
+            },
+            "predicted": {
+              "status": "supported",
+              "subject": "meaning.apple",
+              "predicate": "meaning.hold",
+              "object": "meaning.dog"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "09905142-32a3-49ca-968a-049605866ae6",
+                "experienceId": "teach-word-apple-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:02.000Z"
+              },
+              {
+                "relationshipId": "0bdf5879-a09f-433e-b565-06fd41cdffdc",
+                "experienceId": "teach-word-hold-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:06.000Z"
+              },
+              {
+                "relationshipId": "dd0620f0-1a72-4f91-946c-3663ecf58a21",
+                "experienceId": "teach-word-dog-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:01.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-novel-15",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "book chase bird",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.book",
+              "predicate": "meaning.chase",
+              "object": "meaning.bird"
+            },
+            "predicted": {
+              "status": "supported",
+              "subject": "meaning.book",
+              "predicate": "meaning.chase",
+              "object": "meaning.bird"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "67e06859-caf5-41a1-a142-333e0047a347",
+                "experienceId": "teach-word-book-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:03.000Z"
+              },
+              {
+                "relationshipId": "45399296-cb3e-429f-8d87-ebd7e56a694a",
+                "experienceId": "teach-word-chase-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:08.000Z"
+              },
+              {
+                "relationshipId": "2344b3d8-25ab-4753-aa8a-ec874d8643eb",
+                "experienceId": "teach-word-bird-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:07.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-novel-16",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "cat chase dog",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.cat",
+              "predicate": "meaning.chase",
+              "object": "meaning.dog"
+            },
+            "predicted": {
+              "status": "supported",
+              "subject": "meaning.cat",
+              "predicate": "meaning.chase",
+              "object": "meaning.dog"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "b1dc2afb-14fc-458e-9667-8d1cc2b88fb9",
+                "experienceId": "teach-word-cat-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:00.000Z"
+              },
+              {
+                "relationshipId": "45399296-cb3e-429f-8d87-ebd7e56a694a",
+                "experienceId": "teach-word-chase-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:08.000Z"
+              },
+              {
+                "relationshipId": "dd0620f0-1a72-4f91-946c-3663ecf58a21",
+                "experienceId": "teach-word-dog-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:01.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-novel-17",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "dog eat bird",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.dog",
+              "predicate": "meaning.eat",
+              "object": "meaning.bird"
+            },
+            "predicted": {
+              "status": "supported",
+              "subject": "meaning.dog",
+              "predicate": "meaning.eat",
+              "object": "meaning.bird"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "dd0620f0-1a72-4f91-946c-3663ecf58a21",
+                "experienceId": "teach-word-dog-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:01.000Z"
+              },
+              {
+                "relationshipId": "00334e83-997e-40c1-a98d-57680f50c07f",
+                "experienceId": "teach-word-eat-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:04.000Z"
+              },
+              {
+                "relationshipId": "2344b3d8-25ab-4753-aa8a-ec874d8643eb",
+                "experienceId": "teach-word-bird-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:07.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-novel-18",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "bird see book",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.bird",
+              "predicate": "meaning.see",
+              "object": "meaning.book"
+            },
+            "predicted": {
+              "status": "supported",
+              "subject": "meaning.bird",
+              "predicate": "meaning.see",
+              "object": "meaning.book"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "2344b3d8-25ab-4753-aa8a-ec874d8643eb",
+                "experienceId": "teach-word-bird-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:07.000Z"
+              },
+              {
+                "relationshipId": "cbf075ae-d499-48c7-a368-70eecc199538",
+                "experienceId": "teach-word-see-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:05.000Z"
+              },
+              {
+                "relationshipId": "67e06859-caf5-41a1-a142-333e0047a347",
+                "experienceId": "teach-word-book-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:03.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-novel-19",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "apple chase cat",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.apple",
+              "predicate": "meaning.chase",
+              "object": "meaning.cat"
+            },
+            "predicted": {
+              "status": "supported",
+              "subject": "meaning.apple",
+              "predicate": "meaning.chase",
+              "object": "meaning.cat"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "09905142-32a3-49ca-968a-049605866ae6",
+                "experienceId": "teach-word-apple-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:02.000Z"
+              },
+              {
+                "relationshipId": "45399296-cb3e-429f-8d87-ebd7e56a694a",
+                "experienceId": "teach-word-chase-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:08.000Z"
+              },
+              {
+                "relationshipId": "b1dc2afb-14fc-458e-9667-8d1cc2b88fb9",
+                "experienceId": "teach-word-cat-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:00.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-novel-20",
+            "task": "compose",
+            "category": "unseen-known-combination",
+            "input": "book eat dog",
+            "expected": {
+              "status": "supported",
+              "subject": "meaning.book",
+              "predicate": "meaning.eat",
+              "object": "meaning.dog"
+            },
+            "predicted": {
+              "status": "supported",
+              "subject": "meaning.book",
+              "predicate": "meaning.eat",
+              "object": "meaning.dog"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "67e06859-caf5-41a1-a142-333e0047a347",
+                "experienceId": "teach-word-book-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:03.000Z"
+              },
+              {
+                "relationshipId": "00334e83-997e-40c1-a98d-57680f50c07f",
+                "experienceId": "teach-word-eat-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:04.000Z"
+              },
+              {
+                "relationshipId": "dd0620f0-1a72-4f91-946c-3663ecf58a21",
+                "experienceId": "teach-word-dog-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:01.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-unknown-01",
+            "task": "lookup",
+            "category": "unknown-word",
+            "input": "glorp",
+            "expected": {
+              "status": "unknown"
+            },
+            "predicted": {
+              "status": "unknown"
+            },
+            "exact": true,
+            "evidence": []
+          },
+          {
+            "id": "test-unknown-02",
+            "task": "lookup",
+            "category": "unknown-word",
+            "input": "zibble",
+            "expected": {
+              "status": "unknown"
+            },
+            "predicted": {
+              "status": "unknown"
+            },
+            "exact": true,
+            "evidence": []
+          },
+          {
+            "id": "test-unknown-03",
+            "task": "lookup",
+            "category": "unknown-word",
+            "input": "snorf",
+            "expected": {
+              "status": "unknown"
+            },
+            "predicted": {
+              "status": "unknown"
+            },
+            "exact": true,
+            "evidence": []
+          },
+          {
+            "id": "test-unknown-04",
+            "task": "lookup",
+            "category": "unknown-word",
+            "input": "blarg",
+            "expected": {
+              "status": "unknown"
+            },
+            "predicted": {
+              "status": "unknown"
+            },
+            "exact": true,
+            "evidence": []
+          },
+          {
+            "id": "test-ambiguous-01",
+            "task": "lookup",
+            "category": "ambiguous-association",
+            "input": "mep",
+            "expected": {
+              "status": "ambiguous"
+            },
+            "predicted": {
+              "status": "ambiguous"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "6ecb5510-b6a1-4162-8c5f-a7e5fa501b76",
+                "experienceId": "teach-ambiguous-mep-cat-v1",
+                "source": "unverified-candidate",
+                "relationshipSource": "inferred",
+                "confidence": 0.5,
+                "status": "candidate",
+                "timestamp": "2026-10-16T06:00:20.000Z"
+              },
+              {
+                "relationshipId": "dc79eb5b-757f-4d60-b03f-f9f768484d92",
+                "experienceId": "teach-ambiguous-mep-dog-v1",
+                "source": "unverified-candidate",
+                "relationshipSource": "inferred",
+                "confidence": 0.5,
+                "status": "candidate",
+                "timestamp": "2026-10-16T06:00:21.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-ambiguous-02",
+            "task": "compose",
+            "category": "ambiguous-association",
+            "input": "cat see mep",
+            "expected": {
+              "status": "ambiguous"
+            },
+            "predicted": {
+              "status": "ambiguous"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "b1dc2afb-14fc-458e-9667-8d1cc2b88fb9",
+                "experienceId": "teach-word-cat-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:00.000Z"
+              },
+              {
+                "relationshipId": "cbf075ae-d499-48c7-a368-70eecc199538",
+                "experienceId": "teach-word-see-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:05.000Z"
+              },
+              {
+                "relationshipId": "6ecb5510-b6a1-4162-8c5f-a7e5fa501b76",
+                "experienceId": "teach-ambiguous-mep-cat-v1",
+                "source": "unverified-candidate",
+                "relationshipSource": "inferred",
+                "confidence": 0.5,
+                "status": "candidate",
+                "timestamp": "2026-10-16T06:00:20.000Z"
+              },
+              {
+                "relationshipId": "dc79eb5b-757f-4d60-b03f-f9f768484d92",
+                "experienceId": "teach-ambiguous-mep-dog-v1",
+                "source": "unverified-candidate",
+                "relationshipSource": "inferred",
+                "confidence": 0.5,
+                "status": "candidate",
+                "timestamp": "2026-10-16T06:00:21.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-unsupported-01",
+            "task": "compose",
+            "category": "unsupported-role-sequence",
+            "input": "cat red dog",
+            "expected": {
+              "status": "unsupported"
+            },
+            "predicted": {
+              "status": "unsupported"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "b1dc2afb-14fc-458e-9667-8d1cc2b88fb9",
+                "experienceId": "teach-word-cat-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:00.000Z"
+              },
+              {
+                "relationshipId": "5af00b85-d7db-4449-89d2-c6398f2e96b5",
+                "experienceId": "teach-word-red-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:09.000Z"
+              },
+              {
+                "relationshipId": "dd0620f0-1a72-4f91-946c-3663ecf58a21",
+                "experienceId": "teach-word-dog-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:01.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-unsupported-02",
+            "task": "compose",
+            "category": "unsupported-role-sequence",
+            "input": "eat see dog",
+            "expected": {
+              "status": "unsupported"
+            },
+            "predicted": {
+              "status": "unsupported"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "00334e83-997e-40c1-a98d-57680f50c07f",
+                "experienceId": "teach-word-eat-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:04.000Z"
+              },
+              {
+                "relationshipId": "cbf075ae-d499-48c7-a368-70eecc199538",
+                "experienceId": "teach-word-see-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:05.000Z"
+              },
+              {
+                "relationshipId": "dd0620f0-1a72-4f91-946c-3663ecf58a21",
+                "experienceId": "teach-word-dog-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:01.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-unsupported-03",
+            "task": "compose",
+            "category": "unsupported-role-sequence",
+            "input": "cat see see",
+            "expected": {
+              "status": "unsupported"
+            },
+            "predicted": {
+              "status": "unsupported"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "b1dc2afb-14fc-458e-9667-8d1cc2b88fb9",
+                "experienceId": "teach-word-cat-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:00.000Z"
+              },
+              {
+                "relationshipId": "cbf075ae-d499-48c7-a368-70eecc199538",
+                "experienceId": "teach-word-see-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:05.000Z"
+              },
+              {
+                "relationshipId": "cbf075ae-d499-48c7-a368-70eecc199538",
+                "experienceId": "teach-word-see-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:05.000Z"
+              }
+            ]
+          },
+          {
+            "id": "test-unsupported-04",
+            "task": "compose",
+            "category": "unsupported-role-sequence",
+            "input": "red hold apple",
+            "expected": {
+              "status": "unsupported"
+            },
+            "predicted": {
+              "status": "unsupported"
+            },
+            "exact": true,
+            "evidence": [
+              {
+                "relationshipId": "5af00b85-d7db-4449-89d2-c6398f2e96b5",
+                "experienceId": "teach-word-red-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:09.000Z"
+              },
+              {
+                "relationshipId": "0bdf5879-a09f-433e-b565-06fd41cdffdc",
+                "experienceId": "teach-word-hold-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:06.000Z"
+              },
+              {
+                "relationshipId": "09905142-32a3-49ca-968a-049605866ae6",
+                "experienceId": "teach-word-apple-v1",
+                "source": "explicit-teaching",
+                "relationshipSource": "explicit",
+                "confidence": 0.95,
+                "status": "accepted",
+                "timestamp": "2026-10-16T06:00:02.000Z"
+              }
+            ]
+          }
+        ]
+      },
+      "latencyMs": {
+        "sampleCount": 230,
+        "timedExampleCount": 46,
+        "repetitionsPerTestExample": 5,
+        "p50": 1.100500000000011,
+        "p95": 1.6210999999999558
+      }
+    }
+  ],
+  "metrics": {
+    "A": {
+      "symbolRecognitionAccuracy": 0,
+      "symbolRecognitionDenominator": 4,
+      "symbolToConceptAccuracy": 0,
+      "symbolToConceptDenominator": 4,
+      "wordToConceptAccuracy": 0,
+      "wordToConceptDenominator": 4,
+      "seenUsageAccuracy": 0,
+      "seenUsageDenominator": 4,
+      "unseenCombinationAccuracy": 0,
+      "unseenCombinationDenominator": 20,
+      "unknownItemRejectionAccuracy": 1,
+      "unknownItemDenominator": 4,
+      "ambiguityHandlingAccuracy": 0,
+      "ambiguityDenominator": 2,
+      "unsupportedInferenceRate": 0,
+      "unsupportedInferenceDenominator": 4,
+      "exactAccuracyAllTestCases": 0.08695652173913043,
+      "exactAccuracyDenominator": 46
+    },
+    "B": {
+      "symbolRecognitionAccuracy": 1,
+      "symbolRecognitionDenominator": 4,
+      "symbolToConceptAccuracy": 1,
+      "symbolToConceptDenominator": 4,
+      "wordToConceptAccuracy": 1,
+      "wordToConceptDenominator": 4,
+      "seenUsageAccuracy": 0,
+      "seenUsageDenominator": 4,
+      "unseenCombinationAccuracy": 0,
+      "unseenCombinationDenominator": 20,
+      "unknownItemRejectionAccuracy": 1,
+      "unknownItemDenominator": 4,
+      "ambiguityHandlingAccuracy": 0.5,
+      "ambiguityDenominator": 2,
+      "unsupportedInferenceRate": 0,
+      "unsupportedInferenceDenominator": 4,
+      "exactAccuracyAllTestCases": 0.3695652173913043,
+      "exactAccuracyDenominator": 46
+    },
+    "C": {
+      "symbolRecognitionAccuracy": 1,
+      "symbolRecognitionDenominator": 4,
+      "symbolToConceptAccuracy": 1,
+      "symbolToConceptDenominator": 4,
+      "wordToConceptAccuracy": 1,
+      "wordToConceptDenominator": 4,
+      "seenUsageAccuracy": 1,
+      "seenUsageDenominator": 4,
+      "unseenCombinationAccuracy": 1,
+      "unseenCombinationDenominator": 20,
+      "unknownItemRejectionAccuracy": 1,
+      "unknownItemDenominator": 4,
+      "ambiguityHandlingAccuracy": 1,
+      "ambiguityDenominator": 2,
+      "unsupportedInferenceRate": 0,
+      "unsupportedInferenceDenominator": 4,
+      "exactAccuracyAllTestCases": 1,
+      "exactAccuracyDenominator": 46
+    }
+  },
+  "persistenceAndLearningIntegrity": {
+    "exportedSnapshot": {
+      "validJson": true,
+      "path": "research/transinfant/memory-snapshot-003.json",
+      "relationshipCount": 22,
+      "learningEventCount": 22
+    },
+    "duplicate": {
+      "duplicateReusedExistingRelationship": true,
+      "acceptedRelationshipIds": [
+        "b1dc2afb-14fc-458e-9667-8d1cc2b88fb9"
+      ],
+      "relationshipCountBefore": 22,
+      "relationshipCountAfter": 22,
+      "passed": true
+    },
+    "restart": {
+      "separateProcessExitCode": 0,
+      "probes": {
+        "wordConcept": "meaning.cat",
+        "symbolConcept": "meaning.dog",
+        "novelComposition": {
+          "subject": "meaning.dog",
+          "predicate": "meaning.see",
+          "object": "meaning.cat"
+        }
+      },
+      "passed": true
+    },
+    "correction": {
+      "conflictRejected": true,
+      "oldAssociationBeforeCorrection": "meaning.apple",
+      "feedbackAccepted": true,
+      "correctedConcept": "meaning.dog",
+      "revisionHistoryAfterCorrection": [
+        {
+          "experienceId": "teach-symbol-C-v1",
+          "object": "meaning.apple",
+          "status": "superseded",
+          "source": "explicit",
+          "timestamp": "2026-10-16T06:00:12.000Z"
+        },
+        {
+          "experienceId": "correction-user-feedback",
+          "object": "meaning.dog",
+          "status": "accepted",
+          "source": "feedback",
+          "timestamp": "2026-10-16T07:21:00.000Z"
+        }
+      ],
+      "unrelatedWordRetained": true,
+      "unrelatedSymbolRetained": true,
+      "correctionReverted": true,
+      "originalAssociationRestored": true,
+      "revisionHistoryAfterRevert": [
+        {
+          "experienceId": "teach-symbol-C-v1",
+          "object": "meaning.apple",
+          "status": "accepted",
+          "source": "explicit",
+          "timestamp": "2026-10-16T06:00:12.000Z"
+        }
+      ],
+      "passed": true
+    },
+    "reset": {
+      "knownBeforeReset": true,
+      "unknownAfterReset": true,
+      "relationshipsAfterReset": 0,
+      "passed": true
+    },
+    "corruptMemory": {
+      "rejectedCorruptMemory": true,
+      "originalBytesPreserved": true,
+      "failure": "Could not parse TransInfant knowledge store: Expected property name or '}' in JSON at position 1 (line 1 column 2)",
+      "passed": true
+    },
+    "productionMemoryGuard": {
+      "defaultProductionStoreResetBlocked": true,
+      "failure": "Vocabulary learning requires an isolated store; the production TransInfant store is protected.",
+      "passed": true
+    },
+    "integrityChecks": [
+      {
+        "name": "snapshot-export-parses",
+        "passed": true
+      },
+      {
+        "name": "duplicate-does-not-add-association",
+        "passed": true
+      },
+      {
+        "name": "separate-process-reload",
+        "passed": true
+      },
+      {
+        "name": "correction-preserves-unrelated-knowledge",
+        "passed": true
+      },
+      {
+        "name": "isolated-reset-forgets-knowledge",
+        "passed": true
+      },
+      {
+        "name": "corrupt-memory-is-preserved-and-rejected",
+        "passed": true
+      },
+      {
+        "name": "production-memory-reset-is-blocked",
+        "passed": true
+      }
+    ],
+    "failedIntegrityChecks": []
+  },
+  "matchedInformationComparison": {
+    "BAndCReceivedSameTeachingDataset": true,
+    "BTrainingEventCount": 22,
+    "CTrainingEventCount": 22,
+    "onlyCReceivesCompositionRule": true,
+    "note": "A is untrained; B/C are matched on explicit associations. C's rule is supplied, not induced."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "datasetVersion": "tida-004-toy-language-v1",
+  "generation": "Fixed hand-authored synthetic tokens; every training example includes a weakly supervised target frame. No sentence-specific cases exist in inference code.",
+  "examples": [
+    { "id": "train-1", "tokens": ["Mira", "dax", "lumo"], "frame": { "subject": "Mira", "predicate": "dax", "object": "lumo" } },
+    { "id": "train-2", "tokens": ["Tavi", "dax", "neri"], "frame": { "subject": "Tavi", "predicate": "dax", "object": "neri" } },
+    { "id": "train-3", "tokens": ["Mira", "vek", "neri"], "frame": { "subject": "Mira", "predicate": "vek", "object": "neri" } },
+    { "id": "train-4", "tokens": ["Sena", "vek", "lumo"], "frame": { "subject": "Sena", "predicate": "vek", "object": "lumo" } }
+  ]
+}

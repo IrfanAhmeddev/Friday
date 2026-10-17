@@ -1,0 +1,69 @@
+{
+  "datasetVersion": "tida-005-incremental-curriculum-v2",
+  "phaseA": {
+    "vocabulary": [
+      { "id": "a-mira", "surface": "mira", "concept": "person.mira", "label": "Person Mira", "role": "entity" },
+      { "id": "a-sena", "surface": "sena", "concept": "person.sena", "label": "Person Sena", "role": "entity" },
+      { "id": "a-kemi", "surface": "kemi", "concept": "person.kemi", "label": "Person Kemi", "role": "entity" },
+      { "id": "a-dax", "surface": "dax", "concept": "action.dax", "label": "Action dax", "role": "predicate" },
+      { "id": "a-lumo", "surface": "lumo", "concept": "object.lumo", "label": "Object lumo", "role": "entity" },
+      { "id": "a-neri", "surface": "neri", "concept": "object.neri", "label": "Object neri", "role": "entity" }
+    ],
+    "examples": [
+      { "id": "phase-a-1", "tokens": ["mira", "dax", "lumo"], "frame": { "subject": "mira", "predicate": "dax", "object": "lumo" } },
+      { "id": "phase-a-2", "tokens": ["sena", "dax", "neri"], "frame": { "subject": "sena", "predicate": "dax", "object": "neri" } }
+    ],
+    "evaluation": [
+      { "id": "phase-a-probe-1", "text": "mira dax neri", "expected": { "subject": "person.mira", "predicate": "action.dax", "object": "object.neri" } },
+      { "id": "phase-a-probe-2", "text": "sena dax lumo", "expected": { "subject": "person.sena", "predicate": "action.dax", "object": "object.lumo" } }
+    ]
+  },
+  "phaseB": {
+    "vocabulary": [
+      { "id": "b-tavi", "surface": "tavi", "concept": "person.tavi", "label": "Person Tavi", "role": "entity" },
+      { "id": "b-vek", "surface": "vek", "concept": "action.vek", "label": "Action vek", "role": "predicate" }
+    ],
+    "evaluation": [
+      { "id": "phase-b-probe-1", "text": "tavi dax lumo", "expected": { "subject": "person.tavi", "predicate": "action.dax", "object": "object.lumo" } },
+      { "id": "phase-b-probe-2", "text": "mira vek neri", "expected": { "subject": "person.mira", "predicate": "action.vek", "object": "object.neri" } }
+    ]
+  },
+  "phaseC": {
+    "examples": [
+      { "id": "phase-c-1", "tokens": ["tavi", "vek", "neri"], "frame": { "subject": "tavi", "predicate": "vek", "object": "neri" } },
+      { "id": "phase-c-2", "tokens": ["mira", "vek", "lumo"], "frame": { "subject": "mira", "predicate": "vek", "object": "lumo" } }
+    ],
+    "evaluation": [
+      { "id": "phase-c-probe-1", "text": "kemi vek lumo", "expected": { "subject": "person.kemi", "predicate": "action.vek", "object": "object.lumo" } },
+      { "id": "phase-c-probe-2", "text": "sena vek neri", "expected": { "subject": "person.sena", "predicate": "action.vek", "object": "object.neri" } }
+    ],
+    "contradictoryExample": {
+      "id": "phase-c-contradictory",
+      "tokens": ["sena", "dax", "lumo"],
+      "frame": { "subject": "lumo", "predicate": "dax", "object": "sena" }
+    },
+    "correctedExample": {
+      "id": "phase-c-corrected",
+      "tokens": ["sena", "dax", "lumo"],
+      "frame": { "subject": "sena", "predicate": "dax", "object": "lumo" }
+    }
+  },
+  "phaseD": {
+    "incorrectMapping": { "experienceId": "phase-d-wrong", "surface": "tavi", "concept": "person.wrong", "label": "Wrong person" },
+    "correctMapping": { "experienceId": "phase-d-correction", "surface": "tavi", "concept": "person.tavi", "label": "Person Tavi" },
+    "unrelatedSurface": "mira"
+  },
+  "phaseF": {
+    "unrelatedVocabulary": [
+      { "surface": "pavo", "concept": "item.pavo" },
+      { "surface": "riku", "concept": "item.riku" },
+      { "surface": "somi", "concept": "item.somi" },
+      { "surface": "keda", "concept": "item.keda" },
+      { "surface": "vuno", "concept": "item.vuno" },
+      { "surface": "zari", "concept": "item.zari" },
+      { "surface": "noku", "concept": "item.noku" },
+      { "surface": "beli", "concept": "item.beli" }
+    ]
+  },
+  "sequenceNote": "The two teaching orders differ only in whether the disjoint Phase A and Phase B vocabulary batches arrive first. Both use the same fixed evidence. Phase probes are never reused in the final held-out v2 set."
+}

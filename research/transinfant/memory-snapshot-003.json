@@ -1,0 +1,1141 @@
+{
+  "schemaVersion": 1,
+  "concepts": [
+    {
+      "id": "word.cat",
+      "label": "cat",
+      "attributes": {
+        "vocabularyKind": "word",
+        "semanticRole": "entity",
+        "exampleUsage": "cat see dog"
+      },
+      "createdAt": "2026-10-16T06:00:00.000Z",
+      "updatedAt": "2026-10-16T06:00:00.000Z"
+    },
+    {
+      "id": "meaning.cat",
+      "label": "cat",
+      "attributes": {
+        "vocabularyKind": "meaning",
+        "semanticRole": "entity",
+        "definition": "A small domesticated feline."
+      },
+      "createdAt": "2026-10-16T06:00:00.000Z",
+      "updatedAt": "2026-10-16T06:00:00.000Z"
+    },
+    {
+      "id": "word.dog",
+      "label": "dog",
+      "attributes": {
+        "vocabularyKind": "word",
+        "semanticRole": "entity",
+        "exampleUsage": "dog eat apple"
+      },
+      "createdAt": "2026-10-16T06:00:01.000Z",
+      "updatedAt": "2026-10-16T06:00:01.000Z"
+    },
+    {
+      "id": "meaning.dog",
+      "label": "dog",
+      "attributes": {
+        "vocabularyKind": "meaning",
+        "semanticRole": "entity",
+        "definition": "A domesticated canine."
+      },
+      "createdAt": "2026-10-16T06:00:01.000Z",
+      "updatedAt": "2026-10-16T06:00:01.000Z"
+    },
+    {
+      "id": "word.apple",
+      "label": "apple",
+      "attributes": {
+        "vocabularyKind": "word",
+        "semanticRole": "entity"
+      },
+      "createdAt": "2026-10-16T06:00:02.000Z",
+      "updatedAt": "2026-10-16T06:00:02.000Z"
+    },
+    {
+      "id": "meaning.apple",
+      "label": "apple",
+      "attributes": {
+        "vocabularyKind": "meaning",
+        "semanticRole": "entity",
+        "definition": "A fruit."
+      },
+      "createdAt": "2026-10-16T06:00:02.000Z",
+      "updatedAt": "2026-10-16T06:00:02.000Z"
+    },
+    {
+      "id": "word.book",
+      "label": "book",
+      "attributes": {
+        "vocabularyKind": "word",
+        "semanticRole": "entity"
+      },
+      "createdAt": "2026-10-16T06:00:03.000Z",
+      "updatedAt": "2026-10-16T06:00:03.000Z"
+    },
+    {
+      "id": "meaning.book",
+      "label": "book",
+      "attributes": {
+        "vocabularyKind": "meaning",
+        "semanticRole": "entity",
+        "definition": "A collection of written pages."
+      },
+      "createdAt": "2026-10-16T06:00:03.000Z",
+      "updatedAt": "2026-10-16T06:00:03.000Z"
+    },
+    {
+      "id": "word.eat",
+      "label": "eat",
+      "attributes": {
+        "vocabularyKind": "word",
+        "semanticRole": "predicate",
+        "exampleUsage": "bird eat apple"
+      },
+      "createdAt": "2026-10-16T06:00:04.000Z",
+      "updatedAt": "2026-10-16T06:00:04.000Z"
+    },
+    {
+      "id": "meaning.eat",
+      "label": "eat",
+      "attributes": {
+        "vocabularyKind": "meaning",
+        "semanticRole": "predicate",
+        "definition": "Consume food."
+      },
+      "createdAt": "2026-10-16T06:00:04.000Z",
+      "updatedAt": "2026-10-16T06:00:04.000Z"
+    },
+    {
+      "id": "word.see",
+      "label": "see",
+      "attributes": {
+        "vocabularyKind": "word",
+        "semanticRole": "predicate"
+      },
+      "createdAt": "2026-10-16T06:00:05.000Z",
+      "updatedAt": "2026-10-16T06:00:05.000Z"
+    },
+    {
+      "id": "meaning.see",
+      "label": "see",
+      "attributes": {
+        "vocabularyKind": "meaning",
+        "semanticRole": "predicate",
+        "definition": "Perceive visually."
+      },
+      "createdAt": "2026-10-16T06:00:05.000Z",
+      "updatedAt": "2026-10-16T06:00:05.000Z"
+    },
+    {
+      "id": "word.hold",
+      "label": "hold",
+      "attributes": {
+        "vocabularyKind": "word",
+        "semanticRole": "predicate",
+        "exampleUsage": "bird hold book"
+      },
+      "createdAt": "2026-10-16T06:00:06.000Z",
+      "updatedAt": "2026-10-16T06:00:06.000Z"
+    },
+    {
+      "id": "meaning.hold",
+      "label": "hold",
+      "attributes": {
+        "vocabularyKind": "meaning",
+        "semanticRole": "predicate",
+        "definition": "Keep something in one's hands."
+      },
+      "createdAt": "2026-10-16T06:00:06.000Z",
+      "updatedAt": "2026-10-16T06:00:06.000Z"
+    },
+    {
+      "id": "word.bird",
+      "label": "bird",
+      "attributes": {
+        "vocabularyKind": "word",
+        "semanticRole": "entity"
+      },
+      "createdAt": "2026-10-16T06:00:07.000Z",
+      "updatedAt": "2026-10-16T06:00:07.000Z"
+    },
+    {
+      "id": "meaning.bird",
+      "label": "bird",
+      "attributes": {
+        "vocabularyKind": "meaning",
+        "semanticRole": "entity",
+        "definition": "An animal with feathers."
+      },
+      "createdAt": "2026-10-16T06:00:07.000Z",
+      "updatedAt": "2026-10-16T06:00:07.000Z"
+    },
+    {
+      "id": "word.chase",
+      "label": "chase",
+      "attributes": {
+        "vocabularyKind": "word",
+        "semanticRole": "predicate",
+        "exampleUsage": "cat chase bird"
+      },
+      "createdAt": "2026-10-16T06:00:08.000Z",
+      "updatedAt": "2026-10-16T06:00:08.000Z"
+    },
+    {
+      "id": "meaning.chase",
+      "label": "chase",
+      "attributes": {
+        "vocabularyKind": "meaning",
+        "semanticRole": "predicate",
+        "definition": "Pursue something."
+      },
+      "createdAt": "2026-10-16T06:00:08.000Z",
+      "updatedAt": "2026-10-16T06:00:08.000Z"
+    },
+    {
+      "id": "word.red",
+      "label": "red",
+      "attributes": {
+        "vocabularyKind": "word",
+        "semanticRole": "property"
+      },
+      "createdAt": "2026-10-16T06:00:09.000Z",
+      "updatedAt": "2026-10-16T06:00:09.000Z"
+    },
+    {
+      "id": "meaning.red",
+      "label": "red",
+      "attributes": {
+        "vocabularyKind": "meaning",
+        "semanticRole": "property",
+        "definition": "A color."
+      },
+      "createdAt": "2026-10-16T06:00:09.000Z",
+      "updatedAt": "2026-10-16T06:00:09.000Z"
+    },
+    {
+      "id": "symbol.A",
+      "label": "A",
+      "attributes": {
+        "vocabularyKind": "symbol",
+        "semanticRole": "entity"
+      },
+      "createdAt": "2026-10-16T06:00:10.000Z",
+      "updatedAt": "2026-10-16T06:00:10.000Z"
+    },
+    {
+      "id": "symbol.B",
+      "label": "B",
+      "attributes": {
+        "vocabularyKind": "symbol",
+        "semanticRole": "entity"
+      },
+      "createdAt": "2026-10-16T06:00:11.000Z",
+      "updatedAt": "2026-10-16T06:00:11.000Z"
+    },
+    {
+      "id": "symbol.C",
+      "label": "C",
+      "attributes": {
+        "vocabularyKind": "symbol",
+        "semanticRole": "entity"
+      },
+      "createdAt": "2026-10-16T06:00:12.000Z",
+      "updatedAt": "2026-10-16T06:00:12.000Z"
+    },
+    {
+      "id": "symbol.D",
+      "label": "D",
+      "attributes": {
+        "vocabularyKind": "symbol",
+        "semanticRole": "entity"
+      },
+      "createdAt": "2026-10-16T06:00:13.000Z",
+      "updatedAt": "2026-10-16T06:00:13.000Z"
+    },
+    {
+      "id": "symbol.E",
+      "label": "E",
+      "attributes": {
+        "vocabularyKind": "symbol",
+        "semanticRole": "predicate"
+      },
+      "createdAt": "2026-10-16T06:00:14.000Z",
+      "updatedAt": "2026-10-16T06:00:14.000Z"
+    },
+    {
+      "id": "symbol.F",
+      "label": "F",
+      "attributes": {
+        "vocabularyKind": "symbol",
+        "semanticRole": "predicate"
+      },
+      "createdAt": "2026-10-16T06:00:15.000Z",
+      "updatedAt": "2026-10-16T06:00:15.000Z"
+    },
+    {
+      "id": "symbol.G",
+      "label": "G",
+      "attributes": {
+        "vocabularyKind": "symbol",
+        "semanticRole": "predicate"
+      },
+      "createdAt": "2026-10-16T06:00:16.000Z",
+      "updatedAt": "2026-10-16T06:00:16.000Z"
+    },
+    {
+      "id": "symbol.H",
+      "label": "H",
+      "attributes": {
+        "vocabularyKind": "symbol",
+        "semanticRole": "entity"
+      },
+      "createdAt": "2026-10-16T06:00:17.000Z",
+      "updatedAt": "2026-10-16T06:00:17.000Z"
+    },
+    {
+      "id": "symbol.I",
+      "label": "I",
+      "attributes": {
+        "vocabularyKind": "symbol",
+        "semanticRole": "predicate"
+      },
+      "createdAt": "2026-10-16T06:00:18.000Z",
+      "updatedAt": "2026-10-16T06:00:18.000Z"
+    },
+    {
+      "id": "symbol.J",
+      "label": "J",
+      "attributes": {
+        "vocabularyKind": "symbol",
+        "semanticRole": "property"
+      },
+      "createdAt": "2026-10-16T06:00:19.000Z",
+      "updatedAt": "2026-10-16T06:00:19.000Z"
+    },
+    {
+      "id": "word.mep",
+      "label": "mep",
+      "attributes": {
+        "vocabularyKind": "word",
+        "semanticRole": "entity"
+      },
+      "createdAt": "2026-10-16T06:00:20.000Z",
+      "updatedAt": "2026-10-16T06:00:20.000Z"
+    }
+  ],
+  "symbols": [
+    {
+      "normalized": "cat",
+      "conceptId": "word.cat",
+      "surface": "cat"
+    },
+    {
+      "normalized": "kitty",
+      "conceptId": "word.cat",
+      "surface": "kitty"
+    },
+    {
+      "normalized": "dog",
+      "conceptId": "word.dog",
+      "surface": "dog"
+    },
+    {
+      "normalized": "puppy",
+      "conceptId": "word.dog",
+      "surface": "puppy"
+    },
+    {
+      "normalized": "apple",
+      "conceptId": "word.apple",
+      "surface": "apple"
+    },
+    {
+      "normalized": "book",
+      "conceptId": "word.book",
+      "surface": "book"
+    },
+    {
+      "normalized": "eat",
+      "conceptId": "word.eat",
+      "surface": "eat"
+    },
+    {
+      "normalized": "see",
+      "conceptId": "word.see",
+      "surface": "see"
+    },
+    {
+      "normalized": "hold",
+      "conceptId": "word.hold",
+      "surface": "hold"
+    },
+    {
+      "normalized": "bird",
+      "conceptId": "word.bird",
+      "surface": "bird"
+    },
+    {
+      "normalized": "chase",
+      "conceptId": "word.chase",
+      "surface": "chase"
+    },
+    {
+      "normalized": "red",
+      "conceptId": "word.red",
+      "surface": "red"
+    },
+    {
+      "normalized": "a",
+      "conceptId": "symbol.A",
+      "surface": "A"
+    },
+    {
+      "normalized": "b",
+      "conceptId": "symbol.B",
+      "surface": "B"
+    },
+    {
+      "normalized": "c",
+      "conceptId": "symbol.C",
+      "surface": "C"
+    },
+    {
+      "normalized": "d",
+      "conceptId": "symbol.D",
+      "surface": "D"
+    },
+    {
+      "normalized": "e",
+      "conceptId": "symbol.E",
+      "surface": "E"
+    },
+    {
+      "normalized": "f",
+      "conceptId": "symbol.F",
+      "surface": "F"
+    },
+    {
+      "normalized": "g",
+      "conceptId": "symbol.G",
+      "surface": "G"
+    },
+    {
+      "normalized": "h",
+      "conceptId": "symbol.H",
+      "surface": "H"
+    },
+    {
+      "normalized": "i",
+      "conceptId": "symbol.I",
+      "surface": "I"
+    },
+    {
+      "normalized": "j",
+      "conceptId": "symbol.J",
+      "surface": "J"
+    },
+    {
+      "normalized": "mep",
+      "conceptId": "word.mep",
+      "surface": "mep"
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "word.cat",
+      "predicate": "denotes",
+      "object": "meaning.cat",
+      "source": "explicit",
+      "confidence": 0.95,
+      "id": "b1dc2afb-14fc-458e-9667-8d1cc2b88fb9",
+      "experienceId": "teach-word-cat-v1",
+      "timestamp": "2026-10-16T06:00:00.000Z",
+      "status": "accepted"
+    },
+    {
+      "subject": "word.dog",
+      "predicate": "denotes",
+      "object": "meaning.dog",
+      "source": "explicit",
+      "confidence": 0.95,
+      "id": "dd0620f0-1a72-4f91-946c-3663ecf58a21",
+      "experienceId": "teach-word-dog-v1",
+      "timestamp": "2026-10-16T06:00:01.000Z",
+      "status": "accepted"
+    },
+    {
+      "subject": "word.apple",
+      "predicate": "denotes",
+      "object": "meaning.apple",
+      "source": "explicit",
+      "confidence": 0.95,
+      "id": "09905142-32a3-49ca-968a-049605866ae6",
+      "experienceId": "teach-word-apple-v1",
+      "timestamp": "2026-10-16T06:00:02.000Z",
+      "status": "accepted"
+    },
+    {
+      "subject": "word.book",
+      "predicate": "denotes",
+      "object": "meaning.book",
+      "source": "explicit",
+      "confidence": 0.95,
+      "id": "67e06859-caf5-41a1-a142-333e0047a347",
+      "experienceId": "teach-word-book-v1",
+      "timestamp": "2026-10-16T06:00:03.000Z",
+      "status": "accepted"
+    },
+    {
+      "subject": "word.eat",
+      "predicate": "denotes",
+      "object": "meaning.eat",
+      "source": "explicit",
+      "confidence": 0.95,
+      "id": "00334e83-997e-40c1-a98d-57680f50c07f",
+      "experienceId": "teach-word-eat-v1",
+      "timestamp": "2026-10-16T06:00:04.000Z",
+      "status": "accepted"
+    },
+    {
+      "subject": "word.see",
+      "predicate": "denotes",
+      "object": "meaning.see",
+      "source": "explicit",
+      "confidence": 0.95,
+      "id": "cbf075ae-d499-48c7-a368-70eecc199538",
+      "experienceId": "teach-word-see-v1",
+      "timestamp": "2026-10-16T06:00:05.000Z",
+      "status": "accepted"
+    },
+    {
+      "subject": "word.hold",
+      "predicate": "denotes",
+      "object": "meaning.hold",
+      "source": "explicit",
+      "confidence": 0.95,
+      "id": "0bdf5879-a09f-433e-b565-06fd41cdffdc",
+      "experienceId": "teach-word-hold-v1",
+      "timestamp": "2026-10-16T06:00:06.000Z",
+      "status": "accepted"
+    },
+    {
+      "subject": "word.bird",
+      "predicate": "denotes",
+      "object": "meaning.bird",
+      "source": "explicit",
+      "confidence": 0.95,
+      "id": "2344b3d8-25ab-4753-aa8a-ec874d8643eb",
+      "experienceId": "teach-word-bird-v1",
+      "timestamp": "2026-10-16T06:00:07.000Z",
+      "status": "accepted"
+    },
+    {
+      "subject": "word.chase",
+      "predicate": "denotes",
+      "object": "meaning.chase",
+      "source": "explicit",
+      "confidence": 0.95,
+      "id": "45399296-cb3e-429f-8d87-ebd7e56a694a",
+      "experienceId": "teach-word-chase-v1",
+      "timestamp": "2026-10-16T06:00:08.000Z",
+      "status": "accepted"
+    },
+    {
+      "subject": "word.red",
+      "predicate": "denotes",
+      "object": "meaning.red",
+      "source": "explicit",
+      "confidence": 0.95,
+      "id": "5af00b85-d7db-4449-89d2-c6398f2e96b5",
+      "experienceId": "teach-word-red-v1",
+      "timestamp": "2026-10-16T06:00:09.000Z",
+      "status": "accepted"
+    },
+    {
+      "subject": "symbol.A",
+      "predicate": "denotes",
+      "object": "meaning.cat",
+      "source": "explicit",
+      "confidence": 0.9,
+      "id": "05b906de-acee-4592-ab4f-0a82f20ccbf9",
+      "experienceId": "teach-symbol-A-v1",
+      "timestamp": "2026-10-16T06:00:10.000Z",
+      "status": "accepted"
+    },
+    {
+      "subject": "symbol.B",
+      "predicate": "denotes",
+      "object": "meaning.dog",
+      "source": "explicit",
+      "confidence": 0.9,
+      "id": "5df1bde9-66d6-46a2-a932-e355221dcdba",
+      "experienceId": "teach-symbol-B-v1",
+      "timestamp": "2026-10-16T06:00:11.000Z",
+      "status": "accepted"
+    },
+    {
+      "subject": "symbol.C",
+      "predicate": "denotes",
+      "object": "meaning.apple",
+      "source": "explicit",
+      "confidence": 0.9,
+      "id": "6f30a857-b0bc-4bc8-8133-876ec30b7444",
+      "experienceId": "teach-symbol-C-v1",
+      "timestamp": "2026-10-16T06:00:12.000Z",
+      "status": "accepted"
+    },
+    {
+      "subject": "symbol.D",
+      "predicate": "denotes",
+      "object": "meaning.book",
+      "source": "explicit",
+      "confidence": 0.9,
+      "id": "bb6b52a6-b014-4936-b83a-a89bedb5e5de",
+      "experienceId": "teach-symbol-D-v1",
+      "timestamp": "2026-10-16T06:00:13.000Z",
+      "status": "accepted"
+    },
+    {
+      "subject": "symbol.E",
+      "predicate": "denotes",
+      "object": "meaning.eat",
+      "source": "explicit",
+      "confidence": 0.9,
+      "id": "0352c1b0-cfff-4879-926e-7543ba1a45f3",
+      "experienceId": "teach-symbol-E-v1",
+      "timestamp": "2026-10-16T06:00:14.000Z",
+      "status": "accepted"
+    },
+    {
+      "subject": "symbol.F",
+      "predicate": "denotes",
+      "object": "meaning.see",
+      "source": "explicit",
+      "confidence": 0.9,
+      "id": "e4a8bf69-dcc8-4ac6-b5c1-0177ba5ec37e",
+      "experienceId": "teach-symbol-F-v1",
+      "timestamp": "2026-10-16T06:00:15.000Z",
+      "status": "accepted"
+    },
+    {
+      "subject": "symbol.G",
+      "predicate": "denotes",
+      "object": "meaning.hold",
+      "source": "explicit",
+      "confidence": 0.9,
+      "id": "e75acf9b-e0e6-44cd-b4f2-417b80f634d9",
+      "experienceId": "teach-symbol-G-v1",
+      "timestamp": "2026-10-16T06:00:16.000Z",
+      "status": "accepted"
+    },
+    {
+      "subject": "symbol.H",
+      "predicate": "denotes",
+      "object": "meaning.bird",
+      "source": "explicit",
+      "confidence": 0.9,
+      "id": "595f82f2-3d36-4a00-b1e7-1ed810ff44ad",
+      "experienceId": "teach-symbol-H-v1",
+      "timestamp": "2026-10-16T06:00:17.000Z",
+      "status": "accepted"
+    },
+    {
+      "subject": "symbol.I",
+      "predicate": "denotes",
+      "object": "meaning.chase",
+      "source": "explicit",
+      "confidence": 0.9,
+      "id": "eee9c40f-8e11-424a-ae6e-d06fe225e919",
+      "experienceId": "teach-symbol-I-v1",
+      "timestamp": "2026-10-16T06:00:18.000Z",
+      "status": "accepted"
+    },
+    {
+      "subject": "symbol.J",
+      "predicate": "denotes",
+      "object": "meaning.red",
+      "source": "explicit",
+      "confidence": 0.9,
+      "id": "0f40aff1-e151-4f54-b0d6-788d638cb3c9",
+      "experienceId": "teach-symbol-J-v1",
+      "timestamp": "2026-10-16T06:00:19.000Z",
+      "status": "accepted"
+    },
+    {
+      "subject": "word.mep",
+      "predicate": "denotes",
+      "object": "meaning.cat",
+      "source": "inferred",
+      "confidence": 0.5,
+      "id": "6ecb5510-b6a1-4162-8c5f-a7e5fa501b76",
+      "experienceId": "teach-ambiguous-mep-cat-v1",
+      "timestamp": "2026-10-16T06:00:20.000Z",
+      "status": "candidate"
+    },
+    {
+      "subject": "word.mep",
+      "predicate": "denotes",
+      "object": "meaning.dog",
+      "source": "inferred",
+      "confidence": 0.5,
+      "id": "dc79eb5b-757f-4d60-b03f-f9f768484d92",
+      "experienceId": "teach-ambiguous-mep-dog-v1",
+      "timestamp": "2026-10-16T06:00:21.000Z",
+      "status": "candidate"
+    }
+  ],
+  "events": [
+    {
+      "id": "0f9a6fd4-0023-4d7d-b3ee-fd3866c59fee",
+      "timestamp": "2026-10-16T06:00:00.000Z",
+      "experienceId": "teach-word-cat-v1",
+      "source": "explicit-teaching",
+      "outcome": "partial",
+      "details": [
+        "Symbol \"cat\" already refers to another concept; alias not reassigned."
+      ],
+      "addedConceptIds": [
+        "word.cat",
+        "meaning.cat"
+      ],
+      "addedSymbolKeys": [
+        "cat",
+        "kitty"
+      ],
+      "addedRelationshipIds": [
+        "b1dc2afb-14fc-458e-9667-8d1cc2b88fb9"
+      ],
+      "supersededRelationshipIds": []
+    },
+    {
+      "id": "b6c17be7-bd42-4a22-a806-5678b929eef9",
+      "timestamp": "2026-10-16T06:00:01.000Z",
+      "experienceId": "teach-word-dog-v1",
+      "source": "explicit-teaching",
+      "outcome": "partial",
+      "details": [
+        "Symbol \"dog\" already refers to another concept; alias not reassigned."
+      ],
+      "addedConceptIds": [
+        "word.dog",
+        "meaning.dog"
+      ],
+      "addedSymbolKeys": [
+        "dog",
+        "puppy"
+      ],
+      "addedRelationshipIds": [
+        "dd0620f0-1a72-4f91-946c-3663ecf58a21"
+      ],
+      "supersededRelationshipIds": []
+    },
+    {
+      "id": "74b29433-dcf0-4d6b-9cc4-53dd6ea4bd7f",
+      "timestamp": "2026-10-16T06:00:02.000Z",
+      "experienceId": "teach-word-apple-v1",
+      "source": "explicit-teaching",
+      "outcome": "partial",
+      "details": [
+        "Symbol \"apple\" already refers to another concept; alias not reassigned."
+      ],
+      "addedConceptIds": [
+        "word.apple",
+        "meaning.apple"
+      ],
+      "addedSymbolKeys": [
+        "apple"
+      ],
+      "addedRelationshipIds": [
+        "09905142-32a3-49ca-968a-049605866ae6"
+      ],
+      "supersededRelationshipIds": []
+    },
+    {
+      "id": "d510d222-87fc-465c-b90a-a51000235599",
+      "timestamp": "2026-10-16T06:00:03.000Z",
+      "experienceId": "teach-word-book-v1",
+      "source": "explicit-teaching",
+      "outcome": "partial",
+      "details": [
+        "Symbol \"book\" already refers to another concept; alias not reassigned."
+      ],
+      "addedConceptIds": [
+        "word.book",
+        "meaning.book"
+      ],
+      "addedSymbolKeys": [
+        "book"
+      ],
+      "addedRelationshipIds": [
+        "67e06859-caf5-41a1-a142-333e0047a347"
+      ],
+      "supersededRelationshipIds": []
+    },
+    {
+      "id": "fb832072-b944-4710-b5c4-3367b1549f34",
+      "timestamp": "2026-10-16T06:00:04.000Z",
+      "experienceId": "teach-word-eat-v1",
+      "source": "explicit-teaching",
+      "outcome": "partial",
+      "details": [
+        "Symbol \"eat\" already refers to another concept; alias not reassigned."
+      ],
+      "addedConceptIds": [
+        "word.eat",
+        "meaning.eat"
+      ],
+      "addedSymbolKeys": [
+        "eat"
+      ],
+      "addedRelationshipIds": [
+        "00334e83-997e-40c1-a98d-57680f50c07f"
+      ],
+      "supersededRelationshipIds": []
+    },
+    {
+      "id": "7f692e68-4537-4563-8cf7-5773948016b0",
+      "timestamp": "2026-10-16T06:00:05.000Z",
+      "experienceId": "teach-word-see-v1",
+      "source": "explicit-teaching",
+      "outcome": "partial",
+      "details": [
+        "Symbol \"see\" already refers to another concept; alias not reassigned."
+      ],
+      "addedConceptIds": [
+        "word.see",
+        "meaning.see"
+      ],
+      "addedSymbolKeys": [
+        "see"
+      ],
+      "addedRelationshipIds": [
+        "cbf075ae-d499-48c7-a368-70eecc199538"
+      ],
+      "supersededRelationshipIds": []
+    },
+    {
+      "id": "ff567d6a-ed86-4b54-b056-278a49ac5dae",
+      "timestamp": "2026-10-16T06:00:06.000Z",
+      "experienceId": "teach-word-hold-v1",
+      "source": "explicit-teaching",
+      "outcome": "partial",
+      "details": [
+        "Symbol \"hold\" already refers to another concept; alias not reassigned."
+      ],
+      "addedConceptIds": [
+        "word.hold",
+        "meaning.hold"
+      ],
+      "addedSymbolKeys": [
+        "hold"
+      ],
+      "addedRelationshipIds": [
+        "0bdf5879-a09f-433e-b565-06fd41cdffdc"
+      ],
+      "supersededRelationshipIds": []
+    },
+    {
+      "id": "1f32d69b-da86-4c6f-84c2-e5fd11adb4c2",
+      "timestamp": "2026-10-16T06:00:07.000Z",
+      "experienceId": "teach-word-bird-v1",
+      "source": "explicit-teaching",
+      "outcome": "partial",
+      "details": [
+        "Symbol \"bird\" already refers to another concept; alias not reassigned."
+      ],
+      "addedConceptIds": [
+        "word.bird",
+        "meaning.bird"
+      ],
+      "addedSymbolKeys": [
+        "bird"
+      ],
+      "addedRelationshipIds": [
+        "2344b3d8-25ab-4753-aa8a-ec874d8643eb"
+      ],
+      "supersededRelationshipIds": []
+    },
+    {
+      "id": "250e019f-29a4-4929-98b8-0195cc736ee7",
+      "timestamp": "2026-10-16T06:00:08.000Z",
+      "experienceId": "teach-word-chase-v1",
+      "source": "explicit-teaching",
+      "outcome": "partial",
+      "details": [
+        "Symbol \"chase\" already refers to another concept; alias not reassigned."
+      ],
+      "addedConceptIds": [
+        "word.chase",
+        "meaning.chase"
+      ],
+      "addedSymbolKeys": [
+        "chase"
+      ],
+      "addedRelationshipIds": [
+        "45399296-cb3e-429f-8d87-ebd7e56a694a"
+      ],
+      "supersededRelationshipIds": []
+    },
+    {
+      "id": "368a6a23-9868-4de6-9198-5b21e4f856be",
+      "timestamp": "2026-10-16T06:00:09.000Z",
+      "experienceId": "teach-word-red-v1",
+      "source": "explicit-teaching",
+      "outcome": "partial",
+      "details": [
+        "Symbol \"red\" already refers to another concept; alias not reassigned."
+      ],
+      "addedConceptIds": [
+        "word.red",
+        "meaning.red"
+      ],
+      "addedSymbolKeys": [
+        "red"
+      ],
+      "addedRelationshipIds": [
+        "5af00b85-d7db-4449-89d2-c6398f2e96b5"
+      ],
+      "supersededRelationshipIds": []
+    },
+    {
+      "id": "6275555b-346b-44df-a5b0-93105cc57ca2",
+      "timestamp": "2026-10-16T06:00:10.000Z",
+      "experienceId": "teach-symbol-A-v1",
+      "source": "symbol-card-set-v1",
+      "outcome": "partial",
+      "details": [
+        "Symbol \"cat\" already refers to another concept; alias not reassigned."
+      ],
+      "addedConceptIds": [
+        "symbol.A"
+      ],
+      "addedSymbolKeys": [
+        "a"
+      ],
+      "addedRelationshipIds": [
+        "05b906de-acee-4592-ab4f-0a82f20ccbf9"
+      ],
+      "supersededRelationshipIds": []
+    },
+    {
+      "id": "e0071b93-8f6f-4465-b66b-1143317efa40",
+      "timestamp": "2026-10-16T06:00:11.000Z",
+      "experienceId": "teach-symbol-B-v1",
+      "source": "symbol-card-set-v1",
+      "outcome": "partial",
+      "details": [
+        "Symbol \"dog\" already refers to another concept; alias not reassigned."
+      ],
+      "addedConceptIds": [
+        "symbol.B"
+      ],
+      "addedSymbolKeys": [
+        "b"
+      ],
+      "addedRelationshipIds": [
+        "5df1bde9-66d6-46a2-a932-e355221dcdba"
+      ],
+      "supersededRelationshipIds": []
+    },
+    {
+      "id": "a43ed9f1-49ee-4be7-9ae8-6654aa327322",
+      "timestamp": "2026-10-16T06:00:12.000Z",
+      "experienceId": "teach-symbol-C-v1",
+      "source": "symbol-card-set-v1",
+      "outcome": "partial",
+      "details": [
+        "Symbol \"apple\" already refers to another concept; alias not reassigned."
+      ],
+      "addedConceptIds": [
+        "symbol.C"
+      ],
+      "addedSymbolKeys": [
+        "c"
+      ],
+      "addedRelationshipIds": [
+        "6f30a857-b0bc-4bc8-8133-876ec30b7444"
+      ],
+      "supersededRelationshipIds": []
+    },
+    {
+      "id": "90349178-faea-4cb5-8023-4f00e6eccdd0",
+      "timestamp": "2026-10-16T06:00:13.000Z",
+      "experienceId": "teach-symbol-D-v1",
+      "source": "symbol-card-set-v1",
+      "outcome": "partial",
+      "details": [
+        "Symbol \"book\" already refers to another concept; alias not reassigned."
+      ],
+      "addedConceptIds": [
+        "symbol.D"
+      ],
+      "addedSymbolKeys": [
+        "d"
+      ],
+      "addedRelationshipIds": [
+        "bb6b52a6-b014-4936-b83a-a89bedb5e5de"
+      ],
+      "supersededRelationshipIds": []
+    },
+    {
+      "id": "6e1208af-877d-4047-be56-eb73a48b9500",
+      "timestamp": "2026-10-16T06:00:14.000Z",
+      "experienceId": "teach-symbol-E-v1",
+      "source": "symbol-card-set-v1",
+      "outcome": "partial",
+      "details": [
+        "Symbol \"eat\" already refers to another concept; alias not reassigned."
+      ],
+      "addedConceptIds": [
+        "symbol.E"
+      ],
+      "addedSymbolKeys": [
+        "e"
+      ],
+      "addedRelationshipIds": [
+        "0352c1b0-cfff-4879-926e-7543ba1a45f3"
+      ],
+      "supersededRelationshipIds": []
+    },
+    {
+      "id": "2ab60608-ffdf-4ba6-9c01-67944d4989f7",
+      "timestamp": "2026-10-16T06:00:15.000Z",
+      "experienceId": "teach-symbol-F-v1",
+      "source": "symbol-card-set-v1",
+      "outcome": "partial",
+      "details": [
+        "Symbol \"see\" already refers to another concept; alias not reassigned."
+      ],
+      "addedConceptIds": [
+        "symbol.F"
+      ],
+      "addedSymbolKeys": [
+        "f"
+      ],
+      "addedRelationshipIds": [
+        "e4a8bf69-dcc8-4ac6-b5c1-0177ba5ec37e"
+      ],
+      "supersededRelationshipIds": []
+    },
+    {
+      "id": "81abf1b4-8734-4dd0-adc7-7c1bbf1549ca",
+      "timestamp": "2026-10-16T06:00:16.000Z",
+      "experienceId": "teach-symbol-G-v1",
+      "source": "symbol-card-set-v1",
+      "outcome": "partial",
+      "details": [
+        "Symbol \"hold\" already refers to another concept; alias not reassigned."
+      ],
+      "addedConceptIds": [
+        "symbol.G"
+      ],
+      "addedSymbolKeys": [
+        "g"
+      ],
+      "addedRelationshipIds": [
+        "e75acf9b-e0e6-44cd-b4f2-417b80f634d9"
+      ],
+      "supersededRelationshipIds": []
+    },
+    {
+      "id": "469a507a-2a75-40f0-bfb7-8a91d828b15c",
+      "timestamp": "2026-10-16T06:00:17.000Z",
+      "experienceId": "teach-symbol-H-v1",
+      "source": "symbol-card-set-v1",
+      "outcome": "partial",
+      "details": [
+        "Symbol \"bird\" already refers to another concept; alias not reassigned."
+      ],
+      "addedConceptIds": [
+        "symbol.H"
+      ],
+      "addedSymbolKeys": [
+        "h"
+      ],
+      "addedRelationshipIds": [
+        "595f82f2-3d36-4a00-b1e7-1ed810ff44ad"
+      ],
+      "supersededRelationshipIds": []
+    },
+    {
+      "id": "7d460480-c944-49b6-b0a0-426a0b46b1c9",
+      "timestamp": "2026-10-16T06:00:18.000Z",
+      "experienceId": "teach-symbol-I-v1",
+      "source": "symbol-card-set-v1",
+      "outcome": "partial",
+      "details": [
+        "Symbol \"chase\" already refers to another concept; alias not reassigned."
+      ],
+      "addedConceptIds": [
+        "symbol.I"
+      ],
+      "addedSymbolKeys": [
+        "i"
+      ],
+      "addedRelationshipIds": [
+        "eee9c40f-8e11-424a-ae6e-d06fe225e919"
+      ],
+      "supersededRelationshipIds": []
+    },
+    {
+      "id": "7d901b57-a22e-4162-a9d2-3e38143742fb",
+      "timestamp": "2026-10-16T06:00:19.000Z",
+      "experienceId": "teach-symbol-J-v1",
+      "source": "symbol-card-set-v1",
+      "outcome": "partial",
+      "details": [
+        "Symbol \"red\" already refers to another concept; alias not reassigned."
+      ],
+      "addedConceptIds": [
+        "symbol.J"
+      ],
+      "addedSymbolKeys": [
+        "j"
+      ],
+      "addedRelationshipIds": [
+        "0f40aff1-e151-4f54-b0d6-788d638cb3c9"
+      ],
+      "supersededRelationshipIds": []
+    },
+    {
+      "id": "be53c96a-e72c-4fe7-b040-915bd6783a46",
+      "timestamp": "2026-10-16T06:00:20.000Z",
+      "experienceId": "teach-ambiguous-mep-cat-v1",
+      "source": "unverified-candidate",
+      "outcome": "partial",
+      "details": [
+        "Symbol \"cat\" already refers to another concept; alias not reassigned."
+      ],
+      "addedConceptIds": [
+        "word.mep"
+      ],
+      "addedSymbolKeys": [
+        "mep"
+      ],
+      "addedRelationshipIds": [
+        "6ecb5510-b6a1-4162-8c5f-a7e5fa501b76"
+      ],
+      "supersededRelationshipIds": []
+    },
+    {
+      "id": "ffa4736c-8d82-4dda-8152-f5fb76558aca",
+      "timestamp": "2026-10-16T06:00:21.000Z",
+      "experienceId": "teach-ambiguous-mep-dog-v1",
+      "source": "unverified-candidate",
+      "outcome": "partial",
+      "details": [
+        "Symbol \"dog\" already refers to another concept; alias not reassigned."
+      ],
+      "addedConceptIds": [],
+      "addedSymbolKeys": [],
+      "addedRelationshipIds": [
+        "dc79eb5b-757f-4d60-b03f-f9f768484d92"
+      ],
+      "supersededRelationshipIds": []
+    }
+  ]
+}

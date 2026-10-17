@@ -1,0 +1,491 @@
+{
+  "experiment": "TIDA-005",
+  "datasetVersion": "tida-005-incremental-curriculum-v2",
+  "phase": "phase-a",
+  "knowledge": {
+    "schemaVersion": 1,
+    "concepts": [
+      {
+        "id": "input.mira",
+        "label": "mira",
+        "attributes": {
+          "vocabularyKind": "word",
+          "semanticRole": "entity"
+        },
+        "createdAt": "2026-10-16T10:06:00.570Z",
+        "updatedAt": "2026-10-16T10:06:00.570Z"
+      },
+      {
+        "id": "person.mira",
+        "label": "Person Mira",
+        "attributes": {
+          "vocabularyKind": "meaning",
+          "semanticRole": "entity"
+        },
+        "createdAt": "2026-10-16T10:06:00.570Z",
+        "updatedAt": "2026-10-16T10:06:00.570Z"
+      },
+      {
+        "id": "input.sena",
+        "label": "sena",
+        "attributes": {
+          "vocabularyKind": "word",
+          "semanticRole": "entity"
+        },
+        "createdAt": "2026-10-16T10:06:00.573Z",
+        "updatedAt": "2026-10-16T10:06:00.573Z"
+      },
+      {
+        "id": "person.sena",
+        "label": "Person Sena",
+        "attributes": {
+          "vocabularyKind": "meaning",
+          "semanticRole": "entity"
+        },
+        "createdAt": "2026-10-16T10:06:00.573Z",
+        "updatedAt": "2026-10-16T10:06:00.573Z"
+      },
+      {
+        "id": "input.kemi",
+        "label": "kemi",
+        "attributes": {
+          "vocabularyKind": "word",
+          "semanticRole": "entity"
+        },
+        "createdAt": "2026-10-16T10:06:00.575Z",
+        "updatedAt": "2026-10-16T10:06:00.575Z"
+      },
+      {
+        "id": "person.kemi",
+        "label": "Person Kemi",
+        "attributes": {
+          "vocabularyKind": "meaning",
+          "semanticRole": "entity"
+        },
+        "createdAt": "2026-10-16T10:06:00.575Z",
+        "updatedAt": "2026-10-16T10:06:00.575Z"
+      },
+      {
+        "id": "input.dax",
+        "label": "dax",
+        "attributes": {
+          "vocabularyKind": "word",
+          "semanticRole": "predicate"
+        },
+        "createdAt": "2026-10-16T10:06:00.576Z",
+        "updatedAt": "2026-10-16T10:06:00.576Z"
+      },
+      {
+        "id": "action.dax",
+        "label": "Action dax",
+        "attributes": {
+          "vocabularyKind": "meaning",
+          "semanticRole": "predicate"
+        },
+        "createdAt": "2026-10-16T10:06:00.576Z",
+        "updatedAt": "2026-10-16T10:06:00.576Z"
+      },
+      {
+        "id": "input.lumo",
+        "label": "lumo",
+        "attributes": {
+          "vocabularyKind": "word",
+          "semanticRole": "entity"
+        },
+        "createdAt": "2026-10-16T10:06:00.578Z",
+        "updatedAt": "2026-10-16T10:06:00.578Z"
+      },
+      {
+        "id": "object.lumo",
+        "label": "Object lumo",
+        "attributes": {
+          "vocabularyKind": "meaning",
+          "semanticRole": "entity"
+        },
+        "createdAt": "2026-10-16T10:06:00.578Z",
+        "updatedAt": "2026-10-16T10:06:00.578Z"
+      },
+      {
+        "id": "input.neri",
+        "label": "neri",
+        "attributes": {
+          "vocabularyKind": "word",
+          "semanticRole": "entity"
+        },
+        "createdAt": "2026-10-16T10:06:00.579Z",
+        "updatedAt": "2026-10-16T10:06:00.579Z"
+      },
+      {
+        "id": "object.neri",
+        "label": "Object neri",
+        "attributes": {
+          "vocabularyKind": "meaning",
+          "semanticRole": "entity"
+        },
+        "createdAt": "2026-10-16T10:06:00.579Z",
+        "updatedAt": "2026-10-16T10:06:00.579Z"
+      }
+    ],
+    "symbols": [
+      {
+        "normalized": "mira",
+        "conceptId": "input.mira",
+        "surface": "mira"
+      },
+      {
+        "normalized": "person mira",
+        "conceptId": "person.mira",
+        "surface": "Person Mira"
+      },
+      {
+        "normalized": "sena",
+        "conceptId": "input.sena",
+        "surface": "sena"
+      },
+      {
+        "normalized": "person sena",
+        "conceptId": "person.sena",
+        "surface": "Person Sena"
+      },
+      {
+        "normalized": "kemi",
+        "conceptId": "input.kemi",
+        "surface": "kemi"
+      },
+      {
+        "normalized": "person kemi",
+        "conceptId": "person.kemi",
+        "surface": "Person Kemi"
+      },
+      {
+        "normalized": "dax",
+        "conceptId": "input.dax",
+        "surface": "dax"
+      },
+      {
+        "normalized": "action dax",
+        "conceptId": "action.dax",
+        "surface": "Action dax"
+      },
+      {
+        "normalized": "lumo",
+        "conceptId": "input.lumo",
+        "surface": "lumo"
+      },
+      {
+        "normalized": "object lumo",
+        "conceptId": "object.lumo",
+        "surface": "Object lumo"
+      },
+      {
+        "normalized": "neri",
+        "conceptId": "input.neri",
+        "surface": "neri"
+      },
+      {
+        "normalized": "object neri",
+        "conceptId": "object.neri",
+        "surface": "Object neri"
+      }
+    ],
+    "relationships": [
+      {
+        "subject": "input.mira",
+        "predicate": "denotes",
+        "object": "person.mira",
+        "source": "explicit",
+        "confidence": 1,
+        "id": "62107b60-f9b9-477a-82e4-4076106f0371",
+        "experienceId": "a-mira",
+        "timestamp": "2026-10-16T10:06:00.570Z",
+        "status": "accepted"
+      },
+      {
+        "subject": "input.sena",
+        "predicate": "denotes",
+        "object": "person.sena",
+        "source": "explicit",
+        "confidence": 1,
+        "id": "0ac234e6-862c-4956-aa8d-073e2f86b5c6",
+        "experienceId": "a-sena",
+        "timestamp": "2026-10-16T10:06:00.573Z",
+        "status": "accepted"
+      },
+      {
+        "subject": "input.kemi",
+        "predicate": "denotes",
+        "object": "person.kemi",
+        "source": "explicit",
+        "confidence": 1,
+        "id": "849e96c8-e7f6-4f54-8253-91c597848927",
+        "experienceId": "a-kemi",
+        "timestamp": "2026-10-16T10:06:00.575Z",
+        "status": "accepted"
+      },
+      {
+        "subject": "input.dax",
+        "predicate": "denotes",
+        "object": "action.dax",
+        "source": "explicit",
+        "confidence": 1,
+        "id": "63ea3208-be68-456c-aab2-11f1df70e8dd",
+        "experienceId": "a-dax",
+        "timestamp": "2026-10-16T10:06:00.576Z",
+        "status": "accepted"
+      },
+      {
+        "subject": "input.lumo",
+        "predicate": "denotes",
+        "object": "object.lumo",
+        "source": "explicit",
+        "confidence": 1,
+        "id": "a3d985a4-d144-460a-b43d-5ab830b4eeab",
+        "experienceId": "a-lumo",
+        "timestamp": "2026-10-16T10:06:00.578Z",
+        "status": "accepted"
+      },
+      {
+        "subject": "input.neri",
+        "predicate": "denotes",
+        "object": "object.neri",
+        "source": "explicit",
+        "confidence": 1,
+        "id": "5cbdc212-0bba-43c2-9fc7-631f29c8940e",
+        "experienceId": "a-neri",
+        "timestamp": "2026-10-16T10:06:00.579Z",
+        "status": "accepted"
+      }
+    ],
+    "events": [
+      {
+        "id": "4ddd5b74-d685-4912-9820-e022c6b54348",
+        "timestamp": "2026-10-16T10:06:00.571Z",
+        "experienceId": "a-mira",
+        "source": "tida-005-curriculum",
+        "outcome": "accepted",
+        "details": [],
+        "addedConceptIds": [
+          "input.mira",
+          "person.mira"
+        ],
+        "addedSymbolKeys": [
+          "mira",
+          "person mira"
+        ],
+        "addedRelationshipIds": [
+          "62107b60-f9b9-477a-82e4-4076106f0371"
+        ],
+        "supersededRelationshipIds": []
+      },
+      {
+        "id": "173dd078-baa8-4807-8267-cc379b5f8aec",
+        "timestamp": "2026-10-16T10:06:00.573Z",
+        "experienceId": "a-sena",
+        "source": "tida-005-curriculum",
+        "outcome": "accepted",
+        "details": [],
+        "addedConceptIds": [
+          "input.sena",
+          "person.sena"
+        ],
+        "addedSymbolKeys": [
+          "sena",
+          "person sena"
+        ],
+        "addedRelationshipIds": [
+          "0ac234e6-862c-4956-aa8d-073e2f86b5c6"
+        ],
+        "supersededRelationshipIds": []
+      },
+      {
+        "id": "6deb7278-7860-424b-9443-df2ce6c1cc99",
+        "timestamp": "2026-10-16T10:06:00.575Z",
+        "experienceId": "a-kemi",
+        "source": "tida-005-curriculum",
+        "outcome": "accepted",
+        "details": [],
+        "addedConceptIds": [
+          "input.kemi",
+          "person.kemi"
+        ],
+        "addedSymbolKeys": [
+          "kemi",
+          "person kemi"
+        ],
+        "addedRelationshipIds": [
+          "849e96c8-e7f6-4f54-8253-91c597848927"
+        ],
+        "supersededRelationshipIds": []
+      },
+      {
+        "id": "d63e261d-04a4-4114-aa49-6ad1b6c82bf7",
+        "timestamp": "2026-10-16T10:06:00.576Z",
+        "experienceId": "a-dax",
+        "source": "tida-005-curriculum",
+        "outcome": "accepted",
+        "details": [],
+        "addedConceptIds": [
+          "input.dax",
+          "action.dax"
+        ],
+        "addedSymbolKeys": [
+          "dax",
+          "action dax"
+        ],
+        "addedRelationshipIds": [
+          "63ea3208-be68-456c-aab2-11f1df70e8dd"
+        ],
+        "supersededRelationshipIds": []
+      },
+      {
+        "id": "5ee835a2-36c6-4ab0-88b9-e79d30fe0a05",
+        "timestamp": "2026-10-16T10:06:00.578Z",
+        "experienceId": "a-lumo",
+        "source": "tida-005-curriculum",
+        "outcome": "accepted",
+        "details": [],
+        "addedConceptIds": [
+          "input.lumo",
+          "object.lumo"
+        ],
+        "addedSymbolKeys": [
+          "lumo",
+          "object lumo"
+        ],
+        "addedRelationshipIds": [
+          "a3d985a4-d144-460a-b43d-5ab830b4eeab"
+        ],
+        "supersededRelationshipIds": []
+      },
+      {
+        "id": "11d74736-2084-4762-96e0-e3cc25dac492",
+        "timestamp": "2026-10-16T10:06:00.579Z",
+        "experienceId": "a-neri",
+        "source": "tida-005-curriculum",
+        "outcome": "accepted",
+        "details": [],
+        "addedConceptIds": [
+          "input.neri",
+          "object.neri"
+        ],
+        "addedSymbolKeys": [
+          "neri",
+          "object neri"
+        ],
+        "addedRelationshipIds": [
+          "5cbdc212-0bba-43c2-9fc7-631f29c8940e"
+        ],
+        "supersededRelationshipIds": []
+      }
+    ]
+  },
+  "pattern": {
+    "schemaVersion": 1,
+    "id": "pattern-1-d19e3fdc70b9ee7f",
+    "version": 1,
+    "status": "accepted",
+    "source": "induced",
+    "pattern": [
+      "subject",
+      "predicate",
+      "object"
+    ],
+    "confidence": 1,
+    "evidenceIds": [
+      "phase-a-1",
+      "phase-a-2"
+    ],
+    "evidenceSources": [
+      {
+        "id": "phase-a-1",
+        "source": "weak-supervision"
+      },
+      {
+        "id": "phase-a-2",
+        "source": "weak-supervision"
+      }
+    ],
+    "candidates": [
+      {
+        "rolesByPosition": [
+          "subject",
+          "predicate",
+          "object"
+        ],
+        "supportingEvidenceIds": [
+          "phase-a-1",
+          "phase-a-2"
+        ],
+        "contradictionEvidenceIds": [],
+        "score": 1
+      },
+      {
+        "rolesByPosition": [
+          "object",
+          "predicate",
+          "subject"
+        ],
+        "supportingEvidenceIds": [],
+        "contradictionEvidenceIds": [
+          "phase-a-1",
+          "phase-a-2"
+        ],
+        "score": 0
+      },
+      {
+        "rolesByPosition": [
+          "object",
+          "subject",
+          "predicate"
+        ],
+        "supportingEvidenceIds": [],
+        "contradictionEvidenceIds": [
+          "phase-a-1",
+          "phase-a-2"
+        ],
+        "score": 0
+      },
+      {
+        "rolesByPosition": [
+          "predicate",
+          "object",
+          "subject"
+        ],
+        "supportingEvidenceIds": [],
+        "contradictionEvidenceIds": [
+          "phase-a-1",
+          "phase-a-2"
+        ],
+        "score": 0
+      },
+      {
+        "rolesByPosition": [
+          "predicate",
+          "subject",
+          "object"
+        ],
+        "supportingEvidenceIds": [],
+        "contradictionEvidenceIds": [
+          "phase-a-1",
+          "phase-a-2"
+        ],
+        "score": 0
+      },
+      {
+        "rolesByPosition": [
+          "subject",
+          "object",
+          "predicate"
+        ],
+        "supportingEvidenceIds": [],
+        "contradictionEvidenceIds": [
+          "phase-a-1",
+          "phase-a-2"
+        ],
+        "score": 0
+      }
+    ],
+    "reason": "Unique candidate supported by 2 distinct labeled examples.",
+    "createdAt": "2026-10-16T10:06:00.587Z"
+  }
+}

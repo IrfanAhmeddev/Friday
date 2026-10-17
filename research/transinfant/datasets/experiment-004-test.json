@@ -1,0 +1,17 @@
+{
+  "datasetVersion": "tida-004-toy-language-v1",
+  "splitCriteria": "Declared before implementation tuning; fixed examples do not occur in the training file. The test is synthetic and intentionally small.",
+  "examples": [
+    { "id": "test-01", "category": "training-example-retrieval", "text": "Mira dax lumo", "expected": { "subject": "Mira", "predicate": "dax", "object": "lumo" } },
+    { "id": "test-02", "category": "novel-known-combination", "text": "Tavi vek lumo", "expected": { "subject": "Tavi", "predicate": "vek", "object": "lumo" } },
+    { "id": "test-03", "category": "unseen-word-pairing", "text": "Sena dax neri", "expected": { "subject": "Sena", "predicate": "dax", "object": "neri" } },
+    { "id": "test-04", "category": "unseen-word-pairing", "text": "Tavi vek neri", "expected": { "subject": "Tavi", "predicate": "vek", "object": "neri" } },
+    { "id": "test-05", "category": "word-order-variation", "text": "Mira lumo dax", "expected": { "subject": "Mira", "predicate": "dax", "object": "lumo" } },
+    { "id": "test-06", "category": "missing-component", "text": "Mira dax", "expected": null },
+    { "id": "test-07", "category": "extra-token", "text": "Mira dax lumo now", "expected": null },
+    { "id": "test-08", "category": "unknown-word", "text": "Mira blarg lumo", "expected": null },
+    { "id": "test-09", "category": "out-of-scope-construction", "text": "Mira dax lumo neri", "expected": null },
+    { "id": "test-10", "category": "incorrect-role-assignment", "text": "lumo dax Mira", "expected": { "subject": "Mira", "predicate": "dax", "object": "lumo" } },
+    { "id": "test-11", "category": "novel-known-combination", "text": "Sena vek neri", "expected": { "subject": "Sena", "predicate": "vek", "object": "neri" } }
+  ]
+}

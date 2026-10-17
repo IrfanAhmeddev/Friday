@@ -1,0 +1,24 @@
+[build]
+  command = "npm run build"
+
+[build.environment]
+  NODE_VERSION = "22"
+  NPM_FLAGS = "--include=optional"
+
+[functions]
+  directory = "netlify/functions"
+  external_node_modules = ["express", "onnxruntime-node", "sharp"]
+  node_bundler = "esbuild"
+  included_files = [
+    "node_modules/@img/sharp-linux-x64/**",
+    "node_modules/@img/sharp-libvips-linux-x64/**"
+  ]
+
+[[redirects]]
+  force = true
+  from = "/api/*"
+  status = 200
+  to = "/.netlify/functions/api/:splat"
+
+[[plugins]]
+  package = "./netlify/plugins/verify-function-assets"

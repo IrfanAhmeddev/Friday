@@ -1,0 +1,13 @@
+{
+  "experiment": "TIDA-005",
+  "datasetVersion": "tida-005-incremental-curriculum-v2",
+  "phase": "phase-g-reset",
+  "knowledge": {
+    "schemaVersion": 1,
+    "concepts": [],
+    "symbols": [],
+    "relationships": [],
+    "events": []
+  },
+  "pattern": null
+}

@@ -1,0 +1,54 @@
+{
+  "name": "friday",
+  "version": "0.1.0",
+  "description": "Friday Natural Language Understanding Engine for JARVIS",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "verify:netlify-assets": "node scripts/verify-netlify-function-assets.cjs",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test tests/**/*.test.ts",
+    "test:model-smoke": "tsx tests/embedding-test.ts",
+    "benchmark:transinfant": "tsx research/transinfant/benchmark.ts",
+    "benchmark:transinfant:002": "tsx research/transinfant/benchmark-002.ts",
+    "benchmark:transinfant:003": "tsx research/transinfant/benchmark-003.ts",
+    "benchmark:transinfant:004": "tsx research/transinfant/benchmark-004.ts",
+    "benchmark:transinfant:005": "tsx research/transinfant/benchmark-005.ts"
+  },
+  "keywords": [
+    "nlu",
+    "nlp",
+    "jarvis",
+    "friday"
+  ],
+  "author": "",
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "@huggingface/transformers": "^4.2.0",
+    "@netlify/functions": "^6.0.0",
+    "chrono-node": "^2.10.1",
+    "compromise": "^14.15.0",
+    "dotenv": "^17.4.2",
+    "express": "^5.1.0",
+    "fuse.js": "^7.5.0",
+    "natural": "^8.1.0",
+    "onnxruntime-node": "1.24.3",
+    "serverless-http": "^4.0.0",
+    "sharp": "0.34.5",
+    "wink-eng-lite-web-model": "^1.8.1",
+    "wink-nlp": "^2.4.0"
+  },
+  "optionalDependencies": {
+    "@img/sharp-libvips-linux-x64": "1.2.4",
+    "@img/sharp-linux-x64": "0.34.5"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.3.0",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2"
+  }
+}

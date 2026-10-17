@@ -1,0 +1,31 @@
+{
+  "experiment": "TIDA-005",
+  "version": "1.0.0",
+  "datasetVersion": "tida-005-incremental-curriculum-v2",
+  "researchQuestion": "Can vocabulary and a weakly supervised pattern be incrementally extended, combined on held-out combinations, corrected, persisted, and retained without resetting earlier knowledge?",
+  "conditions": {
+    "A": "Fresh isolated vocabulary and pattern state.",
+    "B": "Exact example retrieval from the same labeled training examples.",
+    "C": "Existing TransInfant vocabulary learner with incremental teaching, no pattern application.",
+    "D": "Same staged facts plus induced pattern and composition.",
+    "E": "Correction/revision sequence compared with a no-correction control."
+  },
+  "patternAlgorithm": "The bounded six-permutation weakly supervised inducer in Experiment 004. Pattern changes are revisions rebuilt from the explicit evidence set; a contradictory set abstains rather than silently changing the accepted rule.",
+  "phasesDataset": "datasets/experiment-005-phases.json",
+  "heldOutDataset": "datasets/experiment-005-heldout-v2.json",
+  "sequenceDesign": [
+    "A then B then C then D then E then F then G",
+    "B then A then C then D then E then F then G"
+  ],
+  "metrics": {
+    "retention": "Number of previously supported vocabulary queries still supported / number tested.",
+    "forgetting": "max(0, pre-interference accuracy - post-interference accuracy), in absolute accuracy points.",
+    "transfer": "Exact concept-ID frames on held-out combinations whose words and learned pattern were taught in different phases.",
+    "correctionSuccess": "Correct target mapping after explicit feedback / explicit feedback corrections attempted.",
+    "revertCorrectness": "Reverted snapshot's queried mapping equals the immediately prior version's mapping.",
+    "contradictionRate": "Rejected conflicting updates / conflicting non-feedback updates attempted.",
+    "restartRetention": "Post-process-restart frame predictions identical to pre-restart predictions / predictions tested.",
+    "memoryGrowth": "UTF-8 bytes in the isolated JSON knowledge store after each phase."
+  },
+  "claims": "The curriculum is synthetic. No significance test or broad continual-learning claim is planned."
+}

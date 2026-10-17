@@ -1,0 +1,7 @@
+{
+  "datasetVersion": "tida-004-toy-language-v1",
+  "examples": [
+    { "id": "val-1", "category": "unseen-pairing", "text": "Sena dax neri", "expected": { "subject": "Sena", "predicate": "dax", "object": "neri" } },
+    { "id": "val-2", "category": "missing-component", "text": "Mira dax", "expected": null }
+  ]
+}

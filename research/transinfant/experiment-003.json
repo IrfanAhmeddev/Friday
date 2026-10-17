@@ -1,0 +1,72 @@
+{
+  "experimentId": "TIDA-003",
+  "version": "friday-transinfant-tida-003-v1",
+  "title": "Symbol-to-word learning and supplied-rule composition",
+  "teachingDataset": "datasets/experiment-003-teaching.json",
+  "evaluationDataset": "datasets/experiment-003-evaluation.json",
+  "researchQuestions": [
+    "Can explicitly taught symbols and words be recognized, retrieved, and traced to their teaching experiences?",
+    "Can a supplied composition rule apply learned vocabulary to held-out combinations?",
+    "Can the system abstain on unknown, ambiguous, or role-unsupported inputs?",
+    "Do learned mappings, corrections, reversals, persistence, and reset behave as specified?"
+  ],
+  "hypotheses": [
+    {
+      "id": "H1",
+      "prediction": "Trained condition B and C retrieve explicitly taught symbols and words with higher exact accuracy than empty condition A.",
+      "measurement": "Held-out symbol recognition, symbol-to-concept, and word-to-concept accuracy."
+    },
+    {
+      "id": "H2",
+      "prediction": "The condition with composition distinguishes previously shown example usage from unseen combinations without storing complete test utterances.",
+      "measurement": "Separate exact accuracy for four shown usages and twenty unseen known-word combinations."
+    },
+    {
+      "id": "H3",
+      "prediction": "With identical vocabulary facts, supplied-rule condition C composes unseen known-word combinations more accurately than retrieval-only condition B.",
+      "measurement": "Matched B-versus-C accuracy on the twenty unseen combinations."
+    },
+    {
+      "id": "H4",
+      "prediction": "Unknown, candidate-ambiguous, and role-unsupported cases abstain rather than inventing a supported concept or frame.",
+      "measurement": "Unknown rejection, ambiguity handling, and unsupported inference rates."
+    },
+    {
+      "id": "H5",
+      "prediction": "Accepted associations survive a separate process reload and become unavailable after resetting their isolated store.",
+      "measurement": "Separate-process probes and pre/post-reset queries."
+    },
+    {
+      "id": "H6",
+      "prediction": "Feedback correction changes the targeted association, retains unrelated associations, and is reversible.",
+      "measurement": "Conflict rejection, correction, unrelated probes, revision history, and revert."
+    }
+  ],
+  "hypothesisStatus": "Predictions are tested and reported in results-003.json; outcomes are limited to this synthetic fixture.",
+  "conditions": {
+    "A": "Empty isolated TransInfant store; association retrieval and composition disabled.",
+    "B": "Explicitly taught associations; exact lookup enabled, composition disabled.",
+    "C": "Same explicitly taught associations as B; exact lookup and the supplied three-token rule enabled."
+  },
+  "compositionRule": {
+    "id": "supplied-svo-v1",
+    "supplied": true,
+    "tokenCount": 3,
+    "roles": ["entity", "predicate", "entity"],
+    "outputSlots": ["subject", "predicate", "object"],
+    "description": "Compose one known entity, one known predicate, and one known entity in order. This rule is supplied; it is not learned or induced."
+  },
+  "metricDefinitions": {
+    "symbolRecognitionAccuracy": "Correctly recognized symbol inputs divided by symbol-recognition examples; does not score their meaning.",
+    "symbolToConceptAccuracy": "Exact accepted target concept ID divided by symbol-to-concept queries.",
+    "wordToConceptAccuracy": "Exact accepted target concept ID divided by word-to-concept queries.",
+    "compositionAccuracy": "Exact expected output slot IDs and supported status divided by composition examples.",
+    "unknownRejectionAccuracy": "Queries for untaught words correctly returned unknown divided by unknown-word examples.",
+    "ambiguityHandlingAccuracy": "Ambiguous cases correctly abstained with ambiguous status divided by ambiguity examples.",
+    "unsupportedInferenceRate": "Composition outputs asserted despite an unfulfilled role or missing rule divided by unsupported examples.",
+    "persistenceAccuracy": "Exact concept/status retrieval after a separate process reload divided by persistence probes.",
+    "resetVerification": "Count of previously known probes returning unknown after resetting the isolated store.",
+    "duplicateHandlingCorrectness": "Whether duplicate teaching adds no second accepted relation for the same input and target.",
+    "latency": "Per-query wall-clock latency; descriptive nearest-rank p50/p95 across measured query observations; no significance inference."
+  }
+}

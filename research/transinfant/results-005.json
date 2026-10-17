@@ -1,0 +1,793 @@
+{
+  "experiment": "TIDA-005",
+  "datasetVersion": "tida-005-incremental-curriculum-v2",
+  "capturedAt": "2026-10-16T10:06:01.214Z",
+  "runtime": {
+    "node": "v24.13.0",
+    "platform": "win32",
+    "arch": "x64"
+  },
+  "codeRevision": null,
+  "codeRevisionNote": "Unavailable: the workspace is not inside a Git repository.",
+  "configuration": {
+    "phaseAVocabulary": 6,
+    "phaseATrainingExamples": 2,
+    "phaseBVocabulary": 2,
+    "phaseCExamples": 2,
+    "phaseProbeExamples": 6,
+    "heldOutExamples": 4,
+    "unrelatedVocabulary": 8,
+    "multipleTeachingSequences": 2
+  },
+  "datasetHashes": {
+    "curriculumSha256": "815208925aba6210eb2940a9e6dce280336afdba83d541a19f2cab93ee1886a1",
+    "heldOutSha256": "890baf763b155e3d80606e81493a3b7676c646fadf59174b24cc0d033fe11773"
+  },
+  "execution": {
+    "evaluationFailures": 0,
+    "timedOutOperations": 0,
+    "perOperationTimeoutConfigured": false
+  },
+  "sequences": [
+    {
+      "sequence": "a-then-b",
+      "order": [
+        "A",
+        "B"
+      ],
+      "phases": {
+        "phaseA": {
+          "vocabularyAcquisition": {
+            "correct": 6,
+            "total": 6
+          },
+          "teachingExamples": 2,
+          "patternStatus": "accepted",
+          "heldOutProbe": {
+            "correct": 2,
+            "total": 2,
+            "predictions": [
+              {
+                "id": "phase-a-probe-1",
+                "status": "supported",
+                "frame": {
+                  "subject": "person.mira",
+                  "predicate": "action.dax",
+                  "object": "object.neri"
+                },
+                "confidence": 1,
+                "expected": {
+                  "subject": "person.mira",
+                  "predicate": "action.dax",
+                  "object": "object.neri"
+                }
+              },
+              {
+                "id": "phase-a-probe-2",
+                "status": "supported",
+                "frame": {
+                  "subject": "person.sena",
+                  "predicate": "action.dax",
+                  "object": "object.lumo"
+                },
+                "confidence": 1,
+                "expected": {
+                  "subject": "person.sena",
+                  "predicate": "action.dax",
+                  "object": "object.lumo"
+                }
+              }
+            ]
+          }
+        },
+        "phaseB": {
+          "newVocabulary": {
+            "correct": 2,
+            "total": 2
+          },
+          "phaseAKnowledgeRetained": {
+            "correct": 6,
+            "total": 6
+          },
+          "heldOutProbe": {
+            "correct": 2,
+            "total": 2,
+            "predictions": [
+              {
+                "id": "phase-b-probe-1",
+                "status": "supported",
+                "frame": {
+                  "subject": "person.tavi",
+                  "predicate": "action.dax",
+                  "object": "object.lumo"
+                },
+                "confidence": 1,
+                "expected": {
+                  "subject": "person.tavi",
+                  "predicate": "action.dax",
+                  "object": "object.lumo"
+                }
+              },
+              {
+                "id": "phase-b-probe-2",
+                "status": "supported",
+                "frame": {
+                  "subject": "person.mira",
+                  "predicate": "action.vek",
+                  "object": "object.neri"
+                },
+                "confidence": 1,
+                "expected": {
+                  "subject": "person.mira",
+                  "predicate": "action.vek",
+                  "object": "object.neri"
+                }
+              }
+            ]
+          }
+        },
+        "phaseC": {
+          "evidenceExamples": 4,
+          "patternAccepted": true,
+          "correctedVersion": 4,
+          "contradictionStatus": "rejected",
+          "contradictionAccepted": false,
+          "revisedPattern": [
+            "subject",
+            "predicate",
+            "object"
+          ],
+          "revisionRevert": {
+            "restoredVersion": 1,
+            "interpretationStatus": "supported",
+            "correct": true
+          },
+          "heldOutProbe": {
+            "correct": 2,
+            "total": 2,
+            "predictions": [
+              {
+                "id": "phase-c-probe-1",
+                "status": "supported",
+                "frame": {
+                  "subject": "person.kemi",
+                  "predicate": "action.vek",
+                  "object": "object.lumo"
+                },
+                "confidence": 1,
+                "expected": {
+                  "subject": "person.kemi",
+                  "predicate": "action.vek",
+                  "object": "object.lumo"
+                }
+              },
+              {
+                "id": "phase-c-probe-2",
+                "status": "supported",
+                "frame": {
+                  "subject": "person.sena",
+                  "predicate": "action.vek",
+                  "object": "object.neri"
+                },
+                "confidence": 1,
+                "expected": {
+                  "subject": "person.sena",
+                  "predicate": "action.vek",
+                  "object": "object.neri"
+                }
+              }
+            ]
+          }
+        },
+        "phaseD": {
+          "explicitContradictionRejected": true,
+          "wrongFeedbackAccepted": true,
+          "correctionAccepted": true,
+          "correctionResult": "person.tavi",
+          "correctionSuccess": true,
+          "unrelatedPreservedDuringCorrection": true,
+          "revertingCorrectionRestoresWrongMapping": true,
+          "revertingWrongUpdateRestoresOriginal": true,
+          "noCorrectionControlRetainsOriginal": true,
+          "correctionEventHistory": [
+            {
+              "experienceId": "phase-d-wrong",
+              "outcome": "reverted",
+              "details": [
+                "Learning event reverted by explicit request."
+              ]
+            },
+            {
+              "experienceId": "phase-d-correction",
+              "outcome": "reverted",
+              "details": [
+                "Learning event reverted by explicit request."
+              ]
+            }
+          ]
+        },
+        "phaseE": {
+          "transfer": {
+            "correct": 4,
+            "total": 4,
+            "predictions": [
+              {
+                "id": "held-v2-1",
+                "status": "supported",
+                "frame": {
+                  "subject": "person.tavi",
+                  "predicate": "action.dax",
+                  "object": "object.neri"
+                },
+                "confidence": 1
+              },
+              {
+                "id": "held-v2-2",
+                "status": "supported",
+                "frame": {
+                  "subject": "person.kemi",
+                  "predicate": "action.dax",
+                  "object": "object.lumo"
+                },
+                "confidence": 1
+              },
+              {
+                "id": "held-v2-3",
+                "status": "supported",
+                "frame": {
+                  "subject": "person.tavi",
+                  "predicate": "action.vek",
+                  "object": "object.lumo"
+                },
+                "confidence": 1
+              },
+              {
+                "id": "held-v2-4",
+                "status": "supported",
+                "frame": {
+                  "subject": "person.kemi",
+                  "predicate": "action.vek",
+                  "object": "object.neri"
+                },
+                "confidence": 1
+              }
+            ]
+          },
+          "transferNoCorrectionControl": {
+            "correct": 4,
+            "total": 4
+          },
+          "exactExampleRetrieval": {
+            "correct": 0,
+            "total": 4
+          }
+        },
+        "phaseF": {
+          "unrelatedVocabularyAdded": 8,
+          "before": {
+            "correct": 4,
+            "total": 4
+          },
+          "after": {
+            "correct": 4,
+            "total": 4,
+            "predictions": [
+              {
+                "id": "held-v2-1",
+                "status": "supported",
+                "frame": {
+                  "subject": "person.tavi",
+                  "predicate": "action.dax",
+                  "object": "object.neri"
+                },
+                "confidence": 1
+              },
+              {
+                "id": "held-v2-2",
+                "status": "supported",
+                "frame": {
+                  "subject": "person.kemi",
+                  "predicate": "action.dax",
+                  "object": "object.lumo"
+                },
+                "confidence": 1
+              },
+              {
+                "id": "held-v2-3",
+                "status": "supported",
+                "frame": {
+                  "subject": "person.tavi",
+                  "predicate": "action.vek",
+                  "object": "object.lumo"
+                },
+                "confidence": 1
+              },
+              {
+                "id": "held-v2-4",
+                "status": "supported",
+                "frame": {
+                  "subject": "person.kemi",
+                  "predicate": "action.vek",
+                  "object": "object.neri"
+                },
+                "confidence": 1
+              }
+            ]
+          },
+          "forgettingAbsoluteAccuracyPoints": 0,
+          "oldVocabularyRetained": 8,
+          "oldVocabularyTotal": 8,
+          "falseAssociations": {
+            "count": 0,
+            "total": 8
+          }
+        },
+        "phaseG": {
+          "separateProcessReloadConcepts": 33,
+          "separateProcessReloadRelations": 16,
+          "separateProcessReloadEvents": 21,
+          "expectedFrames": 4,
+          "exactFramesAfterReload": 4,
+          "knowledgeStateMatches": true,
+          "patternProvenanceMatches": true,
+          "resetLookupStatus": "unknown",
+          "patternAfterReset": null,
+          "productionVocabularyResetGuardPassed": true,
+          "productionPatternStoreGuardPassed": true,
+          "persistedStateBeforeReset": {
+            "concepts": 33,
+            "symbols": 33,
+            "relationships": 16,
+            "events": 21
+          }
+        },
+        "memoryBytes": {
+          "phaseA": {
+            "vocabulary": 9425,
+            "pattern": 2043
+          },
+          "phaseB": {
+            "vocabulary": 12523,
+            "pattern": 2043
+          },
+          "phaseC": {
+            "vocabulary": 12523,
+            "pattern": 2755
+          },
+          "phaseD": {
+            "vocabulary": 15364,
+            "pattern": 2755
+          },
+          "phaseF": {
+            "vocabulary": 27724,
+            "pattern": 2755
+          }
+        },
+        "learningLatencyMs": {
+          "phaseA": 10.247700000000009,
+          "phaseB": 4.608000000000004,
+          "phaseC": 5.536900000000003,
+          "phaseD": 13.693599999999975,
+          "phaseF": 12.535500000000013
+        },
+        "timingSampleCount": 20,
+        "inferenceLatencyMs": {
+          "observations": 20,
+          "repeatsPerExample": 5,
+          "p50": 1.9775999999999954,
+          "p95": 2.4155000000000086
+        },
+        "conditionComparisons": {
+          "A": {
+            "emptyHeldOutExact": "0/4"
+          },
+          "B": {
+            "retrievalHeldOutExact": "0/4"
+          },
+          "C": {
+            "vocabularyKnownAfterPhases": "8/8",
+            "exactComposition": "not enabled"
+          },
+          "D": {
+            "inducedHeldOutExact": "4/4"
+          },
+          "E": {
+            "correctionSuccess": true,
+            "noCorrectionControlRetained": true,
+            "correctedHeldOutExact": "4/4",
+            "uncorrectedHeldOutExact": "4/4"
+          }
+        },
+        "reset": {
+          "isolatedKnowledgeEmpty": true,
+          "patternEmpty": true
+        }
+      },
+      "integrity": {
+        "contradictionRejected": true,
+        "patternRevisionRevert": true,
+        "correctionSuccess": true,
+        "correctionRevert": true,
+        "reload": true,
+        "reset": true,
+        "productionGuards": true
+      }
+    },
+    {
+      "sequence": "b-then-a",
+      "order": [
+        "B",
+        "A"
+      ],
+      "phases": {
+        "phaseA": {
+          "vocabularyAcquisition": {
+            "correct": 6,
+            "total": 6
+          },
+          "teachingExamples": 2,
+          "patternStatus": "accepted",
+          "heldOutProbe": {
+            "correct": 2,
+            "total": 2,
+            "predictions": [
+              {
+                "id": "phase-a-probe-1",
+                "status": "supported",
+                "frame": {
+                  "subject": "person.mira",
+                  "predicate": "action.dax",
+                  "object": "object.neri"
+                },
+                "confidence": 1,
+                "expected": {
+                  "subject": "person.mira",
+                  "predicate": "action.dax",
+                  "object": "object.neri"
+                }
+              },
+              {
+                "id": "phase-a-probe-2",
+                "status": "supported",
+                "frame": {
+                  "subject": "person.sena",
+                  "predicate": "action.dax",
+                  "object": "object.lumo"
+                },
+                "confidence": 1,
+                "expected": {
+                  "subject": "person.sena",
+                  "predicate": "action.dax",
+                  "object": "object.lumo"
+                }
+              }
+            ]
+          }
+        },
+        "phaseB": {
+          "newVocabulary": {
+            "correct": 2,
+            "total": 2
+          },
+          "phaseAKnowledgeRetained": {
+            "correct": 6,
+            "total": 6
+          },
+          "heldOutProbe": {
+            "correct": 0,
+            "total": 2,
+            "predictions": [
+              {
+                "id": "phase-b-probe-1",
+                "status": "ambiguous",
+                "frame": null,
+                "confidence": null,
+                "expected": {
+                  "subject": "person.tavi",
+                  "predicate": "action.dax",
+                  "object": "object.lumo"
+                }
+              },
+              {
+                "id": "phase-b-probe-2",
+                "status": "ambiguous",
+                "frame": null,
+                "confidence": null,
+                "expected": {
+                  "subject": "person.mira",
+                  "predicate": "action.vek",
+                  "object": "object.neri"
+                }
+              }
+            ]
+          }
+        },
+        "phaseC": {
+          "evidenceExamples": 4,
+          "patternAccepted": true,
+          "correctedVersion": 4,
+          "contradictionStatus": "rejected",
+          "contradictionAccepted": false,
+          "revisedPattern": [
+            "subject",
+            "predicate",
+            "object"
+          ],
+          "revisionRevert": {
+            "restoredVersion": 1,
+            "interpretationStatus": "supported",
+            "correct": true
+          },
+          "heldOutProbe": {
+            "correct": 2,
+            "total": 2,
+            "predictions": [
+              {
+                "id": "phase-c-probe-1",
+                "status": "supported",
+                "frame": {
+                  "subject": "person.kemi",
+                  "predicate": "action.vek",
+                  "object": "object.lumo"
+                },
+                "confidence": 1,
+                "expected": {
+                  "subject": "person.kemi",
+                  "predicate": "action.vek",
+                  "object": "object.lumo"
+                }
+              },
+              {
+                "id": "phase-c-probe-2",
+                "status": "supported",
+                "frame": {
+                  "subject": "person.sena",
+                  "predicate": "action.vek",
+                  "object": "object.neri"
+                },
+                "confidence": 1,
+                "expected": {
+                  "subject": "person.sena",
+                  "predicate": "action.vek",
+                  "object": "object.neri"
+                }
+              }
+            ]
+          }
+        },
+        "phaseD": {
+          "explicitContradictionRejected": true,
+          "wrongFeedbackAccepted": true,
+          "correctionAccepted": true,
+          "correctionResult": "person.tavi",
+          "correctionSuccess": true,
+          "unrelatedPreservedDuringCorrection": true,
+          "revertingCorrectionRestoresWrongMapping": true,
+          "revertingWrongUpdateRestoresOriginal": true,
+          "noCorrectionControlRetainsOriginal": true,
+          "correctionEventHistory": [
+            {
+              "experienceId": "phase-d-wrong",
+              "outcome": "reverted",
+              "details": [
+                "Learning event reverted by explicit request."
+              ]
+            },
+            {
+              "experienceId": "phase-d-correction",
+              "outcome": "reverted",
+              "details": [
+                "Learning event reverted by explicit request."
+              ]
+            }
+          ]
+        },
+        "phaseE": {
+          "transfer": {
+            "correct": 4,
+            "total": 4,
+            "predictions": [
+              {
+                "id": "held-v2-1",
+                "status": "supported",
+                "frame": {
+                  "subject": "person.tavi",
+                  "predicate": "action.dax",
+                  "object": "object.neri"
+                },
+                "confidence": 1
+              },
+              {
+                "id": "held-v2-2",
+                "status": "supported",
+                "frame": {
+                  "subject": "person.kemi",
+                  "predicate": "action.dax",
+                  "object": "object.lumo"
+                },
+                "confidence": 1
+              },
+              {
+                "id": "held-v2-3",
+                "status": "supported",
+                "frame": {
+                  "subject": "person.tavi",
+                  "predicate": "action.vek",
+                  "object": "object.lumo"
+                },
+                "confidence": 1
+              },
+              {
+                "id": "held-v2-4",
+                "status": "supported",
+                "frame": {
+                  "subject": "person.kemi",
+                  "predicate": "action.vek",
+                  "object": "object.neri"
+                },
+                "confidence": 1
+              }
+            ]
+          },
+          "transferNoCorrectionControl": {
+            "correct": 4,
+            "total": 4
+          },
+          "exactExampleRetrieval": {
+            "correct": 0,
+            "total": 4
+          }
+        },
+        "phaseF": {
+          "unrelatedVocabularyAdded": 8,
+          "before": {
+            "correct": 4,
+            "total": 4
+          },
+          "after": {
+            "correct": 4,
+            "total": 4,
+            "predictions": [
+              {
+                "id": "held-v2-1",
+                "status": "supported",
+                "frame": {
+                  "subject": "person.tavi",
+                  "predicate": "action.dax",
+                  "object": "object.neri"
+                },
+                "confidence": 1
+              },
+              {
+                "id": "held-v2-2",
+                "status": "supported",
+                "frame": {
+                  "subject": "person.kemi",
+                  "predicate": "action.dax",
+                  "object": "object.lumo"
+                },
+                "confidence": 1
+              },
+              {
+                "id": "held-v2-3",
+                "status": "supported",
+                "frame": {
+                  "subject": "person.tavi",
+                  "predicate": "action.vek",
+                  "object": "object.lumo"
+                },
+                "confidence": 1
+              },
+              {
+                "id": "held-v2-4",
+                "status": "supported",
+                "frame": {
+                  "subject": "person.kemi",
+                  "predicate": "action.vek",
+                  "object": "object.neri"
+                },
+                "confidence": 1
+              }
+            ]
+          },
+          "forgettingAbsoluteAccuracyPoints": 0,
+          "oldVocabularyRetained": 8,
+          "oldVocabularyTotal": 8,
+          "falseAssociations": {
+            "count": 0,
+            "total": 8
+          }
+        },
+        "phaseG": {
+          "separateProcessReloadConcepts": 33,
+          "separateProcessReloadRelations": 16,
+          "separateProcessReloadEvents": 21,
+          "expectedFrames": 4,
+          "exactFramesAfterReload": 4,
+          "knowledgeStateMatches": true,
+          "patternProvenanceMatches": true,
+          "resetLookupStatus": "unknown",
+          "patternAfterReset": null,
+          "productionVocabularyResetGuardPassed": true,
+          "productionPatternStoreGuardPassed": true,
+          "persistedStateBeforeReset": {
+            "concepts": 33,
+            "symbols": 33,
+            "relationships": 16,
+            "events": 21
+          }
+        },
+        "memoryBytes": {
+          "phaseB": {
+            "vocabulary": 3205,
+            "pattern": 0
+          },
+          "phaseA": {
+            "vocabulary": 12523,
+            "pattern": 2043
+          },
+          "phaseC": {
+            "vocabulary": 12523,
+            "pattern": 2755
+          },
+          "phaseD": {
+            "vocabulary": 15364,
+            "pattern": 2755
+          },
+          "phaseF": {
+            "vocabulary": 27724,
+            "pattern": 2755
+          }
+        },
+        "learningLatencyMs": {
+          "phaseB": 2.7993999999999915,
+          "phaseA": 8.533900000000017,
+          "phaseC": 5.745700000000056,
+          "phaseD": 16.79110000000003,
+          "phaseF": 13.750900000000001
+        },
+        "timingSampleCount": 20,
+        "inferenceLatencyMs": {
+          "observations": 20,
+          "repeatsPerExample": 5,
+          "p50": 2.869799999999941,
+          "p95": 5.107200000000034
+        },
+        "conditionComparisons": {
+          "A": {
+            "emptyHeldOutExact": "0/4"
+          },
+          "B": {
+            "retrievalHeldOutExact": "0/4"
+          },
+          "C": {
+            "vocabularyKnownAfterPhases": "8/8",
+            "exactComposition": "not enabled"
+          },
+          "D": {
+            "inducedHeldOutExact": "4/4"
+          },
+          "E": {
+            "correctionSuccess": true,
+            "noCorrectionControlRetained": true,
+            "correctedHeldOutExact": "4/4",
+            "uncorrectedHeldOutExact": "4/4"
+          }
+        },
+        "reset": {
+          "isolatedKnowledgeEmpty": true,
+          "patternEmpty": true
+        }
+      },
+      "integrity": {
+        "contradictionRejected": true,
+        "patternRevisionRevert": true,
+        "correctionSuccess": true,
+        "correctionRevert": true,
+        "reload": true,
+        "reset": true,
+        "productionGuards": true
+      }
+    }
+  ]
+}

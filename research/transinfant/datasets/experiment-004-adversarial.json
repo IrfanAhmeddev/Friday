@@ -1,0 +1,18 @@
+{
+  "datasetVersion": "tida-004-toy-language-v1",
+  "generation": "Predeclared diagnostics independent of held-out frame score.",
+  "probes": [
+    { "id": "unlabeled-4", "kind": "unlabeled", "sentences": [["Mira", "dax", "lumo"], ["Tavi", "dax", "neri"], ["Mira", "vek", "neri"], ["Sena", "vek", "lumo"]], "expectedStatus": "ambiguous", "expectedCandidateCount": 6 },
+    { "id": "one-example", "kind": "labeled", "examples": [{ "id": "single", "tokens": ["Mira", "dax", "lumo"], "frame": { "subject": "Mira", "predicate": "dax", "object": "lumo" } }], "expectedStatus": "ambiguous" },
+    { "id": "contradiction", "kind": "labeled", "examples": [
+      { "id": "positive-1", "tokens": ["Mira", "dax", "lumo"], "frame": { "subject": "Mira", "predicate": "dax", "object": "lumo" } },
+      { "id": "positive-2", "tokens": ["Tavi", "vek", "neri"], "frame": { "subject": "Tavi", "predicate": "vek", "object": "neri" } },
+      { "id": "contradictory", "tokens": ["Sena", "dax", "lumo"], "frame": { "subject": "lumo", "predicate": "dax", "object": "Sena" } }
+    ], "expectedStatus": "rejected" },
+    { "id": "duplicate-evidence", "kind": "labeled", "examples": [
+      { "id": "copy-1", "tokens": ["Mira", "dax", "lumo"], "frame": { "subject": "Mira", "predicate": "dax", "object": "lumo" } },
+      { "id": "copy-2", "tokens": ["Mira", "dax", "lumo"], "frame": { "subject": "Mira", "predicate": "dax", "object": "lumo" } },
+      { "id": "copy-3", "tokens": ["Mira", "dax", "lumo"], "frame": { "subject": "Mira", "predicate": "dax", "object": "lumo" } }
+    ], "expectedStatus": "ambiguous" }
+  ]
+}

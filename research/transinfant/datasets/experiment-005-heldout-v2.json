@@ -1,0 +1,10 @@
+{
+  "datasetVersion": "tida-005-incremental-curriculum-v2",
+  "splitCriteria": "Fixed version 2 before final rerun. Final strings are absent from training examples, correction examples, and all phase-A/B/C probes. Each is a new combination of vocabulary items taught in separate curriculum phases.",
+  "examples": [
+    { "id": "held-v2-1", "text": "tavi dax neri", "expected": { "subject": "person.tavi", "predicate": "action.dax", "object": "object.neri" } },
+    { "id": "held-v2-2", "text": "kemi dax lumo", "expected": { "subject": "person.kemi", "predicate": "action.dax", "object": "object.lumo" } },
+    { "id": "held-v2-3", "text": "tavi vek lumo", "expected": { "subject": "person.tavi", "predicate": "action.vek", "object": "object.lumo" } },
+    { "id": "held-v2-4", "text": "kemi vek neri", "expected": { "subject": "person.kemi", "predicate": "action.vek", "object": "object.neri" } }
+  ]
+}

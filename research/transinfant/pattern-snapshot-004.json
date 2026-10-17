@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "id": "pattern-1-93ad88475d5aa9f8",
+  "version": 1,
+  "status": "accepted",
+  "source": "induced",
+  "pattern": [
+    "subject",
+    "predicate",
+    "object"
+  ],
+  "confidence": 1,
+  "evidenceIds": [
+    "train-1",
+    "train-2",
+    "train-3",
+    "train-4"
+  ],
+  "evidenceSources": [
+    {
+      "id": "train-1",
+      "source": "weak-supervision"
+    },
+    {
+      "id": "train-2",
+      "source": "weak-supervision"
+    },
+    {
+      "id": "train-3",
+      "source": "weak-supervision"
+    },
+    {
+      "id": "train-4",
+      "source": "weak-supervision"
+    }
+  ],
+  "candidates": [
+    {
+      "rolesByPosition": [
+        "subject",
+        "predicate",
+        "object"
+      ],
+      "supportingEvidenceIds": [
+        "train-1",
+        "train-2",
+        "train-3",
+        "train-4"
+      ],
+      "contradictionEvidenceIds": [],
+      "score": 1
+    },
+    {
+      "rolesByPosition": [
+        "object",
+        "predicate",
+        "subject"
+      ],
+      "supportingEvidenceIds": [],
+      "contradictionEvidenceIds": [
+        "train-1",
+        "train-2",
+        "train-3",
+        "train-4"
+      ],
+      "score": 0
+    },
+    {
+      "rolesByPosition": [
+        "object",
+        "subject",
+        "predicate"
+      ],
+      "supportingEvidenceIds": [],
+      "contradictionEvidenceIds": [
+        "train-1",
+        "train-2",
+        "train-3",
+        "train-4"
+      ],
+      "score": 0
+    },
+    {
+      "rolesByPosition": [
+        "predicate",
+        "object",
+        "subject"
+      ],
+      "supportingEvidenceIds": [],
+      "contradictionEvidenceIds": [
+        "train-1",
+        "train-2",
+        "train-3",
+        "train-4"
+      ],
+      "score": 0
+    },
+    {
+      "rolesByPosition": [
+        "predicate",
+        "subject",
+        "object"
+      ],
+      "supportingEvidenceIds": [],
+      "contradictionEvidenceIds": [
+        "train-1",
+        "train-2",
+        "train-3",
+        "train-4"
+      ],
+      "score": 0
+    },
+    {
+      "rolesByPosition": [
+        "subject",
+        "object",
+        "predicate"
+      ],
+      "supportingEvidenceIds": [],
+      "contradictionEvidenceIds": [
+        "train-1",
+        "train-2",
+        "train-3",
+        "train-4"
+      ],
+      "score": 0
+    }
+  ],
+  "reason": "Unique candidate supported by 4 distinct labeled examples.",
+  "createdAt": "2026-10-16T10:01:55.779Z"
+}

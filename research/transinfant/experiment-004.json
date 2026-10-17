@@ -1,0 +1,35 @@
+{
+  "experiment": "TIDA-004",
+  "version": "1.0.0",
+  "datasetVersion": "tida-004-toy-language-v1",
+  "seed": 44004,
+  "pattern": "SUBJECT + ACTION + OBJECT",
+  "unlabeledProtocol": {
+    "input": "Unlabeled sentence strings only.",
+    "expected": "Retain six equally plausible role-position permutations and abstain.",
+    "claim": "No role direction can be inferred from word order alone without grounding or supervision."
+  },
+  "weakSupervision": {
+    "input": "Sentence strings and two or more explicit frame assignments. No target order rule is provided.",
+    "algorithm": "Enumerate the six permutations of subject/predicate/object over three positions. Score each by the fraction of distinct labeled examples whose token at each position equals the assigned frame slot. Accept only a unique perfect candidate supported by at least two distinct examples. Duplicate token/frame evidence is deduplicated. Contradictions prevent acceptance. Reported confidence is the best candidate score multiplied by min(1, distinct-example-count / 2); it is a heuristic, not a calibrated probability.",
+    "candidateBound": 6,
+    "exampleBound": 64
+  },
+  "conditions": {
+    "A": "Fresh empty pattern store; abstention.",
+    "B": "Exact teaching-example retrieval; no pattern application.",
+    "C": "Weakly supervised candidate induction from training examples.",
+    "D": "Supplied SUBJECT/ACTION/OBJECT order; reference condition, not learning."
+  },
+  "trainingDataset": "datasets/experiment-004-training.json",
+  "developmentDataset": "datasets/experiment-004-development.json",
+  "validationDataset": "datasets/experiment-004-validation.json",
+  "testDataset": "datasets/experiment-004-test.json",
+  "metrics": {
+    "exactFrameAccuracy": "Exact subject, predicate, and object frame divided by examples in the category; abstentions count incorrect.",
+    "abstentionAccuracy": "Correctly returning no frame for unsupported, unknown-token, and out-of-scope inputs divided by such examples.",
+    "unsupportedAcceptanceRate": "Supported frame emitted for examples marked unsupported divided by unsupported examples.",
+    "patternAcceptance": "A pattern is accepted only if one candidate has perfect support over at least two distinct labeled examples and strictly exceeds the runner-up.",
+    "latency": "Repeated wall-clock observations; nearest-rank p50/p95 and observation count, descriptive only."
+  }
+}

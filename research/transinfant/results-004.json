@@ -1,0 +1,1785 @@
+{
+  "experiment": "TIDA-004",
+  "datasetVersion": "tida-004-toy-language-v1",
+  "capturedAt": "2026-10-16T10:01:56.021Z",
+  "runtime": {
+    "node": "v24.13.0",
+    "platform": "win32",
+    "arch": "x64"
+  },
+  "codeRevision": null,
+  "codeRevisionNote": "Unavailable: the workspace is not inside a Git repository.",
+  "configuration": {
+    "candidateBound": 6,
+    "evidenceBound": 64,
+    "repeatsPerTestExample": 5,
+    "trainingExamples": 4,
+    "developmentExamples": 2,
+    "validationExamples": 2,
+    "heldOutExamples": 11,
+    "knownVocabulary": [
+      "mira",
+      "dax",
+      "lumo",
+      "tavi",
+      "neri",
+      "vek",
+      "sena"
+    ],
+    "evidenceExampleLimit": 64,
+    "trainingExampleFixtureBytes": 776
+  },
+  "datasetHashes": {
+    "training": {
+      "path": "datasets\\experiment-004-training.json",
+      "sha256": "92750bfb676842b47a2a9b5bbb2fdd2cd414690f4e44feeb461c98160fa1fc62"
+    },
+    "development": {
+      "path": "datasets\\experiment-004-development.json",
+      "sha256": "09eb34ac189cfb742d6d9115c42bd172c63ee7e1870f4ca32aa94d260b80fd17"
+    },
+    "validation": {
+      "path": "datasets\\experiment-004-validation.json",
+      "sha256": "bba419820e69b245012ae21c9e521ea1068ccfc85a58caaad05a11fa92758e8f"
+    },
+    "test": {
+      "path": "datasets\\experiment-004-test.json",
+      "sha256": "871c125f1f8002555b62e2a232a8350ca8a21a7071ebd0b4240a6c5bd479579f"
+    },
+    "adversarial": {
+      "path": "datasets\\experiment-004-adversarial.json",
+      "sha256": "52a57979d66b074ce7100be825efb92418fd3cda71f84072bd16e9eaef619d27"
+    }
+  },
+  "conditions": {
+    "A": {
+      "description": "Empty memory.",
+      "pattern": null,
+      "splits": {
+        "development": {
+          "exact": 0,
+          "total": 2,
+          "accuracy": 0,
+          "perCategory": {
+            "novel-known-combination": {
+              "correct": 0,
+              "count": 1,
+              "confusionCounts": {
+                "{\"subject\":\"Tavi\",\"predicate\":\"vek\",\"object\":\"lumo\"} => abstain": 1
+              }
+            },
+            "order-variation": {
+              "correct": 0,
+              "count": 1,
+              "confusionCounts": {
+                "{\"subject\":\"Mira\",\"predicate\":\"dax\",\"object\":\"lumo\"} => abstain": 1
+              }
+            }
+          },
+          "roleAccuracy": {
+            "subject": {
+              "correct": 0,
+              "total": 2
+            },
+            "predicate": {
+              "correct": 0,
+              "total": 2
+            },
+            "object": {
+              "correct": 0,
+              "total": 2
+            }
+          },
+          "predictions": [
+            {
+              "id": "dev-1",
+              "category": "novel-known-combination",
+              "expected": {
+                "subject": "Tavi",
+                "predicate": "vek",
+                "object": "lumo"
+              },
+              "actual": null,
+              "status": "abstain",
+              "reason": "No pattern or examples supplied.",
+              "exact": false
+            },
+            {
+              "id": "dev-2",
+              "category": "order-variation",
+              "expected": {
+                "subject": "Mira",
+                "predicate": "dax",
+                "object": "lumo"
+              },
+              "actual": null,
+              "status": "abstain",
+              "reason": "No pattern or examples supplied.",
+              "exact": false
+            }
+          ]
+        },
+        "validation": {
+          "exact": 1,
+          "total": 2,
+          "accuracy": 0.5,
+          "perCategory": {
+            "unseen-pairing": {
+              "correct": 0,
+              "count": 1,
+              "confusionCounts": {
+                "{\"subject\":\"Sena\",\"predicate\":\"dax\",\"object\":\"neri\"} => abstain": 1
+              }
+            },
+            "missing-component": {
+              "correct": 1,
+              "count": 1,
+              "confusionCounts": {
+                "abstain => abstain": 1
+              }
+            }
+          },
+          "roleAccuracy": {
+            "subject": {
+              "correct": 0,
+              "total": 1
+            },
+            "predicate": {
+              "correct": 0,
+              "total": 1
+            },
+            "object": {
+              "correct": 0,
+              "total": 1
+            }
+          },
+          "predictions": [
+            {
+              "id": "val-1",
+              "category": "unseen-pairing",
+              "expected": {
+                "subject": "Sena",
+                "predicate": "dax",
+                "object": "neri"
+              },
+              "actual": null,
+              "status": "abstain",
+              "reason": "No pattern or examples supplied.",
+              "exact": false
+            },
+            {
+              "id": "val-2",
+              "category": "missing-component",
+              "expected": null,
+              "actual": null,
+              "status": "abstain",
+              "reason": "No pattern or examples supplied.",
+              "exact": true
+            }
+          ]
+        },
+        "test": {
+          "exact": 4,
+          "total": 11,
+          "accuracy": 0.36363636363636365,
+          "perCategory": {
+            "training-example-retrieval": {
+              "correct": 0,
+              "count": 1,
+              "confusionCounts": {
+                "{\"subject\":\"Mira\",\"predicate\":\"dax\",\"object\":\"lumo\"} => abstain": 1
+              }
+            },
+            "novel-known-combination": {
+              "correct": 0,
+              "count": 2,
+              "confusionCounts": {
+                "{\"subject\":\"Tavi\",\"predicate\":\"vek\",\"object\":\"lumo\"} => abstain": 1,
+                "{\"subject\":\"Sena\",\"predicate\":\"vek\",\"object\":\"neri\"} => abstain": 1
+              }
+            },
+            "unseen-word-pairing": {
+              "correct": 0,
+              "count": 2,
+              "confusionCounts": {
+                "{\"subject\":\"Sena\",\"predicate\":\"dax\",\"object\":\"neri\"} => abstain": 1,
+                "{\"subject\":\"Tavi\",\"predicate\":\"vek\",\"object\":\"neri\"} => abstain": 1
+              }
+            },
+            "word-order-variation": {
+              "correct": 0,
+              "count": 1,
+              "confusionCounts": {
+                "{\"subject\":\"Mira\",\"predicate\":\"dax\",\"object\":\"lumo\"} => abstain": 1
+              }
+            },
+            "missing-component": {
+              "correct": 1,
+              "count": 1,
+              "confusionCounts": {
+                "abstain => abstain": 1
+              }
+            },
+            "extra-token": {
+              "correct": 1,
+              "count": 1,
+              "confusionCounts": {
+                "abstain => abstain": 1
+              }
+            },
+            "unknown-word": {
+              "correct": 1,
+              "count": 1,
+              "confusionCounts": {
+                "abstain => abstain": 1
+              }
+            },
+            "out-of-scope-construction": {
+              "correct": 1,
+              "count": 1,
+              "confusionCounts": {
+                "abstain => abstain": 1
+              }
+            },
+            "incorrect-role-assignment": {
+              "correct": 0,
+              "count": 1,
+              "confusionCounts": {
+                "{\"subject\":\"Mira\",\"predicate\":\"dax\",\"object\":\"lumo\"} => abstain": 1
+              }
+            }
+          },
+          "roleAccuracy": {
+            "subject": {
+              "correct": 0,
+              "total": 7
+            },
+            "predicate": {
+              "correct": 0,
+              "total": 7
+            },
+            "object": {
+              "correct": 0,
+              "total": 7
+            }
+          },
+          "predictions": [
+            {
+              "id": "test-01",
+              "category": "training-example-retrieval",
+              "expected": {
+                "subject": "Mira",
+                "predicate": "dax",
+                "object": "lumo"
+              },
+              "actual": null,
+              "status": "abstain",
+              "reason": "No pattern or examples supplied.",
+              "exact": false
+            },
+            {
+              "id": "test-02",
+              "category": "novel-known-combination",
+              "expected": {
+                "subject": "Tavi",
+                "predicate": "vek",
+                "object": "lumo"
+              },
+              "actual": null,
+              "status": "abstain",
+              "reason": "No pattern or examples supplied.",
+              "exact": false
+            },
+            {
+              "id": "test-03",
+              "category": "unseen-word-pairing",
+              "expected": {
+                "subject": "Sena",
+                "predicate": "dax",
+                "object": "neri"
+              },
+              "actual": null,
+              "status": "abstain",
+              "reason": "No pattern or examples supplied.",
+              "exact": false
+            },
+            {
+              "id": "test-04",
+              "category": "unseen-word-pairing",
+              "expected": {
+                "subject": "Tavi",
+                "predicate": "vek",
+                "object": "neri"
+              },
+              "actual": null,
+              "status": "abstain",
+              "reason": "No pattern or examples supplied.",
+              "exact": false
+            },
+            {
+              "id": "test-05",
+              "category": "word-order-variation",
+              "expected": {
+                "subject": "Mira",
+                "predicate": "dax",
+                "object": "lumo"
+              },
+              "actual": null,
+              "status": "abstain",
+              "reason": "No pattern or examples supplied.",
+              "exact": false
+            },
+            {
+              "id": "test-06",
+              "category": "missing-component",
+              "expected": null,
+              "actual": null,
+              "status": "abstain",
+              "reason": "No pattern or examples supplied.",
+              "exact": true
+            },
+            {
+              "id": "test-07",
+              "category": "extra-token",
+              "expected": null,
+              "actual": null,
+              "status": "abstain",
+              "reason": "No pattern or examples supplied.",
+              "exact": true
+            },
+            {
+              "id": "test-08",
+              "category": "unknown-word",
+              "expected": null,
+              "actual": null,
+              "status": "abstain",
+              "reason": "No pattern or examples supplied.",
+              "exact": true
+            },
+            {
+              "id": "test-09",
+              "category": "out-of-scope-construction",
+              "expected": null,
+              "actual": null,
+              "status": "abstain",
+              "reason": "No pattern or examples supplied.",
+              "exact": true
+            },
+            {
+              "id": "test-10",
+              "category": "incorrect-role-assignment",
+              "expected": {
+                "subject": "Mira",
+                "predicate": "dax",
+                "object": "lumo"
+              },
+              "actual": null,
+              "status": "abstain",
+              "reason": "No pattern or examples supplied.",
+              "exact": false
+            },
+            {
+              "id": "test-11",
+              "category": "novel-known-combination",
+              "expected": {
+                "subject": "Sena",
+                "predicate": "vek",
+                "object": "neri"
+              },
+              "actual": null,
+              "status": "abstain",
+              "reason": "No pattern or examples supplied.",
+              "exact": false
+            }
+          ]
+        }
+      },
+      "unsupportedAcceptance": {
+        "count": 0,
+        "total": 4
+      },
+      "correctAbstention": {
+        "count": 4,
+        "total": 4
+      },
+      "heldOutComposition": {
+        "correct": 0,
+        "total": 7
+      },
+      "patternMemoryBytes": 0,
+      "exampleMemoryBytes": 0,
+      "latencyMs": {
+        "observations": 55,
+        "p50": 0.0007999999999981355,
+        "p95": 0.00190000000000623
+      }
+    },
+    "B": {
+      "description": "Exact example retrieval only.",
+      "pattern": null,
+      "splits": {
+        "development": {
+          "exact": 0,
+          "total": 2,
+          "accuracy": 0,
+          "perCategory": {
+            "novel-known-combination": {
+              "correct": 0,
+              "count": 1,
+              "confusionCounts": {
+                "{\"subject\":\"Tavi\",\"predicate\":\"vek\",\"object\":\"lumo\"} => abstain": 1
+              }
+            },
+            "order-variation": {
+              "correct": 0,
+              "count": 1,
+              "confusionCounts": {
+                "{\"subject\":\"Mira\",\"predicate\":\"dax\",\"object\":\"lumo\"} => abstain": 1
+              }
+            }
+          },
+          "roleAccuracy": {
+            "subject": {
+              "correct": 0,
+              "total": 2
+            },
+            "predicate": {
+              "correct": 0,
+              "total": 2
+            },
+            "object": {
+              "correct": 0,
+              "total": 2
+            }
+          },
+          "predictions": [
+            {
+              "id": "dev-1",
+              "category": "novel-known-combination",
+              "expected": {
+                "subject": "Tavi",
+                "predicate": "vek",
+                "object": "lumo"
+              },
+              "actual": null,
+              "status": "abstain",
+              "reason": "No exact teaching example.",
+              "exact": false
+            },
+            {
+              "id": "dev-2",
+              "category": "order-variation",
+              "expected": {
+                "subject": "Mira",
+                "predicate": "dax",
+                "object": "lumo"
+              },
+              "actual": null,
+              "status": "abstain",
+              "reason": "No exact teaching example.",
+              "exact": false
+            }
+          ]
+        },
+        "validation": {
+          "exact": 1,
+          "total": 2,
+          "accuracy": 0.5,
+          "perCategory": {
+            "unseen-pairing": {
+              "correct": 0,
+              "count": 1,
+              "confusionCounts": {
+                "{\"subject\":\"Sena\",\"predicate\":\"dax\",\"object\":\"neri\"} => abstain": 1
+              }
+            },
+            "missing-component": {
+              "correct": 1,
+              "count": 1,
+              "confusionCounts": {
+                "abstain => abstain": 1
+              }
+            }
+          },
+          "roleAccuracy": {
+            "subject": {
+              "correct": 0,
+              "total": 1
+            },
+            "predicate": {
+              "correct": 0,
+              "total": 1
+            },
+            "object": {
+              "correct": 0,
+              "total": 1
+            }
+          },
+          "predictions": [
+            {
+              "id": "val-1",
+              "category": "unseen-pairing",
+              "expected": {
+                "subject": "Sena",
+                "predicate": "dax",
+                "object": "neri"
+              },
+              "actual": null,
+              "status": "abstain",
+              "reason": "No exact teaching example.",
+              "exact": false
+            },
+            {
+              "id": "val-2",
+              "category": "missing-component",
+              "expected": null,
+              "actual": null,
+              "status": "abstain",
+              "reason": "No exact teaching example.",
+              "exact": true
+            }
+          ]
+        },
+        "test": {
+          "exact": 5,
+          "total": 11,
+          "accuracy": 0.45454545454545453,
+          "perCategory": {
+            "training-example-retrieval": {
+              "correct": 1,
+              "count": 1,
+              "confusionCounts": {
+                "{\"subject\":\"Mira\",\"predicate\":\"dax\",\"object\":\"lumo\"} => {\"subject\":\"Mira\",\"predicate\":\"dax\",\"object\":\"lumo\"}": 1
+              }
+            },
+            "novel-known-combination": {
+              "correct": 0,
+              "count": 2,
+              "confusionCounts": {
+                "{\"subject\":\"Tavi\",\"predicate\":\"vek\",\"object\":\"lumo\"} => abstain": 1,
+                "{\"subject\":\"Sena\",\"predicate\":\"vek\",\"object\":\"neri\"} => abstain": 1
+              }
+            },
+            "unseen-word-pairing": {
+              "correct": 0,
+              "count": 2,
+              "confusionCounts": {
+                "{\"subject\":\"Sena\",\"predicate\":\"dax\",\"object\":\"neri\"} => abstain": 1,
+                "{\"subject\":\"Tavi\",\"predicate\":\"vek\",\"object\":\"neri\"} => abstain": 1
+              }
+            },
+            "word-order-variation": {
+              "correct": 0,
+              "count": 1,
+              "confusionCounts": {
+                "{\"subject\":\"Mira\",\"predicate\":\"dax\",\"object\":\"lumo\"} => abstain": 1
+              }
+            },
+            "missing-component": {
+              "correct": 1,
+              "count": 1,
+              "confusionCounts": {
+                "abstain => abstain": 1
+              }
+            },
+            "extra-token": {
+              "correct": 1,
+              "count": 1,
+              "confusionCounts": {
+                "abstain => abstain": 1
+              }
+            },
+            "unknown-word": {
+              "correct": 1,
+              "count": 1,
+              "confusionCounts": {
+                "abstain => abstain": 1
+              }
+            },
+            "out-of-scope-construction": {
+              "correct": 1,
+              "count": 1,
+              "confusionCounts": {
+                "abstain => abstain": 1
+              }
+            },
+            "incorrect-role-assignment": {
+              "correct": 0,
+              "count": 1,
+              "confusionCounts": {
+                "{\"subject\":\"Mira\",\"predicate\":\"dax\",\"object\":\"lumo\"} => abstain": 1
+              }
+            }
+          },
+          "roleAccuracy": {
+            "subject": {
+              "correct": 1,
+              "total": 7
+            },
+            "predicate": {
+              "correct": 1,
+              "total": 7
+            },
+            "object": {
+              "correct": 1,
+              "total": 7
+            }
+          },
+          "predictions": [
+            {
+              "id": "test-01",
+              "category": "training-example-retrieval",
+              "expected": {
+                "subject": "Mira",
+                "predicate": "dax",
+                "object": "lumo"
+              },
+              "actual": {
+                "subject": "Mira",
+                "predicate": "dax",
+                "object": "lumo"
+              },
+              "status": "retrieved",
+              "reason": null,
+              "exact": true
+            },
+            {
+              "id": "test-02",
+              "category": "novel-known-combination",
+              "expected": {
+                "subject": "Tavi",
+                "predicate": "vek",
+                "object": "lumo"
+              },
+              "actual": null,
+              "status": "abstain",
+              "reason": "No exact teaching example.",
+              "exact": false
+            },
+            {
+              "id": "test-03",
+              "category": "unseen-word-pairing",
+              "expected": {
+                "subject": "Sena",
+                "predicate": "dax",
+                "object": "neri"
+              },
+              "actual": null,
+              "status": "abstain",
+              "reason": "No exact teaching example.",
+              "exact": false
+            },
+            {
+              "id": "test-04",
+              "category": "unseen-word-pairing",
+              "expected": {
+                "subject": "Tavi",
+                "predicate": "vek",
+                "object": "neri"
+              },
+              "actual": null,
+              "status": "abstain",
+              "reason": "No exact teaching example.",
+              "exact": false
+            },
+            {
+              "id": "test-05",
+              "category": "word-order-variation",
+              "expected": {
+                "subject": "Mira",
+                "predicate": "dax",
+                "object": "lumo"
+              },
+              "actual": null,
+              "status": "abstain",
+              "reason": "No exact teaching example.",
+              "exact": false
+            },
+            {
+              "id": "test-06",
+              "category": "missing-component",
+              "expected": null,
+              "actual": null,
+              "status": "abstain",
+              "reason": "No exact teaching example.",
+              "exact": true
+            },
+            {
+              "id": "test-07",
+              "category": "extra-token",
+              "expected": null,
+              "actual": null,
+              "status": "abstain",
+              "reason": "No exact teaching example.",
+              "exact": true
+            },
+            {
+              "id": "test-08",
+              "category": "unknown-word",
+              "expected": null,
+              "actual": null,
+              "status": "abstain",
+              "reason": "No exact teaching example.",
+              "exact": true
+            },
+            {
+              "id": "test-09",
+              "category": "out-of-scope-construction",
+              "expected": null,
+              "actual": null,
+              "status": "abstain",
+              "reason": "No exact teaching example.",
+              "exact": true
+            },
+            {
+              "id": "test-10",
+              "category": "incorrect-role-assignment",
+              "expected": {
+                "subject": "Mira",
+                "predicate": "dax",
+                "object": "lumo"
+              },
+              "actual": null,
+              "status": "abstain",
+              "reason": "No exact teaching example.",
+              "exact": false
+            },
+            {
+              "id": "test-11",
+              "category": "novel-known-combination",
+              "expected": {
+                "subject": "Sena",
+                "predicate": "vek",
+                "object": "neri"
+              },
+              "actual": null,
+              "status": "abstain",
+              "reason": "No exact teaching example.",
+              "exact": false
+            }
+          ]
+        }
+      },
+      "unsupportedAcceptance": {
+        "count": 0,
+        "total": 4
+      },
+      "correctAbstention": {
+        "count": 4,
+        "total": 4
+      },
+      "heldOutComposition": {
+        "correct": 1,
+        "total": 7
+      },
+      "patternMemoryBytes": 0,
+      "exampleMemoryBytes": 776,
+      "latencyMs": {
+        "observations": 55,
+        "p50": 0.004099999999993997,
+        "p95": 0.0075999999999964984
+      }
+    },
+    "C": {
+      "description": "Weakly supervised induction from the same labeled examples.",
+      "pattern": {
+        "schemaVersion": 1,
+        "id": "pattern-1-93ad88475d5aa9f8",
+        "version": 1,
+        "status": "accepted",
+        "source": "induced",
+        "pattern": [
+          "subject",
+          "predicate",
+          "object"
+        ],
+        "confidence": 1,
+        "evidenceIds": [
+          "train-1",
+          "train-2",
+          "train-3",
+          "train-4"
+        ],
+        "evidenceSources": [
+          {
+            "id": "train-1",
+            "source": "weak-supervision"
+          },
+          {
+            "id": "train-2",
+            "source": "weak-supervision"
+          },
+          {
+            "id": "train-3",
+            "source": "weak-supervision"
+          },
+          {
+            "id": "train-4",
+            "source": "weak-supervision"
+          }
+        ],
+        "candidates": [
+          {
+            "rolesByPosition": [
+              "subject",
+              "predicate",
+              "object"
+            ],
+            "supportingEvidenceIds": [
+              "train-1",
+              "train-2",
+              "train-3",
+              "train-4"
+            ],
+            "contradictionEvidenceIds": [],
+            "score": 1
+          },
+          {
+            "rolesByPosition": [
+              "object",
+              "predicate",
+              "subject"
+            ],
+            "supportingEvidenceIds": [],
+            "contradictionEvidenceIds": [
+              "train-1",
+              "train-2",
+              "train-3",
+              "train-4"
+            ],
+            "score": 0
+          },
+          {
+            "rolesByPosition": [
+              "object",
+              "subject",
+              "predicate"
+            ],
+            "supportingEvidenceIds": [],
+            "contradictionEvidenceIds": [
+              "train-1",
+              "train-2",
+              "train-3",
+              "train-4"
+            ],
+            "score": 0
+          },
+          {
+            "rolesByPosition": [
+              "predicate",
+              "object",
+              "subject"
+            ],
+            "supportingEvidenceIds": [],
+            "contradictionEvidenceIds": [
+              "train-1",
+              "train-2",
+              "train-3",
+              "train-4"
+            ],
+            "score": 0
+          },
+          {
+            "rolesByPosition": [
+              "predicate",
+              "subject",
+              "object"
+            ],
+            "supportingEvidenceIds": [],
+            "contradictionEvidenceIds": [
+              "train-1",
+              "train-2",
+              "train-3",
+              "train-4"
+            ],
+            "score": 0
+          },
+          {
+            "rolesByPosition": [
+              "subject",
+              "object",
+              "predicate"
+            ],
+            "supportingEvidenceIds": [],
+            "contradictionEvidenceIds": [
+              "train-1",
+              "train-2",
+              "train-3",
+              "train-4"
+            ],
+            "score": 0
+          }
+        ],
+        "reason": "Unique candidate supported by 4 distinct labeled examples.",
+        "createdAt": "2026-10-16T10:01:55.779Z"
+      },
+      "splits": {
+        "development": {
+          "exact": 1,
+          "total": 2,
+          "accuracy": 0.5,
+          "perCategory": {
+            "novel-known-combination": {
+              "correct": 1,
+              "count": 1,
+              "confusionCounts": {
+                "{\"subject\":\"Tavi\",\"predicate\":\"vek\",\"object\":\"lumo\"} => {\"subject\":\"tavi\",\"predicate\":\"vek\",\"object\":\"lumo\"}": 1
+              }
+            },
+            "order-variation": {
+              "correct": 0,
+              "count": 1,
+              "confusionCounts": {
+                "{\"subject\":\"Mira\",\"predicate\":\"dax\",\"object\":\"lumo\"} => {\"subject\":\"mira\",\"predicate\":\"lumo\",\"object\":\"dax\"}": 1
+              }
+            }
+          },
+          "roleAccuracy": {
+            "subject": {
+              "correct": 2,
+              "total": 2
+            },
+            "predicate": {
+              "correct": 1,
+              "total": 2
+            },
+            "object": {
+              "correct": 1,
+              "total": 2
+            }
+          },
+          "predictions": [
+            {
+              "id": "dev-1",
+              "category": "novel-known-combination",
+              "expected": {
+                "subject": "Tavi",
+                "predicate": "vek",
+                "object": "lumo"
+              },
+              "actual": {
+                "subject": "tavi",
+                "predicate": "vek",
+                "object": "lumo"
+              },
+              "status": "supported",
+              "reason": null,
+              "exact": true
+            },
+            {
+              "id": "dev-2",
+              "category": "order-variation",
+              "expected": {
+                "subject": "Mira",
+                "predicate": "dax",
+                "object": "lumo"
+              },
+              "actual": {
+                "subject": "mira",
+                "predicate": "lumo",
+                "object": "dax"
+              },
+              "status": "supported",
+              "reason": null,
+              "exact": false
+            }
+          ]
+        },
+        "validation": {
+          "exact": 2,
+          "total": 2,
+          "accuracy": 1,
+          "perCategory": {
+            "unseen-pairing": {
+              "correct": 1,
+              "count": 1,
+              "confusionCounts": {
+                "{\"subject\":\"Sena\",\"predicate\":\"dax\",\"object\":\"neri\"} => {\"subject\":\"sena\",\"predicate\":\"dax\",\"object\":\"neri\"}": 1
+              }
+            },
+            "missing-component": {
+              "correct": 1,
+              "count": 1,
+              "confusionCounts": {
+                "abstain => abstain": 1
+              }
+            }
+          },
+          "roleAccuracy": {
+            "subject": {
+              "correct": 1,
+              "total": 1
+            },
+            "predicate": {
+              "correct": 1,
+              "total": 1
+            },
+            "object": {
+              "correct": 1,
+              "total": 1
+            }
+          },
+          "predictions": [
+            {
+              "id": "val-1",
+              "category": "unseen-pairing",
+              "expected": {
+                "subject": "Sena",
+                "predicate": "dax",
+                "object": "neri"
+              },
+              "actual": {
+                "subject": "sena",
+                "predicate": "dax",
+                "object": "neri"
+              },
+              "status": "supported",
+              "reason": null,
+              "exact": true
+            },
+            {
+              "id": "val-2",
+              "category": "missing-component",
+              "expected": null,
+              "actual": null,
+              "status": "unsupported",
+              "reason": "Expected exactly three tokens; received 2.",
+              "exact": true
+            }
+          ]
+        },
+        "test": {
+          "exact": 9,
+          "total": 11,
+          "accuracy": 0.8181818181818182,
+          "perCategory": {
+            "training-example-retrieval": {
+              "correct": 1,
+              "count": 1,
+              "confusionCounts": {
+                "{\"subject\":\"Mira\",\"predicate\":\"dax\",\"object\":\"lumo\"} => {\"subject\":\"mira\",\"predicate\":\"dax\",\"object\":\"lumo\"}": 1
+              }
+            },
+            "novel-known-combination": {
+              "correct": 2,
+              "count": 2,
+              "confusionCounts": {
+                "{\"subject\":\"Tavi\",\"predicate\":\"vek\",\"object\":\"lumo\"} => {\"subject\":\"tavi\",\"predicate\":\"vek\",\"object\":\"lumo\"}": 1,
+                "{\"subject\":\"Sena\",\"predicate\":\"vek\",\"object\":\"neri\"} => {\"subject\":\"sena\",\"predicate\":\"vek\",\"object\":\"neri\"}": 1
+              }
+            },
+            "unseen-word-pairing": {
+              "correct": 2,
+              "count": 2,
+              "confusionCounts": {
+                "{\"subject\":\"Sena\",\"predicate\":\"dax\",\"object\":\"neri\"} => {\"subject\":\"sena\",\"predicate\":\"dax\",\"object\":\"neri\"}": 1,
+                "{\"subject\":\"Tavi\",\"predicate\":\"vek\",\"object\":\"neri\"} => {\"subject\":\"tavi\",\"predicate\":\"vek\",\"object\":\"neri\"}": 1
+              }
+            },
+            "word-order-variation": {
+              "correct": 0,
+              "count": 1,
+              "confusionCounts": {
+                "{\"subject\":\"Mira\",\"predicate\":\"dax\",\"object\":\"lumo\"} => {\"subject\":\"mira\",\"predicate\":\"lumo\",\"object\":\"dax\"}": 1
+              }
+            },
+            "missing-component": {
+              "correct": 1,
+              "count": 1,
+              "confusionCounts": {
+                "abstain => abstain": 1
+              }
+            },
+            "extra-token": {
+              "correct": 1,
+              "count": 1,
+              "confusionCounts": {
+                "abstain => abstain": 1
+              }
+            },
+            "unknown-word": {
+              "correct": 1,
+              "count": 1,
+              "confusionCounts": {
+                "abstain => abstain": 1
+              }
+            },
+            "out-of-scope-construction": {
+              "correct": 1,
+              "count": 1,
+              "confusionCounts": {
+                "abstain => abstain": 1
+              }
+            },
+            "incorrect-role-assignment": {
+              "correct": 0,
+              "count": 1,
+              "confusionCounts": {
+                "{\"subject\":\"Mira\",\"predicate\":\"dax\",\"object\":\"lumo\"} => {\"subject\":\"lumo\",\"predicate\":\"dax\",\"object\":\"mira\"}": 1
+              }
+            }
+          },
+          "roleAccuracy": {
+            "subject": {
+              "correct": 6,
+              "total": 7
+            },
+            "predicate": {
+              "correct": 6,
+              "total": 7
+            },
+            "object": {
+              "correct": 5,
+              "total": 7
+            }
+          },
+          "predictions": [
+            {
+              "id": "test-01",
+              "category": "training-example-retrieval",
+              "expected": {
+                "subject": "Mira",
+                "predicate": "dax",
+                "object": "lumo"
+              },
+              "actual": {
+                "subject": "mira",
+                "predicate": "dax",
+                "object": "lumo"
+              },
+              "status": "supported",
+              "reason": null,
+              "exact": true
+            },
+            {
+              "id": "test-02",
+              "category": "novel-known-combination",
+              "expected": {
+                "subject": "Tavi",
+                "predicate": "vek",
+                "object": "lumo"
+              },
+              "actual": {
+                "subject": "tavi",
+                "predicate": "vek",
+                "object": "lumo"
+              },
+              "status": "supported",
+              "reason": null,
+              "exact": true
+            },
+            {
+              "id": "test-03",
+              "category": "unseen-word-pairing",
+              "expected": {
+                "subject": "Sena",
+                "predicate": "dax",
+                "object": "neri"
+              },
+              "actual": {
+                "subject": "sena",
+                "predicate": "dax",
+                "object": "neri"
+              },
+              "status": "supported",
+              "reason": null,
+              "exact": true
+            },
+            {
+              "id": "test-04",
+              "category": "unseen-word-pairing",
+              "expected": {
+                "subject": "Tavi",
+                "predicate": "vek",
+                "object": "neri"
+              },
+              "actual": {
+                "subject": "tavi",
+                "predicate": "vek",
+                "object": "neri"
+              },
+              "status": "supported",
+              "reason": null,
+              "exact": true
+            },
+            {
+              "id": "test-05",
+              "category": "word-order-variation",
+              "expected": {
+                "subject": "Mira",
+                "predicate": "dax",
+                "object": "lumo"
+              },
+              "actual": {
+                "subject": "mira",
+                "predicate": "lumo",
+                "object": "dax"
+              },
+              "status": "supported",
+              "reason": null,
+              "exact": false
+            },
+            {
+              "id": "test-06",
+              "category": "missing-component",
+              "expected": null,
+              "actual": null,
+              "status": "unsupported",
+              "reason": "Expected exactly three tokens; received 2.",
+              "exact": true
+            },
+            {
+              "id": "test-07",
+              "category": "extra-token",
+              "expected": null,
+              "actual": null,
+              "status": "unsupported",
+              "reason": "Expected exactly three tokens; received 4.",
+              "exact": true
+            },
+            {
+              "id": "test-08",
+              "category": "unknown-word",
+              "expected": null,
+              "actual": null,
+              "status": "unknown",
+              "reason": "Token \"blarg\" is not in the learned vocabulary.",
+              "exact": true
+            },
+            {
+              "id": "test-09",
+              "category": "out-of-scope-construction",
+              "expected": null,
+              "actual": null,
+              "status": "unsupported",
+              "reason": "Expected exactly three tokens; received 4.",
+              "exact": true
+            },
+            {
+              "id": "test-10",
+              "category": "incorrect-role-assignment",
+              "expected": {
+                "subject": "Mira",
+                "predicate": "dax",
+                "object": "lumo"
+              },
+              "actual": {
+                "subject": "lumo",
+                "predicate": "dax",
+                "object": "mira"
+              },
+              "status": "supported",
+              "reason": null,
+              "exact": false
+            },
+            {
+              "id": "test-11",
+              "category": "novel-known-combination",
+              "expected": {
+                "subject": "Sena",
+                "predicate": "vek",
+                "object": "neri"
+              },
+              "actual": {
+                "subject": "sena",
+                "predicate": "vek",
+                "object": "neri"
+              },
+              "status": "supported",
+              "reason": null,
+              "exact": true
+            }
+          ]
+        }
+      },
+      "unsupportedAcceptance": {
+        "count": 0,
+        "total": 4
+      },
+      "correctAbstention": {
+        "count": 4,
+        "total": 4
+      },
+      "heldOutComposition": {
+        "correct": 5,
+        "total": 7
+      },
+      "patternMemoryBytes": 2411,
+      "exampleMemoryBytes": 0,
+      "latencyMs": {
+        "observations": 55,
+        "p50": 0.5360000000000014,
+        "p95": 1.1229999999999905
+      }
+    },
+    "D": {
+      "description": "Directly supplied SVO rule; reference, not learned.",
+      "pattern": {
+        "schemaVersion": 1,
+        "id": "supplied-svo-v1",
+        "version": 1,
+        "status": "accepted",
+        "source": "supplied",
+        "pattern": [
+          "subject",
+          "predicate",
+          "object"
+        ],
+        "confidence": 1,
+        "evidenceIds": [],
+        "evidenceSources": [],
+        "candidates": [],
+        "reason": "Pattern was directly supplied; this is a reference condition, not induction.",
+        "createdAt": "2026-10-16T10:01:55.780Z"
+      },
+      "splits": {
+        "development": {
+          "exact": 1,
+          "total": 2,
+          "accuracy": 0.5,
+          "perCategory": {
+            "novel-known-combination": {
+              "correct": 1,
+              "count": 1,
+              "confusionCounts": {
+                "{\"subject\":\"Tavi\",\"predicate\":\"vek\",\"object\":\"lumo\"} => {\"subject\":\"tavi\",\"predicate\":\"vek\",\"object\":\"lumo\"}": 1
+              }
+            },
+            "order-variation": {
+              "correct": 0,
+              "count": 1,
+              "confusionCounts": {
+                "{\"subject\":\"Mira\",\"predicate\":\"dax\",\"object\":\"lumo\"} => {\"subject\":\"mira\",\"predicate\":\"lumo\",\"object\":\"dax\"}": 1
+              }
+            }
+          },
+          "roleAccuracy": {
+            "subject": {
+              "correct": 2,
+              "total": 2
+            },
+            "predicate": {
+              "correct": 1,
+              "total": 2
+            },
+            "object": {
+              "correct": 1,
+              "total": 2
+            }
+          },
+          "predictions": [
+            {
+              "id": "dev-1",
+              "category": "novel-known-combination",
+              "expected": {
+                "subject": "Tavi",
+                "predicate": "vek",
+                "object": "lumo"
+              },
+              "actual": {
+                "subject": "tavi",
+                "predicate": "vek",
+                "object": "lumo"
+              },
+              "status": "supported",
+              "reason": null,
+              "exact": true
+            },
+            {
+              "id": "dev-2",
+              "category": "order-variation",
+              "expected": {
+                "subject": "Mira",
+                "predicate": "dax",
+                "object": "lumo"
+              },
+              "actual": {
+                "subject": "mira",
+                "predicate": "lumo",
+                "object": "dax"
+              },
+              "status": "supported",
+              "reason": null,
+              "exact": false
+            }
+          ]
+        },
+        "validation": {
+          "exact": 2,
+          "total": 2,
+          "accuracy": 1,
+          "perCategory": {
+            "unseen-pairing": {
+              "correct": 1,
+              "count": 1,
+              "confusionCounts": {
+                "{\"subject\":\"Sena\",\"predicate\":\"dax\",\"object\":\"neri\"} => {\"subject\":\"sena\",\"predicate\":\"dax\",\"object\":\"neri\"}": 1
+              }
+            },
+            "missing-component": {
+              "correct": 1,
+              "count": 1,
+              "confusionCounts": {
+                "abstain => abstain": 1
+              }
+            }
+          },
+          "roleAccuracy": {
+            "subject": {
+              "correct": 1,
+              "total": 1
+            },
+            "predicate": {
+              "correct": 1,
+              "total": 1
+            },
+            "object": {
+              "correct": 1,
+              "total": 1
+            }
+          },
+          "predictions": [
+            {
+              "id": "val-1",
+              "category": "unseen-pairing",
+              "expected": {
+                "subject": "Sena",
+                "predicate": "dax",
+                "object": "neri"
+              },
+              "actual": {
+                "subject": "sena",
+                "predicate": "dax",
+                "object": "neri"
+              },
+              "status": "supported",
+              "reason": null,
+              "exact": true
+            },
+            {
+              "id": "val-2",
+              "category": "missing-component",
+              "expected": null,
+              "actual": null,
+              "status": "unsupported",
+              "reason": "Expected exactly three tokens; received 2.",
+              "exact": true
+            }
+          ]
+        },
+        "test": {
+          "exact": 9,
+          "total": 11,
+          "accuracy": 0.8181818181818182,
+          "perCategory": {
+            "training-example-retrieval": {
+              "correct": 1,
+              "count": 1,
+              "confusionCounts": {
+                "{\"subject\":\"Mira\",\"predicate\":\"dax\",\"object\":\"lumo\"} => {\"subject\":\"mira\",\"predicate\":\"dax\",\"object\":\"lumo\"}": 1
+              }
+            },
+            "novel-known-combination": {
+              "correct": 2,
+              "count": 2,
+              "confusionCounts": {
+                "{\"subject\":\"Tavi\",\"predicate\":\"vek\",\"object\":\"lumo\"} => {\"subject\":\"tavi\",\"predicate\":\"vek\",\"object\":\"lumo\"}": 1,
+                "{\"subject\":\"Sena\",\"predicate\":\"vek\",\"object\":\"neri\"} => {\"subject\":\"sena\",\"predicate\":\"vek\",\"object\":\"neri\"}": 1
+              }
+            },
+            "unseen-word-pairing": {
+              "correct": 2,
+              "count": 2,
+              "confusionCounts": {
+                "{\"subject\":\"Sena\",\"predicate\":\"dax\",\"object\":\"neri\"} => {\"subject\":\"sena\",\"predicate\":\"dax\",\"object\":\"neri\"}": 1,
+                "{\"subject\":\"Tavi\",\"predicate\":\"vek\",\"object\":\"neri\"} => {\"subject\":\"tavi\",\"predicate\":\"vek\",\"object\":\"neri\"}": 1
+              }
+            },
+            "word-order-variation": {
+              "correct": 0,
+              "count": 1,
+              "confusionCounts": {
+                "{\"subject\":\"Mira\",\"predicate\":\"dax\",\"object\":\"lumo\"} => {\"subject\":\"mira\",\"predicate\":\"lumo\",\"object\":\"dax\"}": 1
+              }
+            },
+            "missing-component": {
+              "correct": 1,
+              "count": 1,
+              "confusionCounts": {
+                "abstain => abstain": 1
+              }
+            },
+            "extra-token": {
+              "correct": 1,
+              "count": 1,
+              "confusionCounts": {
+                "abstain => abstain": 1
+              }
+            },
+            "unknown-word": {
+              "correct": 1,
+              "count": 1,
+              "confusionCounts": {
+                "abstain => abstain": 1
+              }
+            },
+            "out-of-scope-construction": {
+              "correct": 1,
+              "count": 1,
+              "confusionCounts": {
+                "abstain => abstain": 1
+              }
+            },
+            "incorrect-role-assignment": {
+              "correct": 0,
+              "count": 1,
+              "confusionCounts": {
+                "{\"subject\":\"Mira\",\"predicate\":\"dax\",\"object\":\"lumo\"} => {\"subject\":\"lumo\",\"predicate\":\"dax\",\"object\":\"mira\"}": 1
+              }
+            }
+          },
+          "roleAccuracy": {
+            "subject": {
+              "correct": 6,
+              "total": 7
+            },
+            "predicate": {
+              "correct": 6,
+              "total": 7
+            },
+            "object": {
+              "correct": 5,
+              "total": 7
+            }
+          },
+          "predictions": [
+            {
+              "id": "test-01",
+              "category": "training-example-retrieval",
+              "expected": {
+                "subject": "Mira",
+                "predicate": "dax",
+                "object": "lumo"
+              },
+              "actual": {
+                "subject": "mira",
+                "predicate": "dax",
+                "object": "lumo"
+              },
+              "status": "supported",
+              "reason": null,
+              "exact": true
+            },
+            {
+              "id": "test-02",
+              "category": "novel-known-combination",
+              "expected": {
+                "subject": "Tavi",
+                "predicate": "vek",
+                "object": "lumo"
+              },
+              "actual": {
+                "subject": "tavi",
+                "predicate": "vek",
+                "object": "lumo"
+              },
+              "status": "supported",
+              "reason": null,
+              "exact": true
+            },
+            {
+              "id": "test-03",
+              "category": "unseen-word-pairing",
+              "expected": {
+                "subject": "Sena",
+                "predicate": "dax",
+                "object": "neri"
+              },
+              "actual": {
+                "subject": "sena",
+                "predicate": "dax",
+                "object": "neri"
+              },
+              "status": "supported",
+              "reason": null,
+              "exact": true
+            },
+            {
+              "id": "test-04",
+              "category": "unseen-word-pairing",
+              "expected": {
+                "subject": "Tavi",
+                "predicate": "vek",
+                "object": "neri"
+              },
+              "actual": {
+                "subject": "tavi",
+                "predicate": "vek",
+                "object": "neri"
+              },
+              "status": "supported",
+              "reason": null,
+              "exact": true
+            },
+            {
+              "id": "test-05",
+              "category": "word-order-variation",
+              "expected": {
+                "subject": "Mira",
+                "predicate": "dax",
+                "object": "lumo"
+              },
+              "actual": {
+                "subject": "mira",
+                "predicate": "lumo",
+                "object": "dax"
+              },
+              "status": "supported",
+              "reason": null,
+              "exact": false
+            },
+            {
+              "id": "test-06",
+              "category": "missing-component",
+              "expected": null,
+              "actual": null,
+              "status": "unsupported",
+              "reason": "Expected exactly three tokens; received 2.",
+              "exact": true
+            },
+            {
+              "id": "test-07",
+              "category": "extra-token",
+              "expected": null,
+              "actual": null,
+              "status": "unsupported",
+              "reason": "Expected exactly three tokens; received 4.",
+              "exact": true
+            },
+            {
+              "id": "test-08",
+              "category": "unknown-word",
+              "expected": null,
+              "actual": null,
+              "status": "unknown",
+              "reason": "Token \"blarg\" is not in the learned vocabulary.",
+              "exact": true
+            },
+            {
+              "id": "test-09",
+              "category": "out-of-scope-construction",
+              "expected": null,
+              "actual": null,
+              "status": "unsupported",
+              "reason": "Expected exactly three tokens; received 4.",
+              "exact": true
+            },
+            {
+              "id": "test-10",
+              "category": "incorrect-role-assignment",
+              "expected": {
+                "subject": "Mira",
+                "predicate": "dax",
+                "object": "lumo"
+              },
+              "actual": {
+                "subject": "lumo",
+                "predicate": "dax",
+                "object": "mira"
+              },
+              "status": "supported",
+              "reason": null,
+              "exact": false
+            },
+            {
+              "id": "test-11",
+              "category": "novel-known-combination",
+              "expected": {
+                "subject": "Sena",
+                "predicate": "vek",
+                "object": "neri"
+              },
+              "actual": {
+                "subject": "sena",
+                "predicate": "vek",
+                "object": "neri"
+              },
+              "status": "supported",
+              "reason": null,
+              "exact": true
+            }
+          ]
+        }
+      },
+      "unsupportedAcceptance": {
+        "count": 0,
+        "total": 4
+      },
+      "correctAbstention": {
+        "count": 4,
+        "total": 4
+      },
+      "heldOutComposition": {
+        "correct": 5,
+        "total": 7
+      },
+      "patternMemoryBytes": 401,
+      "exampleMemoryBytes": 0,
+      "latencyMs": {
+        "observations": 55,
+        "p50": 0.5116999999999621,
+        "p95": 0.8064999999999714
+      }
+    }
+  },
+  "adversarial": {
+    "datasetProbeCount": 4,
+    "unlabeled": {
+      "candidateCount": 6,
+      "distinctScores": [
+        1
+      ],
+      "status": "ambiguous",
+      "expectedStatus": "ambiguous",
+      "pass": true
+    },
+    "insufficientEvidence": {
+      "status": "ambiguous",
+      "pass": true
+    },
+    "contradiction": {
+      "status": "rejected",
+      "acceptedPattern": null,
+      "pass": true
+    },
+    "duplicateEvidence": {
+      "status": "ambiguous",
+      "distinctEvidenceCount": 1,
+      "confidence": 0.5,
+      "pass": true
+    },
+    "restart": {
+      "separateProcess": true,
+      "sameVersion": true,
+      "sameEvidence": true,
+      "outcomeBeforeReset": "supported",
+      "outcomeAfterReset": "ambiguous",
+      "resultAfterReload": "supported",
+      "pass": true
+    },
+    "corruptStore": {
+      "readRejected": true,
+      "contentPreserved": true,
+      "pass": true
+    },
+    "productionPathGuard": {
+      "pass": true
+    },
+    "allPassed": true
+  },
+  "execution": {
+    "evaluationFailures": 0,
+    "timedOutOperations": 0,
+    "perOperationTimeoutConfigured": false
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "benchmark": "transinfant-heldout-composition-v1",
+  "runDate": "2026-10-16",
+  "runtime": "Node.js v24.13.0",
+  "seed": null,
+  "curriculum": {
+    "entityCount": 8,
+    "acceptedRelationships": 4,
+    "heldOutCount": 8,
+    "generatedExamples": false
+  },
+  "metrics": {
+    "baselineExactFrameAccuracy": 0.25,
+    "integratedExactFrameAccuracy": 1,
+    "integratedActionAccuracy": 1,
+    "integratedObjectAccuracy": 1,
+    "sampleCount": 8,
+    "warmTimingRepetitionsPerSample": 3,
+    "coldFirstRequestMs": 1598.069,
+    "baselineLatencyMs": {
+      "p50": 0.769,
+      "p95": 285.546
+    },
+    "integratedLatencyMs": {
+      "p50": 3.552,
+      "p95": 287.508
+    },
+    "persistedMemoryBytes": 4525,
+    "confidenceIntervals": null
+  },
+  "limitations": [
+    "Small deterministic hand-authored synthetic dataset.",
+    "Integrated system receives explicitly taught relationships unavailable to the baseline.",
+    "Single-run latency statistics are highly variable and descriptive only.",
+    "No claim of broad natural-language or autonomous concept generalization."
+  ],
+  "samples": [
+    {
+      "text": "open editor",
+      "expected": ["open", "application"],
+      "baseline": ["open", "unknown"],
+      "integrated": ["open", "application"]
+    },
+    {
+      "text": "show grid",
+      "expected": ["show", "spreadsheet"],
+      "baseline": ["show", "unknown"],
+      "integrated": ["show", "spreadsheet"]
+    },
+    {
+      "text": "summon editor",
+      "expected": ["open", "application"],
+      "baseline": ["unknown", "unknown"],
+      "integrated": ["open", "application"]
+    },
+    {
+      "text": "reveal grid",
+      "expected": ["show", "spreadsheet"],
+      "baseline": ["unknown", "unknown"],
+      "integrated": ["show", "spreadsheet"]
+    },
+    {
+      "text": "reveal editor",
+      "expected": ["show", "application"],
+      "baseline": ["unknown", "unknown"],
+      "integrated": ["show", "application"]
+    },
+    {
+      "text": "summon grid",
+      "expected": ["open", "spreadsheet"],
+      "baseline": ["unknown", "unknown"],
+      "integrated": ["open", "spreadsheet"]
+    },
+    {
+      "text": "open document",
+      "expected": ["open", "document"],
+      "baseline": ["open", "document"],
+      "integrated": ["open", "document"]
+    },
+    {
+      "text": "show spreadsheet",
+      "expected": ["show", "spreadsheet"],
+      "baseline": ["show", "spreadsheet"],
+      "integrated": ["show", "spreadsheet"]
+    }
+  ]
+}

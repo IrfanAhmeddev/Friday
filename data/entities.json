@@ -1,0 +1,43 @@
+{
+  "document": [
+    "document",
+    "documents",
+    "doc",
+    "docs"
+  ],
+  "spreadsheet": [
+    "spreadsheet",
+    "spreadsheets",
+    "sheet",
+    "sheets"
+  ],
+  "presentation": [
+    "presentation",
+    "presentations",
+    "slide",
+    "slides",
+    "deck"
+  ],
+  "note": [
+    "note",
+    "notes",
+    "memo",
+    "reminder"
+  ],
+  "file": [
+    "file",
+    "files",
+    "item",
+    "items"
+  ],
+  "report": [
+    "report",
+    "reports"
+  ],
+  "project": [
+    "project",
+    "projects",
+    "assignment",
+    "assignments"
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "create": {
+    "meaning": "To make or produce something new.",
+    "synonyms": [
+      "make",
+      "build",
+      "prepare",
+      "generate",
+      "produce",
+      "start"
+    ],
+    "relatedActions": [
+      "workspace.create"
+    ]
+  },
+  "open": {
+    "meaning": "To access or bring something into view.",
+    "synonyms": [
+      "launch",
+      "access",
+      "enter",
+      "load",
+      "bring up",
+      "take me to",
+      "go to"
+    ],
+    "relatedActions": [
+      "workspace.open"
+    ]
+  },
+  "show": {
+    "meaning": "To display or make something visible.",
+    "synonyms": [
+      "display",
+      "view",
+      "see",
+      "list",
+      "present",
+      "look at"
+    ],
+    "relatedActions": [
+      "workspace.show"
+    ]
+  },
+  "edit": {
+    "meaning": "To change or modify existing content.",
+    "synonyms": [
+      "modify",
+      "update",
+      "change",
+      "rewrite",
+      "adjust"
+    ],
+    "relatedActions": [
+      "workspace.edit"
+    ]
+  },
+  "rename": {
+    "meaning": "To give something a different name or title.",
+    "synonyms": [
+      "retitle",
+      "change the name",
+      "change the title",
+      "give a new name"
+    ],
+    "relatedActions": [
+      "workspace.rename"
+    ]
+  },
+  "delete": {
+    "meaning": "To remove something permanently or from the current system.",
+    "synonyms": [
+      "remove",
+      "erase",
+      "destroy",
+      "get rid of",
+      "throw away"
+    ],
+    "relatedActions": [
+      "workspace.delete"
+    ]
+  },
+  "document": {
+    "meaning": "A file containing written or structured information.",
+    "synonyms": [
+      "doc",
+      "docs",
+      "text file",
+      "written file"
+    ],
+    "entityType": "document"
+  },
+  "spreadsheet": {
+    "meaning": "A grid-based file used to organize data, numbers, and calculations.",
+    "synonyms": [
+      "sheet",
+      "sheets",
+      "excel file",
+      "table"
+    ],
+    "entityType": "spreadsheet"
+  },
+  "presentation": {
+    "meaning": "A collection of slides used to explain or present information.",
+    "synonyms": [
+      "slides",
+      "slide deck",
+      "deck",
+      "powerpoint"
+    ],
+    "entityType": "presentation"
+  },
+  "note": {
+    "meaning": "A short piece of written information or a reminder.",
+    "synonyms": [
+      "notes",
+      "memo",
+      "reminder"
+    ],
+    "entityType": "note"
+  },
+  "file": {
+    "meaning": "A stored unit of digital information.",
+    "synonyms": [
+      "files",
+      "document",
+      "item"
+    ],
+    "entityType": "file"
+  },
+  "report": {
+    "meaning": "A structured document containing information, findings, or results.",
+    "synonyms": [
+      "reports",
+      "analysis",
+      "summary document"
+    ],
+    "entityType": "report"
+  },
+  "project": {
+    "meaning": "A planned piece of work with a particular goal.",
+    "synonyms": [
+      "projects",
+      "work",
+      "assignment"
+    ],
+    "entityType": "project"
+  }
+}

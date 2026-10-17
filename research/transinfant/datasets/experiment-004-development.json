@@ -1,0 +1,7 @@
+{
+  "datasetVersion": "tida-004-toy-language-v1",
+  "examples": [
+    { "id": "dev-1", "category": "novel-known-combination", "text": "Tavi vek lumo", "expected": { "subject": "Tavi", "predicate": "vek", "object": "lumo" } },
+    { "id": "dev-2", "category": "order-variation", "text": "Mira lumo dax", "expected": { "subject": "Mira", "predicate": "dax", "object": "lumo" } }
+  ]
+}
