@@ -1,4 +1,5 @@
 import { detectActionConcept } from "./action-concept-engine";
+import type { ActionConcept } from "./action-concept-engine";
 import { createEmbedding } from "../ml/embedding.engine";
 import { cosineSimilarity } from "../ml/semantic.matcher";
 import {
@@ -25,6 +26,9 @@ export type IntentType =
 export interface HybridIntentResult {
   intent: IntentType;
   confidence: number;
+  actionAlternatives: ActionConcept[];
+  ambiguous: boolean;
+  negated: boolean;
 
   lexicalScore: number;
   semanticScore: number;
@@ -231,6 +235,9 @@ function createUnknownResult(
   return {
     intent: "unknown",
     confidence: 0,
+    actionAlternatives: [],
+    ambiguous: false,
+    negated: false,
 
     lexicalScore: 0,
     semanticScore: 0,
@@ -279,6 +286,19 @@ export async function understandIntent(
   const hasReliableActionConcept =
     actionIntent !== null &&
     actionResult.confidence >= ACTION_OVERRIDE_CONFIDENCE;
+
+  if (actionResult.negated || actionResult.ambiguous) {
+    return {
+      ...createUnknownResult(
+        "unknown",
+        entityResult,
+        jsonKnowledge,
+      ),
+      actionAlternatives: actionResult.actionAlternatives,
+      ambiguous: actionResult.ambiguous,
+      negated: actionResult.negated,
+    };
+  }
 
   if (input.trim().length === 0) {
     return createUnknownResult(
@@ -441,6 +461,9 @@ export async function understandIntent(
   return {
     intent: finalIntent,
     confidence: finalConfidence,
+    actionAlternatives: actionResult.actionAlternatives,
+    ambiguous: false,
+    negated: false,
 
     lexicalScore: Number(
       bestMatch.lexicalScore.toFixed(4),

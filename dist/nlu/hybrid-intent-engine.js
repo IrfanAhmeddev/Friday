@@ -119,6 +119,9 @@ function createUnknownResult(actionConcept, entityResult, jsonKnowledge) {
     return {
         intent: "unknown",
         confidence: 0,
+        actionAlternatives: [],
+        ambiguous: false,
+        negated: false,
         lexicalScore: 0,
         semanticScore: 0,
         keywordScore: 0,
@@ -149,6 +152,14 @@ async function understandIntent(input, embeddingProvider = embedding_engine_1.cr
         entityResult.confidence > 0;
     const hasReliableActionConcept = actionIntent !== null &&
         actionResult.confidence >= ACTION_OVERRIDE_CONFIDENCE;
+    if (actionResult.negated || actionResult.ambiguous) {
+        return {
+            ...createUnknownResult("unknown", entityResult, jsonKnowledge),
+            actionAlternatives: actionResult.actionAlternatives,
+            ambiguous: actionResult.ambiguous,
+            negated: actionResult.negated,
+        };
+    }
     if (input.trim().length === 0) {
         return createUnknownResult(actionConcept, entityResult, jsonKnowledge);
     }
@@ -226,6 +237,9 @@ async function understandIntent(input, embeddingProvider = embedding_engine_1.cr
     return {
         intent: finalIntent,
         confidence: finalConfidence,
+        actionAlternatives: actionResult.actionAlternatives,
+        ambiguous: false,
+        negated: false,
         lexicalScore: Number(bestMatch.lexicalScore.toFixed(4)),
         semanticScore: Number(bestMatch.semanticScore.toFixed(4)),
         keywordScore: Number(bestMatch.keywordScore.toFixed(4)),

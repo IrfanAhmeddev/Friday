@@ -16,7 +16,8 @@
     "benchmark:transinfant:002": "tsx research/transinfant/benchmark-002.ts",
     "benchmark:transinfant:003": "tsx research/transinfant/benchmark-003.ts",
     "benchmark:transinfant:004": "tsx research/transinfant/benchmark-004.ts",
-    "benchmark:transinfant:005": "tsx research/transinfant/benchmark-005.ts"
+    "benchmark:transinfant:005": "tsx research/transinfant/benchmark-005.ts",
+    "benchmark:friday": "tsx research/friday/benchmark.ts"
   },
   "keywords": [
     "nlu",

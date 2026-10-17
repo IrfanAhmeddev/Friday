@@ -88,11 +88,16 @@ test("conversation endpoint keeps its response contract and accepts bearer auth"
         text: "hello",
         sessionId: "android-client",
       });
-      assert.deepEqual(body, {
+      const { intelligence, ...legacyResponse } = body;
+      assert.deepEqual(legacyResponse, {
         apiVersion: "1",
         service: "friday",
         ...result,
       });
+      assert.equal(intelligence.contractVersion, "1.0");
+      assert.equal(intelligence.originalInput, "hello");
+      assert.equal(intelligence.conversation.sessionId, "android-client");
+      assert.equal(intelligence.planning.status, "not_proposed");
     },
   );
 });
@@ -203,9 +208,35 @@ test("readiness reports cold model as not ready without loading MiniLM", async (
   );
 });
 
+test("missing optional Sharp does not mark text-NLU readiness unavailable", async () => {
+  await withServer(
+    {
+      loadKnowledge: () => undefined,
+      checkRuntime: () => ({
+        sharp: "unavailable",
+        onnxRuntime: "available",
+        sharpError: { code: "MODULE_NOT_FOUND", message: "optional image runtime absent" },
+      }),
+      getModelStatus: () => ({ state: "ready" }),
+    },
+    async (url) => {
+      const response = await fetch(url + "/ready");
+      const body = await response.json();
+
+      assert.equal(response.status, 200);
+      assert.equal(body.status, "ready");
+      assert.equal(body.components.sharp, "unavailable");
+      assert.equal(body.optionalComponents.sharp, "unavailable");
+      assert.equal(body.diagnostics.sharp.code, "MODULE_NOT_FOUND");
+    },
+  );
+});
+
 test("model initialization failures are surfaced without leaking internal errors", async () => {
   await withServer(
     {
+      apiKey: undefined,
+      production: false,
       understand: async () => {
         throw new EmbeddingError(
           "model_initialization_failed",

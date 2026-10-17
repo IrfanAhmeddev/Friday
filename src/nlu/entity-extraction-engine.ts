@@ -6,6 +6,7 @@ export type WorkspaceObject =
   | "file"
   | "report"
   | "project"
+  | "application"
   | "unknown";
 
 interface ObjectPattern {
@@ -21,6 +22,16 @@ export interface EntityExtractionResult {
 }
 
 const OBJECT_PATTERNS: ObjectPattern[] = [
+  {
+    object: "application",
+    patterns: [
+      "application",
+      "applications",
+      "app",
+      "apps",
+    ],
+    confidence: 0.98,
+  },
   {
     object: "document",
     patterns: [

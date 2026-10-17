@@ -1,7 +1,7 @@
 {
   "experiment": "TIDA-005",
   "datasetVersion": "tida-005-incremental-curriculum-v2",
-  "capturedAt": "2026-10-16T10:06:01.214Z",
+  "capturedAt": "2026-10-17T11:40:04.427Z",
   "runtime": {
     "node": "v24.13.0",
     "platform": "win32",
@@ -364,18 +364,18 @@
           }
         },
         "learningLatencyMs": {
-          "phaseA": 10.247700000000009,
-          "phaseB": 4.608000000000004,
-          "phaseC": 5.536900000000003,
-          "phaseD": 13.693599999999975,
-          "phaseF": 12.535500000000013
+          "phaseA": 10.521699999999996,
+          "phaseB": 4.557799999999986,
+          "phaseC": 5.537199999999984,
+          "phaseD": 12.952200000000005,
+          "phaseF": 12.204499999999996
         },
         "timingSampleCount": 20,
         "inferenceLatencyMs": {
           "observations": 20,
           "repeatsPerExample": 5,
-          "p50": 1.9775999999999954,
-          "p95": 2.4155000000000086
+          "p50": 2.0958000000000254,
+          "p95": 2.8212000000000046
         },
         "conditionComparisons": {
           "A": {
@@ -740,18 +740,18 @@
           }
         },
         "learningLatencyMs": {
-          "phaseB": 2.7993999999999915,
-          "phaseA": 8.533900000000017,
-          "phaseC": 5.745700000000056,
-          "phaseD": 16.79110000000003,
-          "phaseF": 13.750900000000001
+          "phaseB": 2.3958999999999833,
+          "phaseA": 7.959000000000003,
+          "phaseC": 5.396000000000015,
+          "phaseD": 12.013700000000028,
+          "phaseF": 11.559599999999989
         },
         "timingSampleCount": 20,
         "inferenceLatencyMs": {
           "observations": 20,
           "repeatsPerExample": 5,
-          "p50": 2.869799999999941,
-          "p95": 5.107200000000034
+          "p50": 1.939300000000003,
+          "p95": 3.887299999999982
         },
         "conditionComparisons": {
           "A": {
