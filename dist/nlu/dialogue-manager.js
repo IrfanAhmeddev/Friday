@@ -184,7 +184,7 @@ function processDialogueTurn(state, input, interpretation = {}) {
             summary: "Framework task remains active with language selected.",
         };
     }
-    if (/(^|\s)(actually|wait|no|not|instead|use\s+.*\s+instead)/.test(normalized)) {
+    if (/\b(?:actually|wait|no|instead)\b|\buse\s+.*\binstead\b/.test(normalized)) {
         nextState.lastDialogueAct = "correction";
         const replacementLanguage = detectLanguage(normalized);
         if (replacementLanguage) {

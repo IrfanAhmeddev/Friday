@@ -16,6 +16,7 @@ import { resolveReference } from "./reference-engine";
 
 import {
   understandIntent,
+  type IntentType,
   type EmbeddingProvider,
 } from "./hybrid-intent-engine";
 import { detectActionConcept } from "./action-concept-engine";
@@ -48,6 +49,7 @@ import {
   SemanticObject,
   SemanticResult,
 } from "../types/nlu";
+import { errorDetails } from "../error-details";
 
 export interface UnderstandOptions {
   transinfantEnabled?: boolean;
@@ -82,6 +84,53 @@ function mapHybridAction(
   }
 
   return "unknown";
+}
+
+function mapIntentAction(intent: IntentType): SemanticAction {
+  switch (intent) {
+    case "workspace.create":
+      return "create";
+    case "workspace.open":
+      return "open";
+    case "workspace.search":
+      return "search";
+    case "workspace.show":
+      return "show";
+    case "workspace.rename":
+      return "rename";
+    case "workspace.delete":
+      return "delete";
+    case "workspace.close":
+      return "close";
+    case "workspace.edit":
+      return "edit";
+    default:
+      return "unknown";
+  }
+}
+
+function mapSemanticActionToIntent(action: SemanticAction): IntentType {
+  switch (action) {
+    case "create":
+      return "workspace.create";
+    case "open":
+      return "workspace.open";
+    case "search":
+      return "workspace.search";
+    case "show":
+      return "workspace.show";
+    case "rename":
+      return "workspace.rename";
+    case "delete":
+    case "remove":
+      return "workspace.delete";
+    case "close":
+      return "workspace.close";
+    case "edit":
+      return "workspace.edit";
+    default:
+      return "unknown";
+  }
 }
 
 function mapHybridObject(
@@ -274,6 +323,11 @@ async function interpretWithStoredPattern(
       vocabularyProvenance,
     };
   } catch (error) {
+    console.error(JSON.stringify({
+      level: "error",
+      event: "transinfant_grammar_interpretation_failed",
+      error: errorDetails(error),
+    }));
     return {
       status: "degraded",
       frame: null,
@@ -283,7 +337,7 @@ async function interpretWithStoredPattern(
       source: null,
       provenance: [],
       confidence: null,
-      reason: error instanceof Error ? error.message : String(error),
+      reason: "TransInfant grammar interpretation is unavailable.",
       recognizedConcepts: [],
       vocabularyProvenance: [],
     };
@@ -343,19 +397,24 @@ export async function understand(
       hybridResult.workspaceObject,
       allEntities,
     );
+  const predictedAction = hybridResult.actionConcept !== "unknown"
+    ? mapHybridAction(hybridResult.actionConcept)
+    : hybridResult.confidence >= 0.7
+      ? mapIntentAction(hybridResult.intent)
+      : "unknown";
 
   let semantic: SemanticResult;
 
   if (
-    hybridResult.actionConcept !== "unknown" &&
+    predictedAction !== "unknown" &&
     semanticObject !== "unknown"
   ) {
     semantic = createSemanticFromHybrid(
-      hybridResult.actionConcept,
+      predictedAction,
       semanticObject,
       hybridResult.confidence,
       [
-        hybridResult.actionConcept,
+        predictedAction,
         semanticObject,
       ],
     );
@@ -374,16 +433,26 @@ export async function understand(
     };
   } else {
     semantic = {
-      action: mapHybridAction(
-        hybridResult.actionConcept,
-      ),
+      action: predictedAction,
       object: semanticObject,
       confidence: hybridResult.confidence,
       matchedWords: [],
     };
   }
 
+  if (hybridResult.ambiguous || hybridResult.negated) {
+    semantic = {
+      ...semantic,
+      action: "unknown",
+      confidence: 0,
+      matchedWords: [],
+    };
+  }
+
   const actionEvidence = detectActionConcept(normalized);
+  const reliableBaselineAction =
+    semantic.action !== "unknown" && semantic.confidence >= 0.7;
+  const baselineAction = semantic.action;
   const transinfantEnabled =
     options.transinfantEnabled ?? isTransInfantEnabled();
   const transinfantResult = await interpretWithLearnedKnowledge(
@@ -392,8 +461,11 @@ export async function understand(
       baselineAction: semantic.action,
       baselineObject: semantic.object,
       explicitAction:
-        actionEvidence.action !== "unknown" &&
-        actionEvidence.matchedPhrase !== "new",
+        hybridResult.ambiguous ||
+        hybridResult.negated ||
+        (actionEvidence.action !== "unknown" &&
+          actionEvidence.matchedPhrase !== "new") ||
+        reliableBaselineAction,
       explicitObject: semanticObject !== "unknown",
     },
     transinfantEnabled,
@@ -422,6 +494,7 @@ export async function understand(
         }
     : undefined;
 
+  let learnedActionApplied = false;
   if (transinfantResult.status === "applied" && transinfantResult.candidate) {
     const hadBaselineFrameSignal =
       semantic.action !== "unknown" ||
@@ -432,6 +505,8 @@ export async function understand(
     const learnedObject = transinfantResult.candidate.object
       ? mapHybridObject(transinfantResult.candidate.object)
       : semantic.object;
+    learnedActionApplied =
+      learnedAction !== baselineAction && !reliableBaselineAction;
     semantic = {
       action: learnedAction,
       object: learnedObject,
@@ -499,19 +574,12 @@ export async function understand(
   }
 
   const finalEntities = withoutTarget;
-  const intentName =
-    hybridResult.intent === "unknown" &&
-    transinfantResult.status === "applied" &&
-    semantic.action !== "unknown"
-      ? `workspace.${semantic.action}`
-      : hybridResult.intent;
-  const intentConfidence =
-    transinfantResult.status === "applied"
-      ? Math.max(
-          hybridResult.confidence,
-          transinfantResult.candidate?.confidence ?? 0,
-        )
-      : hybridResult.confidence;
+  const intentName = learnedActionApplied
+    ? mapSemanticActionToIntent(semantic.action)
+    : hybridResult.intent;
+  const intentConfidence = learnedActionApplied
+    ? transinfantResult.candidate?.confidence ?? hybridResult.confidence
+    : hybridResult.confidence;
 
   const dialogueState =
     session.dialogue ??
@@ -614,6 +682,15 @@ export async function understand(
 
         matchedTrainingText:
           hybridResult.matchedTrainingText,
+
+        actionAlternatives:
+          hybridResult.actionAlternatives,
+
+        ambiguous:
+          hybridResult.ambiguous,
+
+        negated:
+          hybridResult.negated,
       },
 
       dialogue: {

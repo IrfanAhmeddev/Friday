@@ -3,6 +3,16 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.extractWorkspaceObject = extractWorkspaceObject;
 const OBJECT_PATTERNS = [
     {
+        object: "application",
+        patterns: [
+            "application",
+            "applications",
+            "app",
+            "apps",
+        ],
+        confidence: 0.98,
+    },
+    {
         object: "document",
         patterns: [
             "document",

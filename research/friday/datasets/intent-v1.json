@@ -1,0 +1,167 @@
+{
+  "datasetVersion": "friday-intent-v1",
+  "cases": [
+    {
+      "id": "create-fresh-document",
+      "text": "Start a fresh document",
+      "expectedIntent": "workspace.create",
+      "expectedAction": "create",
+      "expectedObject": "document",
+      "expectedEntityValue": "document",
+      "kind": "command"
+    },
+    {
+      "id": "open-latest-spreadsheet",
+      "text": "Please launch my latest spreadsheet",
+      "expectedIntent": "workspace.open",
+      "expectedAction": "open",
+      "expectedObject": "spreadsheet",
+      "expectedEntityValue": "spreadsheet",
+      "kind": "command"
+    },
+    {
+      "id": "show-spreadsheets",
+      "text": "Show me all my spreadsheets",
+      "expectedIntent": "workspace.show",
+      "expectedAction": "show",
+      "expectedObject": "spreadsheet",
+      "expectedEntityValue": "spreadsheet",
+      "kind": "command"
+    },
+    {
+      "id": "rename-report",
+      "text": "Change the title of this report",
+      "expectedIntent": "workspace.rename",
+      "expectedAction": "rename",
+      "expectedObject": "report",
+      "kind": "command"
+    },
+    {
+      "id": "delete-presentation",
+      "text": "Erase the old presentation",
+      "expectedIntent": "workspace.delete",
+      "expectedAction": "delete",
+      "expectedObject": "presentation",
+      "expectedEntityValue": "presentation",
+      "kind": "command"
+    },
+    {
+      "id": "edit-notes",
+      "text": "Add a paragraph to my notes",
+      "expectedIntent": "workspace.edit",
+      "expectedAction": "edit",
+      "expectedObject": "note",
+      "expectedEntityValue": "note",
+      "kind": "command"
+    },
+    {
+      "id": "open-yesterday-file",
+      "text": "Open the file from yesterday",
+      "expectedIntent": "workspace.open",
+      "expectedAction": "open",
+      "expectedObject": "file",
+      "expectedEntityValue": "file",
+      "kind": "command"
+    },
+    {
+      "id": "create-slide-deck",
+      "text": "Make a new slide deck",
+      "expectedIntent": "workspace.create",
+      "expectedAction": "create",
+      "expectedObject": "presentation",
+      "kind": "command"
+    },
+    {
+      "id": "rename-project",
+      "text": "Rename this project",
+      "expectedIntent": "workspace.rename",
+      "expectedAction": "rename",
+      "expectedObject": "project",
+      "kind": "command"
+    },
+    {
+      "id": "search-document",
+      "text": "Search for the old document",
+      "expectedIntent": "workspace.search",
+      "expectedAction": "search",
+      "expectedObject": "document",
+      "expectedEntityValue": "document",
+      "kind": "command"
+    },
+    {
+      "id": "close-application",
+      "text": "Close the application",
+      "expectedIntent": "workspace.close",
+      "expectedAction": "close",
+      "expectedObject": "application",
+      "kind": "command"
+    },
+    {
+      "id": "incomplete-open",
+      "text": "Open it",
+      "expectedIntent": "workspace.open",
+      "expectedAction": "open",
+      "expectedObject": "unknown",
+      "kind": "incomplete"
+    },
+    {
+      "id": "spelling-open",
+      "text": "Opne the file",
+      "expectedIntent": "workspace.open",
+      "expectedAction": "open",
+      "expectedObject": "file",
+      "expectedEntityValue": "file",
+      "kind": "spelling_error"
+    },
+    {
+      "id": "negative-delete",
+      "text": "Do not delete the report",
+      "expectedIntent": "unknown",
+      "expectedAction": "unknown",
+      "expectedObject": "report",
+      "kind": "negated"
+    },
+    {
+      "id": "negative-open",
+      "text": "Please don't open the file",
+      "expectedIntent": "unknown",
+      "expectedAction": "unknown",
+      "expectedObject": "file",
+      "expectedEntityValue": "file",
+      "kind": "negated"
+    },
+    {
+      "id": "conflicting-actions",
+      "text": "Create and delete the report",
+      "expectedIntent": "unknown",
+      "expectedAction": "unknown",
+      "expectedObject": "report",
+      "kind": "ambiguous"
+    },
+    {
+      "id": "sequential-actions",
+      "text": "Create a note and then open it",
+      "expectedIntent": "unknown",
+      "expectedAction": "unknown",
+      "expectedObject": "note",
+      "expectedEntityValue": "note",
+      "kind": "ambiguous"
+    },
+    {
+      "id": "out-of-domain-story",
+      "text": "Tell me a funny story",
+      "expectedIntent": "unknown",
+      "expectedAction": "unknown",
+      "expectedObject": "unknown",
+      "kind": "out_of_domain"
+    },
+    {
+      "id": "out-of-domain-weather",
+      "text": "What is the temperature outside",
+      "expectedIntent": "unknown",
+      "expectedAction": "unknown",
+      "expectedObject": "unknown",
+      "kind": "out_of_domain"
+    }
+  ]
+}

@@ -92,8 +92,8 @@ final dataset hashes are in [`results-005.json`](./results-005.json):
 
 ## Phase-by-phase results
 
-Captured `2026-10-16T10:06:01.214Z`, Node.js `v24.13.0`, Windows x64. Results
-for the two fixed schedules:
+Reproduced `2026-10-17T10:47:16.842Z`, Node.js `v24.13.0`, Windows x64.
+Results for the two fixed schedules:
 
 | Measure | A→B→C… | B→A→C… |
 |---|---:|---:|
@@ -155,9 +155,9 @@ The B→A partial Phase B state had a 3,205-byte vocabulary file and no pattern
 file; after Phase A, its state converged to the same later sizes.
 
 For each teaching order, inference timing used 20 observations (five
-repetitions per each of four final test items). A→B p50/p95 was 1.9776/2.4155
-ms; B→A was 2.8698/5.1072 ms. These are descriptive single-run measurements
-and vary with local file I/O.
+repetitions per each of four final test items). A→B p50/p95 was 3.2323/5.2154
+ms; B→A was 2.2066/3.8098 ms in this run. These are descriptive single-run
+measurements and vary with local file I/O.
 
 A separate Node process reloaded the final knowledge and pattern files. It
 reproduced all four frames, concept/symbol/relationship/event counts matched,
@@ -195,11 +195,12 @@ deterministic cases, not a statistical sample.
 
 Experiment 004 provides an opt-in `UnderstandOptions.grammarPatternStore`
 adapter and adds diagnostics under `context.transinfant.grammarPattern` only
-when that optional store is supplied. Existing NLU semantic/intent fields,
-routes, and request shape remain unchanged. `FRIDAY_TRANSINFANT=true` remains
-the opt-in gate. Pattern output is evidence-bearing structured interpretation
-only; no learned pattern authorizes tools or external actions. No Android or
-JARVIS execution code was changed.
+when that optional store is supplied. Legacy NLU semantic/intent fields,
+routes, and request fields remain unchanged. `/api/understand` also includes
+the additive `intelligence` contract v1 projection. `FRIDAY_TRANSINFANT=true`
+remains the opt-in gate. Pattern output is evidence-bearing structured
+interpretation only; no learned pattern authorizes tools or external actions.
+No Android or JARVIS execution code was changed.
 
 For a later JARVIS upgrade, the diagnostic exposes frame IDs, recognized
 concepts, pattern version/source, supporting evidence, vocabulary relation
@@ -221,10 +222,10 @@ Final validation:
 
 ```text
 npm run typecheck                 -> exit 0
-npm test                          -> 36 tests, 36 passed, 0 failed
+npm test                          -> 49 tests, 49 passed, 0 failed
 npm run build                     -> exit 0
-npm run benchmark:transinfant:004 -> exit 0
-npm run benchmark:transinfant:005 -> exit 0; two sequences and integrity checks passed
+npm run test:model-smoke          -> exit 0; MiniLM emitted a 384-dimensional vector
+npm run benchmark:transinfant:005 -> exit 0; both schedules and integrity checks passed
 ```
 
 The first E005 fixture was superseded for split overlap before the final v2

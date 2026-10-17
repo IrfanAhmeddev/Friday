@@ -15,6 +15,8 @@ import {
 } from "../knowledge/json-knowledge-engine";
 import { understand } from "../nlu/friday";
 import { NLURequest, NLUResult } from "../types/nlu";
+import { createIntelligenceContract } from "../types/intelligence-contract";
+import { errorDetails } from "../error-details";
 
 const MAX_BODY_BYTES = "32kb";
 const MAX_TEXT_LENGTH = 4_000;
@@ -30,6 +32,8 @@ export interface ApiDependencies {
   apiKey: string | undefined;
   production: boolean;
   loadKnowledge: () => unknown;
+  checkRuntime: typeof checkEmbeddingRuntime;
+  getModelStatus: typeof getEmbeddingModelStatus;
 }
 
 const defaultDependencies: ApiDependencies = {
@@ -39,6 +43,8 @@ const defaultDependencies: ApiDependencies = {
     process.env.NODE_ENV === "production" ||
     process.env.CONTEXT === "production",
   loadKnowledge: loadJsonKnowledge,
+  checkRuntime: checkEmbeddingRuntime,
+  getModelStatus: getEmbeddingModelStatus,
 };
 
 function errorResponse(
@@ -95,48 +101,6 @@ function statusCode(error: unknown): number | undefined {
     return error.status;
   }
   return undefined;
-}
-
-interface ReadinessErrorDetails {
-  name: string;
-  message: string;
-  code: string | number | null;
-  stack: string | null;
-  cause: ReadinessErrorDetails | string | null;
-}
-
-function readinessErrorDetails(
-  error: unknown,
-  depth = 0,
-): ReadinessErrorDetails {
-  if (!(error instanceof Error)) {
-    return {
-      name: typeof error,
-      message: String(error),
-      code: null,
-      stack: null,
-      cause: null,
-    };
-  }
-
-  const errorCode =
-    "code" in error &&
-    (typeof error.code === "string" || typeof error.code === "number")
-      ? error.code
-      : null;
-  return {
-    name: error.name,
-    message: error.message,
-    code: errorCode,
-    stack: error.stack ?? null,
-    cause: error.cause === undefined
-      ? null
-      : error.cause instanceof Error
-        ? depth < 5
-          ? readinessErrorDetails(error.cause, depth + 1)
-          : null
-        : String(error.cause),
-  };
 }
 
 export function createApp(
@@ -225,7 +189,7 @@ export function createApp(
       dependencies.loadKnowledge();
     } catch (error) {
       knowledge = "unavailable";
-      const details = readinessErrorDetails(error);
+      const details = errorDetails(error);
       knowledgeError = { code: details.code };
       console.error(
         JSON.stringify({
@@ -236,11 +200,10 @@ export function createApp(
       );
     }
 
-    const runtime = checkEmbeddingRuntime();
-    const model = getEmbeddingModelStatus();
+    const runtime = dependencies.checkRuntime();
+    const model = dependencies.getModelStatus();
     const ready =
       knowledge === "available" &&
-      runtime.sharp === "available" &&
       runtime.onnxRuntime === "available" &&
       model.state === "ready";
 
@@ -253,6 +216,9 @@ export function createApp(
         sharp: runtime.sharp,
         onnxRuntime: runtime.onnxRuntime,
         embeddingModel: model.state,
+      },
+      optionalComponents: {
+        sharp: runtime.sharp,
       },
       diagnostics: {
         knowledge: knowledgeError
@@ -348,19 +314,18 @@ export function createApp(
         apiVersion: "1",
         service: "friday",
         ...result,
+        intelligence: createIntelligenceContract(body.text, result, sessionId),
       });
     } catch (error) {
       const isEmbeddingError = error instanceof EmbeddingError;
+      const details = errorDetails(error);
       console.error(
         JSON.stringify({
           level: "error",
           event: "nlu_request_failed",
           requestId,
           code: isEmbeddingError ? error.code : "nlu_processing_failed",
-          error:
-            error instanceof Error
-              ? { name: error.name, message: error.message, stack: error.stack }
-              : String(error),
+          error: details,
         }),
       );
 

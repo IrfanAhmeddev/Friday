@@ -15,6 +15,7 @@ const interpretation_adapter_1 = require("../transinfant/interpretation-adapter"
 const memory_store_1 = require("../transinfant/memory-store");
 const grammar_pattern_1 = require("../transinfant/grammar-pattern");
 const learner_1 = require("../transinfant/learner");
+const error_details_1 = require("../error-details");
 function mapHybridAction(action) {
     const supportedActions = [
         "create",
@@ -32,6 +33,51 @@ function mapHybridAction(action) {
         return action;
     }
     return "unknown";
+}
+function mapIntentAction(intent) {
+    switch (intent) {
+        case "workspace.create":
+            return "create";
+        case "workspace.open":
+            return "open";
+        case "workspace.search":
+            return "search";
+        case "workspace.show":
+            return "show";
+        case "workspace.rename":
+            return "rename";
+        case "workspace.delete":
+            return "delete";
+        case "workspace.close":
+            return "close";
+        case "workspace.edit":
+            return "edit";
+        default:
+            return "unknown";
+    }
+}
+function mapSemanticActionToIntent(action) {
+    switch (action) {
+        case "create":
+            return "workspace.create";
+        case "open":
+            return "workspace.open";
+        case "search":
+            return "workspace.search";
+        case "show":
+            return "workspace.show";
+        case "rename":
+            return "workspace.rename";
+        case "delete":
+        case "remove":
+            return "workspace.delete";
+        case "close":
+            return "workspace.close";
+        case "edit":
+            return "workspace.edit";
+        default:
+            return "unknown";
+    }
 }
 function mapHybridObject(object) {
     const supportedObjects = [
@@ -145,6 +191,11 @@ async function interpretWithStoredPattern(text, patternStore, vocabularyStore) {
         };
     }
     catch (error) {
+        console.error(JSON.stringify({
+            level: "error",
+            event: "transinfant_grammar_interpretation_failed",
+            error: (0, error_details_1.errorDetails)(error),
+        }));
         return {
             status: "degraded",
             frame: null,
@@ -154,7 +205,7 @@ async function interpretWithStoredPattern(text, patternStore, vocabularyStore) {
             source: null,
             provenance: [],
             confidence: null,
-            reason: error instanceof Error ? error.message : String(error),
+            reason: "TransInfant grammar interpretation is unavailable.",
             recognizedConcepts: [],
             vocabularyProvenance: [],
         };
@@ -179,11 +230,16 @@ async function understand(text, sessionId = "default", options = {}) {
         allEntities.push(renameTarget);
     }
     const semanticObject = resolveSemanticObject(hybridResult.workspaceObject, allEntities);
+    const predictedAction = hybridResult.actionConcept !== "unknown"
+        ? mapHybridAction(hybridResult.actionConcept)
+        : hybridResult.confidence >= 0.7
+            ? mapIntentAction(hybridResult.intent)
+            : "unknown";
     let semantic;
-    if (hybridResult.actionConcept !== "unknown" &&
+    if (predictedAction !== "unknown" &&
         semanticObject !== "unknown") {
-        semantic = createSemanticFromHybrid(hybridResult.actionConcept, semanticObject, hybridResult.confidence, [
-            hybridResult.actionConcept,
+        semantic = createSemanticFromHybrid(predictedAction, semanticObject, hybridResult.confidence, [
+            predictedAction,
             semanticObject,
         ]);
     }
@@ -197,20 +253,33 @@ async function understand(text, sessionId = "default", options = {}) {
     }
     else {
         semantic = {
-            action: mapHybridAction(hybridResult.actionConcept),
+            action: predictedAction,
             object: semanticObject,
             confidence: hybridResult.confidence,
             matchedWords: [],
         };
     }
+    if (hybridResult.ambiguous || hybridResult.negated) {
+        semantic = {
+            ...semantic,
+            action: "unknown",
+            confidence: 0,
+            matchedWords: [],
+        };
+    }
     const actionEvidence = (0, action_concept_engine_1.detectActionConcept)(normalized);
+    const reliableBaselineAction = semantic.action !== "unknown" && semantic.confidence >= 0.7;
+    const baselineAction = semantic.action;
     const transinfantEnabled = options.transinfantEnabled ?? (0, interpretation_adapter_1.isTransInfantEnabled)();
     const transinfantResult = await (0, interpretation_adapter_1.interpretWithLearnedKnowledge)({
         text: normalized,
         baselineAction: semantic.action,
         baselineObject: semantic.object,
-        explicitAction: actionEvidence.action !== "unknown" &&
-            actionEvidence.matchedPhrase !== "new",
+        explicitAction: hybridResult.ambiguous ||
+            hybridResult.negated ||
+            (actionEvidence.action !== "unknown" &&
+                actionEvidence.matchedPhrase !== "new") ||
+            reliableBaselineAction,
         explicitObject: semanticObject !== "unknown",
     }, transinfantEnabled, options.transinfantStore ?? memory_store_1.knowledgeStore, options.transinfantMode ?? "composition");
     const grammarPatternResult = options.grammarPatternStore
@@ -230,6 +299,7 @@ async function understand(text, sessionId = "default", options = {}) {
                 reason: "TransInfant is disabled.",
             }
         : undefined;
+    let learnedActionApplied = false;
     if (transinfantResult.status === "applied" && transinfantResult.candidate) {
         const hadBaselineFrameSignal = semantic.action !== "unknown" ||
             semantic.object !== "unknown";
@@ -239,6 +309,8 @@ async function understand(text, sessionId = "default", options = {}) {
         const learnedObject = transinfantResult.candidate.object
             ? mapHybridObject(transinfantResult.candidate.object)
             : semantic.object;
+        learnedActionApplied =
+            learnedAction !== baselineAction && !reliableBaselineAction;
         semantic = {
             action: learnedAction,
             object: learnedObject,
@@ -281,13 +353,11 @@ async function understand(text, sessionId = "default", options = {}) {
         });
     }
     const finalEntities = withoutTarget;
-    const intentName = hybridResult.intent === "unknown" &&
-        transinfantResult.status === "applied" &&
-        semantic.action !== "unknown"
-        ? `workspace.${semantic.action}`
+    const intentName = learnedActionApplied
+        ? mapSemanticActionToIntent(semantic.action)
         : hybridResult.intent;
-    const intentConfidence = transinfantResult.status === "applied"
-        ? Math.max(hybridResult.confidence, transinfantResult.candidate?.confidence ?? 0)
+    const intentConfidence = learnedActionApplied
+        ? transinfantResult.candidate?.confidence ?? hybridResult.confidence
         : hybridResult.confidence;
     const dialogueState = session.dialogue ??
         (0, dialogue_manager_1.createDialogueMemory)(sessionId);
@@ -348,6 +418,9 @@ async function understand(text, sessionId = "default", options = {}) {
                 actionConcept: hybridResult.actionConcept,
                 workspaceObject: hybridResult.workspaceObject,
                 matchedTrainingText: hybridResult.matchedTrainingText,
+                actionAlternatives: hybridResult.actionAlternatives,
+                ambiguous: hybridResult.ambiguous,
+                negated: hybridResult.negated,
             },
             dialogue: {
                 act: dialogueResult.dialogueAct,

@@ -9,6 +9,8 @@ const express_1 = __importDefault(require("express"));
 const embedding_engine_1 = require("../ml/embedding.engine");
 const json_knowledge_engine_1 = require("../knowledge/json-knowledge-engine");
 const friday_1 = require("../nlu/friday");
+const intelligence_contract_1 = require("../types/intelligence-contract");
+const error_details_1 = require("../error-details");
 const MAX_BODY_BYTES = "32kb";
 const MAX_TEXT_LENGTH = 4_000;
 const MAX_SESSION_ID_LENGTH = 128;
@@ -18,6 +20,8 @@ const defaultDependencies = {
     production: process.env.NODE_ENV === "production" ||
         process.env.CONTEXT === "production",
     loadKnowledge: json_knowledge_engine_1.loadJsonKnowledge,
+    checkRuntime: embedding_engine_1.checkEmbeddingRuntime,
+    getModelStatus: embedding_engine_1.getEmbeddingModelStatus,
 };
 function errorResponse(res, status, error, code, requestId) {
     res.status(status).json({ error, code, requestId });
@@ -52,34 +56,6 @@ function statusCode(error) {
         return error.status;
     }
     return undefined;
-}
-function readinessErrorDetails(error, depth = 0) {
-    if (!(error instanceof Error)) {
-        return {
-            name: typeof error,
-            message: String(error),
-            code: null,
-            stack: null,
-            cause: null,
-        };
-    }
-    const errorCode = "code" in error &&
-        (typeof error.code === "string" || typeof error.code === "number")
-        ? error.code
-        : null;
-    return {
-        name: error.name,
-        message: error.message,
-        code: errorCode,
-        stack: error.stack ?? null,
-        cause: error.cause === undefined
-            ? null
-            : error.cause instanceof Error
-                ? depth < 5
-                    ? readinessErrorDetails(error.cause, depth + 1)
-                    : null
-                : String(error.cause),
-    };
 }
 function createApp(overrides = {}) {
     const dependencies = {
@@ -139,7 +115,7 @@ function createApp(overrides = {}) {
         }
         catch (error) {
             knowledge = "unavailable";
-            const details = readinessErrorDetails(error);
+            const details = (0, error_details_1.errorDetails)(error);
             knowledgeError = { code: details.code };
             console.error(JSON.stringify({
                 level: "error",
@@ -147,10 +123,9 @@ function createApp(overrides = {}) {
                 error: details,
             }));
         }
-        const runtime = (0, embedding_engine_1.checkEmbeddingRuntime)();
-        const model = (0, embedding_engine_1.getEmbeddingModelStatus)();
+        const runtime = dependencies.checkRuntime();
+        const model = dependencies.getModelStatus();
         const ready = knowledge === "available" &&
-            runtime.sharp === "available" &&
             runtime.onnxRuntime === "available" &&
             model.state === "ready";
         res.status(ready ? 200 : 503).json({
@@ -162,6 +137,9 @@ function createApp(overrides = {}) {
                 sharp: runtime.sharp,
                 onnxRuntime: runtime.onnxRuntime,
                 embeddingModel: model.state,
+            },
+            optionalComponents: {
+                sharp: runtime.sharp,
             },
             diagnostics: {
                 knowledge: knowledgeError
@@ -214,18 +192,18 @@ function createApp(overrides = {}) {
                 apiVersion: "1",
                 service: "friday",
                 ...result,
+                intelligence: (0, intelligence_contract_1.createIntelligenceContract)(body.text, result, sessionId),
             });
         }
         catch (error) {
             const isEmbeddingError = error instanceof embedding_engine_1.EmbeddingError;
+            const details = (0, error_details_1.errorDetails)(error);
             console.error(JSON.stringify({
                 level: "error",
                 event: "nlu_request_failed",
                 requestId,
                 code: isEmbeddingError ? error.code : "nlu_processing_failed",
-                error: error instanceof Error
-                    ? { name: error.name, message: error.message, stack: error.stack }
-                    : String(error),
+                error: details,
             }));
             const unavailable = isEmbeddingError &&
                 error.code === "model_initialization_failed";

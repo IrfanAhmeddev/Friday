@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.interpretWithLearnedKnowledge = interpretWithLearnedKnowledge;
 exports.isTransInfantEnabled = isTransInfantEnabled;
 const memory_store_1 = require("./memory-store");
+const error_details_1 = require("../error-details");
 const CORE_ACTIONS = new Set([
     "create",
     "open",
@@ -63,10 +64,15 @@ async function interpretWithLearnedKnowledge(input, enabled, store = memory_stor
         snapshot = await store.read();
     }
     catch (error) {
+        console.error(JSON.stringify({
+            level: "error",
+            event: "transinfant_memory_read_failed",
+            error: (0, error_details_1.errorDetails)(error),
+        }));
         return {
             status: "degraded",
             candidate: null,
-            reason: error instanceof Error ? error.message : String(error),
+            reason: "TransInfant memory is unavailable; the FRIDAY baseline was used.",
             conceptCount: 0,
             relationshipCount: 0,
         };

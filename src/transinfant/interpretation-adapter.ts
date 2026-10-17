@@ -7,6 +7,7 @@ import type {
   RelationshipRecord,
   SemanticInterpretationCandidate,
 } from "./types";
+import { errorDetails } from "../error-details";
 
 const CORE_ACTIONS = new Set([
   "create",
@@ -110,10 +111,15 @@ export async function interpretWithLearnedKnowledge(
   try {
     snapshot = await store.read();
   } catch (error) {
+    console.error(JSON.stringify({
+      level: "error",
+      event: "transinfant_memory_read_failed",
+      error: errorDetails(error),
+    }));
     return {
       status: "degraded",
       candidate: null,
-      reason: error instanceof Error ? error.message : String(error),
+      reason: "TransInfant memory is unavailable; the FRIDAY baseline was used.",
       conceptCount: 0,
       relationshipCount: 0,
     };

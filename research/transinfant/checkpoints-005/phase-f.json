@@ -12,8 +12,8 @@
           "vocabularyKind": "word",
           "semanticRole": "entity"
         },
-        "createdAt": "2026-10-16T10:06:00.570Z",
-        "updatedAt": "2026-10-16T10:06:00.570Z"
+        "createdAt": "2026-10-17T11:40:03.843Z",
+        "updatedAt": "2026-10-17T11:40:03.843Z"
       },
       {
         "id": "person.mira",
@@ -22,8 +22,8 @@
           "vocabularyKind": "meaning",
           "semanticRole": "entity"
         },
-        "createdAt": "2026-10-16T10:06:00.570Z",
-        "updatedAt": "2026-10-16T10:06:00.570Z"
+        "createdAt": "2026-10-17T11:40:03.843Z",
+        "updatedAt": "2026-10-17T11:40:03.843Z"
       },
       {
         "id": "input.sena",
@@ -32,8 +32,8 @@
           "vocabularyKind": "word",
           "semanticRole": "entity"
         },
-        "createdAt": "2026-10-16T10:06:00.573Z",
-        "updatedAt": "2026-10-16T10:06:00.573Z"
+        "createdAt": "2026-10-17T11:40:03.846Z",
+        "updatedAt": "2026-10-17T11:40:03.846Z"
       },
       {
         "id": "person.sena",
@@ -42,8 +42,8 @@
           "vocabularyKind": "meaning",
           "semanticRole": "entity"
         },
-        "createdAt": "2026-10-16T10:06:00.573Z",
-        "updatedAt": "2026-10-16T10:06:00.573Z"
+        "createdAt": "2026-10-17T11:40:03.846Z",
+        "updatedAt": "2026-10-17T11:40:03.846Z"
       },
       {
         "id": "input.kemi",
@@ -52,8 +52,8 @@
           "vocabularyKind": "word",
           "semanticRole": "entity"
         },
-        "createdAt": "2026-10-16T10:06:00.575Z",
-        "updatedAt": "2026-10-16T10:06:00.575Z"
+        "createdAt": "2026-10-17T11:40:03.848Z",
+        "updatedAt": "2026-10-17T11:40:03.848Z"
       },
       {
         "id": "person.kemi",
@@ -62,8 +62,8 @@
           "vocabularyKind": "meaning",
           "semanticRole": "entity"
         },
-        "createdAt": "2026-10-16T10:06:00.575Z",
-        "updatedAt": "2026-10-16T10:06:00.575Z"
+        "createdAt": "2026-10-17T11:40:03.848Z",
+        "updatedAt": "2026-10-17T11:40:03.848Z"
       },
       {
         "id": "input.dax",
@@ -72,8 +72,8 @@
           "vocabularyKind": "word",
           "semanticRole": "predicate"
         },
-        "createdAt": "2026-10-16T10:06:00.576Z",
-        "updatedAt": "2026-10-16T10:06:00.576Z"
+        "createdAt": "2026-10-17T11:40:03.849Z",
+        "updatedAt": "2026-10-17T11:40:03.849Z"
       },
       {
         "id": "action.dax",
@@ -82,8 +82,8 @@
           "vocabularyKind": "meaning",
           "semanticRole": "predicate"
         },
-        "createdAt": "2026-10-16T10:06:00.576Z",
-        "updatedAt": "2026-10-16T10:06:00.576Z"
+        "createdAt": "2026-10-17T11:40:03.849Z",
+        "updatedAt": "2026-10-17T11:40:03.849Z"
       },
       {
         "id": "input.lumo",
@@ -92,8 +92,8 @@
           "vocabularyKind": "word",
           "semanticRole": "entity"
         },
-        "createdAt": "2026-10-16T10:06:00.578Z",
-        "updatedAt": "2026-10-16T10:06:00.578Z"
+        "createdAt": "2026-10-17T11:40:03.851Z",
+        "updatedAt": "2026-10-17T11:40:03.851Z"
       },
       {
         "id": "object.lumo",
@@ -102,8 +102,8 @@
           "vocabularyKind": "meaning",
           "semanticRole": "entity"
         },
-        "createdAt": "2026-10-16T10:06:00.578Z",
-        "updatedAt": "2026-10-16T10:06:00.578Z"
+        "createdAt": "2026-10-17T11:40:03.851Z",
+        "updatedAt": "2026-10-17T11:40:03.851Z"
       },
       {
         "id": "input.neri",
@@ -112,8 +112,8 @@
           "vocabularyKind": "word",
           "semanticRole": "entity"
         },
-        "createdAt": "2026-10-16T10:06:00.579Z",
-        "updatedAt": "2026-10-16T10:06:00.579Z"
+        "createdAt": "2026-10-17T11:40:03.852Z",
+        "updatedAt": "2026-10-17T11:40:03.852Z"
       },
       {
         "id": "object.neri",
@@ -122,8 +122,8 @@
           "vocabularyKind": "meaning",
           "semanticRole": "entity"
         },
-        "createdAt": "2026-10-16T10:06:00.579Z",
-        "updatedAt": "2026-10-16T10:06:00.579Z"
+        "createdAt": "2026-10-17T11:40:03.852Z",
+        "updatedAt": "2026-10-17T11:40:03.852Z"
       },
       {
         "id": "input.tavi",
@@ -132,8 +132,8 @@
           "vocabularyKind": "word",
           "semanticRole": "entity"
         },
-        "createdAt": "2026-10-16T10:06:00.598Z",
-        "updatedAt": "2026-10-16T10:06:00.598Z"
+        "createdAt": "2026-10-17T11:40:03.871Z",
+        "updatedAt": "2026-10-17T11:40:03.871Z"
       },
       {
         "id": "person.tavi",
@@ -142,8 +142,8 @@
           "vocabularyKind": "meaning",
           "semanticRole": "entity"
         },
-        "createdAt": "2026-10-16T10:06:00.598Z",
-        "updatedAt": "2026-10-16T10:06:00.598Z"
+        "createdAt": "2026-10-17T11:40:03.871Z",
+        "updatedAt": "2026-10-17T11:40:03.871Z"
       },
       {
         "id": "input.vek",
@@ -152,8 +152,8 @@
           "vocabularyKind": "word",
           "semanticRole": "predicate"
         },
-        "createdAt": "2026-10-16T10:06:00.601Z",
-        "updatedAt": "2026-10-16T10:06:00.601Z"
+        "createdAt": "2026-10-17T11:40:03.874Z",
+        "updatedAt": "2026-10-17T11:40:03.874Z"
       },
       {
         "id": "action.vek",
@@ -162,8 +162,8 @@
           "vocabularyKind": "meaning",
           "semanticRole": "predicate"
         },
-        "createdAt": "2026-10-16T10:06:00.601Z",
-        "updatedAt": "2026-10-16T10:06:00.601Z"
+        "createdAt": "2026-10-17T11:40:03.874Z",
+        "updatedAt": "2026-10-17T11:40:03.874Z"
       },
       {
         "id": "person.wrong",
@@ -172,8 +172,8 @@
           "vocabularyKind": "meaning",
           "semanticRole": "entity"
         },
-        "createdAt": "2026-10-16T10:06:00.637Z",
-        "updatedAt": "2026-10-16T10:06:00.637Z"
+        "createdAt": "2026-10-17T11:40:03.910Z",
+        "updatedAt": "2026-10-17T11:40:03.910Z"
       },
       {
         "id": "input.pavo",
@@ -182,8 +182,8 @@
           "vocabularyKind": "word",
           "semanticRole": "entity"
         },
-        "createdAt": "2026-10-16T10:06:00.656Z",
-        "updatedAt": "2026-10-16T10:06:00.656Z"
+        "createdAt": "2026-10-17T11:40:03.929Z",
+        "updatedAt": "2026-10-17T11:40:03.929Z"
       },
       {
         "id": "item.pavo",
@@ -192,8 +192,8 @@
           "vocabularyKind": "meaning",
           "semanticRole": "entity"
         },
-        "createdAt": "2026-10-16T10:06:00.656Z",
-        "updatedAt": "2026-10-16T10:06:00.656Z"
+        "createdAt": "2026-10-17T11:40:03.929Z",
+        "updatedAt": "2026-10-17T11:40:03.929Z"
       },
       {
         "id": "input.riku",
@@ -202,8 +202,8 @@
           "vocabularyKind": "word",
           "semanticRole": "entity"
         },
-        "createdAt": "2026-10-16T10:06:00.658Z",
-        "updatedAt": "2026-10-16T10:06:00.658Z"
+        "createdAt": "2026-10-17T11:40:03.931Z",
+        "updatedAt": "2026-10-17T11:40:03.931Z"
       },
       {
         "id": "item.riku",
@@ -212,8 +212,8 @@
           "vocabularyKind": "meaning",
           "semanticRole": "entity"
         },
-        "createdAt": "2026-10-16T10:06:00.658Z",
-        "updatedAt": "2026-10-16T10:06:00.658Z"
+        "createdAt": "2026-10-17T11:40:03.931Z",
+        "updatedAt": "2026-10-17T11:40:03.931Z"
       },
       {
         "id": "input.somi",
@@ -222,8 +222,8 @@
           "vocabularyKind": "word",
           "semanticRole": "entity"
         },
-        "createdAt": "2026-10-16T10:06:00.659Z",
-        "updatedAt": "2026-10-16T10:06:00.659Z"
+        "createdAt": "2026-10-17T11:40:03.932Z",
+        "updatedAt": "2026-10-17T11:40:03.932Z"
       },
       {
         "id": "item.somi",
@@ -232,8 +232,8 @@
           "vocabularyKind": "meaning",
           "semanticRole": "entity"
         },
-        "createdAt": "2026-10-16T10:06:00.659Z",
-        "updatedAt": "2026-10-16T10:06:00.659Z"
+        "createdAt": "2026-10-17T11:40:03.932Z",
+        "updatedAt": "2026-10-17T11:40:03.932Z"
       },
       {
         "id": "input.keda",
@@ -242,8 +242,8 @@
           "vocabularyKind": "word",
           "semanticRole": "entity"
         },
-        "createdAt": "2026-10-16T10:06:00.661Z",
-        "updatedAt": "2026-10-16T10:06:00.661Z"
+        "createdAt": "2026-10-17T11:40:03.933Z",
+        "updatedAt": "2026-10-17T11:40:03.933Z"
       },
       {
         "id": "item.keda",
@@ -252,8 +252,8 @@
           "vocabularyKind": "meaning",
           "semanticRole": "entity"
         },
-        "createdAt": "2026-10-16T10:06:00.661Z",
-        "updatedAt": "2026-10-16T10:06:00.661Z"
+        "createdAt": "2026-10-17T11:40:03.933Z",
+        "updatedAt": "2026-10-17T11:40:03.933Z"
       },
       {
         "id": "input.vuno",
@@ -262,8 +262,8 @@
           "vocabularyKind": "word",
           "semanticRole": "entity"
         },
-        "createdAt": "2026-10-16T10:06:00.662Z",
-        "updatedAt": "2026-10-16T10:06:00.662Z"
+        "createdAt": "2026-10-17T11:40:03.935Z",
+        "updatedAt": "2026-10-17T11:40:03.935Z"
       },
       {
         "id": "item.vuno",
@@ -272,8 +272,8 @@
           "vocabularyKind": "meaning",
           "semanticRole": "entity"
         },
-        "createdAt": "2026-10-16T10:06:00.662Z",
-        "updatedAt": "2026-10-16T10:06:00.662Z"
+        "createdAt": "2026-10-17T11:40:03.935Z",
+        "updatedAt": "2026-10-17T11:40:03.935Z"
       },
       {
         "id": "input.zari",
@@ -282,8 +282,8 @@
           "vocabularyKind": "word",
           "semanticRole": "entity"
         },
-        "createdAt": "2026-10-16T10:06:00.664Z",
-        "updatedAt": "2026-10-16T10:06:00.664Z"
+        "createdAt": "2026-10-17T11:40:03.936Z",
+        "updatedAt": "2026-10-17T11:40:03.936Z"
       },
       {
         "id": "item.zari",
@@ -292,8 +292,8 @@
           "vocabularyKind": "meaning",
           "semanticRole": "entity"
         },
-        "createdAt": "2026-10-16T10:06:00.664Z",
-        "updatedAt": "2026-10-16T10:06:00.664Z"
+        "createdAt": "2026-10-17T11:40:03.936Z",
+        "updatedAt": "2026-10-17T11:40:03.936Z"
       },
       {
         "id": "input.noku",
@@ -302,8 +302,8 @@
           "vocabularyKind": "word",
           "semanticRole": "entity"
         },
-        "createdAt": "2026-10-16T10:06:00.665Z",
-        "updatedAt": "2026-10-16T10:06:00.665Z"
+        "createdAt": "2026-10-17T11:40:03.938Z",
+        "updatedAt": "2026-10-17T11:40:03.938Z"
       },
       {
         "id": "item.noku",
@@ -312,8 +312,8 @@
           "vocabularyKind": "meaning",
           "semanticRole": "entity"
         },
-        "createdAt": "2026-10-16T10:06:00.665Z",
-        "updatedAt": "2026-10-16T10:06:00.665Z"
+        "createdAt": "2026-10-17T11:40:03.938Z",
+        "updatedAt": "2026-10-17T11:40:03.938Z"
       },
       {
         "id": "input.beli",
@@ -322,8 +322,8 @@
           "vocabularyKind": "word",
           "semanticRole": "entity"
         },
-        "createdAt": "2026-10-16T10:06:00.667Z",
-        "updatedAt": "2026-10-16T10:06:00.667Z"
+        "createdAt": "2026-10-17T11:40:03.939Z",
+        "updatedAt": "2026-10-17T11:40:03.939Z"
       },
       {
         "id": "item.beli",
@@ -332,8 +332,8 @@
           "vocabularyKind": "meaning",
           "semanticRole": "entity"
         },
-        "createdAt": "2026-10-16T10:06:00.667Z",
-        "updatedAt": "2026-10-16T10:06:00.667Z"
+        "createdAt": "2026-10-17T11:40:03.939Z",
+        "updatedAt": "2026-10-17T11:40:03.939Z"
       }
     ],
     "symbols": [
@@ -510,9 +510,9 @@
         "object": "person.mira",
         "source": "explicit",
         "confidence": 1,
-        "id": "62107b60-f9b9-477a-82e4-4076106f0371",
+        "id": "5dc7aeb3-2f83-44c3-959e-46b670bbdb8c",
         "experienceId": "a-mira",
-        "timestamp": "2026-10-16T10:06:00.570Z",
+        "timestamp": "2026-10-17T11:40:03.843Z",
         "status": "accepted"
       },
       {
@@ -521,9 +521,9 @@
         "object": "person.sena",
         "source": "explicit",
         "confidence": 1,
-        "id": "0ac234e6-862c-4956-aa8d-073e2f86b5c6",
+        "id": "928a8f77-77b1-4529-9054-5ecde4db3e4e",
         "experienceId": "a-sena",
-        "timestamp": "2026-10-16T10:06:00.573Z",
+        "timestamp": "2026-10-17T11:40:03.846Z",
         "status": "accepted"
       },
       {
@@ -532,9 +532,9 @@
         "object": "person.kemi",
         "source": "explicit",
         "confidence": 1,
-        "id": "849e96c8-e7f6-4f54-8253-91c597848927",
+        "id": "336bab9a-1ed8-413c-b4ff-ec1a2a1c0440",
         "experienceId": "a-kemi",
-        "timestamp": "2026-10-16T10:06:00.575Z",
+        "timestamp": "2026-10-17T11:40:03.848Z",
         "status": "accepted"
       },
       {
@@ -543,9 +543,9 @@
         "object": "action.dax",
         "source": "explicit",
         "confidence": 1,
-        "id": "63ea3208-be68-456c-aab2-11f1df70e8dd",
+        "id": "f1ec7829-8aa6-414d-822d-abdd270c2c45",
         "experienceId": "a-dax",
-        "timestamp": "2026-10-16T10:06:00.576Z",
+        "timestamp": "2026-10-17T11:40:03.849Z",
         "status": "accepted"
       },
       {
@@ -554,9 +554,9 @@
         "object": "object.lumo",
         "source": "explicit",
         "confidence": 1,
-        "id": "a3d985a4-d144-460a-b43d-5ab830b4eeab",
+        "id": "55adf368-5bdd-4d44-9cf8-4e9e42895230",
         "experienceId": "a-lumo",
-        "timestamp": "2026-10-16T10:06:00.578Z",
+        "timestamp": "2026-10-17T11:40:03.851Z",
         "status": "accepted"
       },
       {
@@ -565,9 +565,9 @@
         "object": "object.neri",
         "source": "explicit",
         "confidence": 1,
-        "id": "5cbdc212-0bba-43c2-9fc7-631f29c8940e",
+        "id": "8c66e9c9-bc5a-4169-b89d-d0e74c514947",
         "experienceId": "a-neri",
-        "timestamp": "2026-10-16T10:06:00.579Z",
+        "timestamp": "2026-10-17T11:40:03.852Z",
         "status": "accepted"
       },
       {
@@ -576,9 +576,9 @@
         "object": "person.tavi",
         "source": "explicit",
         "confidence": 1,
-        "id": "45ec61e5-314c-4f17-aa11-c057b45f2b49",
+        "id": "59178e97-9e19-435c-a374-64d899ad28c9",
         "experienceId": "b-tavi",
-        "timestamp": "2026-10-16T10:06:00.598Z",
+        "timestamp": "2026-10-17T11:40:03.871Z",
         "status": "accepted"
       },
       {
@@ -587,9 +587,9 @@
         "object": "action.vek",
         "source": "explicit",
         "confidence": 1,
-        "id": "49ee6f52-c325-40c3-89e5-db1280766660",
+        "id": "a88c6fde-f94f-4690-9485-74e6ae2bfdcc",
         "experienceId": "b-vek",
-        "timestamp": "2026-10-16T10:06:00.601Z",
+        "timestamp": "2026-10-17T11:40:03.874Z",
         "status": "accepted"
       },
       {
@@ -598,9 +598,9 @@
         "object": "item.pavo",
         "source": "explicit",
         "confidence": 1,
-        "id": "81385d2e-17ce-4391-ad9f-7298686dc6b0",
+        "id": "5e8b021f-6183-49dd-b200-f3499f418f22",
         "experienceId": "phase-f-0",
-        "timestamp": "2026-10-16T10:06:00.656Z",
+        "timestamp": "2026-10-17T11:40:03.929Z",
         "status": "accepted"
       },
       {
@@ -609,9 +609,9 @@
         "object": "item.riku",
         "source": "explicit",
         "confidence": 1,
-        "id": "bda542b1-ea76-4ec9-89d9-1eafa1f52d5a",
+        "id": "a127ea97-eadd-48c6-a3c7-81de3cebda9f",
         "experienceId": "phase-f-1",
-        "timestamp": "2026-10-16T10:06:00.658Z",
+        "timestamp": "2026-10-17T11:40:03.931Z",
         "status": "accepted"
       },
       {
@@ -620,9 +620,9 @@
         "object": "item.somi",
         "source": "explicit",
         "confidence": 1,
-        "id": "57afc725-bb31-4e35-ae93-f5f8a2299899",
+        "id": "450d75da-2cdc-4c34-9a0c-6db11a5e8a5a",
         "experienceId": "phase-f-2",
-        "timestamp": "2026-10-16T10:06:00.659Z",
+        "timestamp": "2026-10-17T11:40:03.932Z",
         "status": "accepted"
       },
       {
@@ -631,9 +631,9 @@
         "object": "item.keda",
         "source": "explicit",
         "confidence": 1,
-        "id": "015e2598-ad4e-4e59-a628-af62b21df21f",
+        "id": "9807501d-648a-4eb8-bddd-0f7f2e149958",
         "experienceId": "phase-f-3",
-        "timestamp": "2026-10-16T10:06:00.661Z",
+        "timestamp": "2026-10-17T11:40:03.933Z",
         "status": "accepted"
       },
       {
@@ -642,9 +642,9 @@
         "object": "item.vuno",
         "source": "explicit",
         "confidence": 1,
-        "id": "c0d3dd19-3360-468a-8079-6fa8e5f0eafc",
+        "id": "6feafb00-93c9-4a82-9ae5-3182328d73e8",
         "experienceId": "phase-f-4",
-        "timestamp": "2026-10-16T10:06:00.662Z",
+        "timestamp": "2026-10-17T11:40:03.935Z",
         "status": "accepted"
       },
       {
@@ -653,9 +653,9 @@
         "object": "item.zari",
         "source": "explicit",
         "confidence": 1,
-        "id": "7dbf4856-adbb-4802-852b-9debd9e101e7",
+        "id": "bd1ecda1-ec56-432b-a2b4-237605ffeadb",
         "experienceId": "phase-f-5",
-        "timestamp": "2026-10-16T10:06:00.664Z",
+        "timestamp": "2026-10-17T11:40:03.936Z",
         "status": "accepted"
       },
       {
@@ -664,9 +664,9 @@
         "object": "item.noku",
         "source": "explicit",
         "confidence": 1,
-        "id": "0dadc364-0df7-4c93-873f-bd28f5d0cf7b",
+        "id": "87e51c56-3f46-4c70-b370-4dfb5b0e69e1",
         "experienceId": "phase-f-6",
-        "timestamp": "2026-10-16T10:06:00.665Z",
+        "timestamp": "2026-10-17T11:40:03.938Z",
         "status": "accepted"
       },
       {
@@ -675,16 +675,16 @@
         "object": "item.beli",
         "source": "explicit",
         "confidence": 1,
-        "id": "07d9f2c2-235e-41b2-b7ee-ba1e2441218c",
+        "id": "639c6b03-d2dc-4536-b681-5b0fef83d204",
         "experienceId": "phase-f-7",
-        "timestamp": "2026-10-16T10:06:00.667Z",
+        "timestamp": "2026-10-17T11:40:03.939Z",
         "status": "accepted"
       }
     ],
     "events": [
       {
-        "id": "4ddd5b74-d685-4912-9820-e022c6b54348",
-        "timestamp": "2026-10-16T10:06:00.571Z",
+        "id": "2ea14d2b-33ec-4168-bf88-64e53420631c",
+        "timestamp": "2026-10-17T11:40:03.844Z",
         "experienceId": "a-mira",
         "source": "tida-005-curriculum",
         "outcome": "accepted",
@@ -698,13 +698,13 @@
           "person mira"
         ],
         "addedRelationshipIds": [
-          "62107b60-f9b9-477a-82e4-4076106f0371"
+          "5dc7aeb3-2f83-44c3-959e-46b670bbdb8c"
         ],
         "supersededRelationshipIds": []
       },
       {
-        "id": "173dd078-baa8-4807-8267-cc379b5f8aec",
-        "timestamp": "2026-10-16T10:06:00.573Z",
+        "id": "d01bd92b-3f81-4eb8-b95e-50194a9ef52d",
+        "timestamp": "2026-10-17T11:40:03.846Z",
         "experienceId": "a-sena",
         "source": "tida-005-curriculum",
         "outcome": "accepted",
@@ -718,13 +718,13 @@
           "person sena"
         ],
         "addedRelationshipIds": [
-          "0ac234e6-862c-4956-aa8d-073e2f86b5c6"
+          "928a8f77-77b1-4529-9054-5ecde4db3e4e"
         ],
         "supersededRelationshipIds": []
       },
       {
-        "id": "6deb7278-7860-424b-9443-df2ce6c1cc99",
-        "timestamp": "2026-10-16T10:06:00.575Z",
+        "id": "20cda374-1c56-4d67-be37-f66b56e42418",
+        "timestamp": "2026-10-17T11:40:03.848Z",
         "experienceId": "a-kemi",
         "source": "tida-005-curriculum",
         "outcome": "accepted",
@@ -738,13 +738,13 @@
           "person kemi"
         ],
         "addedRelationshipIds": [
-          "849e96c8-e7f6-4f54-8253-91c597848927"
+          "336bab9a-1ed8-413c-b4ff-ec1a2a1c0440"
         ],
         "supersededRelationshipIds": []
       },
       {
-        "id": "d63e261d-04a4-4114-aa49-6ad1b6c82bf7",
-        "timestamp": "2026-10-16T10:06:00.576Z",
+        "id": "5b30193c-52b8-4af0-87fd-9c3fd7b7315b",
+        "timestamp": "2026-10-17T11:40:03.849Z",
         "experienceId": "a-dax",
         "source": "tida-005-curriculum",
         "outcome": "accepted",
@@ -758,13 +758,13 @@
           "action dax"
         ],
         "addedRelationshipIds": [
-          "63ea3208-be68-456c-aab2-11f1df70e8dd"
+          "f1ec7829-8aa6-414d-822d-abdd270c2c45"
         ],
         "supersededRelationshipIds": []
       },
       {
-        "id": "5ee835a2-36c6-4ab0-88b9-e79d30fe0a05",
-        "timestamp": "2026-10-16T10:06:00.578Z",
+        "id": "4f8d2bcc-543e-4e65-ad06-9241e18cf0ba",
+        "timestamp": "2026-10-17T11:40:03.851Z",
         "experienceId": "a-lumo",
         "source": "tida-005-curriculum",
         "outcome": "accepted",
@@ -778,13 +778,13 @@
           "object lumo"
         ],
         "addedRelationshipIds": [
-          "a3d985a4-d144-460a-b43d-5ab830b4eeab"
+          "55adf368-5bdd-4d44-9cf8-4e9e42895230"
         ],
         "supersededRelationshipIds": []
       },
       {
-        "id": "11d74736-2084-4762-96e0-e3cc25dac492",
-        "timestamp": "2026-10-16T10:06:00.579Z",
+        "id": "436400ed-c346-4894-a129-93588a3c9599",
+        "timestamp": "2026-10-17T11:40:03.852Z",
         "experienceId": "a-neri",
         "source": "tida-005-curriculum",
         "outcome": "accepted",
@@ -798,13 +798,13 @@
           "object neri"
         ],
         "addedRelationshipIds": [
-          "5cbdc212-0bba-43c2-9fc7-631f29c8940e"
+          "8c66e9c9-bc5a-4169-b89d-d0e74c514947"
         ],
         "supersededRelationshipIds": []
       },
       {
-        "id": "5ef25802-b11d-45bb-b8cd-9a40372159e0",
-        "timestamp": "2026-10-16T10:06:00.598Z",
+        "id": "1dd8a650-3862-41f7-adbf-5703c507838e",
+        "timestamp": "2026-10-17T11:40:03.871Z",
         "experienceId": "b-tavi",
         "source": "tida-005-curriculum",
         "outcome": "accepted",
@@ -818,13 +818,13 @@
           "person tavi"
         ],
         "addedRelationshipIds": [
-          "45ec61e5-314c-4f17-aa11-c057b45f2b49"
+          "59178e97-9e19-435c-a374-64d899ad28c9"
         ],
         "supersededRelationshipIds": []
       },
       {
-        "id": "a59a8fcb-d009-4434-9428-bde84acb3d1c",
-        "timestamp": "2026-10-16T10:06:00.602Z",
+        "id": "3a8101df-4d87-40a7-a9b3-70c8bbdb6bcd",
+        "timestamp": "2026-10-17T11:40:03.874Z",
         "experienceId": "b-vek",
         "source": "tida-005-curriculum",
         "outcome": "accepted",
@@ -838,13 +838,13 @@
           "action vek"
         ],
         "addedRelationshipIds": [
-          "49ee6f52-c325-40c3-89e5-db1280766660"
+          "a88c6fde-f94f-4690-9485-74e6ae2bfdcc"
         ],
         "supersededRelationshipIds": []
       },
       {
-        "id": "7391b514-b07e-4c8a-8bc6-4515529e607d",
-        "timestamp": "2026-10-16T10:06:00.637Z",
+        "id": "0f2c0ffe-8bb8-419e-a52d-d614c86f0f53",
+        "timestamp": "2026-10-17T11:40:03.910Z",
         "experienceId": "phase-d-rejected-conflict",
         "source": "tida-005-curriculum",
         "outcome": "partial",
@@ -861,8 +861,8 @@
         "supersededRelationshipIds": []
       },
       {
-        "id": "b5765f35-594d-48ec-93ec-080623dcc515",
-        "timestamp": "2026-10-16T10:06:00.638Z",
+        "id": "ed208103-57cb-4633-8e27-48ce7a5614b4",
+        "timestamp": "2026-10-17T11:40:03.912Z",
         "experienceId": "phase-d-wrong",
         "source": "tida-005-curriculum",
         "outcome": "reverted",
@@ -872,15 +872,15 @@
         "addedConceptIds": [],
         "addedSymbolKeys": [],
         "addedRelationshipIds": [
-          "3f6df234-827c-4aec-be0a-4834f8209131"
+          "b42eec58-20c7-418c-97e4-4d10cc12af39"
         ],
         "supersededRelationshipIds": [
-          "45ec61e5-314c-4f17-aa11-c057b45f2b49"
+          "59178e97-9e19-435c-a374-64d899ad28c9"
         ]
       },
       {
-        "id": "4f80cfa6-8466-4c83-b086-587719f06c72",
-        "timestamp": "2026-10-16T10:06:00.641Z",
+        "id": "6e72bdd6-5b30-4001-81cb-8be5535ee5c4",
+        "timestamp": "2026-10-17T11:40:03.914Z",
         "experienceId": "phase-d-correction",
         "source": "tida-005-curriculum",
         "outcome": "reverted",
@@ -890,15 +890,15 @@
         "addedConceptIds": [],
         "addedSymbolKeys": [],
         "addedRelationshipIds": [
-          "666c409c-5149-4540-ab22-84f3adf67443"
+          "75c2ddb4-df2c-4dde-83e3-230f0cf13e10"
         ],
         "supersededRelationshipIds": [
-          "3f6df234-827c-4aec-be0a-4834f8209131"
+          "b42eec58-20c7-418c-97e4-4d10cc12af39"
         ]
       },
       {
-        "id": "b308ba41-5737-474b-b96a-9597817dc3bc",
-        "timestamp": "2026-10-16T10:06:00.645Z",
+        "id": "61c11fc5-47da-420e-8972-bbe2dd07dbac",
+        "timestamp": "2026-10-17T11:40:03.918Z",
         "experienceId": "revert:phase-d-correction",
         "source": "revert",
         "outcome": "reverted",
@@ -911,8 +911,8 @@
         "supersededRelationshipIds": []
       },
       {
-        "id": "d320ded0-e695-4445-8c16-c05e28c8dfd3",
-        "timestamp": "2026-10-16T10:06:00.647Z",
+        "id": "21b5225b-c603-46fc-b894-4e263d846f5a",
+        "timestamp": "2026-10-17T11:40:03.921Z",
         "experienceId": "revert:phase-d-wrong",
         "source": "revert",
         "outcome": "reverted",
@@ -925,8 +925,8 @@
         "supersededRelationshipIds": []
       },
       {
-        "id": "117b84ec-1a3d-4722-bb9f-1de7b04b0da8",
-        "timestamp": "2026-10-16T10:06:00.656Z",
+        "id": "6cf9e67c-3f15-4a73-a675-da17b51c0f73",
+        "timestamp": "2026-10-17T11:40:03.929Z",
         "experienceId": "phase-f-0",
         "source": "tida-005-curriculum",
         "outcome": "accepted",
@@ -940,13 +940,13 @@
           "item.pavo"
         ],
         "addedRelationshipIds": [
-          "81385d2e-17ce-4391-ad9f-7298686dc6b0"
+          "5e8b021f-6183-49dd-b200-f3499f418f22"
         ],
         "supersededRelationshipIds": []
       },
       {
-        "id": "5a6fc707-a8fa-4dcf-8bff-c7933a1162a4",
-        "timestamp": "2026-10-16T10:06:00.658Z",
+        "id": "89509e23-f2f2-4db8-9116-a9d33b33467e",
+        "timestamp": "2026-10-17T11:40:03.931Z",
         "experienceId": "phase-f-1",
         "source": "tida-005-curriculum",
         "outcome": "accepted",
@@ -960,13 +960,13 @@
           "item.riku"
         ],
         "addedRelationshipIds": [
-          "bda542b1-ea76-4ec9-89d9-1eafa1f52d5a"
+          "a127ea97-eadd-48c6-a3c7-81de3cebda9f"
         ],
         "supersededRelationshipIds": []
       },
       {
-        "id": "82dcf43b-9760-4d64-b9ee-f728a6442858",
-        "timestamp": "2026-10-16T10:06:00.659Z",
+        "id": "17c4f509-1581-4ba1-a709-aaa6061d5ebb",
+        "timestamp": "2026-10-17T11:40:03.932Z",
         "experienceId": "phase-f-2",
         "source": "tida-005-curriculum",
         "outcome": "accepted",
@@ -980,13 +980,13 @@
           "item.somi"
         ],
         "addedRelationshipIds": [
-          "57afc725-bb31-4e35-ae93-f5f8a2299899"
+          "450d75da-2cdc-4c34-9a0c-6db11a5e8a5a"
         ],
         "supersededRelationshipIds": []
       },
       {
-        "id": "f7f78d0a-286f-46fb-a58f-38d80653f849",
-        "timestamp": "2026-10-16T10:06:00.661Z",
+        "id": "2588e87e-dc5a-42b8-b444-9c611b7365d2",
+        "timestamp": "2026-10-17T11:40:03.933Z",
         "experienceId": "phase-f-3",
         "source": "tida-005-curriculum",
         "outcome": "accepted",
@@ -1000,13 +1000,13 @@
           "item.keda"
         ],
         "addedRelationshipIds": [
-          "015e2598-ad4e-4e59-a628-af62b21df21f"
+          "9807501d-648a-4eb8-bddd-0f7f2e149958"
         ],
         "supersededRelationshipIds": []
       },
       {
-        "id": "f4f3468e-2a47-4cb5-bb52-38b9ad50396a",
-        "timestamp": "2026-10-16T10:06:00.662Z",
+        "id": "77400e04-ef8f-4805-863f-656bdece02d6",
+        "timestamp": "2026-10-17T11:40:03.935Z",
         "experienceId": "phase-f-4",
         "source": "tida-005-curriculum",
         "outcome": "accepted",
@@ -1020,13 +1020,13 @@
           "item.vuno"
         ],
         "addedRelationshipIds": [
-          "c0d3dd19-3360-468a-8079-6fa8e5f0eafc"
+          "6feafb00-93c9-4a82-9ae5-3182328d73e8"
         ],
         "supersededRelationshipIds": []
       },
       {
-        "id": "6e2724cb-4013-4e29-9887-0815a32c3d9a",
-        "timestamp": "2026-10-16T10:06:00.664Z",
+        "id": "ac4d90af-310c-43c7-8dc2-b8e5b2942547",
+        "timestamp": "2026-10-17T11:40:03.937Z",
         "experienceId": "phase-f-5",
         "source": "tida-005-curriculum",
         "outcome": "accepted",
@@ -1040,13 +1040,13 @@
           "item.zari"
         ],
         "addedRelationshipIds": [
-          "7dbf4856-adbb-4802-852b-9debd9e101e7"
+          "bd1ecda1-ec56-432b-a2b4-237605ffeadb"
         ],
         "supersededRelationshipIds": []
       },
       {
-        "id": "251dd734-af8b-4eb7-b866-8856e16dde96",
-        "timestamp": "2026-10-16T10:06:00.665Z",
+        "id": "830e1f55-82ca-4981-9a21-1bbae3bd6935",
+        "timestamp": "2026-10-17T11:40:03.938Z",
         "experienceId": "phase-f-6",
         "source": "tida-005-curriculum",
         "outcome": "accepted",
@@ -1060,13 +1060,13 @@
           "item.noku"
         ],
         "addedRelationshipIds": [
-          "0dadc364-0df7-4c93-873f-bd28f5d0cf7b"
+          "87e51c56-3f46-4c70-b370-4dfb5b0e69e1"
         ],
         "supersededRelationshipIds": []
       },
       {
-        "id": "4981e441-f890-4e1d-8cc0-cb648bc6b85e",
-        "timestamp": "2026-10-16T10:06:00.667Z",
+        "id": "5e70f4f9-0546-402e-8de0-289189ca9306",
+        "timestamp": "2026-10-17T11:40:03.939Z",
         "experienceId": "phase-f-7",
         "source": "tida-005-curriculum",
         "outcome": "accepted",
@@ -1080,7 +1080,7 @@
           "item.beli"
         ],
         "addedRelationshipIds": [
-          "07d9f2c2-235e-41b2-b7ee-ba1e2441218c"
+          "639c6b03-d2dc-4536-b681-5b0fef83d204"
         ],
         "supersededRelationshipIds": []
       }
@@ -1226,6 +1226,6 @@
       }
     ],
     "reason": "Unique candidate supported by 5 distinct labeled examples.",
-    "createdAt": "2026-10-16T10:06:00.608Z"
+    "createdAt": "2026-10-17T11:40:03.880Z"
   }
 }
