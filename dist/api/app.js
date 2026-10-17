@@ -53,6 +53,34 @@ function statusCode(error) {
     }
     return undefined;
 }
+function readinessErrorDetails(error, depth = 0) {
+    if (!(error instanceof Error)) {
+        return {
+            name: typeof error,
+            message: String(error),
+            code: null,
+            stack: null,
+            cause: null,
+        };
+    }
+    const errorCode = "code" in error &&
+        (typeof error.code === "string" || typeof error.code === "number")
+        ? error.code
+        : null;
+    return {
+        name: error.name,
+        message: error.message,
+        code: errorCode,
+        stack: error.stack ?? null,
+        cause: error.cause === undefined
+            ? null
+            : error.cause instanceof Error
+                ? depth < 5
+                    ? readinessErrorDetails(error.cause, depth + 1)
+                    : null
+                : String(error.cause),
+    };
+}
 function createApp(overrides = {}) {
     const dependencies = {
         ...defaultDependencies,
@@ -105,11 +133,19 @@ function createApp(overrides = {}) {
     };
     const readinessHandler = (_req, res) => {
         let knowledge = "available";
+        let knowledgeError;
         try {
             dependencies.loadKnowledge();
         }
-        catch {
+        catch (error) {
             knowledge = "unavailable";
+            const details = readinessErrorDetails(error);
+            knowledgeError = { code: details.code };
+            console.error(JSON.stringify({
+                level: "error",
+                event: "readiness_knowledge_check_failed",
+                error: details,
+            }));
         }
         const runtime = (0, embedding_engine_1.checkEmbeddingRuntime)();
         const model = (0, embedding_engine_1.getEmbeddingModelStatus)();
@@ -126,6 +162,22 @@ function createApp(overrides = {}) {
                 sharp: runtime.sharp,
                 onnxRuntime: runtime.onnxRuntime,
                 embeddingModel: model.state,
+            },
+            diagnostics: {
+                knowledge: knowledgeError
+                    ? {
+                        code: knowledgeError.code,
+                        message: "Knowledge data could not be loaded.",
+                    }
+                    : null,
+                sharp: runtime.sharpError ?? null,
+                onnxRuntime: runtime.onnxRuntimeError ?? null,
+                embeddingModel: model.state === "failed"
+                    ? {
+                        code: model.failureCode ?? null,
+                        message: "The embedding model could not be initialized.",
+                    }
+                    : null,
             },
         });
     };

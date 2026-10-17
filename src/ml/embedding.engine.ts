@@ -80,12 +80,38 @@ function describeError(
 export interface EmbeddingRuntimeStatus {
   sharp: "available" | "unavailable";
   onnxRuntime: "available" | "unavailable";
+  sharpError?: { code: string | number | null; message: string };
+  onnxRuntimeError?: { code: string | number | null; message: string };
+}
+
+function logRuntimeFailure(
+  component: "sharp" | "onnxruntime-node",
+  error: unknown,
+): { code: string | number | null; message: string } {
+  const details = describeError(error);
+  console.error(
+    JSON.stringify({
+      level: "error",
+      event: "embedding_runtime_check_failed",
+      component,
+      error: details,
+    }),
+  );
+  return {
+    code:
+      typeof details.code === "string" || typeof details.code === "number"
+        ? details.code
+        : null,
+    message: details.message,
+  };
 }
 
 export function checkEmbeddingRuntime(): EmbeddingRuntimeStatus {
   let sharp: EmbeddingRuntimeStatus["sharp"] = "unavailable";
   let onnxRuntime: EmbeddingRuntimeStatus["onnxRuntime"] =
     "unavailable";
+  let sharpError: EmbeddingRuntimeStatus["sharpError"];
+  let onnxRuntimeError: EmbeddingRuntimeStatus["onnxRuntimeError"];
 
   try {
     const sharpModule = moduleRequire("sharp") as (() => unknown) & {
@@ -94,8 +120,8 @@ export function checkEmbeddingRuntime(): EmbeddingRuntimeStatus {
     if (sharpModule.versions) {
       sharp = "available";
     }
-  } catch {
-    sharp = "unavailable";
+  } catch (error) {
+    sharpError = logRuntimeFailure("sharp", error);
   }
 
   try {
@@ -109,11 +135,16 @@ export function checkEmbeddingRuntime(): EmbeddingRuntimeStatus {
     ) {
       onnxRuntime = "available";
     }
-  } catch {
-    onnxRuntime = "unavailable";
+  } catch (error) {
+    onnxRuntimeError = logRuntimeFailure("onnxruntime-node", error);
   }
 
-  return { sharp, onnxRuntime };
+  return {
+    sharp,
+    onnxRuntime,
+    ...(sharpError ? { sharpError } : {}),
+    ...(onnxRuntimeError ? { onnxRuntimeError } : {}),
+  };
 }
 
 async function loadExtractor(): Promise<EmbeddingExtractor> {

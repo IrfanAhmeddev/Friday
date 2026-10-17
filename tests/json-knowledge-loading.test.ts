@@ -62,7 +62,22 @@ test("Netlify artifact verification fails when knowledge is not embedded", () =>
     }
     writeFileSync(
       path.join(archiveDirectory, "api.zip"),
-      createStoredZip({ "netlify/functions/api.js": "module.exports = {};" }),
+      createStoredZip({
+        "netlify/functions/api.js": "module.exports = {};",
+        "node_modules/@img/sharp-linux-x64/lib/sharp-linux-x64.node": "",
+        "node_modules/@img/sharp-libvips-linux-x64/lib/libvips-cpp-8.17.3.so":
+          "",
+        "node_modules/onnxruntime-node/bin/napi-v6/linux/x64/onnxruntime_binding.node":
+          "",
+        "node_modules/onnxruntime-node/bin/napi-v6/linux/x64/libonnxruntime.so.1":
+          "",
+        "node_modules/onnxruntime-node/bin/napi-v6/linux/x64/libonnxruntime_providers_shared.so":
+          "",
+      }),
+    );
+    writeFileSync(
+      path.join(archiveDirectory, "manifest.json"),
+      JSON.stringify({ functions: [{ name: "api" }] }),
     );
 
     const result = spawnSync(

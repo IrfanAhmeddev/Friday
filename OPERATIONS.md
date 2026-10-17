@@ -17,10 +17,18 @@ cross-instance conversational continuity.
 
 ## Deployment checks
 
-Build from the project root using Node.js 22. Netlify's supported `NPM_FLAGS`
-setting passes `--include=optional` to its dependency install command. The Linux
-x64 sharp and libvips packages are declared as optional root dependencies so a
-Linux deployment install resolves their native binaries.
+Build from the project root using Node.js 22 on Linux x64. Netlify's supported
+`NPM_FLAGS` setting passes `--include=optional` to its dependency install
+command. The Netlify build command prunes ONNX Runtime to its Linux x64 CPU
+files, removes optional CUDA/TensorRT and non-target platform binaries, and
+retains Sharp's Linux glibc packages. The packaging check fails if the API
+archive reaches 45 MiB compressed or 200 MiB expanded, lacks a required native
+binary, contains a non-Linux runtime, or includes a function other than `api`.
+
+The site publishes only the small `public/` directory; API routes are still
+handled by the `/api/*` function redirect. The temporary diagnostic function
+must not be restored to `netlify/functions` or included in deploys.
+
 The four JSON knowledge files are statically required by the knowledge engine,
 so esbuild embeds their data directly into the function bundle; runtime
 knowledge loading does not depend on loose files or a working directory. The
@@ -28,10 +36,10 @@ local Netlify build plugin verifies the required JSON data is present in the
 bundled function archive. Run the same artifact check manually with
 `npm run verify:netlify-assets` after a Netlify build.
 
-On Windows, a local Netlify build cannot validate Linux native module loading.
-Use Netlify's Linux build environment (or a matching Linux x64 CI job) to verify
-that `sharp` and `onnxruntime-node` load from the final function package. Do not
-promote a Windows-generated function archive as proof of Linux compatibility.
+The Netlify packaging command intentionally stops on Windows or non-x64
+systems. Use Netlify's Linux Git build environment (or matching Linux x64 CI)
+to build and verify the function; do not deploy a Windows-generated function
+archive or promote a Windows build as proof of Linux compatibility.
 
 ## Health and safe API checks
 
