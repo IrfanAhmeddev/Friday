@@ -9,6 +9,7 @@ import {
   checkEmbeddingRuntime,
   EmbeddingError,
   getEmbeddingModelStatus,
+  initializeEmbeddingModel,
 } from "../ml/embedding.engine";
 import {
   loadJsonKnowledge,
@@ -34,6 +35,7 @@ export interface ApiDependencies {
   loadKnowledge: () => unknown;
   checkRuntime: typeof checkEmbeddingRuntime;
   getModelStatus: typeof getEmbeddingModelStatus;
+  initializeModel: typeof initializeEmbeddingModel;
 }
 
 const defaultDependencies: ApiDependencies = {
@@ -45,6 +47,7 @@ const defaultDependencies: ApiDependencies = {
   loadKnowledge: loadJsonKnowledge,
   checkRuntime: checkEmbeddingRuntime,
   getModelStatus: getEmbeddingModelStatus,
+  initializeModel: initializeEmbeddingModel,
 };
 
 function errorResponse(
@@ -182,7 +185,11 @@ export function createApp(
     });
   };
 
-  const readinessHandler = (_req: Request, res: Response): void => {
+  const readinessHandler = async (
+    _req: Request,
+    res: Response,
+  ): Promise<void> => {
+    const requestId = res.locals.requestId as string;
     let knowledge = "available";
     let knowledgeError: { code: string | number | null } | undefined;
     try {
@@ -196,6 +203,19 @@ export function createApp(
           level: "error",
           event: "readiness_knowledge_check_failed",
           error: details,
+        }),
+      );
+    }
+
+    try {
+      await dependencies.initializeModel();
+    } catch (error) {
+      console.error(
+        JSON.stringify({
+          level: "error",
+          event: "readiness_model_initialization_failed",
+          requestId,
+          error: errorDetails(error),
         }),
       );
     }

@@ -165,6 +165,7 @@ test("liveness stays simple and readiness reports sanitized asset failures", asy
       loadKnowledge: () => {
         throw new Error("private filesystem path");
       },
+      initializeModel: async () => undefined,
     },
     async (url) => {
       const live = await fetch(url + "/api/health");
@@ -189,10 +190,47 @@ test("liveness stays simple and readiness reports sanitized asset failures", asy
   );
 });
 
-test("readiness reports cold model as not ready without loading MiniLM", async () => {
+test("readiness initializes the model before reporting ready", async () => {
+  let initialized = false;
   await withServer(
     {
       loadKnowledge: () => undefined,
+      initializeModel: async () => {
+        initialized = true;
+      },
+      getModelStatus: () => ({
+        state: initialized ? "ready" : "cold",
+      }),
+    },
+    async (url) => {
+      const response = await fetch(url + "/ready");
+      const body = await response.json();
+
+      assert.equal(response.status, 200);
+      assert.equal(body.status, "ready");
+      assert.equal(body.components.knowledge, "available");
+      assert.equal(body.components.sharp, "available");
+      assert.equal(body.components.onnxRuntime, "available");
+      assert.equal(body.components.embeddingModel, "ready");
+      assert.equal(initialized, true);
+    },
+  );
+});
+
+test("readiness remains unavailable when model initialization fails", async () => {
+  await withServer(
+    {
+      loadKnowledge: () => undefined,
+      initializeModel: async () => {
+        throw new EmbeddingError(
+          "model_initialization_failed",
+          "private model download path",
+        );
+      },
+      getModelStatus: () => ({
+        state: "failed",
+        failureCode: "model_initialization_failed",
+      }),
     },
     async (url) => {
       const response = await fetch(url + "/ready");
@@ -200,10 +238,12 @@ test("readiness reports cold model as not ready without loading MiniLM", async (
 
       assert.equal(response.status, 503);
       assert.equal(body.status, "not_ready");
-      assert.equal(body.components.knowledge, "available");
-      assert.equal(body.components.sharp, "available");
-      assert.equal(body.components.onnxRuntime, "available");
-      assert.equal(body.components.embeddingModel, "cold");
+      assert.equal(body.components.embeddingModel, "failed");
+      assert.deepEqual(body.diagnostics.embeddingModel, {
+        code: "model_initialization_failed",
+        message: "The embedding model could not be initialized.",
+      });
+      assert.equal(JSON.stringify(body).includes("private model download path"), false);
     },
   );
 });
@@ -212,6 +252,7 @@ test("missing optional Sharp does not mark text-NLU readiness unavailable", asyn
   await withServer(
     {
       loadKnowledge: () => undefined,
+      initializeModel: async () => undefined,
       checkRuntime: () => ({
         sharp: "unavailable",
         onnxRuntime: "available",
