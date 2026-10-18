@@ -11,8 +11,10 @@ import {
   type TrainingExample,
 } from "../training/intent-training";
 import { enrichWithJsonKnowledge } from "./json-enrichment-engine";
+import { detectIntent } from "./intent-engine";
 
 export type IntentType =
+  | "conversation.greeting"
   | "workspace.create"
   | "workspace.open"
   | "workspace.search"
@@ -22,6 +24,11 @@ export type IntentType =
   | "workspace.close"
   | "workspace.edit"
   | "unknown";
+
+type WorkspaceIntent = Exclude<
+  IntentType,
+  "conversation.greeting" | "unknown"
+>;
 
 export interface HybridIntentResult {
   intent: IntentType;
@@ -203,7 +210,7 @@ function mapActionToIntent(
 
 function isWorkspaceIntent(
   intent: string | null,
-): intent is Exclude<IntentType, "unknown"> {
+): intent is WorkspaceIntent {
   return (
     intent === "workspace.create" ||
     intent === "workspace.open" ||
@@ -314,6 +321,19 @@ export async function understandIntent(
     hasWorkspaceEntity;
 
   if (!hasAnyStructuredWorkspaceSignal) {
+    const conversationalIntent = detectIntent(input);
+    if (conversationalIntent.name === "conversation.greeting") {
+      return {
+        ...createUnknownResult(
+          actionConcept,
+          entityResult,
+          jsonKnowledge,
+        ),
+        intent: "conversation.greeting",
+        confidence: conversationalIntent.confidence,
+      };
+    }
+
     return createUnknownResult(
       actionConcept,
       entityResult,
