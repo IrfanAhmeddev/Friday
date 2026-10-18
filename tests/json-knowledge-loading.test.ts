@@ -9,6 +9,7 @@ import {
   rmSync,
   writeFileSync,
 } from "node:fs";
+import { createRequire } from "node:module";
 import os from "node:os";
 import path from "node:path";
 import test from "node:test";
@@ -19,6 +20,16 @@ import {
 } from "../src/knowledge/json-knowledge-engine";
 import { enrichWithJsonKnowledge } from "../src/nlu/json-enrichment-engine";
 import { understandIntent } from "../src/nlu/hybrid-intent-engine";
+
+const require = createRequire(__filename);
+const { verifyFunctionArchive } = require(
+  "../scripts/verify-netlify-function-assets.cjs",
+) as {
+  verifyFunctionArchive: (
+    rootDirectory: string,
+    functionsDistDirectory: string,
+  ) => unknown;
+};
 
 const knowledgeFiles = [
   "entities.json",
@@ -88,6 +99,40 @@ test("Netlify artifact verification fails when knowledge is not embedded", () =>
     assert.equal(result.status, 1);
     assert.match(result.stderr, /missing embedded knowledge data/);
     assert.match(result.stderr, /data\/entities\.json/);
+  } finally {
+    rmSync(temporaryRoot, { recursive: true, force: true });
+  }
+});
+
+test("Netlify artifact verification uses the configured functions output directory", () => {
+  const temporaryRoot = mkdtempSync(
+    path.join(os.tmpdir(), "friday-functions-output-"),
+  );
+  const defaultArchiveDirectory = path.join(
+    temporaryRoot,
+    ".netlify",
+    "functions",
+  );
+  const configuredOutputDirectory = path.join(temporaryRoot, "zisi-output");
+  mkdirSync(defaultArchiveDirectory, { recursive: true });
+  mkdirSync(configuredOutputDirectory, { recursive: true });
+  writeFileSync(path.join(defaultArchiveDirectory, "api.zip"), "not a zip");
+
+  try {
+    const relativeOutputDirectory = path.relative(
+      temporaryRoot,
+      configuredOutputDirectory,
+    );
+    assert.throws(
+      () =>
+        verifyFunctionArchive(temporaryRoot, relativeOutputDirectory),
+      /archive was not generated in the configured functions output directory/,
+    );
+    assert.throws(
+      () =>
+        verifyFunctionArchive(temporaryRoot, configuredOutputDirectory),
+      /archive was not generated in the configured functions output directory/,
+    );
   } finally {
     rmSync(temporaryRoot, { recursive: true, force: true });
   }

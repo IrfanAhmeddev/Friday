@@ -146,11 +146,19 @@ function zipEntries(zipPath, requiredAssets = []) {
   return { names, contents, totalUncompressedBytes };
 }
 
-function verifyFunctionArchive(rootDirectory = process.cwd()) {
-  const archivePath = path.join(rootDirectory, ".netlify", "functions", "api.zip");
+function verifyFunctionArchive(
+  rootDirectory = process.cwd(),
+  functionsDistDirectory = path.join(".netlify", "functions"),
+) {
+  const resolvedRootDirectory = path.resolve(rootDirectory);
+  const resolvedFunctionsDistDirectory = path.resolve(
+    resolvedRootDirectory,
+    functionsDistDirectory,
+  );
+  const archivePath = path.join(resolvedFunctionsDistDirectory, "api.zip");
   if (!fs.existsSync(archivePath)) {
     throw new Error(
-      "Netlify function archive was not generated at .netlify/functions/api.zip.",
+      "Netlify function archive was not generated in the configured functions output directory (expected api.zip).",
     );
   }
   const archiveSize = fs.statSync(archivePath).size;
@@ -241,9 +249,7 @@ function verifyFunctionArchive(rootDirectory = process.cwd()) {
   }
 
   const manifestPath = path.join(
-    rootDirectory,
-    ".netlify",
-    "functions",
+    resolvedFunctionsDistDirectory,
     "manifest.json",
   );
   if (!fs.existsSync(manifestPath)) {
@@ -279,7 +285,11 @@ function verifyFunctionArchive(rootDirectory = process.cwd()) {
   }
 
   for (const assetName of requiredAssetNames) {
-    const assetPath = path.join(rootDirectory, "data", assetName);
+    const assetPath = path.join(
+      resolvedRootDirectory,
+      "data",
+      assetName,
+    );
     if (!fs.existsSync(assetPath)) {
       throw new Error(`Required source knowledge asset is missing: data/${assetName}`);
     }
