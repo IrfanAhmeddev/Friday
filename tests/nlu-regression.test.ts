@@ -67,6 +67,43 @@ test("dialogue state preserves language and constraints across corrections", () 
   assert.equal(correctionTurn.dialogueAct, "correction");
 });
 
+test("FRIDAY classifies greetings consistently with their dialogue act", async () => {
+  const embeddingProvider = async (): Promise<number[]> => {
+    throw new Error("Greeting classification should not require embeddings.");
+  };
+
+  for (const greeting of ["hi", "hello", "hey"]) {
+    const result = await understand(
+      greeting,
+      `greeting-${greeting}`,
+      { transinfantEnabled: false, embeddingProvider },
+    );
+    const dialogue = result.context.dialogue as { act: string };
+
+    assert.equal(result.status, "understood", greeting);
+    assert.equal(result.intent.name, "conversation.greeting", greeting);
+    assert.ok(result.intent.confidence > 0, greeting);
+    assert.equal(dialogue.act, "greeting", greeting);
+  }
+});
+
+test("ordinary unknown input is not classified as a greeting", async () => {
+  const embeddingProvider = async (): Promise<number[]> => {
+    throw new Error("Unknown input should not require embeddings.");
+  };
+  const result = await understand(
+    "blorf quux",
+    "ordinary-unknown",
+    { transinfantEnabled: false, embeddingProvider },
+  );
+  const dialogue = result.context.dialogue as { act: string };
+
+  assert.equal(result.status, "unknown");
+  assert.equal(result.intent.name, "unknown");
+  assert.equal(result.intent.confidence, 0);
+  assert.notEqual(dialogue.act, "greeting");
+});
+
 test("response planner asks for clarification when a question is pending", () => {
   let state = createDialogueMemory("session-2");
   state.pendingQuestions = ["Which language would you like to use?"];
