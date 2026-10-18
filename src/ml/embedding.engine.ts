@@ -185,6 +185,10 @@ export class EmbeddingEngine {
     };
   }
 
+  async initialize(): Promise<void> {
+    await this.getExtractor();
+  }
+
   async createEmbedding(text: string): Promise<number[]> {
     const normalized = text.trim();
 
@@ -287,6 +291,10 @@ const embeddingEngine = new EmbeddingEngine();
 
 export function getEmbeddingModelStatus(): EmbeddingModelStatus {
   return embeddingEngine.getStatus();
+}
+
+export function initializeEmbeddingModel(): Promise<void> {
+  return embeddingEngine.initialize();
 }
 
 export function createEmbedding(text: string): Promise<number[]> {

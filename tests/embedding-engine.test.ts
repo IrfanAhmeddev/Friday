@@ -80,6 +80,24 @@ test("blank text does not initialize the model", async () => {
   assert.deepEqual(engine.getStatus(), { state: "cold" });
 });
 
+test("explicit initialization loads the model without running inference", async () => {
+  let loadCount = 0;
+  let inferenceCount = 0;
+  const engine = new EmbeddingEngine(async () => {
+    loadCount++;
+    return async () => {
+      inferenceCount++;
+      return { data: [0.1], dims: [1] };
+    };
+  });
+
+  await engine.initialize();
+
+  assert.equal(loadCount, 1);
+  assert.equal(inferenceCount, 0);
+  assert.deepEqual(engine.getStatus(), { state: "ready" });
+});
+
 test("invalid embedding dimensions and non-finite values are rejected", async () => {
   const dimensionMismatch = new EmbeddingEngine(async () =>
     fixedExtractor([0.1, 0.2], [3]),
